@@ -1,5 +1,5 @@
 .container{
-	@apply font-poppins text-xl font-medium overflow-hidden w-full h-[80vh] px-4 py-12 bg-gray-dark text-white rounded-lg ml-4 fixed top-1/2 transform -translate-y-1/2 max-w-[140px] transition-all
+	@apply font-poppins text-xl font-medium overflow-hidden w-full h-[80vh] px-4 py-12 bg-gray-dark text-white rounded-lg ml-4 fixed centerAlign max-w-[140px] transition-all
 }
 
 .container:hover {
@@ -45,7 +45,7 @@
 	@apply bg-green mb-6
 }
 .pathContainer ul li a {
-	@apply cursor-pointer flex items-center absolute top-1/2 transform -translate-y-1/2;
+	@apply cursor-pointer flex items-center absolute centerAlign
 }
 
 .pathContainer ul li p {
@@ -57,5 +57,11 @@
 
 .line{
 	@apply relative
+}
+
+/*Re usable classes*/
+
+.centerAlign {
+	@apply top-1/2 transform -translate-y-1/2;
 }
 
