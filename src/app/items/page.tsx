@@ -11,8 +11,7 @@ export default async function Page()
     return (
         <>
             <Layout className={''}>
-                {/*{ <List starships={data}/> }*/}
-                <div>aca va la lista</div>
+                { <List starships={data}/> }
             </Layout>
         </>
   )

@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar} from "@/features/shared/organisms/Navbar";
+import Navbar from "@/features/shared/organisms/Navbar";
 
 interface LayoutProps
 {

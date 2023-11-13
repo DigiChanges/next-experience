@@ -1,15 +1,9 @@
 import type { Metadata } from 'next'
-import {Poppins} from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import React from "react";
-import {Providers} from "@/app/providers";
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  style: 'normal',
-  variable: '--font-poppins',
-  weight: ['100', '400', '500', '700']
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Star Wars Web App',
@@ -23,11 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.variable}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
