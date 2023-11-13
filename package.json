@@ -3,12 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install",
+    "ts:check": "tsc -p tsconfig.json --noEmit",
+    "lint:fix": "eslint 'src/**/*.{js,ts,jsx,tsx,html,json}' --fix",
+    "husky:init": "npx husky-init"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^10.16.4",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
@@ -18,6 +25,14 @@
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.8",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/experimental-utils": "^5.62.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "8.48.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,0 +1,61 @@
+.container{
+	@apply font-poppins text-xl font-medium overflow-hidden w-full h-[80vh] px-4 py-12 bg-gray-dark text-white rounded-lg ml-4 fixed top-1/2 transform -translate-y-1/2 max-w-[140px] transition-all
+}
+
+.container:hover {
+	@apply max-w-[400px]
+}
+
+.lineContainer {
+	@apply border-b pb-8 border-grayLight;
+}
+
+.subContainer {
+	@apply flex flex-col items-center h-fit w-full
+}
+
+.userContainer{
+  @apply mb-8 w-full pl-6
+}
+
+.userContainer div:first-child {
+	@apply flex items-center;
+}
+
+.userContainer p {
+	@apply ml-[45px]
+}
+.userContainer img{
+	@apply rounded-full w-16 h-16;
+}
+
+.pathContainer {
+	@apply w-full;
+}
+
+.pathContainer ul{
+	@apply flex flex-col justify-between h-full
+}
+
+.pathContainer ul li {
+	@apply relative p-8 rounded-[10px] ;
+}
+
+.pathContainer ul li:first-child {
+	@apply bg-green mb-6
+}
+.pathContainer ul li a {
+	@apply cursor-pointer flex items-center absolute top-1/2 transform -translate-y-1/2;
+}
+
+.pathContainer ul li p {
+	@apply ml-[60px]
+}
+.pathContainer ul li img{
+	@apply w-10
+}
+
+.line{
+	@apply relative
+}
+
