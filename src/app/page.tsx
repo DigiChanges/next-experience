@@ -1,13 +1,13 @@
 import "./page.css";
 
-import Welcome from "@/features/Welcome";
-import Layout from "@/features/Layout";
+import WelcomeTemplate from "@/features/welcome/template/WelcomeTemplate";
+import Layout from "@/layout/Layout";
 
 export default function Page()
 {
     return (
         <Layout className="section">
-            <Welcome />
+            <WelcomeTemplate />
         </Layout>
     )
 }

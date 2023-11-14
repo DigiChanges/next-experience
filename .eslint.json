@@ -13,7 +13,6 @@
   },
   "ignorePatterns": ["*.mdx", "*.md", "*.rs", "*.toml"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
     "quotes": ["warn", "single"],
     "semi": ["warn", "always"],
     "semi-spacing": ["warn", { "before": false, "after": true }],

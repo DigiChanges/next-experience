@@ -15,7 +15,6 @@ export const dataNav = [
     {
         image: DashboardIcon,
         description: 'Dashboard',
-        path: '#'
     },
     {
         image: HomeIcon,
