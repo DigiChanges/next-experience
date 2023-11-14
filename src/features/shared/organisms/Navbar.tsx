@@ -3,15 +3,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import style from './navbar.module.css'
 import Image from 'next/image';
-import {dataNav, dataUser} from "@/features/shared/constants/dataNav";
+import {dataClose, dataNav, dataUser} from "@/features/shared/constants/dataNav";
 
 
 export const Navbar = () => {
-    return (
+   
+   return (
         <nav>
             <div className={style.container}>
                 <div className={style.lineContainer}>
                 <div className={style.subContainer}>
+                    <section className={style.closer}>
+                    <Image src={dataClose.image} width={100} height={100} alt='closer menu'/>
+                    </section>
                     <section className={style.userContainer}>
                         <div>
                             <Image src={dataUser.image} width={150} height={150} alt={'user'}></Image>

@@ -22,7 +22,8 @@ module.exports = {
       'secondary' : '#FFAB09',
       'white': '#FFFFFF',
       'gray-dark':'#282727',
-      'grayLight' : '#A89C9C'
+      'grayLight' : '#A89C9C',
+      'secondGrayLight': '#4F4E4E'
     },
     fontFamily: {
       poppins:[ 'var(--font-poppins)']
