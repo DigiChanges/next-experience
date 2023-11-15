@@ -13,17 +13,26 @@ module.exports = {
       '2xl':'1536px'
     },
     colors: {
-      'blue': '#1fb6ff',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#01EFA9',
-      'yellow': '#ffc82c',
-      'secondary' : '#FFAB09',
+      
+      'warning': '#b23838',
+      'succes': '#329b4f',
       'white': '#FFFFFF',
-      'gray-dark':'#282727',
+      //bg principal
+      'primary':'#151525',
+      //icons
+      'accent' : '#9747ff',
+      //navbar
+      'secondaryy': '#121a2d',
+      'bgPaginator':'#060d18',
+      //cards
+      'bgCards':'#1f1f36',
+      //lines
       'grayLight' : '#A89C9C',
-      'secondGrayLight': '#4F4E4E'
+      //selected items
+      'selectecItem': '#1e2b4f'
+      
+      
+      
     },
     fontFamily: {
       poppins:[ 'var(--font-poppins)']
