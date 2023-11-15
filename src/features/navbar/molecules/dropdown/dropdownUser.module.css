@@ -1,4 +1,8 @@
 
+ .containerIconUser {
+    @apply cursor-pointer;
+ }
+
  .iconUser {
     @apply relative max-w-[60px]
 }
@@ -11,7 +15,11 @@
 }
 
 .iconUser img {
-    @apply mt-5 rounded-full w-10 h-10 m-auto;
+    @apply mt-5 rounded-full w-10 h-10 m-auto transition-all;
+}
+
+.iconUser .rotate {
+    @apply transform -rotate-[180deg]
 }
 
 .perfil{

@@ -30,17 +30,21 @@ export const DropdownUser: React.FC<IProps> = (props) => {
 
 
 
-    let background = props.isUserDropdownOpen ? 'animation' : ''
+    const background = props.isUserDropdownOpen ? 'animation' : '';
+    const rotate = props.isUserDropdownOpen ? style.rotate : '';
 
     return (
 
         <div>
-            <div onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-                <Image src={props.dataUser.image} alt={'Icon user'} height={1920} width={1080} />
-                <p>{props.dataUser.username}</p>
-                <Image className={style.dropdown} src={props.dataUser.icon} alt={'dropdown'} />
+            <div className={style.containerIconUser}>
+                <div onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
+                    <Image src={props.dataUser.image} alt={'Icon user'} height={1920} width={1080} />
+                    <p>{props.dataUser.username}</p>
+                    <Image className={`${style.dropdown} ${rotate}`} src={props.dataUser.icon} alt={'dropdown'} />
 
+                </div>
             </div>
+
 
             <motion.ul
                 initial={{ height: 0 }}
@@ -50,20 +54,20 @@ export const DropdownUser: React.FC<IProps> = (props) => {
             >
 
 
-                    <div className={style.perfil}>
-                        {
-                            props.dataPerfil.map(({ icon, description }) =>
-                                <div key={description} className={style.perfilSections}>
-                                    {icon && <Image src={icon} alt='icon perfil' />}
-                                    <p>{description}</p>
-                                </div>
-                            )
+                <div className={style.perfil}>
+                    {
+                        props.dataPerfil.map(({ icon, description }) =>
+                            <div key={description} className={style.perfilSections}>
+                                {icon && <Image src={icon} alt='icon perfil' />}
+                                <p>{description}</p>
+                            </div>
+                        )
 
-                        }
-                        <div className={style.logOut}>
-                            <Image src={props.dataLogin.icon} alt='LogOut' />
-                        </div>
+                    }
+                    <div className={style.logOut}>
+                        <Image src={props.dataLogin.icon} alt='LogOut' />
                     </div>
+                </div>
 
 
             </motion.ul>
