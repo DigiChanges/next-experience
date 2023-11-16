@@ -22,3 +22,4 @@ const Card = (props: CardItemProps) =>
 };
 
 export default Card;
+

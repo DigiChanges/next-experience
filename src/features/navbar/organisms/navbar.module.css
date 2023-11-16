@@ -1,0 +1,151 @@
+.container {
+	@apply fixed bg-secondaryy left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins;
+}
+
+.navActive {
+	@apply calculateWidth !important;
+}
+
+.container nav {
+	@apply w-full pb-8 relative;
+}
+
+.container nav .openMenu  {
+	@apply max-w-[60px]
+}
+
+.container nav .openMenu img {
+	@apply mt-5 w-10 h-10 transition-all m-auto cursor-pointer;
+}
+
+.container nav .openMenu .rotateIcon {
+	@apply transform -rotate-45
+}
+
+
+.container nav .iconUser {
+	@apply relative max-w-[60px]
+}
+
+.container nav .iconUser p {
+	@apply absolute centerAlign left-[70px] text-white;
+}
+.container nav .iconUser .dropdown{
+    @apply absolute centerAlign left-[300px] w-6 h-6 m-0
+}
+
+.container nav .iconUser img {
+	@apply mt-5 rounded-full w-10 h-10 m-auto;
+}
+
+
+
+
+
+.container nav ul  {
+	@apply grid grid-cols-1 gap-8 mt-5 mx-2 relative
+}
+
+.selectedItem {
+ @apply	bg-selectecItem py-2
+}
+.container nav ul li{
+	@apply  py-2 cursor-pointer
+}
+
+.container nav ul li:nth-child(2){
+	@apply bg-selectecItem rounded mt-6  pointer-events-none;
+}
+.container nav ul a:nth-child(2){
+	@apply  cursor-default;
+}
+.container nav ul li:hover {
+	@apply bg-accent  rounded
+}
+
+.container nav ul a {
+	@apply relative block cursor-pointer;
+}
+.container nav ul a .imgNav{
+	@apply max-w-[60px]
+}
+
+
+.container nav ul a p {
+	@apply absolute top-0 text-white centerAlign left-[70px];
+}
+
+.container nav ul a img {
+	@apply w-8 h-8 m-auto;
+}
+
+.lineOne{
+	@apply absolute top-0  h-[0.5px] bg-grayLight w-[90%] left-1/2 transform -translate-x-1/2;
+}
+.lineTwo {
+	@apply absolute bottom-0 h-[0.5px] bg-grayLight w-[90%] left-1/2 transform -translate-x-1/2;
+}
+
+/*Re usable classes*/
+
+.centerAlign {
+	@apply top-1/2 transform -translate-y-1/2;
+}
+
+.calculateWidth {
+	width: calc(100% - 10px);
+}
+
+.calculateHeight {
+	height: calc(100vh - 8px)
+}
+
+@screen sm {
+	.container {
+		@apply w-[70px];
+	}
+
+	.container p {
+		@apply font-medium
+	}
+
+	.container nav .openMenu  {
+		@apply max-w-[70px]
+	}
+
+	.container nav .iconUser {
+		@apply max-w-[70px];
+	}
+
+	.container nav .iconUser p {
+		@apply left-[80px];
+	}
+	.container nav ul a .imgNav{
+		@apply max-w-[70px]
+	}
+
+	.container nav ul a p {
+		@apply left-[80px];
+	}
+
+	/*Re usable classes*/
+
+	.calculateWidth {
+		width: calc(70% - 10px);
+	}
+}
+
+@screen lg {
+	/*Re usable classes*/
+
+	.calculateWidth {
+		width: calc(30% - 10px);
+	}
+}
+
+@screen 2xl {
+	.calculateWidth {
+		width: calc(20% - 10px);
+	}
+}
+

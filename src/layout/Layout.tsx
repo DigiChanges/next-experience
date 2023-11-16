@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "@/features/shared/organisms/Navbar";
-
+import {NavbarTemplate} from "@/features/navbar/template/NavbarTemplate";
+import style from './layout.module.css';
 interface LayoutProps
 {
     children: React.ReactNode,
@@ -14,8 +14,11 @@ const Layout = (props: LayoutProps) =>
   return (
       <>
           <main className={className}>
-              <Navbar/>
-              {children}
+              <NavbarTemplate/>
+              <div className={style.containerComponents}>
+                  {children}
+              </div>
+
           </main>
       </>
   );
