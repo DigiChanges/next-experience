@@ -11,7 +11,6 @@ interface IProps
 
 export const List: React.FC<IProps> = (props) =>
 {
-    console.log(props.items)
     return (
         <section className={style.container}>
             {props && props.items.map((item: IItemApiResponse) => (
