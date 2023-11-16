@@ -7,6 +7,7 @@
 .yarn/install-state.gz
 .idea
 .env.local
+.env
 
 # testing
 /coverage
@@ -36,3 +37,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "json-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:start": "nodemon server --port 8089",
+    "start": "pnpm i && json-server --watch db.json --routes routes.json --port 8089"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

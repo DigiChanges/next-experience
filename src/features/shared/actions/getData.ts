@@ -9,5 +9,5 @@ export async function getData<T>(uri: string)
         throw new Error('Failed to fetch data')
     }
 
-    return (await res.json()).data as T
+    return (await res.json()) as T
 }
