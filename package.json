@@ -11,7 +11,8 @@
     "prepare": "husky install",
     "ts:check": "tsc -p tsconfig.json --noEmit",
     "lint:fix": "eslint 'src/**/*.{js,ts,jsx,tsx,html,json}' --fix",
-    "husky:init": "npx husky-init"
+    "husky:init": "npx husky-init",
+    "server:start": "cd json-server && pnpm server:start"
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
