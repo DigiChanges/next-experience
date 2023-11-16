@@ -1,0 +1,15 @@
+.container {
+    @apply grid grid-cols-1 place-items-center gap-3;
+}
+
+@screen md {
+    .container {
+        @apply grid-cols-2
+    }
+}
+
+@screen 2xl {
+    .container {
+        @apply grid-cols-3;
+    }
+}

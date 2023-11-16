@@ -1,3 +1,9 @@
 .containerComponents {
-    @apply ml-[60px];
+    @apply ml-[65px];
+}
+
+@screen md {
+    .containerComponents {
+        @apply ml-[75px]
+    }
 }

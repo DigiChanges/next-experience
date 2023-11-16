@@ -7,7 +7,10 @@ import React from "react";
 export function Providers({children}: { children: React.ReactNode }) {
     return (
         <NextUIProvider>
-            {children}
+            <main className="dark">
+                {children}
+            </main>
+
         </NextUIProvider>
     )
 }
