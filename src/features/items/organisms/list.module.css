@@ -1,5 +1,9 @@
+.test{
+    @apply bg-primary h-[200px]
+}
+
 .container {
-    @apply grid grid-cols-1 place-items-center gap-3;
+    @apply grid grid-cols-1 place-items-center gap-3 pt-20 overflow-y-auto h-[500px];
 }
 
 @screen md {

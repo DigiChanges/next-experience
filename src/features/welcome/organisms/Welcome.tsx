@@ -1,3 +1,4 @@
+import { AddItem } from '@/features/items/atoms/addItem/AddItem';
 import './Welcome.css'
 import React from "react";
 export const Welcome: React.FC = () => {
@@ -18,7 +19,7 @@ export const Welcome: React.FC = () => {
                     Star Wars has had a profound impact on popular culture and has spawned a plethora of films, TV series, books, video games, and merchandise.
                 </em>
             </div>
-
+           
             {/*{isLoading ? (*/}
             {/*  <div className="container-img">*/}
             {/*    <Loading />*/}

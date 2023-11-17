@@ -10,7 +10,7 @@ export default async function Page()
 
     return (
         <>
-            <Layout className={''}>
+            <Layout>
                 <ItemsTemplate items={data}/>
             </Layout>
         </>
