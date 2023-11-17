@@ -11,15 +11,15 @@ interface IProps {
 
 export const List: React.FC<IProps> = (props) => {
     return (
-        <section className={style.test}>
-            <AddItem />
-            <section className={style.container}>
-
-                {props && props.items.map((item: IItemApiResponse) => (
-                    <CardItem key={item.id} name={item.name} type={item.type} />
-                ))}
-
+            <section>
+                    <div>
+                        <AddItem />
+                    </div>
+                    <div className={style.cards}>
+                        {props && props.items.map((item: IItemApiResponse) => (
+                            <CardItem key={item.id} name={item.name} type={item.type} />
+                        ))}
+                    </div>
             </section>
-        </section>
     );
 };

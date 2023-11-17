@@ -1,5 +1,5 @@
 .container{
-    @apply   flex gap-4 items-center  right-3 p-2 justify-end mr-2 fixed z-10
+    @apply   flex gap-4 items-center  right-3 p-2 justify-end mr-2  z-10
 }
 .container button{
     @apply m-2 w-[48px] min-w-[48px] h-[48px] min-h-[48px]
@@ -8,12 +8,11 @@
     @apply  h-6 w-6 m-6 m-auto
 }
 
-
 @screen 2xl{
     .container button{
-        @apply  w-[68px] min-w-[68px] h-[68px] min-h-[68px]
+        @apply  w-[60px] min-w-[60px] h-[60px] min-h-[60px]
     }
     .container button img{
-        @apply  h-12 w-12 m-8 m-auto
-    } 
+        @apply  h-10 w-10 m-8 m-auto
+    }
 }
