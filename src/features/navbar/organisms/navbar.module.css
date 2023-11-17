@@ -1,5 +1,5 @@
 .container {
-	@apply fixed bg-secondaryy left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins;
+	@apply fixed bg-secondaryy left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 
 .navActive {

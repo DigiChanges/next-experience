@@ -16,6 +16,7 @@ export const Navbar = () => {
         setIsOpen(!isOpen);
         setSelectedItemIndex(null);
     };
+
     useEffect(() => {
         if(!isOpen){
             setisUserDropdownOpen(false)
@@ -26,7 +27,10 @@ export const Navbar = () => {
         setSelectedItemIndex(index);
     };
   const handleDropdownUser = () =>{
-      setisUserDropdownOpen(!isUserDropdownOpen)
+      if(isOpen)
+      {
+          setisUserDropdownOpen(!isUserDropdownOpen)
+      }
   }
 
     return (

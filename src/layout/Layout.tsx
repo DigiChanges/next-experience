@@ -18,7 +18,6 @@ const Layout = (props: LayoutProps) =>
               <div className={style.containerComponents}>
                   {children}
               </div>
-
           </main>
       </>
   );

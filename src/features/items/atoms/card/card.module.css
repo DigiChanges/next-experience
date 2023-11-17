@@ -1,0 +1,71 @@
+.container{
+    @apply w-[300px] h-[200px] bg-bgCards
+}
+.container h2{
+    @apply font-bold py-2 text-lg
+}
+.state{
+    @apply  bg-success rounded-full h-4 w-4 m-4
+}
+.container button img{
+    @apply  rounded-full h-4 w-4 m-4 m-auto
+}
+.cardFooter{
+    @apply  justify-end  overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)]  ml-1
+}
+
+.container button{
+    @apply m-2 w-[32px] min-w-[32px] h-[32px] min-h-[32px]
+}
+.btnDelete{
+    @apply bg-warning
+}
+.btnEdit{
+    @apply bg-accent
+}
+
+@screen sm {
+    .container h2{
+        @apply text-xl
+    }
+}
+
+@screen md {
+    .container{
+        @apply w-[320px] h-[220px]
+    }
+
+    .container button img{
+        @apply h-6 w-6
+    }
+
+    .container button{
+        @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px]
+    }
+}
+
+@screen lg {
+    .container h2{
+        @apply text-2xl
+    }
+    .container{
+        @apply w-[400px] h-[250px]
+    }
+
+    .container button{
+        @apply w-[40px] min-w-[40px] h-[40px] min-h-[40px]
+    }
+}
+
+@screen 2xl {
+    .container h2{
+        @apply text-3xl
+    }
+    .container{
+        @apply w-[450px] h-[280px]
+    }
+
+    .container button{
+        @apply w-[48px] min-w-[48px] h-[48px] min-h-[48px]
+    }
+}

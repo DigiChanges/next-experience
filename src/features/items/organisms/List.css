@@ -1,9 +1,0 @@
-.container-list {
-	width: 80%;
-	max-width: var(--max-w);
-	margin: 15px auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}

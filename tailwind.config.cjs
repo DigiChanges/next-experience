@@ -13,8 +13,8 @@ module.exports = {
       '2xl':'1536px'
     },
     colors: {
-      
-      'warning': '#b23838',
+
+      'warningg': '#ba3838',
       'succes': '#329b4f',
       'white': '#FFFFFF',
       //bg principal
@@ -30,9 +30,9 @@ module.exports = {
       'grayLight' : '#A89C9C',
       //selected items
       'selectecItem': '#1e2b4f'
-      
-      
-      
+
+
+
     },
     fontFamily: {
       poppins:[ 'var(--font-poppins)']
@@ -41,5 +41,43 @@ module.exports = {
 
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui({
+    themes: {
+      light: {},
+      dark: {
+        colors: {
+          primary: {
+            DEFAULT: "#151525"
+          },
+          accent: {
+            DEFAULT: "#9747ff"
+          },
+          secondary: {
+            DEFAULT: "#121a2d"
+          },
+          bgPaginator: {
+            DEFAULT: "#060d18"
+          },
+          bgCards: {
+            DEFAULT: "#1f1f36"
+          },
+          grayLight: {
+            DEFAULT: "#A89C9C"
+          },
+          selectedItem: {
+            DEFAULT: "#1e2b4f"
+          },
+          warning: {
+            DEFAULT: "#BA3838"
+          },
+          success: {
+            DEFAULT: "#65FEA2"
+          },
+          white: {
+            DEFAULT: "#FFFFFF"
+          }
+        }
+      }
+    }
+  })],
 };

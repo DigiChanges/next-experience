@@ -3,11 +3,11 @@
     @apply cursor-pointer;
  }
 
- .iconUser {
-    @apply relative max-w-[60px]
+.iconUser {
+    @apply relative max-w-[60px] w-full h-full mt-5
 }
 
- .iconUser p {
+.iconUser p {
     @apply absolute centerAlign left-[70px] text-white;
 }
 .iconUser .dropdown{
@@ -15,7 +15,7 @@
 }
 
 .iconUser img {
-    @apply mt-5 rounded-full w-10 h-10 m-auto transition-all;
+    @apply  rounded-full w-10 h-10 m-auto transition-all;
 }
 
 .iconUser .rotate {
