@@ -36,12 +36,12 @@ export const DropdownUser: React.FC<IProps> = (props) => {
 
         <div>
             <div className={style.containerIconUser}>
-                <div onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
+                <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
                     <Image src={props.dataUser.image} alt={'Icon user'} height={1920} width={1080} />
                     <p>{props.dataUser.username}</p>
                     <Image className={`${style.dropdown} ${rotate}`} src={props.dataUser.icon} alt={'dropdown'} />
 
-                </div>
+                </button>
             </div>
 
 
