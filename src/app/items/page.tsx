@@ -6,12 +6,10 @@ import {ItemsTemplate} from "@/features/items/template/ItemsTemplate";
 
 export default async function Page()
 {
-    const data = await getData<IItemApiResponse[]>('api/items');
-
     return (
         <>
             <Layout>
-                <ItemsTemplate items={data}/>
+                <ItemsTemplate />
             </Layout>
         </>
   )
