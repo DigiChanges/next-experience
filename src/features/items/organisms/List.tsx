@@ -6,9 +6,9 @@ import { AddItem } from "../atoms/addItem/AddItem";
 import { getData } from "@/features/shared/actions/getData";
 
 
-export const   List  = async() => {
+export const List: () => Promise<React.JSX.Element>  = async() => {
 
-  const  data = await getData<IItemApiResponse[]>('api/items') 
+  const  data = await getData<IItemApiResponse[]>('api/items')
 
     return (
             <section>
