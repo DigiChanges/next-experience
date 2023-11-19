@@ -27,6 +27,13 @@
       "warn",
       "single"
     ],
+    "import/no-unused-modules": [
+      "warn",
+      {
+        "missingExports": true,
+        "unusedExports": true
+      }
+    ],
     "semi": [
       "warn",
       "always"
