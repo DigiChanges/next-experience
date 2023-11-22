@@ -1,0 +1,7 @@
+.container {
+    @apply grid grid-cols-3 place-items-center h-screen
+}
+
+.container div {
+    @apply h-[200px] w-[300px] bg-white flex items-center justify-center
+}
