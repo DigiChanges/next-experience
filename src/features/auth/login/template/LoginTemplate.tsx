@@ -1,4 +1,3 @@
-
 'use client'
 import style from './logintemplate.module.css'
 import {Database} from "@/features/shared/interfaces/database";
@@ -37,9 +36,9 @@ export const LoginTemplate = () => {
     // TODO: Ver si se puede hacer server side.
     return(
         <div className={style.container}>
-            <div onClick={handleSignIn}>Login</div>
-            <div onClick={handleSignUp}>Register</div>
-            <div onClick={handleSignOut}>Logout</div>
+            <button onClick={handleSignIn}>Login</button>
+            <button onClick={handleSignUp}>Register</button>
+            <button onClick={handleSignOut}>Logout</button>
         </div>
     )
 }

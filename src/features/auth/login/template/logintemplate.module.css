@@ -2,6 +2,6 @@
     @apply grid grid-cols-3 place-items-center h-screen
 }
 
-.container div {
+.container button {
     @apply h-[200px] w-[300px] bg-white flex items-center justify-center
 }
