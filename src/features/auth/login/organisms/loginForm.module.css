@@ -1,132 +1,59 @@
 .container {
-    display: flex;
-    width: 520px;
-    height: 500px;
-    max-width: 99%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff25;
-    border-radius: 15px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
-    border: 0.1px solid rgba(128, 128, 128, 0.178);
-  }
-  
-  .left {
-    width: 66%;
-    height: 100%;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    backdrop-filter: blur(20px);
-    position: relative;
-  }
-  
-  .form::before {
-    position: absolute;
-    content: "";
-    width: 40%;
-    height: 40%;
-    right: 1%;
-    z-index: -1;
-    background: radial-gradient(
-      circle,
-      rgb(194, 13, 170) 20%,
-      rgb(26, 186, 235) 60%,
-  
-      rgb(26, 186, 235) 100%
-    );
-    filter: blur(70px);
-    border-radius: 50%;
-  }
-  
-  .right {
-    width: 34%;
-    height: 100%;
-  }
-  
-  .img {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .container::after {
-    position: absolute;
-    content: "";
-    width: 80%;
-    height: 80%;
-    right: -40%;
-    background: rgb(157, 173, 203);
-    background: radial-gradient(
-      circle,
-      rgba(157, 173, 203, 1) 61%,
-      rgba(99, 122, 159, 1) 100%
-    );
-    border-radius: 50%;
-    z-index: -1;
-  }
-  
-  input,
-  button {
-    background: rgba(253, 253, 253, 0);
-    outline: none;
-    border: 1px solid rgba(255, 0, 0, 0);
-    border-radius: 0.5rem;
-    padding: 10px;
-    margin: 10px auto;
-    width: 80%;
-    display: block;
-    color: #425981;
-    font-weight: 500;
-    font-size: 1.1em;
-  }
-  
-  .inputBlock {
-    position: relative;
-  }
-  
-  label {
-    position: absolute;
-    left: 15%;
-    top: 37%;
-    pointer-events: none;
-    color: gray;
-  }
-  
-  .forgot {
-    display: block;
-    margin: 5px 0 10px 0;
-    margin-left: 35px;
-    color: #5e7eb6;
-    font-size: 0.9em;
-  }
-  
-  input:focus + label,
-  input:valid + label {
-    transform: translateY(-120%) scale(0.9);
-    transition: all 0.4s;
-  }
-  
-  button {
-    background-color: #5e7eb6;
-    color: white;
-    font-size: medium;
-    box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
-  }
-  
-  a {
-    color: #5e7eb6;
-  }
-  
-  input {
-    box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
-      4px 4px 4px rgba(218, 218, 218, 0.13);
-  }
-  
+  @apply flex w-[520px] h-[500px] max-w-[99%] items-center justify-center relative overflow-hidden bg-[#ffffff25] shadow-[0px_0px_30px_rgba(0,0,0,0.03)] rounded-[15px] border-[0.1px] border-solid border-[rgba(128,128,128,0.178)] after:absolute after:content-[""] after:w-4/5 after:h-4/5 after:right-[-40%] after:z-[-1] after:rounded-[50%];
+}
+.left {
+  @apply w-[66%] h-full;
+}
+.form {
+  @apply flex flex-col justify-center h-full w-full backdrop-blur-[20px] relative left-0 before:absolute before:content-[""] before:w-2/5 before:h-2/5 before:z-[-1] before:blur-[70px] before:rounded-[50%] before:right-[1%];
+}
+.form::before {
+  background: radial-gradient(
+          circle,
+          rgb(194, 13, 170) 20%,
+          rgb(26, 186, 235) 60%,
+          rgb(26, 186, 235) 100%
+  );
+}
+.right {
+  @apply w-[34%] h-full;
+}
+.img {
+  @apply w-full h-full;
+}
+.container::after {
+  background: rgb(157, 173, 203);
+  background: radial-gradient(
+          circle,
+          rgba(157, 173, 203, 1) 61%,
+          rgba(99, 122, 159, 1) 100%
+  );
+}
+.inputForm input,
+.button {
+  @apply border w-4/5 block text-[#425981] font-medium text-[1.1em] mx-auto my-2.5 p-2.5 rounded-lg border-solid border-[rgba(255,0,0,0)];
+  background: rgba(253, 253, 253, 0);
+  outline: none;
+}
+.inputBlock {
+  @apply relative;
+}
+.inputForm label {
+  @apply absolute pointer-events-none text-[gray] left-[15%] top-[37%];
+}
+.forgot {
+  @apply block text-[#5e7eb6] text-[0.9em] ml-[35px] mt-[5px] mb-2.5 mx-0;
+}
+.inputForm input:focus + label,
+.inputForm input:valid + label {
+  @apply translate-y-[-120%] transition-all duration-[0.4s] scale-90;
+}
+.button {
+  @apply bg-[#5e7eb6] text-[white] text-[medium] shadow-[2px_4px_8px_rgba(70,70,70,0.178)];
+}
+.a {
+  @apply text-[#5e7eb6];
+}
+.inputForm input {
+  @apply shadow-[inset_4px_4px_4px_rgba(165,163,163,0.315),4px_4px_4px_rgba(218,218,218,0.13)];
+}
