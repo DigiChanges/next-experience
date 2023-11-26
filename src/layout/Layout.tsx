@@ -1,25 +1,28 @@
 import React from "react";
 import {NavbarTemplate} from "@/features/navbar/template/NavbarTemplate";
 import style from './layout.module.css';
+import { Providers } from "@/app/providers";
+
 interface LayoutProps
 {
     children: React.ReactNode,
-    className: string
+    
 }
 
 const Layout = (props: LayoutProps) =>
 {
-  const { children, className } = props;
+  const { children } = props;
 
   return (
-      <>
-          <main className={className}>
+      <Providers>
+          <main className="dark">
               <NavbarTemplate/>
               <div className={style.containerComponents}>
                   {children}
               </div>
           </main>
-      </>
+      </Providers>
+    
   );
 };
 

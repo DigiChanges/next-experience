@@ -1,13 +1,12 @@
-import React from "react";
-import {IItemApiResponse} from "@/features/items/models";
+import React, { Suspense } from "react";
 import {List} from "@/features/items/organisms/List";
+import { LoaderStarsWars } from "@/features/shared/atoms/loader/LoaderStarsWars";
 
-interface IProps
-{
-    items: IItemApiResponse[]
-}
-export const ItemsTemplate: React.FC<IProps> = (props) => {
+
+export const ItemsTemplate: React.FC = () => {
     return (
-        <List items={props.items}/>
+        <Suspense fallback={ <LoaderStarsWars/>}>
+        <List />
+        </Suspense>
     )
 }

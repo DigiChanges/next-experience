@@ -1,15 +1,21 @@
-.container {
-    @apply grid grid-cols-1 place-items-center gap-3;
+.cards {
+    @apply overflow-y-auto h-screen grid grid-cols-1 gap-3 place-items-center mx-1
 }
 
 @screen md {
-    .container {
+    .cards {
         @apply grid-cols-2
     }
 }
 
+@screen xl {
+    .cards {
+        @apply grid-cols-3
+    }
+}
+
 @screen 2xl {
-    .container {
-        @apply grid-cols-3;
+    .cards{
+        @apply grid-cols-4;
     }
 }

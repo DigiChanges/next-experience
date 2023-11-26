@@ -1,4 +1,4 @@
-.characters_welcome {
+.charactersWelcome {
 	background-color: rgba(0, 0, 0, 0.3);
 	padding: 20px;
 	color: white;
@@ -10,7 +10,7 @@
 	margin: auto;
 }
 
-.characters_welcome h1 {
+.charactersWelcome h1 {
 		font-size: 42px;
 	color: black;
 	height: 20%;
@@ -19,7 +19,7 @@
 	-webkit-text-stroke: 1px yellow;
 }
 
-.welcome-detail {
+.welcomeDetail {
 	transition: .5s;
 	width: 100%;
 	display: flex;
@@ -60,6 +60,6 @@
 	}
 	.loading-animation {
 		width: 150px;
-		height: 200;
+		height: 200px;
 	}
 }
