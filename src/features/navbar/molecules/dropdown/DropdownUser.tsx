@@ -3,7 +3,6 @@ import { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import Image from "next/image";
 import style from './dropdownUser.module.css'
-import Link from "next/link";
 import { handleSignOut } from "@/features/auth/actions/SingOutAction";
 
 interface IProps {

@@ -25,7 +25,7 @@ export const LoginForm: React.FC = () => {
 
     const onSubmit = handleSubmit(async (data: ILoginForm) => {
         setLoading(true)
-      const res=  await handleSignIn(data);
+   await handleSignIn(data);
         reset();
         setLoading(false)            
     })

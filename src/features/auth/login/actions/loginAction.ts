@@ -11,8 +11,7 @@ const supabase = createClientComponentClient<Database>();
 
 export const handleSignIn = async ({username, password} : ILoginForm) => {
     
-
-  const res =  await supabase.auth.signInWithPassword({    
+ await supabase.auth.signInWithPassword({    
         // email: "natanaelrusso18@hotmail.com",
         // password: "WjpJwcPJPOYZXzRPVHAM",
         email: username,
