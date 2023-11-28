@@ -8,8 +8,7 @@ import { useRouter } from "next/navigation";
 
 export const handleSignUp = async ({username, password} : ILoginForm) => {
     const supabase = createClientComponentClient<Database>();
-    
-    const router = useRouter();
+
 
     await supabase.auth.signUp({
         email: username,
@@ -18,5 +17,5 @@ export const handleSignUp = async ({username, password} : ILoginForm) => {
             emailRedirectTo: `${location.origin}/auth/callback`,
         }
     })
-     router.refresh();
+   
 };
