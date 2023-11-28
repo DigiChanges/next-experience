@@ -21,13 +21,13 @@ export const LoginForm: React.FC = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<ILoginForm>({
         resolver: yupResolver(loginSchema),
     })
-   
+
 
     const onSubmit = handleSubmit(async (data: ILoginForm) => {
         setLoading(true)
-   await handleSignIn(data);
+        await handleSignIn(data);
         reset();
-        setLoading(false)            
+        setLoading(false)
     })
     return (
 
@@ -37,8 +37,8 @@ export const LoginForm: React.FC = () => {
                 <div className={style.containerInputs}>
                     <InputForm errors={errors} id={"username"} name={"username"} register={register} type={"email"} label={"Username"} className={style.input} />
                     <InputForm errors={errors} id={"password"} name={"password"} register={register} type={"password"} label={"Password"} className={style.input} />
-                </div> 
-               <ButtonAuth alt={"icon next experience"} descriptionInactive={'Loggin In...'} descriptionActive={'Sing In'} disable={loading}  img={IconRocket.src} />
+                </div>
+                <ButtonAuth alt={"icon next experience"} descriptionInactive={'Loggin In...'} descriptionActive={'Sing In'} disable={loading} img={IconRocket.src} />
                 <div className={style.containerRegister}>
                     <Link href={'/auth/register'}>Create Account</Link>
                 </div>
