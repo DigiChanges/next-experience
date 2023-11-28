@@ -20,27 +20,6 @@
        @apply text-[12px] p-2 text-warning
    }
    
-   .containerBtn{
-       @apply  flex justify-center
-   }
-   .btn{
-    @apply flex items-center font-medium text-[12px] text-[white] tracking-wider pl-[0.9em] pr-[1.3em] py-[0.8em] rounded-2xl border-[none] bg-[#ad5389] ;
-    background: linear-gradient(to right, #9747FF, #be97f1, #7218e9);
-   }
-   .btn img {
-    @apply mr-[3px] w-[22px] h-[22px] transition-transform duration-[0.5s];
-   }
-   
-   .btn span{
-    @apply transition-transform duration-[0.5s];
-   }
-   .btn:hover img {
-    @apply translate-x-[5px] rotate-[50deg];
-   }
-   .btn:hover span {
-    @apply translate-x-[7px];
-   }
-   
    .containerRegister{
        @apply text-white text-xs flex justify-center  underline
    }
@@ -49,14 +28,7 @@
        .form {
            @apply max-w-[300px] min-h-[350px];
           
-         }
-         .btn{
-           @apply  text-[16px];
-          }
-          .btn img {
-           @apply  w-[26px] h-[26px];
-          }
-         
+         }          
    }
    @screen lg{
        .form {
@@ -64,12 +36,15 @@
          }
          
    }
-   @screen xl{
-       .btn{
-           @apply  text-[18px];
-          }
-       .btn img {
-           @apply  w-[32px] h-[32px];
-          }
-          
+   
+   @screen 2xl{
+       .form {
+           @apply max-w-[400px] min-h-[450px];
+         }
+         .containerRegister{
+           @apply  text-sm
+       }
+       .input label{
+           @apply  text-lg
+       }
    }
