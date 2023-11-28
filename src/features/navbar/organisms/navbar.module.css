@@ -1,5 +1,5 @@
 .container {
-	@apply fixed bg-secondaryy left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
+	@apply fixed bg-secondary left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 
 .navActive {
@@ -47,14 +47,14 @@
 }
 
 .selectedItem {
- @apply	bg-selectecItem py-2
+ @apply	bg-selectedItem py-2
 }
 .container nav ul li{
 	@apply  py-2 cursor-pointer
 }
 
 .container nav ul li:nth-child(2){
-	@apply bg-selectecItem rounded mt-6  pointer-events-none;
+	@apply bg-selectedItem  rounded mt-6  pointer-events-none;
 }
 .container nav ul a:nth-child(2){
 	@apply  cursor-default;

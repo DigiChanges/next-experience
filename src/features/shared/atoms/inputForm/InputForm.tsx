@@ -31,7 +31,7 @@ export const InputForm: React.FC<IProps> = ({
   const error = errors[name];
   return (
     <div className={className}>
-      {/* <label htmlFor={id}>{label}</label> */}
+       <label htmlFor={id}>{label}</label>
       <input {...register(name)} type={type} name={name} id={id} placeholder={placeholder} />
       {error && <p>{error.message as string}</p>}
     </div>

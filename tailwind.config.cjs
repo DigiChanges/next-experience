@@ -14,25 +14,6 @@ module.exports = {
     },
     colors: {
 
-      'warningg': '#ba3838',
-      'succes': '#329b4f',
-      'white': '#FFFFFF',
-      //bg principal
-      'primary':'#151525',
-      //icons
-      'accent' : '#9747ff',
-      //navbar
-      'secondaryy': '#121a2d',
-      'bgPaginator':'#060d18',
-      //cards
-      'bgCards':'#1f1f36',
-      //lines
-      'grayLight' : '#A89C9C',
-      //selected items
-      'selectecItem': '#1e2b4f'
-
-
-
     },
     fontFamily: {
       poppins:[ 'var(--font-poppins)']

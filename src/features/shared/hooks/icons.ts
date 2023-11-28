@@ -9,7 +9,8 @@ import IconSettings from '../../../asset/icons/settings.png';
 import IconUser from '../../../asset/icons/user.png';
 import IconLogOut from '../../../asset/icons/logOut.png';
 import IconDropdown from '../../../asset/icons/expand.png';
-import IconAdd from '../../../asset/icons/Add.png'
+import IconAdd from '../../../asset/icons/Add.png';
+import IconRocket from '../../../asset/icons/cohete.png'
 export const icons = () => {
     return{
         HomeIcon,
@@ -22,6 +23,7 @@ export const icons = () => {
         IconDropdown,
         EditIcon,
         DeleteIcon,
-        IconAdd
+        IconAdd,
+        IconRocket
     }
 }
