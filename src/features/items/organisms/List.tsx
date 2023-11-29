@@ -12,9 +12,9 @@ export const List: () => Promise<React.JSX.Element>  = async() => {
 
     return (
             <section>
-                    <div>
+                   
                         <AddItem />
-                    </div>
+                   
                     <div className={style.cards}>
                         {data.map((item: IItemApiResponse) => (
                             <CardItem key={item.id} name={item.name} type={item.type} />
