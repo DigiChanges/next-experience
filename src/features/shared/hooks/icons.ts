@@ -10,7 +10,11 @@ import IconUser from '../../../asset/icons/user.png';
 import IconLogOut from '../../../asset/icons/logOut.png';
 import IconDropdown from '../../../asset/icons/expand.png';
 import IconAdd from '../../../asset/icons/Add.png';
-import IconRocket from '../../../asset/icons/cohete.png'
+import IconRocket from '../../../asset/icons/cohete.png';
+import IconInformation from '../../../asset/icons/informacion.png';
+import IconSuccess from '../../../asset/icons/ok.png'
+import IconAlert from '../../../asset/icons/alerta.png'
+
 export const icons = () => {
     return{
         HomeIcon,
@@ -24,6 +28,9 @@ export const icons = () => {
         EditIcon,
         DeleteIcon,
         IconAdd,
-        IconRocket
+        IconRocket,
+        IconInformation,
+        IconAlert,
+        IconSuccess
     }
 }

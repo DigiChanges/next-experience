@@ -1,8 +1,9 @@
 
-import React from "react";
-import {Card, CardFooter, Image, Button} from "@nextui-org/react";
+import React  from "react";
+import {Card, CardFooter} from "@nextui-org/react";
 import style from './card.module.css'
-import {icons} from "@/features/shared/hooks/icons";
+import { DeleteItem } from "../deleteItem/DeleteItem";
+import { EditItem } from "../editItem/EditItem";
 
 interface CardItemProps
 {
@@ -10,7 +11,8 @@ interface CardItemProps
     type: number;
 }
 export const CardItem: React.FC<CardItemProps> = (props) => {
-const { DeleteIcon, EditIcon } = icons();
+
+
     return (
         <Card className={style.container}
             radius="lg"
@@ -20,16 +22,11 @@ const { DeleteIcon, EditIcon } = icons();
            </div>
             <div className="flex flex-col px-4">
                 <p className="text-md">Type: {props.type}</p>
-                <h2 className="text-xl">{props.name}</h2>
+                <h2 className={style.name}>{props.name}</h2>
             </div>
             <CardFooter className={style.cardFooter}>
-                <Button isIconOnly className={style.btnDelete}>
-                   <Image  src={DeleteIcon.src} width={100} height={100} alt={"delete"}/>
-                </Button>
-                <Button isIconOnly className={style.btnEdit}>
-                    <Image src={EditIcon.src}  width={100} height={100} alt={"edit"}/>
-                </Button>
-
+               <DeleteItem/>
+               <EditItem/>
             </CardFooter>
         </Card>
     );

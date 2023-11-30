@@ -11,8 +11,7 @@ export const List: () => Promise<React.JSX.Element>  = async() => {
   const  data = await getData<IItemApiResponse[]>('api/items')
 
     return (
-            <section>
-                   
+            <section>            
                         <AddItem />
                    
                     <div className={style.cards}>

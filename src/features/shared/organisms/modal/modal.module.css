@@ -1,0 +1,75 @@
+.containerModal {
+    @apply text-white fixed inset-0 bg-bgCards bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
+}
+
+.subContainer {
+    @apply w-[350px] shadow-md
+}
+
+.modal {
+    @apply bg-secondary py-4 rounded-md
+}
+
+.subTitle {
+    @apply font-medium flex justify-center items-center justify-around
+}
+
+.form {
+    @apply p-4
+}
+
+.inputBlock {
+    @apply p-2
+}
+
+.inputBlock input {
+    @apply w-full p-2 bg-secondary border border-grayLight rounded-sm mt-2
+}
+
+.btn {
+    @apply flex justify-end p-2
+}
+
+.addItem {
+    @apply bg-success p-2 rounded-md text-secondary
+}
+
+
+.close {
+    @apply bg-warning p-2 m-0 rounded-md !important
+}
+
+@screen md {
+    .containerModal {
+        @apply ml-[75px]
+    }
+}
+
+@screen lg {
+
+    .subTitle {
+        @apply text-[14px] !important
+    }
+}
+@screen xl{
+
+.subContainer {
+    @apply w-[450px] 
+}
+.subTitle {
+    @apply text-[20px] !important
+}
+}
+
+@screen 2xl{
+    .subContainer {
+        @apply w-[550px] 
+    }
+    .subTitle {
+        @apply text-[26px] !important
+    }
+    .modal {
+        @apply  py-8
+    }
+    
+}

@@ -5,7 +5,7 @@
     @apply m-2 w-[48px] min-w-[48px] h-[48px] min-h-[48px]
 }
 .container .btn img{
-    @apply  h-6 w-6 m-6 m-auto
+    @apply  h-4 w-4 m-6 m-auto
 }
 
 @screen 2xl{
@@ -13,7 +13,7 @@
         @apply  w-[60px] min-w-[60px] h-[60px] min-h-[60px]
     }
     .container .btn img{
-        @apply  h-10 w-10 m-8 m-auto
+        @apply  h-4 w-4 m-8 m-auto
     }
 }
 
