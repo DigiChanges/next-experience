@@ -7,11 +7,11 @@ import { Card, CardBody } from "@nextui-org/react";
 import { useModal } from "@/features/shared/hooks/useModal";
 
 export const DeleteItem: React.FC = () => {
-    const { DeleteIcon, IconAlert, IconSuccess } = icons();
+    const { DeleteIcon, IconAlert } = icons();
     const { showModal, handleModal } = useModal();
 
     return (
-        <>
+      
             <div className={style.container} >
                 <Button isIconOnly className={style.btnDelete} onClick={handleModal}>
                     <Image src={DeleteIcon.src} width={100} height={100} alt={"delete"} />
@@ -36,7 +36,7 @@ export const DeleteItem: React.FC = () => {
 
             </div>
 
-        </>
+        
     )
 
 
