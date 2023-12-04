@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { IModal } from '@/features/items/interfaces/IModal';
 import { modalSchema } from '../../../items/validations/modalSchema';
 import style from './modal.module.css'
@@ -8,7 +8,6 @@ import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { modalData } from '../../../items/constants/modalData';
 import Image from 'next/image';
 import { icons } from '@/features/shared/hooks/icons';
-import {createItem} from "@/features/items/actions/ItemAction";
 
 interface IProps{
     onSubmit?: ()=> void;
@@ -22,8 +21,6 @@ export const ModalComponent: React.FC<IProps> = ({ onSubmit , subtitle , textBtn
         resolver: yupResolver(modalSchema),
     })
     const { IconInformation } = icons();
-
-
 
     return (
         <div className={style.containerModal} >
