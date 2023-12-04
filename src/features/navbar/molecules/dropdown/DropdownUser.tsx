@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import Image from "next/image";
 import style from './dropdownUser.module.css'
+import { handleSignOut } from "@/features/auth/actions/SingOutAction";
 
 interface IProps {
     dataPerfil: {
@@ -63,9 +64,10 @@ export const DropdownUser: React.FC<IProps> = (props) => {
                         )
 
                     }
-                    <div className={style.logOut}>
+                    <button className={style.logOut} onClick={handleSignOut}>
                         <Image src={props.dataLogin.icon} alt='LogOut' />
-                    </div>
+                      
+                    </button>
                 </div>
 
 

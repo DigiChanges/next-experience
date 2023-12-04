@@ -23,7 +23,7 @@
 }
 
 .perfil{
-    @apply   bg-selectecItem rounded relative
+    @apply   bg-selectedItem  rounded relative
 }
  .perfil .perfilSections{
     @apply mx-2 py-2 items-center
