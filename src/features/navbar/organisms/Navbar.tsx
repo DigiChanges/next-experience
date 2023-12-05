@@ -48,6 +48,7 @@ export const Navbar: React.FC = () => {
           />
         </div>
 
+
         <ul>
           <span className={style.lineOne}></span>
           {
