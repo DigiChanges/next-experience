@@ -34,7 +34,9 @@
     @apply bg-success p-2 rounded-md text-secondary
 }
 
-
+.btnClose{
+    @apply flex justify-end mr-6
+}
 .close {
     @apply bg-warning p-2 m-0 rounded-md !important
 }
@@ -53,17 +55,17 @@
 }
 @screen xl{
 
-.subContainer {
-    @apply w-[450px] 
-}
-.subTitle {
-    @apply text-[20px] !important
-}
+    .subContainer {
+        @apply w-[450px]
+    }
+    .subTitle {
+        @apply text-[20px] !important
+    }
 }
 
 @screen 2xl{
     .subContainer {
-        @apply w-[550px] 
+        @apply w-[550px]
     }
     .subTitle {
         @apply text-[26px] !important
@@ -71,5 +73,5 @@
     .modal {
         @apply  py-8
     }
-    
+
 }

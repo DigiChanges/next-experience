@@ -1,18 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 
-export const useOpen = () =>{
+export const useOpen = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+  const handleIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
-    const handleIsOpen = () => {
-        setIsOpen(!isOpen)
-    }
-
-    return{
-        handleIsOpen,
-        isOpen
-    }
-
-
-}
+  return {
+    handleIsOpen,
+    isOpen
+  };
+};

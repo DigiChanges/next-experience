@@ -1,10 +1,11 @@
-'use client'
-import { RegisterForm} from '../organisms/register/RegisterForm';
-export const RegisterTemplate = () => {
+'use client';
+import React from 'react';
+import { RegisterForm } from '../organisms/register/RegisterForm';
 
-    return(
-        <div >
-           <RegisterForm/>
-        </div>
-    )
-}
+export const RegisterTemplate: React.FC = () => {
+  return (
+    <div >
+      <RegisterForm/>
+    </div>
+  );
+};

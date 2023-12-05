@@ -1,10 +1,9 @@
-'use client'
+import React from 'react';
 import { LoginForm } from '../organisms/login/LoginForm';
-export const LoginTemplate = () => {
-
-    return(
-        <div >
-            <LoginForm/>
-        </div>
-    )
-}
+export const LoginTemplate: React.FC = () => {
+  return (
+    <div >
+      <LoginForm/>
+    </div>
+  );
+};

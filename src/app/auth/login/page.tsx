@@ -1,11 +1,11 @@
-import Layout from "@/layout/Layout";
-import {LoginTemplate} from "@/features/auth/login/template/LoginTemplate";
+import React from 'react';
+import Layout from '@/layout/Layout';
+import { LoginTemplate } from '@/features/auth/login/template/LoginTemplate';
 
-export default function Page()
-{
-    return (
-        <Layout>
-           <LoginTemplate/>
-        </Layout>
-    )
+export default function Page() {
+  return (
+    <Layout>
+      <LoginTemplate/>
+    </Layout>
+  );
 }

@@ -1,17 +1,18 @@
 
 export interface ItemsResponse {
-
-    id: string;
-    name: string;
-    type: number;
-    createdAt: number;
-    updatedAt: number;
+    data: {
+        id: string;
+        name: string;
+        type: number;
+        createdAt: number;
+        updatedAt: number;
+    }
 }
 
-export interface item
+export interface Item
 {
     name: string;
     type: number;
 }
 
-export interface ItemPayload extends item {}
+export interface ItemPayload extends Item {}

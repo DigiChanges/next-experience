@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
-import {Poppins} from 'next/font/google'
-import './globals.css'
-import React from "react";
+import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import './globals.css';
+import React from 'react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -12,21 +12,21 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Star Wars Web App',
-  description: 'Simple Star Wars Web',
-}
+  description: 'Simple Star Wars Web'
+};
 
 export default function RootLayout({
-                                     children,
-                                   }: {
+  children
+}: {
   children: React.ReactNode
 }) {
   return (
-      <html lang="en">
+    <html lang="en">
       <body className={poppins.variable}>
 
         {children}
 
       </body>
-      </html>
-  )
+    </html>
+  );
 }
