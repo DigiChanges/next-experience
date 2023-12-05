@@ -47,7 +47,6 @@ export const Navbar = () => {
                                   handleDropdownUser={handleDropdownUser}
                     />
                 </div>
-
                 <ul>
                     <span className={style.lineOne}></span>
                     {
