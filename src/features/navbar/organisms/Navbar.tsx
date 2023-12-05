@@ -47,8 +47,6 @@ export const Navbar: React.FC = () => {
             handleDropdownUser={handleDropdownUser}
           />
         </div>
-
-
         <ul>
           <span className={style.lineOne}></span>
           {

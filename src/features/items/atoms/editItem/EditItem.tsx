@@ -21,7 +21,7 @@ export const EditItem: React.FC<IProps> = ({ id }) => {
     const test = data;
     // await updateItem({ id: data.id, data});
     handleIsOpen();
-    return test
+    return test;
   };
 
   const handleGetOne = async(id: string) => {
