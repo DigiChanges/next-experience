@@ -5,6 +5,15 @@ const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: ["./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    borderWidth: {
+      DEFAULT: '1px',
+      '0': '0',
+      '1': '0.5px',
+      '2': '2px',
+      '4': '4px',
+      '6': '6px',
+      '8': '8px',
+    },
     screens: {
       'sm':'640px',
       'md': '768px',

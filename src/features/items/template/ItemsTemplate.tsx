@@ -1,12 +1,14 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { List } from '@/features/items/organisms/List';
-import { LoaderStarsWars } from '@/features/shared/atoms/loader/LoaderStarsWars';
+import {  getItems } from '@/features/items/actions/ItemAction';
 
+export const ItemsTemplate: () => Promise<React.JSX.Element>  = async() =>  {
+  const { data } = await getItems();
 
-export const ItemsTemplate: React.FC = () => {
   return (
-    <Suspense fallback={ <LoaderStarsWars/>}>
-      <List />
-    </Suspense>
+    <List
+      items={data}
+    />
+
   );
 };

@@ -1,12 +1,10 @@
 
 export interface ItemsResponse {
-    data: {
-        id: string;
-        name: string;
-        type: number;
-        createdAt: number;
-        updatedAt: number;
-    }
+    id: string;
+    name: string;
+    type: number;
+    createdAt: number;
+    updatedAt: number;
 }
 
 export interface Item

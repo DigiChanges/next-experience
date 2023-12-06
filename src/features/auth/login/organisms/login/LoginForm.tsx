@@ -32,7 +32,7 @@ export const LoginForm: React.FC = () => {
     <div className={style.container}>
 
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
-        <div className={style.containerInputs}>
+        <div >
           <InputForm errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input} />
           <InputForm errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input} />
         </div>

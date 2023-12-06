@@ -1,0 +1,63 @@
+.container{
+    @apply h-screen w-[50%] mx-auto
+}
+.subTitle{
+    @apply flex justify-center items-center justify-around
+}
+.subTitle h2{
+  @apply   font-medium text-white text-2xl
+}
+.form {
+    @apply p-4
+}
+
+.inputBlock {
+    @apply p-2
+}
+
+.inputBlock input {
+    @apply  w-full p-2 bg-secondary border-1 border-grayLight rounded-lg mt-2 text-grayLight
+}
+
+.btnAdd {
+    @apply  p-2
+}
+.containerBtn{
+    @apply flex
+}
+
+.addItem {
+    @apply bg-success p-2 rounded-md text-secondary
+}
+
+.btnClose{
+    @apply flex justify-end mr-6 p-2 text-white
+}
+.close {
+    @apply bg-warning p-2 m-0 rounded-md !important
+}
+
+
+
+@screen lg {
+
+    .subTitle {
+        @apply text-[14px] !important
+    }
+}
+@screen xl{
+
+
+    .subTitle {
+        @apply text-[20px] !important
+    }
+}
+
+@screen 2xl{
+
+    .subTitle {
+        @apply text-[26px] !important
+    }
+
+
+}
