@@ -18,12 +18,13 @@ export const LoginForm: React.FC = () => {
     resolver: yupResolver(loginSchema)
   });
 
+
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     setLoading(true);
     await handleSignIn(data);
+    reset();
     setLoading(false);
   });
-
   return (
     <div className={style.container}>
       <form className={style.form} onSubmit={(data) => onSubmit(data)} >
