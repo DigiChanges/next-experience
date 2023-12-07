@@ -12,7 +12,7 @@ export const handleSignUp = async({ username, password } : ILoginForm) => {
     email: username,
     password,
     options: {
-      emailRedirectTo: `${location.origin}/auth/callback`
+      emailRedirectTo: `${location.origin}/api/auth/callback`
     }
   });
 };
