@@ -8,7 +8,7 @@
     @apply flex justify-center items-center justify-around mt-8
 }
 .subTitle h2{
-  @apply   font-medium text-white text-xl
+    @apply   font-medium text-white text-xl
 }
 .subTitle img{
     @apply w-[36px]

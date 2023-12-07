@@ -46,8 +46,10 @@ export const updateItem = async({ id, data } : PayloadProps<ItemPayload>)  => {
     method: 'PUT',
     data
   };
+  await HttpService.request<ItemsResponse>(config);
 
-  return HttpService.request<ItemsResponse>(config);
+  revalidatePath('/items');
+  redirect('/items');
 };
 
 export const getOne = async({ id }: PayloadProps) => {

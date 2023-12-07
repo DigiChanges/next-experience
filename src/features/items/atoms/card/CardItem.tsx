@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, CardFooter } from '@nextui-org/react';
 import style from './card.module.css';
-import { DeleteItem } from '../deleteItem/DeleteItem';
-import { EditItem } from '../editItem/EditItem';
+import { DeleteItemBtn } from '../deleteItem/DeleteItemBtn';
+import { EditItemBtn } from '../editItem/EditItemBtn';
 
 interface CardItemProps
 {
@@ -22,10 +22,10 @@ export const CardItem: React.FC<CardItemProps> = ({ type, name, id }) => {
         <h2 className={style.name}>{name}</h2>
       </div>
       <CardFooter className={style.cardFooter}>
-        <DeleteItem
+        <DeleteItemBtn
           id={id}/>
         <div>
-          <EditItem id={id} />
+          <EditItemBtn id={id} />
         </div>
       </CardFooter>
     </Card>

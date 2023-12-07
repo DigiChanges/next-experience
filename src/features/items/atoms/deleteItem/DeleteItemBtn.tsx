@@ -11,7 +11,7 @@ interface IProps {
     id: string;
 }
 
-export const DeleteItem: React.FC<IProps> = (props) => {
+export const DeleteItemBtn: React.FC<IProps> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
   const handleDelete = async(id: string) => {

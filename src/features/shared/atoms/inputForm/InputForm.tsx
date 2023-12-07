@@ -18,7 +18,6 @@ interface IProps {
 
 
 export const InputForm: React.FC<IProps> = ({
-  value,
   type,
   name,
   register,
@@ -32,7 +31,7 @@ export const InputForm: React.FC<IProps> = ({
   return (
     <div className={className}>
       <label htmlFor={id}>{label}</label>
-      <input {...register(name)} type={type} name={name} id={id} placeholder={placeholder} value={value ? value : ''}/>
+      <input {...register(name)} type={type} name={name} id={id} placeholder={placeholder} />
       {error && <p>{error.message as string}</p>}
     </div>
   );

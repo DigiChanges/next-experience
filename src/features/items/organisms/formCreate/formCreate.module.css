@@ -1,0 +1,30 @@
+.line{
+    @apply  h-1 border-t border-grayLight block mx-2 my-6
+}
+
+.inputBlock {
+    @apply p-2
+}
+
+.inputBlock input {
+    @apply  w-full p-2 bg-secondary border-1 border-grayLight rounded-lg mt-2 text-grayLight
+}
+
+.btnAdd {
+    @apply  p-2
+}
+.containerBtn{
+    @apply flex justify-end
+}
+
+.addItem {
+    @apply bg-success p-2 rounded-md text-secondary
+}
+
+.btnClose{
+    @apply flex justify-end mr-6 p-2 text-white
+}
+.close {
+    @apply bg-warning p-2 m-0 rounded-md !important
+}
+

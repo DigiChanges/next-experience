@@ -6,7 +6,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 
 
-export const AddItem: React.FC = () => {
+export const AddItemBtn: React.FC = () => {
   const { IconAdd } = icons();
 
 
