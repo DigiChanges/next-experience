@@ -20,18 +20,13 @@ export const LoginForm: React.FC = () => {
     resolver: yupResolver(loginSchema)
   });
 
+  const authAction = '/api/auth/sign-in';
 
-  const onSubmit = handleSubmit(async(data: ILoginForm) => {
-    setLoading(true);
-    await handleSignIn(data);
-    reset();
-    setLoading(false);
-  });
   return (
 
     <div className={style.container}>
 
-      <form className={style.form} onSubmit={(data) => onSubmit(data)}>
+      <form className={style.form} action={authAction} method="post">
         <div >
           <InputForm<ILoginForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input} />
           <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input} />
