@@ -1,10 +1,9 @@
 'use client';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './navbar.module.css';
 import Image from 'next/image';
 import { dataClose, dataLogin, dataNav, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';

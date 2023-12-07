@@ -18,4 +18,4 @@ export const List: React.FC<IProps> = ({ items }) => {
       </div>
     </section>
   );
-}
+};

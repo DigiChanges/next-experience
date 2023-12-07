@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
-import { Button, Image } from '@nextui-org/react';
+import {Button, Card, Image, CardBody} from '@nextui-org/react';
 import style from './deleteItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
-import { Card, CardBody } from '@nextui-org/react';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 

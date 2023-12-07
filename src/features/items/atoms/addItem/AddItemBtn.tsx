@@ -11,16 +11,16 @@ export const AddItemBtn: React.FC = () => {
 
 
   return (
-      <div className={style.container} >
-        <Link href={'items/create'}>
-          <Button
-            radius='full'
-            isIconOnly color='success'
-            aria-label='Like'
-          >
-            <Image src={IconAdd.src} width={100} height={100} alt={'add item'} className={style.btn}/>
-          </Button>
-        </Link>
-      </div>
+    <div className={style.container} >
+      <Link href={'items/create'}>
+        <Button
+          radius='full'
+          isIconOnly color='success'
+          aria-label='Like'
+        >
+          <Image src={IconAdd.src} width={100} height={100} alt={'add item'} className={style.btn}/>
+        </Button>
+      </Link>
+    </div>
   );
 };
