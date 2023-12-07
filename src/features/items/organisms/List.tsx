@@ -7,7 +7,7 @@ import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 interface IProps {
     items: ItemsResponse[]
 }
-export function List({ items }: IProps) {
+export const List: React.FC<IProps> = ({ items }) => {
   return (
     <section>
       <AddItemBtn />

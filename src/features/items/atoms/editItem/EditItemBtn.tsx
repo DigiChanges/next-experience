@@ -13,13 +13,10 @@ export const EditItemBtn: React.FC<IProps> = ({ id }) => {
   const { EditIcon } = icons();
 
   return (
-    <>
       <Link href={`items/update?id=${id}`}>
         <Button isIconOnly className={style.btnEdit}>
           <Image src={EditIcon.src} width={100} height={100} alt={'edit'} />
         </Button>
       </Link>
-
-    </>
   );
 };

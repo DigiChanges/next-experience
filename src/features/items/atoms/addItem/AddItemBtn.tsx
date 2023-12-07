@@ -11,7 +11,6 @@ export const AddItemBtn: React.FC = () => {
 
 
   return (
-    <>
       <div className={style.container} >
         <Link href={'items/create'}>
           <Button
@@ -23,7 +22,5 @@ export const AddItemBtn: React.FC = () => {
           </Button>
         </Link>
       </div>
-
-    </>
   );
 };

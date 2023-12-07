@@ -4,9 +4,9 @@ import { UpdateItemTemplate } from '@/features/items/template/update/UpdateItemT
 import { LoaderStarsWars } from '@/features/shared/atoms/loader/LoaderStarsWars';
 
 type Props = {
-    searchParams: { [key: string]: string };
+    searchParams: { readonly [key: string]: string };
 };
-export default function Page(props: Props) {
+export default function Page(props: Readonly<Props>) {
   const { id } = props.searchParams;
 
   return (
