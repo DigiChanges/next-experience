@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './navbar.module.css';
 import Image from 'next/image';
 import { dataClose, dataLogin, dataNav, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';

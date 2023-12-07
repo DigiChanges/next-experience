@@ -3,7 +3,7 @@ import { StaticImageData } from 'next/image';
 import React from 'react';
 import Image from 'next/image';
 import style from './dropdownUser.module.css';
-import { handleSignOut } from '@/features/auth/actions/SingOutAction';
+import { handleSignOut } from '@/features/auth/shared/actions/SingOutAction';
 
 interface IProps {
     dataPerfil: {

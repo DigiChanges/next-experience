@@ -10,7 +10,7 @@ import { FormUpdate } from '@/features/items/organisms/formUpdate/FormUpdate';
 interface IProps{
     id: string;
 }
-export const UpdateItemTemplate = async ({ id }: IProps) => {
+export const UpdateItemTemplate = async({ id }: IProps) => {
   const { data } = await getOne({ id });
   const updateAction = async(data: ItemPayload) => {
     'use server';
@@ -28,4 +28,4 @@ export const UpdateItemTemplate = async ({ id }: IProps) => {
       </div>
     </div>
   );
-}
+};
