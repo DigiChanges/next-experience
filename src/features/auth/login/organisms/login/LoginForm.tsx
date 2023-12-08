@@ -14,17 +14,17 @@ import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
+
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });
-
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     setLoading(true);
     await handleSignIn(data);
-    reset();
     setLoading(false);
   });
+
   return (
     <div className={style.container}>
       <form className={style.form} onSubmit={(data) => onSubmit(data)} >
