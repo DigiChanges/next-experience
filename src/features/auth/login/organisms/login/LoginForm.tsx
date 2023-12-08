@@ -23,7 +23,7 @@ export const LoginForm: React.FC = () => {
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     await  toast.promise(handleSignIn(data), {
       error: 'Oops, something went wrong',
-      success: 'Welcome to next expiration',
+      success: 'Welcome to next experience',
       pending:'Loading your data...'
     });
   });

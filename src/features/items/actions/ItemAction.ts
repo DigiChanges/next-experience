@@ -49,7 +49,7 @@ export const updateItem = async({ id, data } : PayloadProps<ItemPayload>)  => {
   await HttpService.request<ItemsResponse>(config);
 
   revalidatePath('/items');
-  redirect('/items');
+  // redirect('/items');
 };
 
 export const getOne = async({ id }: PayloadProps) => {

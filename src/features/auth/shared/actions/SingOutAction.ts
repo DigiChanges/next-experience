@@ -1,14 +1,15 @@
 
-import { Database } from '@/features/shared/interfaces/database';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { Database } from '@/features/shared/interfaces/database';
 import { toast } from 'react-toastify';
 
-const supabase = createClientComponentClient<Database>();
 
 export const handleSignOut = async() => {
+  const supabase = createClientComponentClient<Database>();
+
   await  toast.promise(supabase.auth.signOut(), {
     error: 'Oops, something went wrong',
-    success: 'See you soonn',
-    pending:'Leaving next experience...'
+    success: 'The item was updated correctly',
+    pending:'Updating item...'
   });
 };

@@ -12,7 +12,9 @@ export const handleSignIn = async(data : ILoginForm) => {
     email: data.username,
     password: data.password
   });
-
+  if (error){
+    throw new Error('Authentication failed');
+  }
   if (!error) {
     return redirect('/', RedirectType.push);
   }
