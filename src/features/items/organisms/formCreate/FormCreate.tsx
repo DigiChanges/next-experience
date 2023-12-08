@@ -7,18 +7,25 @@ import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+import { createItem } from '@/features/items/actions/ItemAction';
 
-interface IForm{
 
-    action: (data: ItemPayload, id?: string) => Promise<void>;
-
-}
-export const FormCreate: React.FC<IForm> = ({  action }) => {
+export const FormCreate: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     resolver: yupResolver(modalSchema)
   });
+  const createAction = async(data: ItemPayload) => {
+    await  toast.promise(createItem({ data }), {
+      error: 'Oops, something went wrong',
+      success: 'The item was created correctly',
+      pending:'Creating the new item...'
+    });
+  };
+
+
   return (
-    <form onSubmit={handleSubmit(async(data) => { await action(data); })}>
+    <form onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}

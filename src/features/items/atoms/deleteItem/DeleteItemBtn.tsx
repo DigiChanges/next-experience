@@ -5,6 +5,7 @@ import style from './deleteItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
+import { toast } from 'react-toastify';
 
 interface IProps {
     id: string;
@@ -14,7 +15,11 @@ export const DeleteItemBtn: React.FC<IProps> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
   const handleDelete = async(id: string) => {
-    await deleteItem({ id });
+    await  toast.promise(deleteItem({ id }), {
+      error: 'Oops, something went wrong',
+      success: 'The item was deleted correctly',
+      pending:'Deleting item...'
+    });
     handleIsOpen();
   };
 

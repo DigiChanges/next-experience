@@ -7,3 +7,6 @@
         @apply ml-[75px]
     }
 }
+.bgAlert{
+    @apply bg-bgCards
+}

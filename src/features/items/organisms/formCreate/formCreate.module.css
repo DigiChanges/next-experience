@@ -10,6 +10,10 @@
     @apply  w-full p-2 bg-secondary border-1 border-grayLight rounded-lg mt-2 text-grayLight
 }
 
+.inputBlock p {
+    @apply text-white pt-2
+}
+
 .btnAdd {
     @apply  p-2
 }

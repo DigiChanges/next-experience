@@ -10,6 +10,7 @@ import { loginSchema } from '../../validations/loginSchema';
 import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
+import {  toast } from 'react-toastify';
 
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
@@ -20,9 +21,11 @@ export const LoginForm: React.FC = () => {
   });
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
-    setLoading(true);
-    await handleSignIn(data);
-    setLoading(false);
+    await  toast.promise(handleSignIn(data), {
+      error: 'Oops, something went wrong',
+      success: 'Welcome to next expiration',
+      pending:'Loading your data...'
+    });
   });
 
   return (

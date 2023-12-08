@@ -7,12 +7,14 @@ import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
+import { updateItem } from '@/features/items/actions/ItemAction';
+import { toast } from 'react-toastify';
 
-interface IForm{
-    action: (data: ItemPayload, id?: string) => Promise<void>;
-    data: ItemPayload;
+interface IProps{
+    id: string;
+    data:{ name: string, type: number}
 }
-export const FormUpdate: React.FC<IForm> = ({ action, data }) => {
+export const FormUpdate: React.FC<IProps> = ({ id, data }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
@@ -21,8 +23,15 @@ export const FormUpdate: React.FC<IForm> = ({ action, data }) => {
     resolver: yupResolver(modalSchema)
   });
 
+  const updateAction = async(data: ItemPayload) => {
+    await  toast.promise(updateItem({ id, data }), {
+      error: 'Oops, something went wrong',
+      success: 'The item was updated correctly',
+      pending:'Updating item...'
+    });
+  };
   return (
-    <form  onSubmit={handleSubmit(async(data) => { await action(data); })}>
+    <form  onSubmit={handleSubmit(async(data) => { await updateAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -44,7 +53,7 @@ export const FormUpdate: React.FC<IForm> = ({ action, data }) => {
       </div>
       <div className={style.containerBtn}>
         <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>Add item</button>
+          <button type="submit" className={style.addItem}>Update item</button>
         </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
