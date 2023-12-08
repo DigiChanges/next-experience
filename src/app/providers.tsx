@@ -10,7 +10,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <main className="dark">
         {children}
       </main>
-
     </NextUIProvider>
   );
 }

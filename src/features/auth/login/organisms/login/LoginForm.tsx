@@ -15,17 +15,19 @@ import {  toast } from 'react-toastify';
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const [loading, setLoading] = useState(false);
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ILoginForm>({
+  const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
+    setLoading(true);
     await  toast.promise(handleSignIn(data), {
       error: 'Oops, something went wrong',
       success: 'Welcome to next experience',
       pending:'Loading your data...'
     });
+    reset();
+    setLoading(false);
   });
 
   return (

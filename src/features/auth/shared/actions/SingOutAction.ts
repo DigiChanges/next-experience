@@ -9,7 +9,7 @@ export const handleSignOut = async() => {
 
   await  toast.promise(supabase.auth.signOut(), {
     error: 'Oops, something went wrong',
-    success: 'The item was updated correctly',
-    pending:'Updating item...'
+    success: 'Successful logout',
+    pending:'See you soon...'
   });
 };

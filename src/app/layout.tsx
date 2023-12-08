@@ -3,6 +3,9 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import React from 'react';
 
+import { Providers } from '@/app/providers';
+import Layout from '@/layout/Layout';
+
 const poppins = Poppins({
   subsets: ['latin'],
   style: 'normal',
@@ -24,8 +27,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.variable}>
 
-        {children}
-
+        <Providers>
+          <Layout>
+            {children}
+          </Layout>
+        </Providers>
       </body>
     </html>
   );
