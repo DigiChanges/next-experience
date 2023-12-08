@@ -1,16 +1,20 @@
-'use client';
-import { Database } from '@/features/shared/interfaces/database';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+'use server';
 import { ILoginForm } from '../interfaces/IloginForm';
+import { cookies } from 'next/headers';
+import { createClient } from '@/lib/server/server';
+import { redirect, RedirectType } from 'next/navigation';
 
+export const handleSignIn = async(data : ILoginForm) => {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
 
-const supabase = createClientComponentClient<Database>();
-
-
-export const handleSignIn = async({ username, password } : ILoginForm) => {
-  await supabase.auth.signInWithPassword({
-    email: username,
-    password
+  const { error } = await supabase.auth.signInWithPassword({
+    email: data.username,
+    password: data.password
   });
+
+  if (!error) {
+    return redirect('/', RedirectType.push);
+  }
 };
 

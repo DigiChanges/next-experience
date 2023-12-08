@@ -5,8 +5,7 @@ import { Providers } from '@/app/providers';
 
 interface LayoutProps
 {
-    children: React.ReactNode,
-
+    children: React.ReactNode
 }
 
 const Layout = (props: LayoutProps) => {

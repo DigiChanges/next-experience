@@ -17,7 +17,6 @@ export async function middleware(req: NextRequest) {
     // Authentication not successful, redirect to home page.
     const redirectUrl = req.nextUrl.clone();
     redirectUrl.pathname = '/auth/login';
-    redirectUrl.searchParams.set('redirectedFrom', req.nextUrl.pathname);
     return NextResponse.redirect(redirectUrl);
   }
 
@@ -26,5 +25,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/items']
+  matcher: ['/items', '/']
 };
