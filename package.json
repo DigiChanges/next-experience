@@ -5,6 +5,7 @@
   "scripts": {
     "start": "next start",
     "dev": "next dev",
+    "dev:turbo": "next dev --turbo",
     "build": "next build",
     "lint": "next lint",
     "pre-commit": "lint-staged",
