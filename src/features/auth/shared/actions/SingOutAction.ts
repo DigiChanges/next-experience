@@ -1,7 +1,7 @@
-"use server"
-import {cookies} from "next/headers";
-import {createClient} from "@/lib/server/server";
-import {redirect, RedirectType} from "next/navigation";
+'use server';
+import { cookies } from 'next/headers';
+import { createClient } from '@/lib/server/server';
+import { redirect, RedirectType } from 'next/navigation';
 
 export const handleSignOut = async() => {
   const cookieStore = cookies();
@@ -9,8 +9,7 @@ export const handleSignOut = async() => {
 
   const { error } = await supabase.auth.signOut();
 
-  if(error)
-  {
+  if (error) {
     throw new Error('Error at logout');
   }
 
