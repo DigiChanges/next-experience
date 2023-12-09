@@ -20,7 +20,7 @@ export const FormCreate: React.FC<IForm> = ({  action }) => {
   return (
     <form onSubmit={handleSubmit(async(data) => { await action(data); })}>
       <div>
-        <InputForm
+        <InputForm<Item>
           type={'text'}
           name={'name'}
           register={register}
@@ -29,7 +29,7 @@ export const FormCreate: React.FC<IForm> = ({  action }) => {
           className={style.inputBlock}
         />
 
-        <InputForm
+        <InputForm<Item>
           type={'number'}
           name={'type'}
           register={register}

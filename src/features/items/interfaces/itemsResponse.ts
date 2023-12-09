@@ -7,7 +7,7 @@ export interface ItemsResponse {
     updatedAt: number;
 }
 
-export interface Item
+export type Item =
 {
     name: string;
     type: number;

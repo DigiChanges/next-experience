@@ -33,8 +33,8 @@ export const LoginForm: React.FC = () => {
 
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
         <div >
-          <InputForm errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input} />
-          <InputForm errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input} />
+          <InputForm<ILoginForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input} />
+          <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input} />
         </div>
         <ButtonAuth alt={'icon next experience'} descriptionInactive={'Loggin In...'} descriptionActive={'Sing In'} disable={loading} img={IconRocket.src} />
         <div className={style.containerRegister}>

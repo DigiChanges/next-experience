@@ -28,9 +28,9 @@ export const RegisterForm: React.FC = () => {
     <div className={style.container}>
       <form  className={style.form}  onSubmit={(data) => onSubmit(data)}>
         <div className={style.containerInputs}>
-          <InputForm errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input}/>
-          <InputForm errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input}/>
-          <InputForm errors={errors} id={'confirmPassword'} name={'confirmPassword'} register={register} type={'password'} label={'Confirm Password'} className={style.input}/>
+          <InputForm<IRegisterForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input}/>
+          <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input}/>
+          <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'} register={register} type={'password'} label={'Confirm Password'} className={style.input}/>
         </div>
         <ButtonAuth alt={'icon next experience'} descriptionActive={'Confirm!'} descriptionInactive={'Confirming...'} disable={loading} img={IconRocket.src}/>
         <div className={style.containerRegister}>

@@ -1,23 +1,19 @@
 import React from 'react';
-import {
-  UseFormRegister,
-  FieldErrors
-} from 'react-hook-form';
+import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
-interface IProps {
+interface FormInputProps<TFormValues extends FieldValues>  {
     type: 'text' | 'number' | 'email' | 'password';
-    name: string; // Usa keyof T para garantizar que el nombre sea una clave válida de T
+    name: Path<TFormValues>
     label?: string;
-    register: UseFormRegister<any>;
-    errors: FieldErrors<any>;
+    register: UseFormRegister<TFormValues>;
+    errors: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     className?: string;
     placeholder?: string;
     value?: string | number;
 }
 
-
-export const InputForm: React.FC<IProps> = ({
+export const InputForm = <TFormValues extends Record<string, unknown>>({
   type,
   name,
   register,
@@ -26,7 +22,7 @@ export const InputForm: React.FC<IProps> = ({
   className,
   label,
   placeholder
-}) => {
+}: FormInputProps<TFormValues>) => {
   const error = errors[name];
   return (
     <div className={className}>
