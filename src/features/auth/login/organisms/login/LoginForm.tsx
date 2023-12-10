@@ -11,27 +11,22 @@ import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 
-
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const [loading, setLoading] = useState(false);
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ILoginForm>({
+  const { register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });
-
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     setLoading(true);
     await handleSignIn(data);
-    reset();
     setLoading(false);
   });
+
   return (
-
     <div className={style.container}>
-
-      <form className={style.form} onSubmit={(data) => onSubmit(data)}>
+      <form className={style.form} onSubmit={(data) => onSubmit(data)} >
         <div >
           <InputForm<ILoginForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={'Username'} className={style.input} />
           <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input} />
