@@ -9,6 +9,7 @@ import style from './register.module.css';
 import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
+import { toast } from 'react-toastify';
 
 export const RegisterForm: React.FC = () => {
   const { IconRocket } = icons();
@@ -19,7 +20,11 @@ export const RegisterForm: React.FC = () => {
   });
   const onSubmit = handleSubmit(async(data: IRegisterForm) => {
     setLoading(true);
-    await handleSignUp(data);
+    await  toast.promise(handleSignUp(data), {
+      error: 'Oops, something went wrong',
+      success: 'Welcome to next experience',
+      pending:'Registering your data...'
+    });
     reset();
     setLoading(false);
   });

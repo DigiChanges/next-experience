@@ -10,17 +10,23 @@ import { loginSchema } from '../../validations/loginSchema';
 import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
+import {  toast } from 'react-toastify';
 
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
+  const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     setLoading(true);
-    await handleSignIn(data);
+    await  toast.promise(handleSignIn(data), {
+      error: 'Oops, something went wrong',
+      success: 'Welcome to next experience',
+      pending:'Loading your data...'
+    });
+    reset();
     setLoading(false);
   });
 

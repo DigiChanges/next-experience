@@ -1,10 +1,17 @@
-// 'use client'
-import { Database } from '@/features/shared/interfaces/database';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-
-
-const supabase = createClientComponentClient<Database>();
+'use server';
+import { cookies } from 'next/headers';
+import { createClient } from '@/lib/server/server';
+import { redirect, RedirectType } from 'next/navigation';
 
 export const handleSignOut = async() => {
-  await supabase.auth.signOut();
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    throw new Error('Error at logout');
+  }
+
+  redirect('/auth/login', RedirectType.push);
 };
