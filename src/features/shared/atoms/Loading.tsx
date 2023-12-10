@@ -1,8 +1,9 @@
+import React from 'react';
 import Image from 'next/image';
-import loading from "../../../../public/loading.png";
-import "./Loading.css";
+import loading from '../../../../public/loading.png';
+import './Loading.css';
 
-const Loading = () => {
+const Loading: React.FC = () => {
   return (
     <div className="container_loading">
       <div className="line_one" />

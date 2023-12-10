@@ -1,25 +1,21 @@
-import { IItemApiResponse } from "@/features/items/models";
-import React from "react";
-import { CardItem } from "@/features/items/atoms/card/CardItem";
+import React from 'react';
+import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
-import { AddItem } from "../atoms/addItem/AddItem";
-import { getData } from "@/features/shared/actions/getData";
+import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
+import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 
-
-export const List: () => Promise<React.JSX.Element>  = async() => {
-
-  const  data = await getData<IItemApiResponse[]>('api/items')
-
-    return (
-            <section>
-                    <div>
-                        <AddItem />
-                    </div>
-                    <div className={style.cards}>
-                        {data.map((item: IItemApiResponse) => (
-                            <CardItem key={item.id} name={item.name} type={item.type} />
-                        ))}
-                    </div>
-            </section>
-    );
+interface IProps {
+    items: ItemsResponse[]
+}
+export const List: React.FC<IProps> = ({ items }) => {
+  return (
+    <section>
+      <AddItemBtn />
+      <div className={style.cards}>
+        {items.map((item) => (
+          <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
+        ))}
+      </div>
+    </section>
+  );
 };

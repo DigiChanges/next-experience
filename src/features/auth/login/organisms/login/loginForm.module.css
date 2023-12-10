@@ -1,13 +1,13 @@
 
 .container{
- @apply h-screen flex items-center px-1 justify-center 
+ @apply h-screen flex items-center px-1 justify-center
 }
 
 .form {
     @apply shadow-[0_0_10px_rgba(0,0,0,0.25)] backdrop-blur-[10px] p-2 rounded-md min-h-[300px] flex flex-col justify-around max-w-[250px];
     background: rgba(255, 255, 255, 0.05);
   }
-  
+
 .input{
  @apply px-[16px] text-white my-2
 }
@@ -27,14 +27,14 @@
 @screen md{
     .form {
         @apply max-w-[300px] min-h-[350px];
-       
-      }          
+
+      }
 }
 @screen lg{
     .form {
         @apply max-w-[350px] min-h-[400px];
       }
-      
+
 }
 
 @screen 2xl{

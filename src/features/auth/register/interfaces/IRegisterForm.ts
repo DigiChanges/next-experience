@@ -1,5 +1,5 @@
-import {ILoginForm} from "@/features/auth/login/interfaces/IloginForm";
-
-export interface IRegisterForm extends ILoginForm{
+export type IRegisterForm = {
+    username: string;
+    password: string;
     confirmPassword : string
 }
