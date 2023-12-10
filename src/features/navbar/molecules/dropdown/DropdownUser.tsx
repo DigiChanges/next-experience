@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import Image , { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/SingOutAction';
@@ -40,7 +40,6 @@ export const DropdownUser: React.FC<IProps> = (props) => {
   };
 
   return (
-
     <div>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
