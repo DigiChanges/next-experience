@@ -11,11 +11,11 @@ import { updateItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 
 
-interface IProps{
+interface Props{
     id: string;
     data:{ name: string, type: number}
 }
-export const FormUpdate: React.FC<IProps> = ({ id, data }) => {
+export const FormUpdate: React.FC<Props> = ({ id, data }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,

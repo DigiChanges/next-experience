@@ -6,7 +6,7 @@ import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/SingOutAction';
 import { toast } from 'react-toastify';
 
-interface IProps {
+interface Props {
     dataPerfil: {
         icon: StaticImageData;
         description: string;
@@ -27,7 +27,7 @@ interface IProps {
     handleDropdownUser: () => void
 }
 
-export const DropdownUser: React.FC<IProps> = (props) => {
+export const DropdownUser: React.FC<Props> = (props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
 

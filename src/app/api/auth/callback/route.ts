@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import {CookieOptions, createServerClient} from "@supabase/ssr";
+import { CookieOptions, createServerClient } from '@supabase/ssr';
 
 
 export async function GET(request: NextRequest) {
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
 
     if (!error) {
       return NextResponse.redirect(
-          new URL(`/redirect/transition?next=${next}&method=code`, request.url)
+        new URL(`/redirect/transition?next=${next}&method=code`, request.url)
       );
     }
   }

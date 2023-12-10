@@ -2,7 +2,7 @@ import React from 'react';
 import style from './button.module.css';
 import Image from 'next/image';
 
-interface IProps {
+interface Props {
     descriptionActive: string;
     descriptionInactive: string
     disable: boolean;
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 
-export const ButtonAuth: React.FC<IProps> = (props) => {
+export const ButtonAuth: React.FC<Props> = (props) => {
   return (
     <button className={style.btn} disabled={props.disable}>
       {

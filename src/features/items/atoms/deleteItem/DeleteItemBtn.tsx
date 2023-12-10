@@ -7,11 +7,11 @@ import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 
-interface IProps {
+interface Props {
     id: string;
 }
 
-export const DeleteItemBtn: React.FC<IProps> = (props) => {
+export const DeleteItemBtn: React.FC<Props> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
   const handleDelete = async(id: string) => {
