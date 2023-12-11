@@ -7,7 +7,7 @@ import { Bounce, ToastContainer } from 'react-toastify';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <NextUIProvider >
       <main className="dark">
         <ToastContainer
           autoClose={3000}

@@ -8,5 +8,5 @@
     }
 }
 .bgAlert{
-    @apply bg-bgCards
+    @apply bg-default
 }

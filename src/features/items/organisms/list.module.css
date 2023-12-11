@@ -2,6 +2,20 @@
     @apply overflow-y-auto h-screen grid grid-cols-1 gap-3 place-items-center mx-1
 }
 
+.containerAddFilter{
+    @apply flex flex-col p-2
+}
+
+.containerInput{
+    @apply flex  w-full items-center justify-center rounded-2xl  text-white  bg-default !important
+}
+.containerInput input{
+    @apply bg-default
+}
+.containerPagination{
+    @apply p-4 flex justify-end
+}
+
 @screen md {
     .cards {
         @apply grid-cols-2

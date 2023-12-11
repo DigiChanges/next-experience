@@ -1,5 +1,5 @@
 .container {
-	@apply fixed bg-secondary left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
+	@apply fixed bg-accent left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 
 .navActive {
@@ -60,7 +60,7 @@
 	@apply  cursor-default;
 }
 .container nav ul li:hover {
-	@apply bg-accent  rounded
+	@apply bg-secondary  rounded
 }
 
 .container nav ul a {

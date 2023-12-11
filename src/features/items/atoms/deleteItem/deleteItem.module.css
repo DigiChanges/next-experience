@@ -7,7 +7,7 @@
 }
 
 .containerAlert {
-    @apply text-white fixed inset-0 bg-bgCards bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
+    @apply text-white fixed inset-0 bg-default bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
 }
 .subContainer {
     @apply w-[350px] max-h-[350px] shadow-md bg-secondary py-4 rounded-md flex justify-center items-center

@@ -16,7 +16,7 @@ export default async function Page(props: Props) {
 
   const newFilter = setInitialFilterParams(params);
   setIntialPaginationParams(params);
-
+  console.log(newFilter);
   return (
     <PrivateLayout>
       <Suspense fallback={<LoaderStarsWars/>}>

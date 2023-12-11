@@ -1,5 +1,5 @@
 .container{
-    @apply w-full max-w-[350px] h-[200px] bg-bgCards
+    @apply w-full max-w-[350px] h-[200px] bg-default
 }
 .container .name{
     @apply font-bold py-2 text-lg
