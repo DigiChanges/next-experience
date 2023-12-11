@@ -8,9 +8,8 @@ class HttpService {
 
       const params: URLSearchParams = getParams(queryParams);
       const urlWithParams = `${url}?${params.toString()}`; // Params to string
-      const finalUrl = urlWithParams.replace(/%5B/g, '[').replace(/%5D/g, ']'); // Replace ASCII code to brackets
 
-      const response = await fetch(finalUrl, {
+      const response = await fetch(urlWithParams, {
         method,
         body: data ? JSON.stringify(data as T) : undefined,
         ...getDefaultHeaders()
