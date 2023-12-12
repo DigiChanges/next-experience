@@ -1,6 +1,6 @@
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { ReadonlyURLSearchParams } from 'next/navigation';
-import {usePagination} from "@/features/shared/hooks/usePagination";
+
 
 export const useFilter = () => {
   const setInitialFilterParams = (params: URLSearchParams) => {

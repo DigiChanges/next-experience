@@ -65,7 +65,8 @@ module.exports = {
           },
           white: {
             DEFAULT: "#FFFFFF"
-          }
+          },
+          
         }
       }
     }

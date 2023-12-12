@@ -1,7 +1,17 @@
 .container {
     @apply max-w-[1800px] m-auto;
 }
+.containerSelect{
+    @apply mb-6 flex w-full md:mb-0  justify-between
+}
 
+.containerInputFilter {
+    @apply w-1/2
+}
+
+.containerInput{
+    @apply w-1/2
+ }
 .cards {
     @apply overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
 }
@@ -10,12 +20,6 @@
     @apply flex flex-col p-2
 }
 
-.containerInput{
-    @apply flex  w-full items-center justify-center rounded-2xl  text-white  bg-default !important
-}
-.containerInput input{
-    @apply bg-default
-}
 .containerPagination{
     @apply p-4 flex justify-end
 }
@@ -24,6 +28,8 @@
     .cards {
         @apply grid-cols-2
     }
+  
+    
 }
 
 @screen xl {
