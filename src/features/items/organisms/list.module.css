@@ -1,5 +1,9 @@
+.container {
+    @apply max-w-[1800px] m-auto;
+}
+
 .cards {
-    @apply overflow-y-auto h-screen grid grid-cols-1 gap-3 place-items-center mx-1
+    @apply overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
 }
 
 .containerAddFilter{

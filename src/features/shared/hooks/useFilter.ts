@@ -1,5 +1,6 @@
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { ReadonlyURLSearchParams } from 'next/navigation';
+import {usePagination} from "@/features/shared/hooks/usePagination";
 
 export const useFilter = () => {
   const setInitialFilterParams = (params: URLSearchParams) => {
@@ -13,10 +14,9 @@ export const useFilter = () => {
     term: string,
     searchParams: ReadonlyURLSearchParams,
     pathname: string,
-    replace:(href: string, options?: NavigateOptions | undefined) => void
+    replace:(href: string, options?: NavigateOptions | undefined) => void,
+    params: URLSearchParams
   ) => {
-    const params = new URLSearchParams(searchParams);
-
     if (term) {
       params.set(`filter[${key}]`, term);
     } else {
