@@ -8,20 +8,20 @@
 }
 
 .listbox {
-   @apply max-w-xs bg-[#1f1f36]
+   @apply  bg-[#1f1f36]
 }
 
 
 
 /*caja de los select*/
 .popoverContent {
-   @apply max-w-xs bg-[#1f1f36]
+   @apply bg-[#1f1f36]
 }
 
 
 /*color del icon*/
 .rigger {
-   @apply max-w-xs bg-[#1f1f36]
+   @apply  bg-[#1f1f36]
 }
 
 .color {

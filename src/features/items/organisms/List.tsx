@@ -32,6 +32,9 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const [currentPage, setCurrentPage] = useState<number>(pagination.currentPage);
   const [key, setKey] = useState<string>('');
   const [term, setTerm] = useState<string>('');
+
+
+
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
 
@@ -44,6 +47,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   useEffect(() => {
     setFilterParams(key, term, searchParams, pathname, replace, params);
     setPaginationParams(currentPage, pagination, params, pathname, replace);
+
   }, [term, currentPage]);
 
   const handleFilter = () => {
@@ -52,60 +56,86 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
     if (inputElement && inputElement.value.length > 0) {
       setCurrentPage(1);
       setTerm(inputElement.value);
+
     }
+  };
+  const handleRemoveFilter = () => {
+
+
+    setFilterParams('', '', searchParams, pathname, replace, params)
+
+    setKey('');
+    setTerm('');
+
   };
 
   return (
     <section className={style.container}>
 
-      <div className={style.title}>
-        <h1>title</h1>
-        <span></span>
-      </div>
-
 
       <div className={style.containerAddFilter}>
-        <div className={style.containerSelect}>
-          <div className={style.containerInputFilter}>
-            <InputFilter data={filter} setValue={setKey} />
+
+
+        <div className={style.subcontainer}>
+
+          <div className={style.title}>
+            <h1>Section Items</h1>
+            <span></span>
           </div>
 
-          <div className={style.containerInput}>
-            <div className={style.input}>
-              <Input
-                labelPlacement={'outside'}
-                ref={inputRef}
-                label="Email"
-                classNames={{
-                  input: [
-                    'bg-default'
-                  ],
-                  inputWrapper: [
-                    'bg-default',
-
-                    'dark:hover:bg-default'
-                  ]
-                }}
-              />
-
-
+          <div className={style.containerSelect}>
+            <div className={style.containerInputFilter}>
+              <InputFilter data={filter} setValue={setKey}/>
             </div>
 
-            <Button onClick={handleFilter}>Filter</Button>
+            <div className={style.containerInput}>
+              <div className={style.input}>
+                <Input
+                    labelPlacement={'outside'}
+                    ref={inputRef}
+                    label="Email"
+                    classNames={{
+                      input: [
+                        'bg-default'
+                      ],
+                      inputWrapper: [
+                        'bg-default',
+
+                        'dark:hover:bg-default'
+                      ]
+                    }}
+                />
+
+              </div>
+              <div className={style.btn}>
+                <Button onClick={handleFilter}>Filter</Button>
+              </div>
+
+            </div>
           </div>
 
+
         </div>
-        <AddItemBtn />
+
+
+        <div className={'text-white'}>
+          <h3>Filter applied: </h3>
+
+          <button onClick={handleRemoveFilter}>Remove filter</button>
+        </div>
+
+
+        <AddItemBtn/>
 
       </div>
       <div className={style.cards}>
         {items.map((item) => (
-          <CardItem key={item.id} name={item.name} type={item.type} id={item.id} />
+            <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
       <div className={style.containerPagination}>
         <Pagination onChange={setCurrentPage} page={currentPage} total={pagination.lastPage}
-          color={'secondary'} />
+                    color={'secondary'}/>
       </div>
     </section>
   );

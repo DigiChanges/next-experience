@@ -22,7 +22,6 @@ export const useFilter = () => {
     } else {
       params.delete(`filter[${key}]`);
     }
-
     replace(`${pathname}?${params.toString()}`);
   };
 
