@@ -11,8 +11,6 @@ import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { InputFilter } from '@/features/shared/molecules/inputFilter/InputFilter';
-import { Show } from '@/features/shared/atoms/show/Show';
-
 
 interface Props {
   items: ItemsResponse[]
@@ -30,7 +28,7 @@ const filter = [
 ];
 
 export const List: React.FC<Props> = ({ items, pagination }) => {
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<any>();
   const [currentPage, setCurrentPage] = useState<number>(pagination.currentPage);
   const [key, setKey] = useState<string>('');
   const [term, setTerm] = useState<string>('');
@@ -59,20 +57,43 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
 
   return (
     <section className={style.container}>
-      <div className={style.containerAddFilter}>
 
+      <div className={style.title}>
+        <h1>title</h1>
+        <span></span>
+      </div>
+
+
+      <div className={style.containerAddFilter}>
         <div className={style.containerSelect}>
           <div className={style.containerInputFilter}>
-          <InputFilter data={filter} setValue={setKey} />
+            <InputFilter data={filter} setValue={setKey} />
           </div>
-          <Show when={key} >
-            <div className={style.containerInput}>
+
+          <div className={style.containerInput}>
+            <div className={style.input}>
               <Input
-                forwardRef={inputRef}
-                label="Email" />
-              <Button onClick={handleFilter}>Filter</Button>
+                labelPlacement={'outside'}
+                ref={inputRef}
+                label="Email"
+                classNames={{
+                  input: [
+                    'bg-default'
+                  ],
+                  inputWrapper: [
+                    'bg-default',
+
+                    'dark:hover:bg-default'
+                  ]
+                }}
+              />
+
+
             </div>
-          </Show>
+
+            <Button onClick={handleFilter}>Filter</Button>
+          </div>
+
         </div>
         <AddItemBtn />
 

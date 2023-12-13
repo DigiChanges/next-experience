@@ -8,7 +8,7 @@ class HttpService {
 
       const params: URLSearchParams = getParams(queryParams);
       const urlWithParams = `${url}?${params.toString()}`; // Params to string
-      console.log(urlWithParams);
+
       const response = await fetch(urlWithParams, {
         method,
         body: data ? JSON.stringify(data as T) : undefined,

@@ -1,19 +1,24 @@
 .container {
-    @apply max-w-[1800px] m-auto;
+    @apply max-w-[1800px] m-auto ;
 }
 .containerSelect{
-    @apply mb-6 flex w-full md:mb-0  justify-between
+    @apply   flex flex-col w-[300px]
 }
 
 .containerInputFilter {
-    @apply w-1/2
+    @apply w-full pb-4
 }
 
 .containerInput{
-    @apply w-1/2
+    @apply w-full
  }
+.input{
+    @apply pb-4
+}
+
+
 .cards {
-    @apply overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
+    @apply h-[60vh] overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
 }
 
 .containerAddFilter{
@@ -28,13 +33,27 @@
     .cards {
         @apply grid-cols-2
     }
-  
-    
+    .containerSelect{
+        @apply  flex flex-row justify-around w-full
+    }
+    .containerInputFilter {
+        @apply max-w-[300px]
+    }
+    .containerInput{
+        @apply max-w-[300px]
+    }
+
 }
 
 @screen xl {
     .cards {
         @apply grid-cols-3
+    }
+    .containerInputFilter {
+        @apply max-w-[500px]
+    }
+    .containerInput{
+        @apply max-w-[500px]
     }
 }
 

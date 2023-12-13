@@ -1,5 +1,5 @@
 .containerComponents {
-    @apply ml-[65px];
+    @apply ml-[65px] ;
 }
 
 @screen md {

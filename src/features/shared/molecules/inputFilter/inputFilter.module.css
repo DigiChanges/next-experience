@@ -2,8 +2,9 @@
 .container{
    @apply w-full
 }
+
 .label {
-   @apply max-w-xs text-white
+   @apply  text-white
 }
 
 .listbox {
