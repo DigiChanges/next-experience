@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,20 +13,17 @@ import { toast } from 'react-toastify';
 
 export const RegisterForm: React.FC = () => {
   const { IconRocket } = icons();
-  const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IRegisterForm>({
     resolver: yupResolver(registerSchema)
   });
   const onSubmit = handleSubmit(async(data: IRegisterForm) => {
-    setLoading(true);
     await  toast.promise(handleSignUp(data), {
       error: 'Oops, something went wrong',
       success: 'Welcome to next experience',
       pending:'Registering your data...'
     });
     reset();
-    setLoading(false);
   });
 
   return (
@@ -37,7 +34,7 @@ export const RegisterForm: React.FC = () => {
           <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={'Password'} className={style.input}/>
           <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'} register={register} type={'password'} label={'Confirm Password'} className={style.input}/>
         </div>
-        <ButtonAuth alt={'icon next experience'} descriptionActive={'Confirm!'} descriptionInactive={'Confirming...'} disable={loading} img={IconRocket.src}/>
+        <ButtonAuth alt={'icon next experience'} descriptionActive={'Confirm!'} img={IconRocket.src}/>
         <div className={style.containerRegister}>
           <Link href={'/auth/login'}>Already have an account?</Link>
         </div>

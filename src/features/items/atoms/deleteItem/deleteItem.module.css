@@ -60,7 +60,7 @@
         @apply text-xl
     }
     .btnSuccess{
-        @apply flex justify-end p-2  rounded-md bg-success text-secondary my-2
+        @apply flex justify-end p-2  rounded-md bg-success my-2
     }
     .btnClose{
         @apply flex justify-end  bg-warning p-2 my-2 rounded-md 

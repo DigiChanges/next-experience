@@ -36,7 +36,7 @@
     @apply mt-[24px] ml-2
 }
 
-.test{
+.containerAddItem{
 @apply flex justify-between
 }
 
@@ -51,7 +51,7 @@
     @apply ml-1  w-6 h-6
 }
 .cards {
-    @apply h-[60vh] overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
+    @apply h-[60vh] overflow-y-auto scrollbar-hide  grid grid-cols-1 gap-3 place-items-center mx-1
 }
 .containerPagination{
     @apply p-4 flex justify-end
@@ -109,7 +109,7 @@
 
 @screen 2xl {
     .cards{
-        @apply grid-cols-4;
+        @apply grid-cols-4 h-[70vh];
     }
     .container {
         @apply max-w-[1500px] m-auto ;

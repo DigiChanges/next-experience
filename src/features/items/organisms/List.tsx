@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
@@ -12,31 +12,36 @@ import { InputFilter } from '@/features/shared/molecules/inputFilter/InputFilter
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { icons } from '@/features/shared/hooks/icons';
+import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
+import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
+import { Show } from '@/features/shared/atoms/show/Show';
 
 interface Props {
     items: ItemsResponse[]
     pagination: PaginationAPI;
 }
 
-const filter = [
-  {
-    label: 'Name',
-    value: 'Name'
-
-  },
-  {
-    label: 'Type',
-    value: 'Type'
-  }
-];
-
 export const List: React.FC<Props> = ({ items, pagination }) => {
-  const inputRef = useRef<any>();
+  const [inputVal, setInputVal] = useState('');
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const { iconCloseFilter } = icons();
   const { handlePage, currentPage } = usePagination(pagination, params);
   const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter } = useFilter(params);
+
+  const handleSearch = () => {
+    if (inputVal.trim().length > 0) {
+      handlePage(1);
+      handleSetTerm(inputVal);
+      setInputVal('');
+    }
+  };
+
+  useEffect(() => {
+    if (items.length === 0) {
+      handlePage(1);
+    }
+  }, [items]);
 
   return (
     <section className={style.container}>
@@ -48,13 +53,14 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           </div>
           <div className={style.containerSelect}>
             <div className={style.containerInputFilter}>
-              <InputFilter data={filter} setValue={handleSetKey}/>
+              <InputFilter data={selectOptionsData} setValue={handleSetKey}/>
             </div>
             <div className={style.containerInput}>
               <div className={style.input}>
                 <Input
+                  value={inputVal}
+                  onChange={e => setInputVal(e.target.value)}
                   labelPlacement={'outside'}
-                  ref={inputRef}
                   label="Search"
                   classNames={{
                     input: ['bg-default'],
@@ -63,17 +69,13 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
                 />
               </div>
               <div className={style.btn}>
-                <Button onClick={() => {
-                  handlePage(1);
-                  handleSetTerm(inputRef.current.value);
-                  inputRef.current.value = '';
-                }}>Filter</Button>
+                <Button onClick={handleSearch}>Filter</Button>
               </div>
             </div>
           </div>
         </div>
 
-        <div className={style.test}>
+        <div className={style.containerAddItem}>
           <div className={style.containerFiltersApplied}>
             {
               filtersApplied.map((el) =>
@@ -90,14 +92,17 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
 
 
       </div>
+      <NoItemsToDisplay data={items}/>
       <div className={style.cards}>
         {items.map((item) => (
           <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
       <div className={style.containerPagination}>
-        <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-          color={'secondary'}/>
+        <Show when={items.length > 0}>
+          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
+            color={'secondary'}/>
+        </Show>
       </div>
     </section>
   );
