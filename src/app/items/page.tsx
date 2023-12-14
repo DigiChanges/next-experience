@@ -12,7 +12,7 @@ type Props = {
 
 export const revalidate = 0;
 
-export default async function Page(props: Props) {
+export default async function Page(props: Readonly<Props>) {
   const params = new URLSearchParams(props.searchParams);
 
   const queryParams: QueryParams = {
