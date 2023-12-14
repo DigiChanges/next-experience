@@ -7,6 +7,7 @@ class HttpService {
       const { url, method, queryParams, data } = props;
 
       const params: URLSearchParams = getParams(queryParams);
+
       const urlWithParams = `${url}?${params.toString()}`; // Params to string
 
       const response = await fetch(urlWithParams, {
@@ -14,10 +15,6 @@ class HttpService {
         body: data ? JSON.stringify(data as T) : undefined,
         ...getDefaultHeaders()
       });
-
-      if (!response.ok) {
-        throw new Error(`Request failed. ${response.ok}`);
-      }
 
       return await response.json();
     } catch (e) {

@@ -24,6 +24,11 @@
 .containerInput{
     @apply flex  items-center w-full
  }
+
+.inputWrapper {
+    @apply bg-default dark:hover:bg-default;
+}
+
 .input{
     @apply w-full
 }

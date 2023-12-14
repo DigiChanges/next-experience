@@ -4,7 +4,7 @@ import { Filter } from '../../interfaces/Filter';
 import style from './inputFilter.module.css';
 interface Props {
     data: Filter[];
-    setValue: React.Dispatch<React.SetStateAction<string>>
+    setValue: (value: string) => void;
 }
 
 export const InputFilter = ({ data, setValue }: Props) => {

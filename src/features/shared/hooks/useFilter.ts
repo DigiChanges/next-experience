@@ -1,32 +1,63 @@
-import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
+type FilterApplied = {
+  key: string,
+  term: string
+}
 
-export const useFilter = () => {
-  const setInitialFilterParams = (params: URLSearchParams) => {
-    return {
-      filter: params
-    };
-  };
+export const useFilter = (params: URLSearchParams) => {
+  const [filtersApplied, setFiltersApplied] = useState<FilterApplied[]>([]);
+  const [key, setKey] = useState<string>('name');
+  const [term, setTerm] = useState<string>();
 
-  const setFilterParams = (
-    key: string,
-    term: string,
-    searchParams: ReadonlyURLSearchParams,
-    pathname: string,
-    replace:(href: string, options?: NavigateOptions | undefined) => void,
-    params: URLSearchParams
-  ) => {
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const setFilterParams = () => {
     if (term) {
       params.set(`filter[${key}]`, term);
-    } else {
-      params.delete(`filter[${key}]`);
     }
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const handleRemoveFilter = (filterToRemove: FilterApplied) => {
+    params.delete(`filter[${filterToRemove.key}]`);
+    setFiltersApplied(filtersApplied.filter(filter => filter.key !== filterToRemove.key));
+    replace(`${pathname}?${params.toString()}`);
+  };
+
+  // params.delete(`filter[${key}]`);
+
+  const handleSetKey = (key: string) => {
+    setKey(key);
+  };
+
+  const handleSetTerm = (term: string) => {
+    setTerm(term);
+  };
+
+  const createFilterFromPair = ([key, value]: [string, string]): FilterApplied => {
+    const newKey = key.replace('filter[', '').replace(']', '');
+    return { key: newKey, term: value };
+  };
+
+  useEffect(() => {
+    setFilterParams();
+    const filters: FilterApplied[] = Array.from(params.entries())
+        .filter(([key]) => key.includes('filter'))
+        .map(createFilterFromPair);
+
+    setFiltersApplied(filters);
+  }, [term]);
+
   return {
-    setInitialFilterParams,
-    setFilterParams
+    handleSetKey,
+    handleSetTerm,
+    key,
+    term,
+    setFilterParams,
+    filtersApplied,
+    handleRemoveFilter
   };
 };

@@ -1,40 +1,34 @@
-import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { URLSearchParams } from 'url';
-import { InitialPaginationParams } from '@/features/shared/interfaces/InitialPaginationParams';
+import { useEffect, useState } from 'react';
+import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
+import { usePathname, useRouter } from 'next/navigation';
 
-export const usePagination = () => {
-  const setInitialPaginationParams = (params: URLSearchParams, initialParams: InitialPaginationParams) => {
-    if (!params.get('pagination[offset]')) {
-      params.set('pagination[offset]', initialParams.offset);
-    }
-    if (!params.get('pagination[limit]')) {
-      params.set('pagination[limit]', initialParams.limit);
-    }
-  };
+export const usePagination = (pagination: PaginationAPI, params: URLSearchParams) => {
+  const [currentPage, setCurrentPage] = useState<number>(pagination?.currentPage ?? 1);
 
-  const setPaginationParams = (
-    page: number,
-    pagination: any,
-    params: URLSearchParams,
-    pathname: string,
-    replace: (href: string, options?: NavigateOptions | undefined) => void) => {
-    const offset = (page - 1) * pagination.perPage;
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const setParams = (offset: number, limit: number) => {
     params.set('pagination[offset]', String(offset));
-    params.set('pagination[limit]', String(pagination.limit));
+    params.set('pagination[limit]', String(limit));
+  };
+
+  const setPaginationParams = () => {
+    const offset = (currentPage - 1) * pagination.perPage;
+    setParams(offset, pagination.limit);
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const resetPaginationParams = (
-    params: URLSearchParams,
-    replace: (href: string, options?: NavigateOptions | undefined) => void, pathname: string) => {
-    params.set('pagination[offset]', '0');
-    params.set('pagination[limit]', '5');
-    replace(`${pathname}?${params.toString()}`);
+  const handlePage = (page: number) => {
+    setCurrentPage(page);
   };
+
+  useEffect(() => {
+    setPaginationParams();
+  }, [currentPage]);
 
   return {
-    setInitialPaginationParams,
-    setPaginationParams,
-    resetPaginationParams
+    handlePage,
+    currentPage
   };
 };

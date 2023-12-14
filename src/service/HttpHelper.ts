@@ -8,7 +8,8 @@ export function getDefaultHeaders(): Record<string, any> {
     credentials,
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    cache: 'no-store'
   };
 }
 
@@ -17,10 +18,10 @@ export function getParams(queryParams?: QueryParams) {
 
   if (queryParams?.pagination) {
     if (queryParams?.pagination?.limit) {
-      params.set('paginationComponent[limit]', queryParams?.pagination?.limit);
+      params.set('pagination[limit]', queryParams?.pagination?.limit);
     }
     if (queryParams?.pagination?.offset) {
-      params.set('paginationComponent[offset]', queryParams?.pagination?.offset);
+      params.set('pagination[offset]', queryParams?.pagination?.offset);
     }
   }
 
