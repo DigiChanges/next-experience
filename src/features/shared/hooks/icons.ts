@@ -14,6 +14,8 @@ import IconRocket from '../../../asset/icons/cohete.png';
 import IconInformation from '../../../asset/icons/informacion.png';
 import IconSuccess from '../../../asset/icons/ok.png';
 import IconAlert from '../../../asset/icons/alerta.png';
+import iconCloseFilter from '../../../asset/icons/boton-cerrar.png';
+
 
 export const icons = () => {
   return {
@@ -31,6 +33,7 @@ export const icons = () => {
     IconRocket,
     IconInformation,
     IconAlert,
-    IconSuccess
+    IconSuccess,
+    iconCloseFilter
   };
 };

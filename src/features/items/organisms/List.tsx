@@ -4,13 +4,14 @@ import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { Button, Pagination } from '@nextui-org/react';
-import { Input } from '@nextui-org/react';
+import { Button, Pagination, Input  } from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { InputFilter } from '@/features/shared/molecules/inputFilter/InputFilter';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
+import { icons } from '@/features/shared/hooks/icons';
 
 interface Props {
     items: ItemsResponse[]
@@ -20,11 +21,12 @@ interface Props {
 const filter = [
   {
     label: 'Name',
-    value: 'name'
+    value: 'Name'
+
   },
   {
     label: 'Type',
-    value: 'type'
+    value: 'Type'
   }
 ];
 
@@ -32,7 +34,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const inputRef = useRef<any>();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
-
+  const { iconCloseFilter } = icons();
   const { handlePage, currentPage } = usePagination(pagination, params);
   const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter } = useFilter(params);
 
@@ -70,15 +72,23 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             </div>
           </div>
         </div>
-        <div className={'text-white'}>
-          <h3>Filter applied: </h3>
-          {
-            filtersApplied.map((el, index) =>
-              <li  onClick={() => handleRemoveFilter(el)} key={index}>{el.key}</li>)
-          }
-          {/* <button>Remove filter</button>*/}
+
+        <div className={style.test}>
+          <div className={style.containerFiltersApplied}>
+            {
+              filtersApplied.map((el) =>
+                <li key={el.key} className={style.liRemove}>{
+                  el.key}
+                <button className={style.btnRemove} onClick={() => handleRemoveFilter(el)} >
+                  <Image src={iconCloseFilter.src} alt={'button close'} width={50} height={50}/>
+                </button>
+                </li>)
+            }
+          </div>
+          <AddItemBtn/>
         </div>
-        <AddItemBtn/>
+
+
       </div>
       <div className={style.cards}>
         {items.map((item) => (

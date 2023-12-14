@@ -27,8 +27,6 @@ export const useFilter = (params: URLSearchParams) => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  // params.delete(`filter[${key}]`);
-
   const handleSetKey = (key: string) => {
     setKey(key);
   };

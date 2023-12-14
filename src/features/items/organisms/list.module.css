@@ -36,16 +36,26 @@
     @apply mt-[24px] ml-2
 }
 
+.test{
+@apply flex justify-between
+}
 
+.containerFiltersApplied{
+    @apply text-white p-1
+}
+.liRemove{
+    @apply bg-selectedItem text-secondary p-1 rounded flex justify-between m-2 items-center
+}
+
+.btnRemove img{
+    @apply ml-1  w-6 h-6
+}
 .cards {
     @apply h-[60vh] overflow-y-auto grid grid-cols-1 gap-3 place-items-center mx-1
 }
-
-
 .containerPagination{
     @apply p-4 flex justify-end
 }
-
 
 @screen md {
     .cards {
@@ -60,7 +70,12 @@
     .containerInput{
         @apply pl-2
     }
-
+    .containerFiltersApplied{
+        @apply flex
+    }
+    .liRemove{
+        @apply h-[40px]
+    }
 
 }
 @screen lg{
@@ -74,6 +89,7 @@
         @apply flex  items-center pl-4
     }
 
+
 }
 @screen xl {
     .cards {
@@ -84,6 +100,9 @@
         @apply text-xl
     }
 
+    .liRemove{
+        @apply text-lg
+    }
 
 
 }
