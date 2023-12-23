@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import React from 'react';
 import { Providers } from '@/app/providers';
-
+import { validateEnv } from '@/config/api';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -22,6 +22,7 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+  validateEnv();
   return (
     <html lang="en">
       <body className={poppins.variable}>
