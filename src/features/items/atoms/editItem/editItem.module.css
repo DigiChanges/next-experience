@@ -1,5 +1,5 @@
 .btnEdit{
-    @apply m-2 w-[32px] min-w-[32px] h-[32px] min-h-[32px] bg-accent
+    @apply m-2 w-[32px] min-w-[32px] h-[32px] min-h-[32px] bg-secondary
 }
 
 .btnEdit img{

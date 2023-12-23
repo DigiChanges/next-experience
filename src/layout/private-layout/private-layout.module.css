@@ -1,5 +1,5 @@
 .containerComponents {
-    @apply ml-[65px];
+    @apply ml-[65px] ;
 }
 
 @screen md {
@@ -8,5 +8,5 @@
     }
 }
 .bgAlert{
-    @apply bg-bgCards
+    @apply bg-default
 }

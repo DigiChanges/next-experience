@@ -10,10 +10,11 @@ import { redirect } from 'next/navigation';
 const { baseUrl } = config.apiGateway.server;
 const { base } = config.apiGateway.routes.items;
 
-export const getItems = async() => {
+export const getItems = async({ queryParams }: PayloadProps) => {
   const config: IHttpParams = {
     url: `${baseUrl}/${base}`,
-    method: 'GET'
+    method: 'GET',
+    queryParams
   };
   return HttpService.request<ItemsResponse[]>(config);
 };

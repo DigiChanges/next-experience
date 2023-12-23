@@ -18,7 +18,7 @@ export const AddItemBtn: React.FC = () => {
           isIconOnly color='success'
           aria-label='Like'
         >
-          <Image src={IconAdd.src} width={100} height={100} alt={'add item'} className={style.btn}/>
+          <Image src={IconAdd.src} width={100} height={100} alt={'add item'} />
         </Button>
       </Link>
     </div>

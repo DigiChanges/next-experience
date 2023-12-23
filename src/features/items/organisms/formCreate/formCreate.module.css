@@ -7,7 +7,7 @@
 }
 
 .inputBlock input {
-    @apply  w-full p-2 bg-secondary border-1 border-grayLight rounded-lg mt-2 text-grayLight
+    @apply  w-full p-2 bg-accent border-1 border-grayLight rounded-lg mt-2 text-grayLight
 }
 
 .inputBlock p {
@@ -22,7 +22,7 @@
 }
 
 .addItem {
-    @apply bg-success p-2 rounded-md text-secondary
+    @apply bg-success p-2 rounded-md text-accent
 }
 
 .btnClose{

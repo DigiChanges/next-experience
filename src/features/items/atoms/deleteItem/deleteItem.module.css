@@ -7,10 +7,10 @@
 }
 
 .containerAlert {
-    @apply text-white fixed inset-0 bg-bgCards bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
+    @apply text-white fixed inset-0 bg-default bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
 }
 .subContainer {
-    @apply w-[350px] max-h-[350px] shadow-md bg-secondary py-4 rounded-md flex justify-center items-center
+    @apply w-[350px] max-h-[350px] shadow-md bg-accent py-4 rounded-md flex justify-center items-center
 }
 .img{
     @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px] 
@@ -20,7 +20,7 @@
 }
 
 .btnSuccess{
-    @apply flex justify-end p-2  rounded-md bg-success text-secondary my-2 text-sm
+    @apply flex justify-end p-2  rounded-md bg-success text-accent my-2 text-sm
 }
 .btnClose{
     @apply flex justify-end  bg-warning p-2 my-2 rounded-md text-sm
@@ -60,7 +60,7 @@
         @apply text-xl
     }
     .btnSuccess{
-        @apply flex justify-end p-2  rounded-md bg-success text-secondary my-2
+        @apply flex justify-end p-2  rounded-md bg-success my-2
     }
     .btnClose{
         @apply flex justify-end  bg-warning p-2 my-2 rounded-md 

@@ -40,15 +40,15 @@ module.exports = {
             DEFAULT: "#151525"
           },
           accent: {
-            DEFAULT: "#9747ff"
+            DEFAULT: "#121a2d"
           },
           secondary: {
-            DEFAULT: "#121a2d"
+            DEFAULT: "#9747ff"
           },
           bgPaginator: {
             DEFAULT: "#060d18"
           },
-          bgCards: {
+          default: {
             DEFAULT: "#1f1f36"
           },
           grayLight: {
@@ -65,7 +65,8 @@ module.exports = {
           },
           white: {
             DEFAULT: "#FFFFFF"
-          }
+          },
+          
         }
       }
     }
