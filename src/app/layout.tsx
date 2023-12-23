@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import React from 'react';
-
 import { Providers } from '@/app/providers';
-import Layout from '@/layout/Layout';
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -21,16 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body className={poppins.variable}>
-
         <Providers>
-          <Layout>
-            {children}
-          </Layout>
+          {children}
         </Providers>
       </body>
     </html>

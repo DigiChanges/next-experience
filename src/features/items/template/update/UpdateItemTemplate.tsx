@@ -8,10 +8,10 @@ import { icons } from '@/features/shared/hooks/icons';
 import { FormUpdate } from '@/features/items/organisms/formUpdate/FormUpdate';
 
 
-interface IProps{
+interface Props{
     id: string;
 }
-export const UpdateItemTemplate = async({ id }: IProps) => {
+export const UpdateItemTemplate = async({ id }: Props) => {
   const { data } = await getOne({ id });
 
   const { IconInformation } = icons();

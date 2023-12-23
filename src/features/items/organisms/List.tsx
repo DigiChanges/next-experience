@@ -4,10 +4,10 @@ import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 
-interface IProps {
+interface Props {
     items: ItemsResponse[]
 }
-export const List: React.FC<IProps> = ({ items }) => {
+export const List: React.FC<Props> = ({ items }) => {
   return (
     <section>
       <AddItemBtn />

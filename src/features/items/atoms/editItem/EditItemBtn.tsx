@@ -5,11 +5,11 @@ import style from './editItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 
-interface IProps {
+interface Props {
     id: string;
 }
 
-export const EditItemBtn: React.FC<IProps> = ({ id }) => {
+export const EditItemBtn: React.FC<Props> = ({ id }) => {
   const { EditIcon } = icons();
 
   return (
