@@ -4,6 +4,15 @@ import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { localePrefix, locales, pathnames } from '@/config';
 import createIntlMiddleware from 'next-intl/middleware';
 
+const privateRoutes =  ['/dashboard', '/items']
+
+
+const intlMiddleware = createIntlMiddleware({
+  defaultLocale: 'en',
+  locales,
+  pathnames,
+  localePrefix
+});
 
 const privateRoutes =  ['/dashboard', '/items'];
 
@@ -70,7 +79,6 @@ export const config = {
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
     '/(en|es)/:path*',
-
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'
