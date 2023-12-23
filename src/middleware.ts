@@ -4,7 +4,7 @@ import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { localePrefix, locales, pathnames } from '@/config';
 import createIntlMiddleware from 'next-intl/middleware';
 
-const privateRoutes =  ['/dashboard', '/items']
+const privateRoutes =  ['/dashboard', '/items'];
 
 
 const intlMiddleware = createIntlMiddleware({
@@ -15,7 +15,6 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 export async function middleware(request: NextRequest) {
-
   const url = new URL(request.url);
 
   const supabase = createServerClient(

@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react';
 import { Providers } from '@/app/providers';
 import { locales } from '@/config';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import {validateEnv} from "@/config/api";
+import { validateEnv } from '@/config/api';
 
 type Props = {
   children: ReactNode;
@@ -23,8 +23,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-                                         params: { locale }
-                                       }: Omit<Props, 'children'>) {
+  params: { locale }
+}: Omit<Props, 'children'>) {
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({
   };
 }
 
-export default function RootLayout({children, params: { locale }
+export default function RootLayout({ children, params: { locale }
 }: Props) {
   unstable_setRequestLocale(locale);
   validateEnv();
