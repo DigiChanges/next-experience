@@ -8,12 +8,9 @@
     @apply  bg-success rounded-full h-4 w-4 m-4
 }
 
-
 .cardFooter{
     @apply  justify-end  overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)]  ml-1
 }
-
-
 
 @screen sm {
     .container .name{
