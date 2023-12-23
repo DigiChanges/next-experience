@@ -3,7 +3,7 @@ import { ILoginForm } from '../../login/interfaces/IloginForm';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
 import { redirect, RedirectType } from 'next/navigation';
-
+import { env } from '@/config/api';
 
 export const handleSignUp = async({ username, password } : ILoginForm) => {
   const cookieStore = cookies();
@@ -13,7 +13,7 @@ export const handleSignUp = async({ username, password } : ILoginForm) => {
     email: username,
     password,
     options: {
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_URL_FRONT}/api/auth/callback`
+      emailRedirectTo: `${env.urlFront}/api/auth/callback`
     }
   });
   if (error){
