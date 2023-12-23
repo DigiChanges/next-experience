@@ -14,17 +14,9 @@ const intlMiddleware = createIntlMiddleware({
   localePrefix
 });
 
-const privateRoutes =  ['/dashboard', '/items'];
-
-
-const intlMiddleware = createIntlMiddleware({
-  defaultLocale: 'en',
-  locales,
-  pathnames,
-  localePrefix
-});
 
 export async function middleware(request: NextRequest) {
+
   const url = new URL(request.url);
 
   const supabase = createServerClient(
@@ -79,7 +71,6 @@ export const config = {
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
     '/(en|es)/:path*',
-
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'
