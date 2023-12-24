@@ -31,9 +31,6 @@
     .containerInput{
         @apply pl-2
     }
-    .containerInput{
-        @apply pl-2
-    }
 }
 @screen lg{
     .containerSelect{
