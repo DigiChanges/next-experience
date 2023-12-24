@@ -25,7 +25,6 @@ export const InputFilter = ({ data, setValue }: Props) => {
         <SelectItem
           color='secondary'
           classNames={{
-
             title: style.color
           }}
           onClick={() => setValue(value)}

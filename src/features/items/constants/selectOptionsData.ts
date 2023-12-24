@@ -1,10 +1,12 @@
 export const selectOptionsData = [
   {
     label: 'Name',
-    value: 'name'
+    value: 'name',
+    type: 'string'
 
   },
   {
+    type: 'number',
     label: 'Type',
     value: 'type'
   }

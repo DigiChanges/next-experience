@@ -5,7 +5,6 @@ import { QueryParams } from '@/service/IHttpParams';
 
 type Props = {
     queryParams: QueryParams
-
 };
 export const ItemsTemplate: (props: Props) => Promise<React.JSX.Element> = async({ queryParams }: Props) => {
   const { data, pagination } = await getItems({ queryParams });

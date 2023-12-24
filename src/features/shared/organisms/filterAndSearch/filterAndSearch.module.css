@@ -1,0 +1,48 @@
+.containerSelect{
+    @apply flex flex-col justify-around items-center
+}
+
+.containerInputFilter {
+    @apply w-full
+}
+
+.containerInput{
+    @apply flex  items-center w-full
+}
+
+.input{
+    @apply w-full
+}
+.btn{
+    @apply mt-[24px] ml-2
+}
+
+.inputWrapper {
+    @apply bg-default dark:hover:bg-default;
+}
+
+@screen md {
+    .containerSelect{
+        @apply  flex flex-row  w-full justify-around
+    }
+    .containerInputFilter {
+        @apply w-[40%]
+    }
+    .containerInput{
+        @apply pl-2
+    }
+    .containerInput{
+        @apply pl-2
+    }
+}
+@screen lg{
+    .containerSelect{
+        @apply flex  items-center pl-4
+    }
+}
+
+@screen 2xl {
+    .containerInput{
+        @apply max-w-[450px]
+    }
+}

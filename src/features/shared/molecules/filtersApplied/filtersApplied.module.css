@@ -1,0 +1,26 @@
+.containerFiltersApplied{
+    @apply text-white p-1
+}
+
+.liRemove{
+    @apply bg-selectedItem text-secondary p-1 rounded flex justify-between m-2 items-center
+}
+
+.btnRemove img{
+    @apply ml-1  w-6 h-6
+}
+
+@screen md {
+    .containerFiltersApplied{
+        @apply flex
+    }
+    .liRemove{
+        @apply h-[40px]
+    }
+}
+
+@screen xl {
+    .liRemove{
+        @apply text-lg
+    }
+}
