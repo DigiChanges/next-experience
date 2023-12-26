@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 import style from './dropdownUser.module.css';
-import { handleSignOut } from '@/features/auth/shared/actions/SingOutAction';
+import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 
 interface Props {
