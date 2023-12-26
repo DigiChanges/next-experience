@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-type FilterApplied = {
+export type FilterApplied = {
   key: string,
   term: string
 }

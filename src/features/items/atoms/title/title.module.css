@@ -1,0 +1,18 @@
+.title{
+    @apply text-white relative p-1 text-lg mb-6 font-bold
+}
+.title span{
+    @apply border-b-1  w-full absolute bottom-0 border-grayLight
+}
+
+@screen lg{
+    .title{
+        @apply w-[50%] flex items-end
+    }
+}
+
+@screen xl {
+    .title{
+        @apply text-xl
+    }
+}
