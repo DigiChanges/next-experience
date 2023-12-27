@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <PublicLayout>
 
-      {/*aca va el form que passaword y new password , y llama la funcion*/}
+      {/* aca va el form que passaword y new password , y llama la funcion*/}
       <div className={'text-large text-white'} onClick={() => handleUpdatePassword('1234567899', code ? code : '')}>clikea aca</div>
     </PublicLayout>
   );

@@ -8,10 +8,10 @@ export const handleRecoverPassword = async(username: string) => {
   const supabase = createClient(cookieStore);
 
   const { error } = await supabase.auth.resetPasswordForEmail(
-      username,
-      {
-    redirectTo: `${env.urlFront}/auth/update-password`
-  });
+    username,
+    {
+      redirectTo: `${env.urlFront}/auth/update-password`
+    });
 
   if (error) {
     throw new Error('Error at logout');
