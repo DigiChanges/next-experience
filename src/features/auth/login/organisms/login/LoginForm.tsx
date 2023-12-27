@@ -42,7 +42,7 @@ export const LoginForm: React.FC = () => {
           <Link href={'/auth/register'}>{t('createAccount')}</Link>
         </div>
         <Link href={'/auth/forgot-password'}>Recover password</Link>
-        {/*<button onClick={() => handleRecoverPassword('alexisgraff123@gmail.com')} className="text-white">Recover password</button>*/}
+        {/* <button onClick={() => handleRecoverPassword('alexisgraff123@gmail.com')} className="text-white">Recover password</button>*/}
       </form>
     </div>
   );
