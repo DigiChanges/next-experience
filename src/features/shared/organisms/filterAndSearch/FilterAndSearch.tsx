@@ -13,7 +13,7 @@ type Props = {
   handleSearch: () => void;
   inputFilterData: Filter[]
 }
-const t = useTranslations('Items');
+
 
 export const FilterAndSearch = ({
   handleSearch,
