@@ -17,8 +17,6 @@ interface Props{
     data:{ name: string, type: number}
 }
 export const FormUpdate: React.FC<Props> = ({ id, data }) => {
-
-
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,

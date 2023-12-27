@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation';
 export function ChangeLenguage() {
   const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
   const pathName = usePathname();
+
   const params = useSearchParams();
   const paramsString = new URLSearchParams(params).toString();
 
