@@ -6,7 +6,6 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 type Props = {
     readonly   params: {locale: string};
 };
-
 export default function Page({ params: { locale } }: Props){
   unstable_setRequestLocale(locale);
   return (

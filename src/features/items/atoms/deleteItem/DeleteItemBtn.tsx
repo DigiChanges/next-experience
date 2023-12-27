@@ -6,7 +6,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 interface Props {
     id: string;
@@ -17,7 +17,7 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
   const { DeleteIcon, IconAlert } = icons();
 
   const alerts = useTranslations('ToastDelete');
-  const s = useTranslations('shared');
+  const s = useTranslations('Shared');
   const handleDelete = async(id: string) => {
     await  toast.promise(deleteItem({ id }), {
       error: `${alerts('error')}`,

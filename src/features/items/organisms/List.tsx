@@ -73,7 +73,6 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             filtersApplied={filtersApplied}
             handleRemoveFilter={handleRemoveFilter}
           />
-          <AddItemBtn/>
         </div>
       </div>
       <NoItemsToDisplay data={items}/>

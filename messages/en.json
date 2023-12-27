@@ -56,6 +56,11 @@
     "success": "Welcome to next experience",
     "pending":"Loading your data..."
   },
+  "ToastLogOut": {
+    "error": "Oops, something went wrong",
+    "success": "See you soon",
+    "pending":"Closing session..."
+  },
   "ToastDelete": {
    " error": "Oops, something went wrong",
     "success": "Deleted correctly",

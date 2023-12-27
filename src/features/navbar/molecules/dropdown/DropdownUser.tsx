@@ -32,7 +32,7 @@ export const DropdownUser: React.FC<Props> = (props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
   const t = useTranslations('NavigationUser');
-  const r = useTranslations('Validations');
+  const r = useTranslations('ToastLogOut');
   const singOut  = async() => {
     await toast.promise(handleSignOut, {
       error: `${r('error')}`,

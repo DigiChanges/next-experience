@@ -28,7 +28,7 @@
   },
   "Items": {
     "title": "Sección de Ítems",
-    "filter": "Seleccionar filtro",
+    "filter": "Selecionar filtro",
     "name": "Nombre",
     "type": "Tipo",
     "search": "Buscar",
@@ -54,6 +54,11 @@
     "error": "¡Ups, algo salió mal!",
     "success": "Bienvenido a la Next Experience",
     "pending": "Cargando tus datos..."
+  },
+  "ToastLogOut": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Hasta pronto",
+    "pending": "Cerrando sesión..."
   },
   "ToastDelete": {
     "error": "¡Ups, algo salió mal!",

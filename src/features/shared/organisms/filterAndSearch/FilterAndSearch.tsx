@@ -3,7 +3,7 @@ import { InputFilter } from '@/features/shared/molecules/inputFilter/InputFilter
 import { Button, Input as InputSearch } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '@/features/shared/interfaces/Filter';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 type Props = {
   handleSetKey:(key: string) => void;
@@ -13,7 +13,7 @@ type Props = {
   handleSearch: () => void;
   inputFilterData: Filter[]
 }
-const t = useTranslations('Items');
+
 
 export const FilterAndSearch = ({
   handleSearch,
@@ -23,6 +23,8 @@ export const FilterAndSearch = ({
   inputVal,
   inputFilterData
 }: Props) => {
+  const t = useTranslations('Items');
+
   return (
     <div className={style.containerSelect}>
       <div className={style.containerInputFilter}>
@@ -43,7 +45,7 @@ export const FilterAndSearch = ({
           />
         </div>
         <div className={style.btn}>
-          <Button onClick={handleSearch}>{t('filter')}</Button>
+          <Button onClick={handleSearch}>{t('button')}</Button>
         </div>
       </div>
     </div>

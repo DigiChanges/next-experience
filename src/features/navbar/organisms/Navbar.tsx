@@ -12,6 +12,7 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
+
   const t = useTranslations('Navigation');
   const handleNavbar = (): void => {
     setIsOpen(!isOpen);
@@ -47,7 +48,7 @@ export const Navbar: React.FC = () => {
         <ul>
           <span className={style.lineOne}></span>{
             dataNav.map(({ image, description, path }, index) =>
-              <li key={t(description)} className={index === selectedItemIndex ? style.selectedItem : ''}>
+              <li key={index} className={index === selectedItemIndex ? style.selectedItem : ''}>
                 <Link onClick={(e) => {
                   !path && e.preventDefault();
                   handleItemClick(index);
