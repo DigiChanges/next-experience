@@ -6,7 +6,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 
 
 const privateRoutes =  ['/dashboard', '/items'];
-const publicRoutes = ['/', '/auth/login', '/auth/register'];
+
 
 const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en',
@@ -54,7 +54,7 @@ export async function middleware(request: NextRequest) {
     redirectUrl.pathname = '/auth/login';
     return NextResponse.redirect(redirectUrl);
   }
-  if(session.data.session && url.pathname === '/'){
+  if (session.data.session && url.pathname === '/'){
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/dashboard';
     return NextResponse.redirect(redirectUrl);

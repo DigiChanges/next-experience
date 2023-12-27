@@ -30,7 +30,7 @@ export async function generateMetadata({
     title: t('title')
   };
 }
-export default function RootLayout({ children, params: { locale }}: Props) {
+export default function RootLayout({ children, params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
   validateEnv();
   const messages = useMessages();

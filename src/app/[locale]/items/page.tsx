@@ -10,10 +10,7 @@ type Props = {
     readonly   searchParams: { readonly [key: string]: string };
     readonly   params: {locale: string};
 };
-
-
 export const revalidate = 0;
-
 export default async function Page({ searchParams, params: { locale } } : Props) {
   const params = new URLSearchParams(searchParams);
 
