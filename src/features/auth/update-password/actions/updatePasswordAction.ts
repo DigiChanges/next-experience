@@ -10,6 +10,7 @@ export const handleUpdatePassword = async(password: string, code: string) => {
   await supabase.auth.exchangeCodeForSession(code);
 
   const { error } = await supabase.auth.updateUser({
+    email: 'alexisgraff123@gmail.com',
     password
   });
   if (error) {
