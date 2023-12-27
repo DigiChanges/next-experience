@@ -12,7 +12,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
-
+import { handleRecoverPassword } from '@/features/auth/shared/actions/forgotPasswordAction';
 export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
@@ -40,10 +40,12 @@ export const LoginForm: React.FC = () => {
         </div>
 
         <ButtonAuth alt={'icon next experience'} descriptionActive={t('singIn')} img={IconRocket.src}/>
+
         <div className={style.containerRegister}>
           <p>{t('createAccountTitle')}</p>
           <Link href={'/auth/register'}>{t('linkCreateAccount')}</Link>
         </div>
+        <button onClick={() => handleRecoverPassword('alexisgraff123@gmail.com')} className="text-white">Recover password</button>
       </form>
     </div>
   );
