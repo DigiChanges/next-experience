@@ -15,7 +15,6 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 export async function middleware(request: NextRequest) {
-
   const url = new URL(request.url);
 
   const supabase = createServerClient(

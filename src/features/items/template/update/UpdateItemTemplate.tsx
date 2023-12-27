@@ -5,10 +5,12 @@ import { getOne } from '@/features/items/actions/ItemAction';
 import { icons } from '@/features/shared/hooks/icons';
 import { FormUpdate } from '@/features/items/organisms/formUpdate/FormUpdate';
 import { getTranslations } from 'next-intl/server';
+
 interface Props{
     id: string;
 }
 export const UpdateItemTemplate = async({ id }: Props) => {
+
   const { data } = await getOne({ id });
   const t = await getTranslations('Update');
 

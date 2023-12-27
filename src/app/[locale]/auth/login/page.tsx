@@ -1,7 +1,6 @@
 import React from 'react';
 import { LoginTemplate } from '@/features/auth/login/template/LoginTemplate';
 import { PublicLayout } from '@/layout/public-layout/PublicLayout';
-import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 type Props = {

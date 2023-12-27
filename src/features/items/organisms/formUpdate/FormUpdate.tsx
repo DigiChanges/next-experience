@@ -16,8 +16,6 @@ interface Props{
     data:{ name: string, type: number}
 }
 export const FormUpdate: React.FC<Props> = ({ id, data }) => {
-
-
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
@@ -27,6 +25,8 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
   });
   const alert = useTranslations('ToastUpdate');
   const t = useTranslations('Items');
+
+
   const s = useTranslations('Shared');
   const updateAction = async(data: ItemPayload) => {
     await  toast.promise(updateItem({ id, data }), {

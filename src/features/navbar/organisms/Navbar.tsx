@@ -5,26 +5,18 @@ import Image from 'next/image';
 import { dataClose, dataLogin, dataNav, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';
 import Link from 'next/link';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
-<<<<<<< HEAD
 import { useTranslations } from 'next-intl';
-import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage';
-=======
 import {useGetLang} from "@/features/shared/hooks/useGetLang";
-import {useTranslations} from "next-intl";
 import {ChangeLenguage, LanguageToggle} from "@/features/shared/atoms/changeLenguage";
->>>>>>> feat: i18n finished logic
 
-export const Navbar: React.FC = ({lang}) => {
+
+export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
-<<<<<<< HEAD
 
   const t = useTranslations('Navigation');
-=======
-  const t = useTranslations('Navigation');
 
->>>>>>> feat: i18n finished logic
   const handleNavbar = (): void => {
     setIsOpen(!isOpen);
     setSelectedItemIndex(null);
@@ -59,19 +51,6 @@ export const Navbar: React.FC = ({lang}) => {
         <ul>
           <span className={style.lineOne}></span>{
             dataNav.map(({ image, description, path }, index) =>
-<<<<<<< HEAD
-              <li key={index} className={index === selectedItemIndex ? style.selectedItem : ''}>
-                <Link onClick={(e) => {
-                  !path && e.preventDefault();
-                  handleItemClick(index);
-                }} href={path ?? '#'}>
-                  <div className={style.imgNav}>
-                    <Image src={image} alt={'menu item'}/>
-                  </div>
-                  <p>{t(description)}</p>
-                </Link>
-              </li>)}
-=======
                 <li key={t(description)} className={index === selectedItemIndex ? style.selectedItem : ''}>
                   <Link onClick={(e) => {
                     !path && e.preventDefault();
@@ -82,13 +61,11 @@ export const Navbar: React.FC = ({lang}) => {
                     <div className={style.imgNav}>
                       <Image src={image} alt={'menu item'}/>
                     </div>
-
-                    <p>{t(description)}</p>
-                  </Link>
-                </li>
+                  <p>{t(description)}</p>
+                </Link>
+              </li>
             )
           }
->>>>>>> feat: i18n finished logic
         </ul>
         <span className={style.lineTwo}></span>
       </nav>
