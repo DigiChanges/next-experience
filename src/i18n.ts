@@ -6,7 +6,7 @@ import { locales } from './config';
 
 export default getRequestConfig(async({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as "en" | "es")) { notFound(); }
+  if (!locales.includes(locale as 'en' | 'es')) { notFound(); }
 
   const now = headers().get('x-now');
   const timeZone = headers().get('x-time-zone') ?? 'Europe/Vienna';
