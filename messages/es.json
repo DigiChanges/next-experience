@@ -29,7 +29,7 @@
   },
   "Items": {
     "title": "Sección de Ítems",
-    "filter": "Seleccionar filtro",
+    "filter": "Selecionar filtro",
     "name": "Nombre",
     "type": "Tipo",
     "search": "Buscar",
