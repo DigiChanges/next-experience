@@ -19,11 +19,13 @@ export const LoginForm: React.FC = () => {
     resolver: yupResolver(loginSchema)
   });
   const t = useTranslations('Login');
+  const alerts = useTranslations('ToastLogin');
+
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     await  toast.promise(handleSignIn(data), {
-      error: `${t('error')}`,
-      success: `${t('success')}`,
-      pending:`${t('pending')}`
+      error: `${alerts('error')}`,
+      success: `${alerts('success')}`,
+      pending:`${alerts('pending')}`
     });
     reset();
   });

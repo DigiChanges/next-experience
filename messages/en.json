@@ -24,7 +24,8 @@
     "title": "Add Item information"
   },
   "Shared": {
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "accept": "Accept"
   },
   "Items": {
     "title": "Section Items",
@@ -35,7 +36,7 @@
     "button": "Filter",
     "emptyItems": "No items to display",
     "add": "Add",
-    "update": "Updating"
+    "update": "Update"
   },
   "Login": {
     "username": "Username",
@@ -50,9 +51,29 @@
     "confirm": "Confirm!",
     "singIn": "Already have an account?"
   },
-  "Toast": {
+  "ToastLogin": {
     "error": "Oops, something went wrong",
     "success": "Welcome to next experience",
     "pending":"Loading your data..."
+  },
+  "ToastDelete": {
+   " error": "Oops, something went wrong",
+    "success": "Deleted correctly",
+    "pending":"Deleting..."
+  },
+  "ToastRegister": {
+    "error": "Oops, something went wrong",
+    "success": "Welcome to next experience",
+    "pending":"Registering your data..."
+  },
+  "ToastCreate": {
+    "error": "Oops, something went wrong",
+    "success": "Successfully created",
+    "pending": "Creating..."
+  },
+  "ToastUpdate": {
+    "error": "Oops, something went wrong",
+    "success": "Successfully updated",
+    "pending": "Updating..."
   }
 }

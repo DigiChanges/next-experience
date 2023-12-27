@@ -6,6 +6,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
+import {useTranslations} from "next-intl";
 
 interface Props {
     id: string;
@@ -14,11 +15,14 @@ interface Props {
 export const DeleteItemBtn: React.FC<Props> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
+
+  const alerts = useTranslations('ToastDelete');
+  const s = useTranslations('shared');
   const handleDelete = async(id: string) => {
     await  toast.promise(deleteItem({ id }), {
-      error: 'Oops, something went wrong',
-      success: 'The item was deleted correctly',
-      pending:'Deleting item...'
+      error: `${alerts('error')}`,
+      success: `${alerts('success')}`,
+      pending:`${alerts('pending')}`
     });
     handleIsOpen();
   };
@@ -36,10 +40,10 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
             <p className={style.text}>Are you sure you want delete this item?</p>
 
             <button className={style.btnSuccess} onClick={() => handleDelete(props.id)}>
-                            Accept
+              {s('accept')}
             </button>
             <button onClick={handleIsOpen} className={style.btnClose}>
-                            Cancel
+              {s('cancel')}
             </button>
           </CardBody>
         </Card>

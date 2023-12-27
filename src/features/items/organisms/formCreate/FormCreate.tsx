@@ -18,13 +18,13 @@ export const FormCreate: React.FC = () => {
   });
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
-  const r = useTranslations('Validations');
+  const alert = useTranslations('ToastRegister')
 
   const createAction = async(data: ItemPayload) => {
     await  toast.promise(createItem({ data }), {
-      error: `${r('error')}`,
-      success: `${r('success')}`,
-      pending:`${r('pending')}`
+      error: `${alert('error')}`,
+      success: `${alert('success')}`,
+      pending:`${alert('pending')}`
     });
   };
 

@@ -15,15 +15,16 @@ import { useTranslations } from 'next-intl';
 export const RegisterForm: React.FC = () => {
   const { IconRocket } = icons();
   const t = useTranslations('Register');
+  const alert = useTranslations('ToastRegister')
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IRegisterForm>({
     resolver: yupResolver(registerSchema)
   });
   const onSubmit = handleSubmit(async(data: IRegisterForm) => {
     await  toast.promise(handleSignUp(data), {
-      error: `${t('error')}`,
-      success: `${t('success')}`,
-      pending:`${t('pending')}`
+      error: `${alert('error')}`,
+      success: `${alert('success')}`,
+      pending:`${alert('pending')}`
     });
     reset();
   });

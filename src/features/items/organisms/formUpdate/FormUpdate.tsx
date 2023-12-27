@@ -24,14 +24,14 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
     },
     resolver: yupResolver(modalSchema)
   });
-  const r = useTranslations('Validations');
+  const alert = useTranslations('ToastUpdate');
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
   const updateAction = async(data: ItemPayload) => {
     await  toast.promise(updateItem({ id, data }), {
-      error: `${r('error')}`,
-      success: `${r('success')}`,
-      pending:`${r('pending')}`
+      error: `${alert('error')}`,
+      success: `${alert('success')}`,
+      pending:`${alert('pending')}`
     });
   };
   return (

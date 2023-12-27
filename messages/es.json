@@ -50,9 +50,31 @@
     "confirm": "¡Confirmar!",
     "singIn": "¿Ya tienes una cuenta?"
   },
-  "Toast": {
+  "ToastLogin": {
     "error": "¡Ups, algo salió mal!",
-    "success": "Bienvenido a la experiencia next",
+    "success": "Bienvenido a la Next Experience",
     "pending": "Cargando tus datos..."
+  },
+  "ToastDelete": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Eliminado correctamente",
+    "pending": "Eliminando..."
+  },
+  "ToastRegister": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Bienvenido a la próxima experiencia",
+    "pending": "Registrando tus datos..."
+  },
+  "ToastCreate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Creado exitosamente",
+    "pending": "Creando..."
+  },
+  "ToastUpdate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Actualizado exitosamente",
+    "pending": "Actualizando..."
   }
+
+
 }
