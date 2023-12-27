@@ -6,7 +6,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 
 
 const privateRoutes =  ['/dashboard', '/items'];
-
+const publicRoutes = ['/', '/auth/login', '/auth/register'];
 
 const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en',
@@ -49,7 +49,16 @@ export async function middleware(request: NextRequest) {
     redirectUrl.pathname = '/auth/login';
     return NextResponse.redirect(redirectUrl);
   }
-
+  if (!session.data.session && url.pathname === '/'){
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = '/auth/login';
+    return NextResponse.redirect(redirectUrl);
+  }
+  if(session.data.session && url.pathname === '/'){
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = '/dashboard';
+    return NextResponse.redirect(redirectUrl);
+  }
   return  intlMiddleware(request);
 }
 
@@ -60,7 +69,7 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    '/(es|en)/:path*',
+    '/(en|es)/:path*',
 
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)

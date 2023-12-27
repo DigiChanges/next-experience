@@ -34,7 +34,7 @@ export const dataNav = [
   },
   {
     image: HomeIcon,
-    description: 'home',
+    description: 'dashboard',
     path: '/dashboard'
   },
   {

@@ -9,24 +9,19 @@ import { useTranslations } from 'next-intl';
 import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage';
 
 export const Navbar: React.FC = () => {
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
   const t = useTranslations('Navigation');
-
-
   const handleNavbar = (): void => {
     setIsOpen(!isOpen);
     setSelectedItemIndex(null);
   };
-
   useEffect(() => {
     if (!isOpen){
       setisUserDropdownOpen(false);
     }
   }, [isOpen]);
-
   const handleItemClick = (index: number): void => {
     setSelectedItemIndex(index);
   };
@@ -35,7 +30,6 @@ export const Navbar: React.FC = () => {
       setisUserDropdownOpen(!isUserDropdownOpen);
     }
   };
-
   return (
     <header className={`${style.container} ${isOpen && style.navActive}`}>
       <nav>
@@ -51,25 +45,19 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <ul>
-          <span className={style.lineOne}></span>
-          {
+          <span className={style.lineOne}></span>{
             dataNav.map(({ image, description, path }, index) =>
               <li key={t(description)} className={index === selectedItemIndex ? style.selectedItem : ''}>
                 <Link onClick={(e) => {
                   !path && e.preventDefault();
                   handleItemClick(index);
-                }}
-                href={path ?? '#'}
-                >
+                }} href={path ?? '#'}>
                   <div className={style.imgNav}>
                     <Image src={image} alt={'menu item'}/>
                   </div>
-
                   <p>{t(description)}</p>
                 </Link>
-              </li>
-            )
-          }
+              </li>)}
         </ul>
         <span className={style.lineTwo}></span>
       </nav>

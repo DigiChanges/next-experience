@@ -88,11 +88,13 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
-      <div className={style.containerPagination}>
+      <div className={style.containerPaginationAndAdd}>
         <AddItemBtn/>
         <Show when={items.length > 0}>
-          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-            color={'secondary'}/>
+          <div className={style.testNav}>
+            <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
+              color={'secondary'}/>
+          </div>
         </Show>
       </div>
     </section>
