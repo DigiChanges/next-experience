@@ -9,13 +9,16 @@ import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
 import { updateItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
-
+import {useTranslations} from "next-intl";
+import {usePathname} from "next/navigation";
 
 interface Props{
     id: string;
     data:{ name: string, type: number}
 }
 export const FormUpdate: React.FC<Props> = ({ id, data }) => {
+
+
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
@@ -23,12 +26,14 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
     },
     resolver: yupResolver(modalSchema)
   });
-
+  const r = useTranslations('Validations')
+  const t = useTranslations('Items');
+  const s = useTranslations('Shared');
   const updateAction = async(data: ItemPayload) => {
     await  toast.promise(updateItem({ id, data }), {
-      error: 'Oops, something went wrong',
-      success: 'The item was updated correctly',
-      pending:'Updating item...'
+      error: `${r('error')}`,
+      success: `${r('success')}`,
+      pending:`${r('pending')}`
     });
   };
   return (
@@ -37,6 +42,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
         <InputForm<Item>
           type={'text'}
           name={'name'}
+          label={t('name')}
           register={register}
           errors={errors}
           id={'name'}
@@ -46,6 +52,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
         <InputForm<Item>
           type={'number'}
           name={'type'}
+          label={t('type')}
           register={register}
           errors={errors}
           id={'type'}
@@ -54,12 +61,12 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
       </div>
       <div className={style.containerBtn}>
         <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>Update item</button>
+          <button type="submit" className={style.addItem}>{t('update')}</button>
         </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
             <button type="button" className={style.close}>
-                        Cancel
+              {s('cancel')}
             </button>
           </Link>
         </div>

@@ -4,19 +4,20 @@ import Image from 'next/image';
 import { getOne } from '@/features/items/actions/ItemAction';
 import { icons } from '@/features/shared/hooks/icons';
 import { FormUpdate } from '@/features/items/organisms/formUpdate/FormUpdate';
+import {useTranslations} from "next-intl";
 interface Props{
     id: string;
 }
 export const UpdateItemTemplate = async({ id }: Props) => {
+    const t = useTranslations('Update');
   const { data } = await getOne({ id });
-
   const { IconInformation } = icons();
   return (
     <div className={style.container}>
       <div className={style.subContainer}>
         <div className={style.subTitle}>
           <Image src={IconInformation.src} width={50} height={50} alt='icon information'/>
-          <h2>Edit Item information</h2>
+          <h2>{t('title')}</h2>
         </div>
         <FormUpdate data={data} id={id}/>
       </div>

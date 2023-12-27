@@ -5,6 +5,7 @@ import { Providers } from '@/app/providers';
 import { locales } from '@/config';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { validateEnv } from '@/config/api';
+import {NextIntlClientProvider, useMessages} from "next-intl";
 
 type Props = {
   children: ReactNode;
@@ -36,12 +37,15 @@ export default function RootLayout({ children, params: { locale }
 }: Props) {
   unstable_setRequestLocale(locale);
   validateEnv();
+  const messages = useMessages();
   return (
     <html lang="en">
       <body className={poppins.variable}>
+     <NextIntlClientProvider locale={locale} messages={messages}>
         <Providers>
           {children}
         </Providers>
+     </NextIntlClientProvider>
       </body>
     </html>
   );

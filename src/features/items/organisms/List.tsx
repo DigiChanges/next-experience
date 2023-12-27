@@ -4,7 +4,7 @@ import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { Pagination } from '@nextui-org/react';
+import { Button, Pagination, Input  } from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
@@ -12,6 +12,7 @@ import { useSearchParams } from 'next/navigation';
 import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
 import { Show } from '@/features/shared/atoms/show/Show';
+import {useTranslations} from "next-intl";
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
@@ -27,7 +28,10 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const { handlePage, currentPage } = usePagination(pagination, params);
-  const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter, key } = useFilter(params);
+  const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter } = useFilter(params);
+  const t = useTranslations('Items');
+
+
 
   const handleSearch = () => {
     if (inputVal.trim().length > 0) {
@@ -68,6 +72,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             inputFilterData={selectOptionsData}
           />
         </div>
+
         <div className={style.containerAddItem}>
           <FiltersApplied
             filtersApplied={filtersApplied}
@@ -75,6 +80,8 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           />
           <AddItemBtn/>
         </div>
+
+
       </div>
       <NoItemsToDisplay data={items}/>
       <div className={style.cards}>
@@ -82,14 +89,13 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
-      <Show when={items.length > 0}>
-        <div className={style.containerPagination}>
+      <div className={style.containerPagination}>
+        <AddItemBtn/>
+        <Show when={items.length > 0}>
           <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
             color={'secondary'}/>
-        </div>
-      </Show>
-
+        </Show>
+      </div>
     </section>
-  )
-  ;
+  );
 };

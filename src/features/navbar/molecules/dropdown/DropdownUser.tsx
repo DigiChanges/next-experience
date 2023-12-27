@@ -5,6 +5,7 @@ import React from 'react';
 import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
+import {useTranslations} from "next-intl";
 
 interface Props {
     dataPerfil: {
@@ -30,12 +31,13 @@ interface Props {
 export const DropdownUser: React.FC<Props> = (props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
-
+    const t = useTranslations('NavigationUser');
+    const r = useTranslations('Validations')
   const singOut  = async() => {
     await toast.promise(handleSignOut, {
-      error: 'Oops, something went wrong',
-      success: 'Successful logout',
-      pending:'See you soon...'
+        error: `${r('error')}`,
+        success: `${r('success')}`,
+        pending:`${r('pending')}`
     });
   };
 
@@ -58,9 +60,9 @@ export const DropdownUser: React.FC<Props> = (props) => {
         <div className={style.perfil}>
           {
             props.dataPerfil.map(({ icon, description }) =>
-              <div key={description} className={style.perfilSections}>
+              <div key={t(description)} className={style.perfilSections}>
                 {icon && <Image src={icon} alt='icon perfil'/>}
-                <p>{description}</p>
+                <p>{t(description)}</p>
               </div>
             )
 

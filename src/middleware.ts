@@ -4,6 +4,7 @@ import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { localePrefix, locales, pathnames } from '@/config';
 import createIntlMiddleware from 'next-intl/middleware';
 
+
 const privateRoutes =  ['/dashboard', '/items'];
 
 
@@ -15,6 +16,7 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 export async function middleware(request: NextRequest) {
+
   const url = new URL(request.url);
 
   const supabase = createServerClient(
@@ -38,7 +40,6 @@ export async function middleware(request: NextRequest) {
   );
 
   const session = await supabase.auth.getSession();
-
   const isPrivate = privateRoutes.some(route => {
     return url.pathname.includes(route);
   });
@@ -60,7 +61,7 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    '/(de|en)/:path*',
+    '/(es|en)/:path*',
 
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)

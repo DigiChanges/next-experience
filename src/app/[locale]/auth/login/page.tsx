@@ -10,13 +10,8 @@ type Props = {
 
 export default function Page({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations('PathnamesPage');
-
   return (
     <PublicLayout>
-      <div className="max-w-[490px]">
-        <p>{t.raw('title')}</p>
-      </div>
       <LoginTemplate/>
     </PublicLayout>
   );
