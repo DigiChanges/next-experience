@@ -13,7 +13,7 @@ import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-export const LoginForm: React.FC = () => {
+export const LoginForm: React.FC = ({username}) => {
   const { IconRocket } = icons();
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)

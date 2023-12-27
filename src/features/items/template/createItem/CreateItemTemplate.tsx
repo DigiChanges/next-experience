@@ -6,7 +6,6 @@ import style from './createItem.module.css';
 import { FormCreate } from '@/features/items/organisms/formCreate/FormCreate';
 import { useTranslations } from 'next-intl';
 
-
 export const CreateItemTemplate: React.FC = () => {
   const { IconInformation } = icons();
   const t = useTranslations('Add');

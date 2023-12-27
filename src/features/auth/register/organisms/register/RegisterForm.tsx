@@ -17,6 +17,7 @@ export const RegisterForm: React.FC = () => {
   const t = useTranslations('Register');
   const alert = useTranslations('ToastRegister');
 
+
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IRegisterForm>({
     resolver: yupResolver(registerSchema)
   });
