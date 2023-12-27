@@ -9,7 +9,7 @@ type Props = {
 
 export default function Page({ params: { locale } }: Props){
   unstable_setRequestLocale(locale);
-  
+
   return (
 
     <PublicLayout>
