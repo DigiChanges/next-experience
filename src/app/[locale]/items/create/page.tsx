@@ -4,7 +4,7 @@ import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 type Props = {
-    params: {locale: string};
+    readonly   params: {locale: string};
 };
 
 export default function Page({ params: { locale } }: Props){

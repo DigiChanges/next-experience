@@ -8,8 +8,8 @@ import { validateEnv } from '@/config/api';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 type Props = {
-  children: ReactNode;
-  params: {locale: string};
+  readonly children: ReactNode;
+  readonly params: {locale: string};
 };
 
 const poppins = Poppins({
@@ -22,19 +22,15 @@ const poppins = Poppins({
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
-
 export async function generateMetadata({
   params: { locale }
 }: Omit<Props, 'children'>) {
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
-
   return {
     title: t('title')
   };
 }
-
-export default function RootLayout({ children, params: { locale }
-}: Props) {
+export default function RootLayout({ children, params: { locale }}: Props) {
   unstable_setRequestLocale(locale);
   validateEnv();
   const messages = useMessages();

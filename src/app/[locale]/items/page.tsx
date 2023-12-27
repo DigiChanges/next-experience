@@ -7,8 +7,8 @@ import { paginationInitialParams } from '@/features/items/constants/paginationIn
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 type Props = {
-    searchParams: { readonly [key: string]: string };
-    params: {locale: string};
+    readonly   searchParams: { readonly [key: string]: string };
+    readonly   params: {locale: string};
 };
 
 
