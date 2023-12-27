@@ -16,6 +16,7 @@ import {useTranslations} from "next-intl";
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import { useTranslations } from 'next-intl';
 
 interface Props {
     items: ItemsResponse[]
@@ -80,8 +81,6 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           />
           <AddItemBtn/>
         </div>
-
-
       </div>
       <NoItemsToDisplay data={items}/>
       <div className={style.cards}>

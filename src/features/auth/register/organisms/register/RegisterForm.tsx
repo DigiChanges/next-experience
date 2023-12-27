@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { toast } from 'react-toastify';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 export const RegisterForm: React.FC = () => {
   const { IconRocket } = icons();

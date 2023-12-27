@@ -9,16 +9,14 @@ import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
 import { updateItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
-import {useTranslations} from "next-intl";
-import {usePathname} from "next/navigation";
+import { useTranslations } from 'next-intl';
+
 
 interface Props{
     id: string;
     data:{ name: string, type: number}
 }
 export const FormUpdate: React.FC<Props> = ({ id, data }) => {
-
-
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
@@ -26,7 +24,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
     },
     resolver: yupResolver(modalSchema)
   });
-  const r = useTranslations('Validations')
+  const r = useTranslations('Validations');
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
   const updateAction = async(data: ItemPayload) => {

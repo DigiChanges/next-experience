@@ -3,12 +3,12 @@ import { ILoginForm } from '../interfaces/IloginForm';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
 import { redirect, RedirectType } from 'next/navigation';
-import {useGetLang} from "@/features/shared/hooks/useGetLang";
+import { useGetLang } from '@/features/shared/hooks/useGetLang';
 
 export const handleSignIn = async(data : ILoginForm) => {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
-  const {lang} = useGetLang()
+  const { lang } = useGetLang();
 
   const { error } = await supabase.auth.signInWithPassword({
     email: data.username,

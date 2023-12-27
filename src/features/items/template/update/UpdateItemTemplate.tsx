@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { getOne } from '@/features/items/actions/ItemAction';
 import { icons } from '@/features/shared/hooks/icons';
 import { FormUpdate } from '@/features/items/organisms/formUpdate/FormUpdate';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 interface Props{
     id: string;
 }
 export const UpdateItemTemplate = async({ id }: Props) => {
-    const t = useTranslations('Update');
+  const t = useTranslations('Update');
   const { data } = await getOne({ id });
   const { IconInformation } = icons();
   return (

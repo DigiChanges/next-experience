@@ -9,7 +9,7 @@ import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 import { createItem } from '@/features/items/actions/ItemAction';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 
 export const FormCreate: React.FC = () => {
@@ -18,7 +18,7 @@ export const FormCreate: React.FC = () => {
   });
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
-  const r = useTranslations('Validations')
+  const r = useTranslations('Validations');
 
   const createAction = async(data: ItemPayload) => {
     await  toast.promise(createItem({ data }), {

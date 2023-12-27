@@ -1,12 +1,12 @@
 
-import {headers} from 'next/headers';
-import {notFound} from 'next/navigation';
-import {getRequestConfig} from 'next-intl/server';
-import {locales} from './config';
+import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { getRequestConfig } from 'next-intl/server';
+import { locales } from './config';
 
-export default getRequestConfig(async ({locale}) => {
+export default getRequestConfig(async({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as any)) { notFound(); }
 
   const now = headers().get('x-now');
   const timeZone = headers().get('x-time-zone') ?? 'Europe/Vienna';
@@ -17,7 +17,7 @@ export default getRequestConfig(async ({locale}) => {
     timeZone,
     messages,
     defaultTranslationValues: {
-      globalString: 'Global string',
+      globalString: 'Global string'
     },
 
     formats: {
@@ -31,20 +31,20 @@ export default getRequestConfig(async ({locale}) => {
     },
     onError(error) {
       if (
-          error.message ===
+        error.message ===
           (process.env.NODE_ENV === 'production'
-              ? 'MISSING_MESSAGE'
-              : 'MISSING_MESSAGE: Could not resolve `missing` in `Index`.')
+            ? 'MISSING_MESSAGE'
+            : 'MISSING_MESSAGE: Could not resolve `missing` in `Index`.')
       ) {
         // Do nothing, this error is triggered on purpose
       } else {
         console.error(JSON.stringify(error.message));
       }
     },
-    getMessageFallback({key, namespace}) {
+    getMessageFallback({ key, namespace }) {
       return (
-          '`getMessageFallback` called for ' +
-          [namespace, key].filter((part) => part != null).join('.')
+        `\`getMessageFallback\` called for ${
+          [namespace, key].filter((part) => part != null).join('.')}`
       );
     }
   };

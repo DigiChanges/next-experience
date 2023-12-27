@@ -2,13 +2,13 @@ import React from 'react';
 import { Show } from '@/features/shared/atoms/show/Show';
 import { Item } from '@/features/items/interfaces/itemsResponse';
 import style from './noItemsToDisplay.module.css';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 interface Props  {
     data: Item[];
 }
 export const NoItemsToDisplay = ({ data }: Props) => {
-    const t = useTranslations('Items');
+  const t = useTranslations('Items');
   return (
     <Show when={data.length === 0}>
       <div className={style.container}>

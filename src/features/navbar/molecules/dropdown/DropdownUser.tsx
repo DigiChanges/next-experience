@@ -5,7 +5,7 @@ import React from 'react';
 import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 interface Props {
     dataPerfil: {
@@ -31,13 +31,13 @@ interface Props {
 export const DropdownUser: React.FC<Props> = (props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
-    const t = useTranslations('NavigationUser');
-    const r = useTranslations('Validations')
+  const t = useTranslations('NavigationUser');
+  const r = useTranslations('Validations');
   const singOut  = async() => {
     await toast.promise(handleSignOut, {
-        error: `${r('error')}`,
-        success: `${r('success')}`,
-        pending:`${r('pending')}`
+      error: `${r('error')}`,
+      success: `${r('success')}`,
+      pending:`${r('pending')}`
     });
   };
 

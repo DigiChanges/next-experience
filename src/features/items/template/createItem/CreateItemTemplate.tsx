@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { icons } from '@/features/shared/hooks/icons';
 import style from './createItem.module.css';
 import { FormCreate } from '@/features/items/organisms/formCreate/FormCreate';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 
 export const CreateItemTemplate: React.FC = () => {

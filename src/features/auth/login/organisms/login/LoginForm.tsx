@@ -11,9 +11,9 @@ import Link from 'next/link';
 import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
-export const LoginForm: React.FC = ({username}) => {
+export const LoginForm: React.FC = () => {
   const { IconRocket } = icons();
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
