@@ -26,7 +26,6 @@ export const LoginForm: React.FC = () => {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
       pending:`${alerts('pending')}`
-
     });
     reset();
   });
