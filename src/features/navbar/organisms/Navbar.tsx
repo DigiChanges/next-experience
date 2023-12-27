@@ -8,12 +8,13 @@ import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser'
 import { useTranslations } from 'next-intl';
 import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage';
 
-export const Navbar: React.FC = () => {
+export const Navbar: React.FC = ({lang}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
 
   const t = useTranslations('Navigation');
+
   const handleNavbar = (): void => {
     setIsOpen(!isOpen);
     setSelectedItemIndex(null);
@@ -48,17 +49,22 @@ export const Navbar: React.FC = () => {
         <ul>
           <span className={style.lineOne}></span>{
             dataNav.map(({ image, description, path }, index) =>
-              <li key={index} className={index === selectedItemIndex ? style.selectedItem : ''}>
-                <Link onClick={(e) => {
-                  !path && e.preventDefault();
-                  handleItemClick(index);
-                }} href={path ?? '#'}>
-                  <div className={style.imgNav}>
-                    <Image src={image} alt={'menu item'}/>
-                  </div>
-                  <p>{t(description)}</p>
-                </Link>
-              </li>)}
+                <li key={t(description)} className={index === selectedItemIndex ? style.selectedItem : ''}>
+                  <Link onClick={(e) => {
+                    !path && e.preventDefault();
+                    handleItemClick(index);
+                  }}
+                        href={`${path}` ?? '#'}
+                  >
+                    <div className={style.imgNav}>
+                      <Image src={image} alt={'menu item'}/>
+                    </div>
+
+                    <p>{t(description)}</p>
+                  </Link>
+                </li>
+            )
+          }
         </ul>
         <span className={style.lineTwo}></span>
       </nav>

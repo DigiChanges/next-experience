@@ -7,6 +7,7 @@ import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
+
 interface Props {
     dataPerfil: {
         icon: StaticImageData;

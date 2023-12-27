@@ -3,6 +3,7 @@ import React from 'react';
 import { NavbarTemplate } from '@/features/navbar/template/NavbarTemplate';
 import style from './private-layout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
+import {useGetLang} from "@/features/shared/hooks/useGetLang";
 
 interface Props {
     children: React.ReactNode

@@ -17,9 +17,6 @@ export default function Page({ params: { locale } }: Props) {
 
   return (
     <PublicLayout>
-      <div className="max-w-[490px]">
-        <p>{t.raw('title')}</p>
-      </div>
       <LoginTemplate/>
     </PublicLayout>
   );

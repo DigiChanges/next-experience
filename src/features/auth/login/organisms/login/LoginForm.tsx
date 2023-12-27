@@ -13,7 +13,7 @@ import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-export const LoginForm: React.FC = () => {
+export const LoginForm: React.FC = ({username}) => {
   const { IconRocket } = icons();
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
@@ -26,6 +26,7 @@ export const LoginForm: React.FC = () => {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
       pending:`${alerts('pending')}`
+
     });
     reset();
   });
@@ -38,13 +39,12 @@ export const LoginForm: React.FC = () => {
           <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={t('password')}  className={style.input} />
           <Link href={'/auth/forgot-password'} className={style.linkForgot}>{t('forgotPassword')}</Link>
         </div>
-        
+
         <ButtonAuth alt={'icon next experience'} descriptionActive={t('singIn')} img={IconRocket.src}/>
         <div className={style.containerRegister}>
           <p>{t('createAccountTitle')}</p>
           <Link href={'/auth/register'}>{t('linkCreateAccount')}</Link>
         </div>
-      
       </form>
     </div>
   );
