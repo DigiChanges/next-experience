@@ -6,7 +6,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 
 
 const privateRoutes =  ['/dashboard', '/items'];
-const publicRoutes = ['/', '/auth/login', '/auth/register'];
+
 
 const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en',
