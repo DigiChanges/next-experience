@@ -26,7 +26,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const { handlePage, currentPage } = usePagination(pagination, params);
-  const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter , key} = useFilter(params);
+  const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter, key } = useFilter(params);
 
   const handleSearch = () => {
     if (inputVal.trim().length > 0) {
