@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 export default function Page() {
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
-  console.log(code);
+
   return (
     <PublicLayout>
       <div className={'text-large text-white'} onClick={() => handleUpdatePassword('1234567899', code ? code : '')}>clikea aca</div>
