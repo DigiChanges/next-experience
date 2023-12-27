@@ -18,9 +18,6 @@
 .testNav{
  @apply flex justify-end
 }
-.containerPagination{
-    @apply p-4 flex justify-end flex-col
-}
 
 @screen md {
     .cards {

@@ -6,6 +6,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 
 
 const privateRoutes =  ['/dashboard', '/items'];
+const publicRoutes = ['/', '/auth/login', '/auth/register'];
 
 const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en',
@@ -69,6 +70,7 @@ export const config = {
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
     '/(en|es)/:path*',
+
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'

@@ -11,14 +11,11 @@ import {ChangeLenguage} from "@/features/shared/atoms/changeLenguage";
 
 
 export const Navbar: React.FC = () => {
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
 
   const t = useTranslations('Navigation');
-
-
   const handleNavbar = (): void => {
     setIsOpen(!isOpen);
     setSelectedItemIndex(null);
@@ -57,17 +54,13 @@ export const Navbar: React.FC = () => {
                 <Link onClick={(e) => {
                   !path && e.preventDefault();
                   handleItemClick(index);
-                }}
-                href={path ?? '#'}
-                >
+                }} href={path ?? '#'}>
                   <div className={style.imgNav}>
                     <Image src={image} alt={'menu item'}/>
                   </div>
                   <p>{t(description)}</p>
                 </Link>
-              </li>
-            )
-          }
+              </li>)}
         </ul>
         <span className={style.lineTwo}></span>
       </nav>
