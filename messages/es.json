@@ -34,7 +34,7 @@
   },
   "Items": {
     "title": "Sección de Ítems",
-    "filter": "Selecionar filtro",
+    "filter": "Seleccionar filtro",
     "name": "Nombre",
     "type": "Tipo",
     "search": "Buscar",
