@@ -3,8 +3,6 @@ import { ForgotPasswordForm } from '@/features/auth/forgot-password/organisms/fo
 
 export const ForgoPasswordTemplate: React.FC = () => {
   return (
-    <div>
-      <ForgotPasswordForm/>
-    </div>
+    <ForgotPasswordForm/>
   );
 };
