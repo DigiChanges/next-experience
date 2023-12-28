@@ -2,16 +2,18 @@ import { Select, SelectItem } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
 import style from './inputFilter.module.css';
+import { useTranslations } from 'next-intl';
 interface Props {
     data: Filter[];
     setValue: (value: string) => void;
 }
 
 export const InputFilter = ({ data, setValue }: Props) => {
+  const t = useTranslations('Items');
   return (
     <Select
       labelPlacement={'outside'}
-      label="Select filter"
+      label={t('filter')}
       defaultSelectedKeys={[data[0].value]}
       classNames={{
         base:style.container,
