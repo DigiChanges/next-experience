@@ -1,12 +1,12 @@
 {
   "LocaleLayout": {
-    "title": "Ejemplo de next-intl",
-    "description": "Este es un ejemplo de cómo usar next-intl en el directorio app."
+    "title": "Next Experience",
+    "description": "descripcion a definir"
   },
   "Navigation": {
-    "dashboard": "Tablero",
+    "dashboard": "Dashboard",
     "home": "Inicio",
-    "items": "Ítems"
+    "items": "Items"
   },
   "NavigationUser": {
     "perfil": "Perfil",
@@ -15,7 +15,7 @@
   },
   "Validations": {
     "require": "Este campo es obligatorio",
-    "maxLengt": "La longitud máxima es de 2 números"
+    "maxLengt": "Maximo 2 números"
   },
   "Update": {
     "title": "Editar ítem"
