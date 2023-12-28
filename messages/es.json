@@ -43,7 +43,9 @@
     "username": "Nombre de usuario",
     "password": "Contraseña",
     "singIn": "Iniciar sesión",
-    "createAccount": "Crear cuenta"
+    "createAccountTitle": "Aún no tiene una cuenta?",
+    "linkCreateAccount": "Registrarse",
+    "forgotPassword": "¿Olvido su contraseña?"
   },
   "Register": {
     "username": "Nombre de usuario",
@@ -51,6 +53,20 @@
     "confirmPassword": "Confirmar contraseña",
     "confirm": "¡Confirmar!",
     "singIn": "¿Ya tienes una cuenta?"
+  },
+  "Forgot": {
+    "title": "Restablecer contraseña",
+    "description": "Introduzca su dirección de correo electrónico y le enviaremos instrucciones para restablecer su contraseña.",
+    "send": "Enviar",
+    "email": "Tu email",
+    "message": "Has solicitado restablecer tu contraseña. En breve, recibirá un correo electrónico con un enlace para crear una nueva contraseña\n y acceder a su cuenta."
+  },
+  "UpdatePss": {
+    "title": "Crear una nueva contraseña",
+    "description": "Las contraseñas deben tener al menos 8 caracteres",
+    "send": "Confirmar",
+    "password": "Contraseña",
+    "repeatPassword": "Repetir contraseña"
   },
   "ToastLogin": {
     "error": "¡Ups, algo salió mal!",
@@ -80,6 +96,16 @@
   "ToastUpdate": {
     "error": "¡Ups, algo salió mal!",
     "success": "Actualizado exitosamente",
+    "pending": "Actualizando..."
+  },
+  "ToastForgot": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Enviando",
+    "pending": "Enviando email..."
+  },
+  "ToastUpdatePass": {
+    "error": "Uy, algo salió mal",
+    "success": "Contraseña actualizada",
     "pending": "Actualizando..."
   }
 }

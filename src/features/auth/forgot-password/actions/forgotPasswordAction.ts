@@ -1,7 +1,6 @@
 'use server';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
-import { redirect, RedirectType } from 'next/navigation';
 import { env } from '@/config/api';
 export const handleRecoverPassword = async(username: string) => {
   const cookieStore = cookies();
@@ -16,6 +15,4 @@ export const handleRecoverPassword = async(username: string) => {
   if (error) {
     throw new Error('Error at logout');
   }
-
-  redirect('/auth/login', RedirectType.push);
 };
