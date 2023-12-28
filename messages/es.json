@@ -1,0 +1,111 @@
+{
+  "LocaleLayout": {
+    "title": "Next Experience",
+    "description": "descripcion a definir"
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "home": "Inicio",
+    "items": "Items"
+  },
+  "NavigationUser": {
+    "perfil": "Perfil",
+    "settings": "Configuraciones",
+    "logout": "Cerrar sesión"
+  },
+  "Validations": {
+    "require": "Este campo es obligatorio",
+    "maxLengt": "Maximo 2 números"
+  },
+  "Update": {
+    "title": "Editar ítem"
+  },
+  "Add": {
+    "title": "Crear ítem"
+  },
+  "Shared": {
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
+  },
+  "Items": {
+    "title": "Sección de Ítems",
+    "filter": "Seleccionar filtro",
+    "name": "Nombre",
+    "type": "Tipo",
+    "search": "Buscar",
+    "button": "Filtrar",
+    "emptyItems": "No hay ítems para mostrar",
+    "add": "Agregar",
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este item?"
+  },
+  "Login": {
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "singIn": "Iniciar sesión",
+    "createAccountTitle": "Aún no tiene una cuenta?",
+    "linkCreateAccount": "Registrarse",
+    "forgotPassword": "¿Olvido su contraseña?"
+  },
+  "Register": {
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirm": "¡Confirmar!",
+    "singIn": "¿Ya tienes una cuenta?"
+  },
+  "Forgot": {
+    "title": "Restablecer contraseña",
+    "description": "Introduzca su dirección de correo electrónico y le enviaremos instrucciones para restablecer su contraseña.",
+    "send": "Enviar",
+    "email": "Tu email",
+    "message": "Has solicitado restablecer tu contraseña. En breve, recibirá un correo electrónico con un enlace para crear una nueva contraseña\n y acceder a su cuenta."
+  },
+  "UpdatePss": {
+    "title": "Crear una nueva contraseña",
+    "description": "Las contraseñas deben tener al menos 8 caracteres",
+    "send": "Confirmar",
+    "password": "Contraseña",
+    "repeatPassword": "Repetir contraseña"
+  },
+  "ToastLogin": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Bienvenido a Next Experience",
+    "pending": "Cargando tus datos..."
+  },
+  "ToastLogOut": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Hasta pronto",
+    "pending": "Cerrando sesión..."
+  },
+  "ToastDelete": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Eliminado correctamente",
+    "pending": "Eliminando..."
+  },
+  "ToastRegister": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Bienvenido a Next Experience",
+    "pending": "Registrando tus datos..."
+  },
+  "ToastCreate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Creado exitosamente",
+    "pending": "Creando..."
+  },
+  "ToastUpdate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Actualizado exitosamente",
+    "pending": "Actualizando..."
+  },
+  "ToastForgot": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Enviando",
+    "pending": "Enviando email..."
+  },
+  "ToastUpdatePass": {
+    "error": "Uy, algo salió mal",
+    "success": "Contraseña actualizada",
+    "pending": "Actualizando..."
+  }
+}

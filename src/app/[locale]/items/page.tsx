@@ -4,16 +4,15 @@ import { LoaderStarsWars } from '@/features/shared/atoms/loader/LoaderStarsWars'
 import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
 import { QueryParams } from '@/service/IHttpParams';
 import { paginationInitialParams } from '@/features/items/constants/paginationInitialParams';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 type Props = {
-    searchParams: { readonly [key: string]: string };
+    readonly   searchParams: { readonly [key: string]: string };
+    readonly   params: {locale: string};
 };
-
-
 export const revalidate = 0;
-
-export default async function Page(props: Readonly<Props>) {
-  const params = new URLSearchParams(props.searchParams);
+export default async function Page({ searchParams, params: { locale } } : Props) {
+  const params = new URLSearchParams(searchParams);
 
   const queryParams: QueryParams = {
     pagination: {
@@ -22,7 +21,7 @@ export default async function Page(props: Readonly<Props>) {
     },
     filter: params
   };
-
+  unstable_setRequestLocale(locale);
   return (
     <PrivateLayout>
       <Suspense fallback={<LoaderStarsWars/>}>

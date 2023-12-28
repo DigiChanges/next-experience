@@ -7,7 +7,9 @@
     @apply shadow-[0_0_10px_rgba(0,0,0,0.25)] backdrop-blur-[10px] p-2 rounded-md min-h-[300px] flex flex-col justify-around max-w-[250px];
     background: rgba(255, 255, 255, 0.05);
   }
-
+.linkForgot{
+ @apply text-white text-center text-xs ml-4
+}
 .input{
  @apply px-[16px] text-white my-2
 }
@@ -21,7 +23,11 @@
 }
 
 .containerRegister{
-    @apply text-white text-xs flex justify-center  underline
+    @apply text-white text-xs flex justify-center
+}
+
+.containerRegister a{
+ @apply underline ml-2
 }
 
 @screen md{

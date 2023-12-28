@@ -1,11 +1,12 @@
+'use client';
 import React from 'react';
-import { LoginTemplate } from '@/features/auth/login/template/LoginTemplate';
 import { PublicLayout } from '@/layout/public-layout/PublicLayout';
+import { ForgoPasswordTemplate } from '@/features/auth/forgot-password/template/ForgoPasswordTemplate';
 
 export default function Page() {
   return (
     <PublicLayout>
-      <LoginTemplate/>
+      <ForgoPasswordTemplate/>
     </PublicLayout>
   );
 }
