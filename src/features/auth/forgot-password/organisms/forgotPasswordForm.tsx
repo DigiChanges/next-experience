@@ -25,7 +25,6 @@ export const ForgotPasswordForm: React.FC = () => {
       pending:`${alerts('pending')}`
     });
     setMessage(true);
-
     reset();
   });
   return (
