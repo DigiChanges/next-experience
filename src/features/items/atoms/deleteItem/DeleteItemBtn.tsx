@@ -18,6 +18,7 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
 
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
+  const t = useTranslations('Items')
   const handleDelete = async(id: string) => {
     await  toast.promise(deleteItem({ id }), {
       error: `${alerts('error')}`,
@@ -37,7 +38,7 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
         isOpen && <Card className={style.containerAlert}>
           <CardBody className={style.subContainer}>
             <Image className={style.img} src={IconAlert.src} alt="icon alert"/>
-            <p className={style.text}>Are you sure you want delete this item?</p>
+            <p className={style.text}>{t('deleteAlert')}</p>
 
             <button className={style.btnSuccess} onClick={() => handleDelete(props.id)}>
               {s('accept')}

@@ -18,13 +18,14 @@
     "maxLengt": "La longitud máxima es de 2 números"
   },
   "Update": {
-    "title": "Editar información del ítem"
+    "title": "Editar ítem"
   },
   "Add": {
-    "title": "Agregar información del ítem"
+    "title": "Crear ítem"
   },
   "Shared": {
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
   },
   "Items": {
     "title": "Sección de Ítems",
@@ -35,7 +36,8 @@
     "button": "Filtrar",
     "emptyItems": "No hay ítems para mostrar",
     "add": "Agregar",
-    "update": "Actualizando"
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este item?"
   },
   "Login": {
     "username": "Nombre de usuario",
@@ -52,7 +54,7 @@
   },
   "ToastLogin": {
     "error": "¡Ups, algo salió mal!",
-    "success": "Bienvenido a la Next Experience",
+    "success": "Bienvenido a Next Experience",
     "pending": "Cargando tus datos..."
   },
   "ToastLogOut": {
@@ -67,7 +69,7 @@
   },
   "ToastRegister": {
     "error": "¡Ups, algo salió mal!",
-    "success": "Bienvenido a la próxima experiencia",
+    "success": "Bienvenido a Next Experience",
     "pending": "Registrando tus datos..."
   },
   "ToastCreate": {
@@ -80,6 +82,4 @@
     "success": "Actualizado exitosamente",
     "pending": "Actualizando..."
   }
-
-
 }
