@@ -49,8 +49,8 @@ export const Navbar: React.FC = () => {
         </div>
         <ul>
           <span className={style.lineOne}></span>{
-            dataNav.map(({ image, description, path }, index) =>
-              <li key={index} className={index === selectedItemIndex ? style.selectedItem : ''}>
+            dataNav.map(({ image, description, path, id }, index) =>
+              <li key={id} className={index === selectedItemIndex ? style.selectedItem : ''}>
                 <Link onClick={(e) => {
                   !path && e.preventDefault();
                   handleItemClick(index);
