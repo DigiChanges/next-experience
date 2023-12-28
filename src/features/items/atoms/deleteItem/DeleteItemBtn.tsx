@@ -52,7 +52,5 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
         </Card>
       }
     </div>
-
-
   );
 };
