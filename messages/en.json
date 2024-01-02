@@ -3,6 +3,10 @@
 "title": "Next Experience",
 "description": "This is an example of using next-intl in the `app` directory."
 },
+  "Error": {
+    "title": "titulo del error",
+    "retry": "retry"
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Home",
