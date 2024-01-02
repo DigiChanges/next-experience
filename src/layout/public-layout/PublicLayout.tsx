@@ -10,8 +10,6 @@ export const PublicLayout = (props: Props) => {
   const { children } = props;
 
   return (
-    <div>
-      {children}
-    </div>
+    children
   );
 };
