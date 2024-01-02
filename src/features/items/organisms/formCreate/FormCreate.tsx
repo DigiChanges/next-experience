@@ -17,7 +17,7 @@ export const FormCreate: React.FC = () => {
   });
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
-  const alert = useTranslations('ToastRegister');
+  const alert = useTranslations('ToastCreate');
 
   const createAction = async(data: ItemPayload) => {
     await  toast.promise(createItem({ data }), {
