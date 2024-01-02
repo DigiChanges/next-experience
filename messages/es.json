@@ -3,6 +3,11 @@
     "title": "Next Experience",
     "description": "descripcion a definir"
   },
+  "Error": {
+  "title": "titulo del error",
+  "retry": "retry",
+    "description": ""
+},
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",
