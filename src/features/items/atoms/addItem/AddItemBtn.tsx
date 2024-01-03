@@ -9,7 +9,6 @@ import Link from 'next/link';
 export const AddItemBtn: React.FC = () => {
   const { IconAdd } = icons();
 
-
   return (
     <div className={style.container} >
       <Link href={'items/create'}>
