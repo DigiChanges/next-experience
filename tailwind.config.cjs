@@ -21,9 +21,6 @@ module.exports = {
       'xl': '1280px',
       '2xl':'1536px'
     },
-    colors: {
-
-    },
     fontFamily: {
       poppins:[ 'var(--font-poppins)']
     },
@@ -33,7 +30,40 @@ module.exports = {
   darkMode: "class",
   plugins: [nextui({
     themes: {
-      light: {},
+      light: {
+        colors: {
+          primary: {
+            DEFAULT: "#eef0f2"
+          },
+          accent: {
+            DEFAULT: "#45526e"
+          },
+          secondary: {
+            DEFAULT: "#826aff"
+          },
+          bgPaginator: {
+            DEFAULT: "#dae2f8"
+          },
+          default: {
+            DEFAULT: "#ffffff"
+          },
+          grayLight: {
+            DEFAULT: "#7a7a7a"
+          },
+          selectedItem: {
+            DEFAULT: "#6f86d6"
+          },
+          warning: {
+            DEFAULT: "#f94f37"
+          },
+          success: {
+            DEFAULT: "#31a24c"
+          },
+          white: {
+            DEFAULT: "#000000"
+          },
+        }
+      },
       dark: {
         colors: {
           primary: {
