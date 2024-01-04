@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
 import { useTranslations } from 'next-intl';
 import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage';
+import ThemeSwitcher from '@/features/shared/atoms/swich/swich';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -61,6 +62,7 @@ export const Navbar: React.FC = () => {
               </li>)}
         </ul>
         <span className={style.lineTwo}></span>
+        <ThemeSwitcher/>
       </nav>
       <ChangeLenguage/>
     </header>
