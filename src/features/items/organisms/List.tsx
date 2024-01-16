@@ -21,6 +21,7 @@ interface Props {
     pagination: PaginationAPI;
 }
 export const List: React.FC<Props> = ({ items, pagination }) => {
+  // TODO: Revisar la logica de filtro y paginacion, hace dos llamadas a la DB por las dependencias de useEffect. Ver como descoplar.
   const [inputVal, setInputVal] = useState('');
   const [searchType, setSearchType] = useState('string');
   const searchParams = useSearchParams();
