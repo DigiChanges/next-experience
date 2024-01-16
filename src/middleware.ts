@@ -5,10 +5,10 @@ import { localePrefix, locales, pathnames } from '@/config';
 import createIntlMiddleware from 'next-intl/middleware';
 
 const privateRoutes =  ['/dashboard', '/items'];
-
+const defaultLocale = 'en';
 
 const intlMiddleware = createIntlMiddleware({
-  defaultLocale: 'en',
+  defaultLocale,
   locales,
   pathnames,
   localePrefix
@@ -16,64 +16,55 @@ const intlMiddleware = createIntlMiddleware({
 
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
-
   const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          get(name: string): string | undefined {
-            return request.cookies.get(name)?.value;
-          },
-          set(name: string, value: string, options: CookieOptions) {
-            const httpOnlyOptions = { ...options, httpOnly: true };
-            request.cookies.set({ name, value, ...httpOnlyOptions });
-          },
-          remove(name: string, options: CookieOptions) {
-            const httpOnlyOptions = { ...options, httpOnly: true };
-            request.cookies.set({ name, value: '', ...httpOnlyOptions });
-          }
-        }
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string): string | undefined {
+          return request.cookies.get(name)?.value;
+        },
+        set: (name: string, value: string, options: CookieOptions) => setCookie(name, value, options, request),
+        remove: (name: string, options: CookieOptions) => removeCookie(name, options, request)
       }
+    }
   );
+  const { data: { session } } = await supabase.auth.getSession();
+  const isPrivate = privateRoutes.some(route => url.pathname.includes(route));
 
-  const session = await supabase.auth.getSession();
-  const isPrivate = privateRoutes.some(route => {
-    return url.pathname.includes(route);
-  });
+  if (isPrivate && !session) {
+    return redirectTo('/auth/login', request);
+  }
+  if (!session && url.pathname === '/'){
+    return redirectTo('/auth/login', request);
+  }
+  if (session && url.pathname === '/'){
+    return redirectTo('/dashboard', request);
+  }
 
-  if (isPrivate && !session.data.session) {
-    // Authentication not successful, redirect to home page.
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = '/auth/login';
-    return NextResponse.redirect(redirectUrl);
-  }
-  if (!session.data.session && url.pathname === '/'){
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = '/auth/login';
-    return NextResponse.redirect(redirectUrl);
-  }
-  if (session.data.session && url.pathname === '/'){
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = '/dashboard';
-    return NextResponse.redirect(redirectUrl);
-  }
-  return  intlMiddleware(request);
+  return intlMiddleware(request);
 }
 
 export const config = {
   matcher: [
-    // Enable a redirect to a matching locale at the root
     '/',
-
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
     '/(en|es)/:path*',
-
-    // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
 
+function setCookie(name: string, value: string, options: CookieOptions, request: NextRequest) {
+  const httpOnlyOptions = { ...options, httpOnly: true };
+  request.cookies.set({ name, value, ...httpOnlyOptions });
+}
 
+function removeCookie(name: string, options: CookieOptions, request: NextRequest) {
+  const httpOnlyOptions = { ...options, httpOnly: true };
+  request.cookies.set({ name, value: '', ...httpOnlyOptions });
+}
+
+function redirectTo(path: string, request: NextRequest) {
+  const redirectUrl = request.nextUrl.clone();
+  redirectUrl.pathname = path;
+  return NextResponse.redirect(redirectUrl);
+}
