@@ -3,6 +3,7 @@ import { images } from '@/features/shared/hooks/images';
 
 const { HomeIcon, ItemsIcon, DashboardIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown } = icons();
 const { BgUser }  = images();
+
 export const dataClose = {
   image: CloseIcon
 };
@@ -14,11 +15,11 @@ export const dataUser = {
 export const dataPerfil = [
   {
     icon: IconUser,
-    description: 'Perfil',
+    description: 'perfil',
     path: '#'
   }, {
     icon: IconSettings,
-    description: 'Settings',
+    description: 'settings',
     path: '#'
   }
 ];
@@ -29,16 +30,16 @@ export const dataLogin = {
 export const dataNav = [
   {
     image: DashboardIcon,
-    description: 'Dashboard'
+    description: 'dashboard'
   },
   {
     image: HomeIcon,
-    description: 'Home',
-    path: '/'
+    description: 'dashboard',
+    path: '/dashboard'
   },
   {
     image: ItemsIcon,
-    description: 'Items',
+    description: 'items',
     path: '/items'
   }
 ];

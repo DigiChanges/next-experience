@@ -20,7 +20,6 @@ interface Props {
     items: ItemsResponse[]
     pagination: PaginationAPI;
 }
-
 export const List: React.FC<Props> = ({ items, pagination }) => {
   const [inputVal, setInputVal] = useState('');
   const [searchType, setSearchType] = useState('string');
@@ -68,12 +67,12 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             inputFilterData={selectOptionsData}
           />
         </div>
+
         <div className={style.containerAddItem}>
           <FiltersApplied
             filtersApplied={filtersApplied}
             handleRemoveFilter={handleRemoveFilter}
           />
-          <AddItemBtn/>
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
@@ -82,14 +81,15 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
-      <Show when={items.length > 0}>
-        <div className={style.containerPagination}>
-          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-            color={'secondary'}/>
-        </div>
-      </Show>
-
+      <div className={style.containerPaginationAndAdd}>
+        <AddItemBtn/>
+        <Show when={items.length > 0}>
+          <div className={style.testNav}>
+            <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
+              color={'secondary'}/>
+          </div>
+        </Show>
+      </div>
     </section>
-  )
-  ;
+  );
 };

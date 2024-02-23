@@ -1,0 +1,85 @@
+{
+"LocaleLayout": {
+"title": "Next Experience",
+"description": "This is an example of using next-intl in the `app` directory."
+},
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "home": "Home",
+    "items": "Items"
+  },
+  "NavigationUser": {
+    "perfil": "Perfil",
+    "settings": "Settings",
+    "logout": "Log Out"
+  },
+  "Validations": {
+    "require": "This field is required",
+    "maxLengt":"Max length is 2 numbers"
+  },
+  "Update": {
+    "title": "Edit Item information"
+  },
+  "Add": {
+    "title": "Add Item information"
+  },
+  "Shared": {
+    "cancel":"Cancel",
+    "accept": "Accept"
+  },
+  "Items": {
+    "title": "Section Items",
+    "filter":"Select Filter",
+    "name": "Name",
+    "type": "Type",
+    "search": "Search",
+    "button": "Filter",
+    "emptyItems": "No items to display",
+    "add": "Add",
+    "update": "Update",
+    "deleteAlert":"Are you sure you want to delete this item?"
+  },
+  "Login": {
+    "username": "Username",
+    "password":"Password",
+    "singIn": "Sing In",
+    "createAccount": "Create Account"
+  },
+  "Register": {
+    "username": "Username",
+    "password":"Password",
+    "confirmPassword":"Confirm Password",
+    "confirm": "Confirm!",
+    "singIn": "Already have an account?"
+  },
+  "ToastLogin": {
+    "error": "Oops, something went wrong",
+    "success": "Welcome to next experience",
+    "pending":"Loading your data..."
+  },
+  "ToastLogOut": {
+    "error": "Oops, something went wrong",
+    "success": "See you soon",
+    "pending":"Closing session..."
+  },
+  "ToastDelete": {
+   " error": "Oops, something went wrong",
+    "success": "Deleted correctly",
+    "pending":"Deleting..."
+  },
+  "ToastRegister": {
+    "error": "Oops, something went wrong",
+    "success": "Welcome to next experience",
+    "pending":"Registering your data..."
+  },
+  "ToastCreate": {
+    "error": "Oops, something went wrong",
+    "success": "Successfully created",
+    "pending": "Creating..."
+  },
+  "ToastUpdate": {
+    "error": "Oops, something went wrong",
+    "success": "Successfully updated",
+    "pending": "Updating..."
+  }
+}

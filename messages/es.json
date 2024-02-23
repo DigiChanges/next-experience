@@ -1,0 +1,85 @@
+{
+  "LocaleLayout": {
+    "title": "Ejemplo de next-intl",
+    "description": "Este es un ejemplo de cómo usar next-intl en el directorio app."
+  },
+  "Navigation": {
+    "dashboard": "Tablero",
+    "home": "Inicio",
+    "items": "Ítems"
+  },
+  "NavigationUser": {
+    "perfil": "Perfil",
+    "settings": "Configuraciones",
+    "logout": "Cerrar sesión"
+  },
+  "Validations": {
+    "require": "Este campo es obligatorio",
+    "maxLengt": "La longitud máxima es de 2 números"
+  },
+  "Update": {
+    "title": "Editar ítem"
+  },
+  "Add": {
+    "title": "Crear ítem"
+  },
+  "Shared": {
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
+  },
+  "Items": {
+    "title": "Sección de Ítems",
+    "filter": "Seleccionar filtro",
+    "name": "Nombre",
+    "type": "Tipo",
+    "search": "Buscar",
+    "button": "Filtrar",
+    "emptyItems": "No hay ítems para mostrar",
+    "add": "Agregar",
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este item?"
+  },
+  "Login": {
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "singIn": "Iniciar sesión",
+    "createAccount": "Crear cuenta"
+  },
+  "Register": {
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirm": "¡Confirmar!",
+    "singIn": "¿Ya tienes una cuenta?"
+  },
+  "ToastLogin": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Bienvenido a Next Experience",
+    "pending": "Cargando tus datos..."
+  },
+  "ToastLogOut": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Hasta pronto",
+    "pending": "Cerrando sesión..."
+  },
+  "ToastDelete": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Eliminado correctamente",
+    "pending": "Eliminando..."
+  },
+  "ToastRegister": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Bienvenido a Next Experience",
+    "pending": "Registrando tus datos..."
+  },
+  "ToastCreate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Creado exitosamente",
+    "pending": "Creando..."
+  },
+  "ToastUpdate": {
+    "error": "¡Ups, algo salió mal!",
+    "success": "Actualizado exitosamente",
+    "pending": "Actualizando..."
+  }
+}

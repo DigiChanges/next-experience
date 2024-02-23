@@ -8,15 +8,15 @@
     @apply flex flex-col p-2
 }
 
-.containerAddItem{
-@apply flex justify-between
-}
 
 .cards {
     @apply h-[60vh] overflow-y-auto scrollbar-hide  grid grid-cols-1 gap-3 place-items-center mx-1
 }
-.containerPagination{
-    @apply p-4 flex justify-end
+.containerPaginationAndAdd{
+    @apply p-4 flex justify-end flex-col
+}
+.testNav{
+ @apply flex justify-end
 }
 
 @screen md {

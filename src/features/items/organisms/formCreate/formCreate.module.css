@@ -13,7 +13,9 @@
 .inputBlock p {
     @apply text-white pt-2
 }
-
+.inputBlock label{
+    @apply text-white
+}
 .btnAdd {
     @apply  p-2
 }
