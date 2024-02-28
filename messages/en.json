@@ -1,8 +1,8 @@
 {
-"LocaleLayout": {
-"title": "Next Experience",
-"description": "This is an example of using next-intl in the `app` directory."
-},
+  "LocaleLayout": {
+    "title": "Next Experience",
+    "description": "This is an example of using next-intl in the `app` directory."
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Home",
@@ -43,7 +43,9 @@
     "username": "Username",
     "password":"Password",
     "singIn": "Sing In",
-    "createAccount": "Create Account"
+    "createAccountTitle": "Don't have an account?",
+    "linkCreateAccount": "Sign up",
+    "forgotPassword": "Forgot password?"
   },
   "Register": {
     "username": "Username",
@@ -51,6 +53,20 @@
     "confirmPassword":"Confirm Password",
     "confirm": "Confirm!",
     "singIn": "Already have an account?"
+  },
+  "Forgot": {
+    "title": "Reset your password",
+    "description": "Enter your email address and we will send you instructions to reset your password.",
+    "send": "Send",
+    "email": "Your email",
+    "message": "You've requested to reset your password. Shortly, you'll receive an email with a link to create new password\n and access your account."
+  },
+  "UpdatePss": {
+    "title": "Create a new password",
+    "description": "Passwords must be at least 8 characters long.",
+    "send": "Confirm",
+    "password": "Password",
+    "repeatPassword":"Repeat Password"
   },
   "ToastLogin": {
     "error": "Oops, something went wrong",
@@ -63,7 +79,7 @@
     "pending":"Closing session..."
   },
   "ToastDelete": {
-   " error": "Oops, something went wrong",
+    " error": "Oops, something went wrong",
     "success": "Deleted correctly",
     "pending":"Deleting..."
   },
@@ -80,6 +96,16 @@
   "ToastUpdate": {
     "error": "Oops, something went wrong",
     "success": "Successfully updated",
+    "pending": "Updating..."
+  },
+  "ToastForgot": {
+    "error": "Oops, something went wrong",
+    "success": "Sent to",
+    "pending": "Sending email..."
+  },
+  "ToastUpdatePass": {
+    "error": "Oops, something went wrong",
+    "success": "Password Updated",
     "pending": "Updating..."
   }
 }

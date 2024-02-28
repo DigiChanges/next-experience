@@ -11,7 +11,6 @@ import { updateItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-
 interface Props{
     id: string;
     data:{ name: string, type: number}
@@ -26,6 +25,8 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
   });
   const alert = useTranslations('ToastUpdate');
   const t = useTranslations('Items');
+
+
   const s = useTranslations('Shared');
   const updateAction = async(data: ItemPayload) => {
     await  toast.promise(updateItem({ id, data }), {
