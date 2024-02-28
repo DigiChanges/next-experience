@@ -6,7 +6,6 @@ import { dataClose, dataLogin, dataNav, dataPerfil, dataUser } from '@/features/
 import Link from 'next/link';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
 import { useTranslations } from 'next-intl';
-import {useGetLang} from "@/features/shared/hooks/useGetLang";
 import {ChangeLenguage} from "@/features/shared/atoms/changeLenguage";
 
 
