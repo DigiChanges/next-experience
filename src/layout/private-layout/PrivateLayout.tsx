@@ -4,7 +4,6 @@ import { NavbarTemplate } from '@/features/navbar/template/NavbarTemplate';
 import style from './private-layout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 interface Props {
     children: React.ReactNode
 }

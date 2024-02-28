@@ -19,6 +19,7 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
   const t = useTranslations('Items');
+
   const handleDelete = async(id: string) => {
     await  toast.promise(deleteItem({ id }), {
       error: `${alerts('error')}`,
@@ -50,7 +51,5 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
         </Card>
       }
     </div>
-
-
   );
 };

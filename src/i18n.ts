@@ -1,4 +1,3 @@
-
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
@@ -37,6 +36,8 @@ export default getRequestConfig(async({ locale }) => {
             : 'MISSING_MESSAGE: Could not resolve `missing` in `Index`.')
       ) {
         // Do nothing, this error is triggered on purpose
+      } else {
+        console.error(JSON.stringify(error.message));
       }
     },
     getMessageFallback({ key, namespace }) {

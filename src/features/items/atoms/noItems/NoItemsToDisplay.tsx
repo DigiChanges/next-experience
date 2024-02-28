@@ -9,6 +9,7 @@ interface Props  {
 }
 export const NoItemsToDisplay = ({ data }: Props) => {
   const t = useTranslations('Items');
+
   return (
     <Show when={data.length === 0}>
       <div className={style.container}>

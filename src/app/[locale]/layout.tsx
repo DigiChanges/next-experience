@@ -7,7 +7,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { validateEnv } from '@/config/api';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 
-
 type Props = {
   readonly children: ReactNode;
   readonly params: {locale: string};
@@ -31,6 +30,7 @@ export async function generateMetadata({
     title: t('title')
   };
 }
+
 export default function RootLayout({ children, params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
   validateEnv();

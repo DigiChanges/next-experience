@@ -22,6 +22,7 @@ export default async function Page({ searchParams, params: { locale } } : Props)
     filter: params
   };
   unstable_setRequestLocale(locale);
+
   return (
     <PrivateLayout>
       <Suspense fallback={<LoaderStarsWars/>}>
@@ -30,5 +31,3 @@ export default async function Page({ searchParams, params: { locale } } : Props)
     </PrivateLayout>
   );
 }
-
-
