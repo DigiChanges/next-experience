@@ -73,7 +73,6 @@ export const DropdownUser: React.FC<Props> = (props) => {
           </button>
         </div>
       </motion.ul>
-
     </div>
 
   );

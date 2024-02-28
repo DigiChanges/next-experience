@@ -31,5 +31,3 @@ export default async function Page({ searchParams, params: { locale } } : Props)
     </PrivateLayout>
   );
 }
-
-

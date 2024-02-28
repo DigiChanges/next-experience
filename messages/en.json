@@ -3,13 +3,18 @@
     "title": "Next Experience",
     "description": "This is an example of using next-intl in the `app` directory."
   },
+  "Error": {
+    "title": "titulo del error",
+    "retry": "retry",
+    "description": ""
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Home",
     "items": "Items"
   },
   "NavigationUser": {
-    "perfil": "Perfil",
+    "perfil": "Profile",
     "settings": "Settings",
     "logout": "Log Out"
   },
@@ -43,6 +48,7 @@
     "username": "Username",
     "password":"Password",
     "singIn": "Sing In",
+    "createAccount": "Create Account",
     "createAccountTitle": "Don't have an account?",
     "linkCreateAccount": "Sign up",
     "forgotPassword": "Forgot password?"
@@ -79,7 +85,7 @@
     "pending":"Closing session..."
   },
   "ToastDelete": {
-    " error": "Oops, something went wrong",
+   " error": "Oops, something went wrong",
     "success": "Deleted correctly",
     "pending":"Deleting..."
   },

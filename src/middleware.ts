@@ -4,6 +4,15 @@ import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { localePrefix, locales, pathnames } from '@/config';
 import createIntlMiddleware from 'next-intl/middleware';
 
+const privateRoutes =  ['/dashboard', '/items'];
+
+
+const intlMiddleware = createIntlMiddleware({
+  defaultLocale: 'en',
+  locales,
+  pathnames,
+  localePrefix
+});
 
 const privateRoutes =  ['/dashboard', '/items'];
 

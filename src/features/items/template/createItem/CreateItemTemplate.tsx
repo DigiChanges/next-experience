@@ -18,7 +18,6 @@ export const CreateItemTemplate: React.FC = () => {
           <h2>{t('title')}</h2>
         </div>
         <FormCreate/>
-
       </div>
     </div>
   );
