@@ -48,7 +48,7 @@
     "username": "Nombre de usuario",
     "password": "Contraseña",
     "singIn": "Iniciar sesión",
-    "createAccount": "Crear cuenta"
+    "createAccount": "Crear cuenta",
     "createAccountTitle": "Aún no tiene una cuenta?",
     "linkCreateAccount": "Registrarse",
     "forgotPassword": "¿Olvido su contraseña?"
