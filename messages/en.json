@@ -5,8 +5,7 @@
   },
   "Error": {
     "title": "titulo del error",
-    "retry": "retry",
-    "description": ""
+    "retry": "retry"
   },
   "Navigation": {
     "dashboard": "Dashboard",
@@ -14,7 +13,7 @@
     "items": "Items"
   },
   "NavigationUser": {
-    "perfil": "Profile",
+    "perfil": "Perfil",
     "settings": "Settings",
     "logout": "Log Out"
   },
@@ -48,7 +47,6 @@
     "username": "Username",
     "password":"Password",
     "singIn": "Sing In",
-    "createAccount": "Create Account",
     "createAccountTitle": "Don't have an account?",
     "linkCreateAccount": "Sign up",
     "forgotPassword": "Forgot password?"
@@ -85,7 +83,7 @@
     "pending":"Closing session..."
   },
   "ToastDelete": {
-   " error": "Oops, something went wrong",
+    " error": "Oops, something went wrong",
     "success": "Deleted correctly",
     "pending":"Deleting..."
   },

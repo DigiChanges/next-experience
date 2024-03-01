@@ -14,15 +14,6 @@ const intlMiddleware = createIntlMiddleware({
   localePrefix
 });
 
-const privateRoutes =  ['/dashboard', '/items'];
-
-
-const intlMiddleware = createIntlMiddleware({
-  defaultLocale: 'en',
-  locales,
-  pathnames,
-  localePrefix
-});
 
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
