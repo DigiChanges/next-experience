@@ -14,7 +14,6 @@ const intlMiddleware = createIntlMiddleware({
   localePrefix
 });
 
-
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
 
