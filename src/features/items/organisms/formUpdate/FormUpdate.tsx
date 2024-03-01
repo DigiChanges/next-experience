@@ -11,6 +11,7 @@ import { updateItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
+
 interface Props{
     id: string;
     data:{ name: string, type: number}

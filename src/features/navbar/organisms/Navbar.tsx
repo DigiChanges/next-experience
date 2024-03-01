@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
 import { useTranslations } from 'next-intl';
 import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage';
+import ThemeSwitcher from '@/features/shared/atoms/swich/swich';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -47,8 +48,8 @@ export const Navbar: React.FC = () => {
         </div>
         <ul>
           <span className={style.lineOne}></span>{
-            dataNav.map(({ image, description, path }, index) =>
-              <li key={index} className={index === selectedItemIndex ? style.selectedItem : ''}>
+            dataNav.map(({ image, description, path, id }, index) =>
+              <li key={id} className={index === selectedItemIndex ? style.selectedItem : ''}>
                 <Link onClick={(e) => {
                   !path && e.preventDefault();
                   handleItemClick(index);
@@ -61,6 +62,7 @@ export const Navbar: React.FC = () => {
               </li>)}
         </ul>
         <span className={style.lineTwo}></span>
+        <ThemeSwitcher/>
       </nav>
       <ChangeLenguage/>
     </header>

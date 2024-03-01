@@ -13,6 +13,7 @@ interface Props {
 }
 
 export const DeleteItemBtn: React.FC<Props> = (props) => {
+
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
 
@@ -30,7 +31,6 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
   };
 
   return (
-
     <div>
       <Button isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
         <Image src={DeleteIcon.src} width={100} height={100} alt={'delete'}/>

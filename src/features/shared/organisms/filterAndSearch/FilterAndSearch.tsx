@@ -14,6 +14,7 @@ type Props = {
   inputFilterData: Filter[]
 }
 
+
 export const FilterAndSearch = ({
   handleSearch,
   searchType,
