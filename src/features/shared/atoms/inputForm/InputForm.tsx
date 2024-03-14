@@ -11,6 +11,7 @@ interface FormInputProps<TFormValues extends FieldValues>  {
     className?: string;
     placeholder?: string;
     value?: string | number;
+    classNameError?: string;
 }
 
 export const InputForm = <TFormValues extends Record<string, unknown>>({
@@ -21,13 +22,14 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
   id,
   className,
   label,
-  placeholder
+  placeholder,
+  classNameError
 }: FormInputProps<TFormValues>) => {
   const error = errors[name];
   return (
     <div className={className}>
       <label htmlFor={id}>{label}</label>
-      <input {...register(name)} type={type} name={name} id={id} placeholder={placeholder} />
+      <input className={error && classNameError} {...register(name)} type={type} name={name} id={id} placeholder={placeholder} />
       {error && <p>{error.message as string}</p>}
     </div>
   );

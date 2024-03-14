@@ -70,7 +70,7 @@ module.exports = {
             DEFAULT: "#151525"
           },
           accent: {
-            DEFAULT: "#121a2d"
+            DEFAULT: "#131518"
           },
           secondary: {
             DEFAULT: "#9747ff"
@@ -88,7 +88,7 @@ module.exports = {
             DEFAULT: "#1e2b4f"
           },
           warning: {
-            DEFAULT: "#BA3838"
+            DEFAULT: "#FE3F3F"
           },
           success: {
             DEFAULT: "#65FEA2"
@@ -96,7 +96,9 @@ module.exports = {
           white: {
             DEFAULT: "#FFFFFF"
           },
-          
+          blueLight:{
+            DEFAULT: "#3FAFFE"
+          }
         }
       }
     }

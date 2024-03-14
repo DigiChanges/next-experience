@@ -10,6 +10,8 @@ import { forgoPasswordSchema } from '@/features/auth/forgot-password/validations
 import { IforgotPasswordForm } from '@/features/auth/forgot-password/interfaces/IforgotPasswordForm';
 import { Show } from '@/features/shared/atoms/show/Show';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 
 export const ForgotPasswordForm: React.FC = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IforgotPasswordForm>({
@@ -30,19 +32,34 @@ export const ForgotPasswordForm: React.FC = () => {
   return (
     <div className={style.container}>
       {
-        !message && <form className={style.form} onSubmit={(data) => onSubmit(data)}>
-          <div className={style.containerDescription}>
+        !message &&
+          (<>
             <h1>{t('title')}</h1>
             <h2>{t('description')}</h2>
-          </div>
-          <div>
-            <InputForm<IforgotPasswordForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={t('email')} className={style.input}/>
-          </div>
-          <button>{t('send')}</button>
-        </form>
+            <form className={style.form} onSubmit={(data) => onSubmit(data)}>
+
+              <div>
+                <InputForm<IforgotPasswordForm> errors={errors} id={'username'} name={'username'} register={register}
+                  type={'email'} label={t('email')} className={style.input}
+                  placeholder={t('email')} classNameError={style.inputError}/>
+              </div>
+              <ButtonAuth descriptionActive={t('send')} />
+              <div className={style.containerRegister}>
+                <p>{t('singIn')}</p>
+                <Link href={'/auth/login'}>{t('singInLink')}</Link>
+              </div>
+              <div className={style.containerRegister}>
+                <p><Link href={'/auth/register'}>{t('registerLink')}</Link>
+                  {t('register')}</p>
+              </div>
+            </form> </>)
       }
       <Show when={message}>
-        <h2 className={style.message}>{t('message')}</h2>
+        <div className={style.message}>
+          <h2>{t('message')}</h2>
+          <h3>{t('messageSubtitle')}</h3>
+          <Link href={'/auth/login'}><span>{t('messageButton')}</span></Link>
+        </div>
       </Show>
     </div>
   );

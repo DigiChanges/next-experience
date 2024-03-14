@@ -1,40 +1,22 @@
 
 .btn{
- @apply w-fit flex items-center mx-auto font-medium text-[12px] text-[white] tracking-wider pl-[0.9em] pr-[1.3em] py-[0.8em] rounded-2xl border-[none] bg-[#ad5389] ;
- background: linear-gradient(to right, #9747FF, #be97f1, #7218e9);
-}
-.descriptionBtn{
-    @apply flex
-}
-.btn img {
- @apply mr-[3px] w-[22px] h-[22px] transition-transform duration-[0.5s];
+ @apply w-full h-12 flex items-center justify-center mx-auto my-2 mb-5 font-medium text-[1rem] text-[white] tracking-wider px-[1.3em] rounded-lg border-[none] bg-blueLight;
 }
 
 .btn span{
  @apply transition-transform duration-[0.5s];
 }
-.btn:hover img {
- @apply translate-x-[5px] rotate-[50deg];
-}
 .btn:hover span {
- @apply translate-x-[7px];
+ @apply scale-x-105;
 }
 
 @screen md{
       .btn{
         @apply  text-[16px];
        }
-       .btn img {
-        @apply  w-[26px] h-[26px];
-       }
-      
 }
 @screen xl{
     .btn{
         @apply  text-[18px];
        }
-    .btn img {
-        @apply  w-[32px] h-[32px];
-       }
-       
 }
