@@ -43,35 +43,38 @@ export const DropdownUser: React.FC<Props> = (props) => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
           <Image src={props.dataUser.image} alt={'Icon user'} height={1920} width={1080}/>
-          <p>{props.dataUser.username}</p>
           <Image className={`${style.dropdown} ${rotate}`} src={props.dataUser.icon} alt={'dropdown'}/>
-
         </button>
       </div>
       <motion.ul
         initial={{ height: 0 }}
         animate={{ height: props.isUserDropdownOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-        style={{ overflow: 'hidden' }}
+        className={style.containerPerfil}
       >
-        <div className={style.perfil}>
-          {
-            props.dataPerfil.map(({ icon, description }) =>
-              <div key={t(description)} className={style.perfilSections}>
-                {icon && <Image src={icon} alt='icon perfil'/>}
-                <p>{t(description)}</p>
+          <div className={style.perfil}>
+              <div className={style.containerIconUserOpen}>
+                  <Image className={style.iconUserOpen} src={props.dataUser.image} alt={'Icon user'} height={1920}
+                         width={1080}/>
+                  <p>{props.dataUser.username}</p>
               </div>
-            )
-
-          }
-          <button className={style.logOut} onClick={singOut}>
-            <Image src={props.dataLogin.icon} alt='LogOut'/>
-          </button>
-        </div>
+              {
+                  props.dataPerfil.map(({icon, description}) =>
+                      <div key={t(description)} className={style.perfilSections}>
+                          {icon && <Image src={icon} alt='icon perfil'/>}
+                          <p>{t(description)}</p>
+                      </div>
+                  )
+              }
+              <button className={style.logOut} onClick={singOut}>
+                  <Image src={props.dataLogin.icon} alt='LogOut'/>
+                  <p>{t('logout')}</p>
+              </button>
+          </div>
       </motion.ul>
     </div>
 

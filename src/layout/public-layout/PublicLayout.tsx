@@ -12,7 +12,7 @@ export const PublicLayout = (props: Props) => {
 
   return (
     <>
-      <NavbarTopTemplate />
+      <NavbarTopTemplate isPublic={true} />
       {children}
     </>
   );

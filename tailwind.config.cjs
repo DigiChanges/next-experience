@@ -62,6 +62,12 @@ module.exports = {
           white: {
             DEFAULT: "#000000"
           },
+          blueLight:{
+            DEFAULT: "#3FAFFE"
+          },
+          selectedMenu:{
+            DEFAULT: "#FFFFFF"
+          }
         }
       },
       dark: {
@@ -98,6 +104,9 @@ module.exports = {
           },
           blueLight:{
             DEFAULT: "#3FAFFE"
+          },
+          selectedMenu:{
+            DEFAULT: "#212121"
           }
         }
       }
