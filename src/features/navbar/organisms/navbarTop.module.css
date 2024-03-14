@@ -2,5 +2,5 @@
     @apply fixed h-20 w-full z-[4]
 }
 .container nav{
-    @apply w-full flex justify-end items-center p-5
+    @apply w-full flex justify-end items-center p-5 gap-[1rem]
 }
