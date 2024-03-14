@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NavbarTopTemplate } from '@/features/navbar/template/NavbarTopTemplate';
 import style from './public-layout.module.css';
 
-type Props = {
+interface Props {
     children: React.ReactNode
 }
 
