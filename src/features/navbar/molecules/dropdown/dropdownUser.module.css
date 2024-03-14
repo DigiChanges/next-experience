@@ -1,0 +1,58 @@
+.container{
+    @apply relative max-w-[60px] w-[2.5rem] h-[2.5rem]
+}
+ .containerIconUser {
+    @apply cursor-pointer h-[2.5rem];
+ }
+
+.iconUser {
+    @apply relative max-w-[60px] w-full h-full
+}
+
+.iconUser p {
+    @apply absolute centerAlign left-[70px] text-white;
+}
+.iconUser .dropdown{
+    @apply absolute centerAlign left-[300px] w-6 h-6 m-0
+}
+
+.iconUser img {
+    @apply  rounded-full w-10 h-10 m-auto transition-all;
+}
+
+.iconUser .rotate {
+    @apply transform -rotate-[180deg]
+}
+
+.containerPerfil{
+    @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3
+}
+.perfil{
+    @apply flex flex-col bg-selectedMenu relative p-[1rem] rounded-[5px] border-solid border-1 border-blueLight
+}
+.containerIconUserOpen{
+    @apply flex items-center border-solid border-b-1 border-b-blueLight mb-2 py-2
+}
+.iconUserOpen{
+    @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
+}
+ .perfil .perfilSections, .perfil .logOut{
+    @apply py-2 items-center cursor-pointer hover:bg-blueLight
+}
+.perfil .perfilSections img, .perfil .logOut img{
+    @apply w-[1.5rem] pl-1
+}
+.perfil .perfilSections p, .perfil .logOut p{
+    @apply ml-6 pr-1
+}
+.perfil .perfilSections{
+    @apply flex text-white
+}
+ .perfil .logOut{
+    @apply flex border-solid border-t-1 border-t-blueLight mt-2
+}
+
+ .centerAlign {
+     @apply top-1/2 transform -translate-y-1/2;
+ }
+

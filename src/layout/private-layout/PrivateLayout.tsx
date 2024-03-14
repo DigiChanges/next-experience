@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NavbarTopTemplate } from '@/features/navbar/template/NavbarTopTemplate';
 
 
-type Props = {
+interface Props {
     children: React.ReactNode
 }
 
