@@ -49,21 +49,34 @@
     "singIn": "Sing In",
     "createAccountTitle": "Don't have an account?",
     "linkCreateAccount": "Sign up",
-    "forgotPassword": "Forgot password?"
+    "forgotPassword": "Forgot password?",
+    "title": "Welcome!",
+    "subtitle": "Login to access"
   },
   "Register": {
-    "username": "Username",
-    "password":"Password",
-    "confirmPassword":"Confirm Password",
+    "username": "Username*",
+    "password":"Password*",
+    "confirmPassword":"Confirm Password*",
     "confirm": "Confirm!",
-    "singIn": "Already have an account?"
+    "singIn": "Already have an account?",
+    "singInLink": "Sing in",
+    "title": "Hello! Sing up",
+    "subtitle": "Create an account to access all features",
+    "text": "The fields indicated (*) are required.",
+    "terms&Agreements": "Privacy policy and terms of service"
   },
   "Forgot": {
     "title": "Reset your password",
     "description": "Enter your email address and we will send you instructions to reset your password.",
     "send": "Send",
     "email": "Your email",
-    "message": "You've requested to reset your password. Shortly, you'll receive an email with a link to create new password\n and access your account."
+    "message": "\nA link has been sent\nrecovery to email\nprovided.",
+    "messageSubtitle": "If you do not receive the email, check your spam folder.",
+    "messageButton": "Return to Log in",
+    "singIn": "Return to",
+    "singInLink": "Log in",
+    "register": "if you don't already have one",
+    "registerLink": "Create an account"
   },
   "UpdatePss": {
     "title": "Create a new password",

@@ -51,21 +51,34 @@
     "createAccount": "Crear cuenta",
     "createAccountTitle": "Aún no tiene una cuenta?",
     "linkCreateAccount": "Registrarse",
-    "forgotPassword": "¿Olvido su contraseña?"
+    "forgotPassword": "¿Olvido su contraseña?",
+    "title": "¡Bienvenido!",
+    "subtitle": "Inicia sesión para acceder"
   },
   "Register": {
-    "username": "Nombre de usuario",
-    "password": "Contraseña",
-    "confirmPassword": "Confirmar contraseña",
-    "confirm": "¡Confirmar!",
-    "singIn": "¿Ya tienes una cuenta?"
+    "username": "Nombre de usuario*",
+    "password": "Contraseña*",
+    "confirmPassword": "Confirmar contraseña*",
+    "confirm": "Registrarse",
+    "singIn": "¿Ya tienes una cuenta?",
+    "singInLink": "Inicia sesión",
+    "title": "¡Hola! Regístrate",
+    "subtitle": "Crea una cuenta para acceder a todas las funcionalidades.",
+    "text": "Los campos señalados (*) son obligatorios.",
+    "terms&Agreements": "Política de privacidad y términos de servicio"
   },
   "Forgot": {
     "title": "Restablecer contraseña",
-    "description": "Introduzca su dirección de correo electrónico y le enviaremos instrucciones para restablecer su contraseña.",
+    "description": "Ingresa tu correo electrónico para restablecer tu contraseña",
     "send": "Enviar",
     "email": "Tu email",
-    "message": "Has solicitado restablecer tu contraseña. En breve, recibirá un correo electrónico con un enlace para crear una nueva contraseña\n y acceder a su cuenta."
+    "message": "Se ha enviado un enlace de\nrecuperación al correo electrónico\nproporcionado.",
+    "messageSubtitle": "Si no te llega el correo revisar la bandeja de spam.",
+    "messageButton": "Volver a Iniciar Sesión",
+    "singIn": "Volver a",
+    "singInLink": "Iniciar Sesión",
+    "register": "si aún no tienes una",
+    "registerLink": "Crea una cuenta"
   },
   "UpdatePss": {
     "title": "Crear una nueva contraseña",

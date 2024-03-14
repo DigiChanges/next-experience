@@ -2,6 +2,7 @@ import React from 'react';
 import { locales } from '../../../config';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';
+import { Dropdown, DropdownTrigger, Button, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
 
 export function ChangeLenguage() {
@@ -12,9 +13,18 @@ export function ChangeLenguage() {
   const paramsString = new URLSearchParams(params).toString();
 
   return (
-    <div className={'mt-2 p-1'}>
-      <Link className={'ml-1 rounded bg-secondary p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'es'}>ES</Link>
-      <Link className={'ml-1 rounded bg-secondary p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'en'}>EN</Link>
-    </div>
+    <Dropdown className={'p-1'}>
+      <DropdownTrigger>
+        <Button>lang</Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Static Actions">
+        <DropdownItem key="es">
+          <Link className={'ml-1 rounded bg-secondary p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'es'}>ES</Link>
+        </DropdownItem>
+        <DropdownItem key="en">
+          <Link className={'ml-1 rounded bg-secondary p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'en'}>EN</Link>
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   );
 }

@@ -33,16 +33,19 @@ export const UpdatePasswordForm: React.FC = () => {
   });
   return (
     <div className={style.container}>
+      <h1>{t('title')}</h1>
+      <h2>{t('description')}</h2>
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
-        <div className={style.containerDescription}>
-          <h1>{t('title')}</h1>
-          <h2>{t('description')}</h2>
-        </div>
         <div>
-          <InputForm<IupdatePasswordForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={t('password')} className={style.input}/>
-          <InputForm<IupdatePasswordForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'} register={register} type={'password'} label={t('repeatPassword')} className={style.input}/>
+          <InputForm<IupdatePasswordForm> errors={errors} id={'password'} name={'password'} register={register}
+            type={'password'} label={t('password')} className={style.input}
+            placeholder={t('password')} classNameError={style.inputError}/>
+          <InputForm<IupdatePasswordForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
+            register={register} type={'password'} label={t('repeatPassword')}
+            className={style.input} placeholder={t('repeatPassword')}
+            classNameError={style.inputError}/>
         </div>
-        <button className={'text-white'}>{t('send')}</button>
+        <button className={'text-white'}><span>{t('send')}</span></button>
       </form>
 
     </div>
