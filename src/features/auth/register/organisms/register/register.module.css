@@ -3,13 +3,13 @@
     @apply h-screen flex flex-col items-center px-1 justify-center
    }
     .container h2{
-        @apply text-white text-[3rem] font-semibold border-solid border-b-blueLight border-b-[2px] px-[2rem]
+        @apply text-white text-[3rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
     }
     .container h3{
-        @apply text-white text-[1.5rem] font-extralight pt-2 pb-4
+        @apply text-white text-[1.5rem] font-[400] pt-2 pb-4
     }
     .text{
-        @apply text-[1rem] font-extralight text-white
+        @apply text-[1rem] font-[400] text-white
     }
    .form {
        @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start max-w-[250px] w-full px-[2rem];
@@ -22,10 +22,10 @@
         @apply hidden
     }
    .input input{
-    @apply w-full mt-2 rounded-lg h-12 border p-2 bg-transparent;
+    @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] p-2 bg-transparent;
    }
     .inputError{
-        @apply border-solid border-[#FE3F3F80]
+        @apply border-solid border-2 !border-[#FE3F3F80]
     }
    .input p{
        @apply text-[12px] pt-1 pl-2 text-warning
@@ -35,10 +35,10 @@
         @apply text-white text-[1rem] flex justify-center text-center
     }
     .containerRegister p{
-        @apply text-white text-[1rem] font-extralight
+        @apply text-white text-[1rem] font-[400]
     }
     .containerRegister a, .container a{
-        @apply ml-2 text-blueLight font-normal text-[1rem] hover:underline
+        @apply ml-2 text-secondary font-normal text-[1rem] hover:underline
     }
     .container a{
         @apply text-center pb-2

@@ -22,7 +22,7 @@ export default function ThemeSwitcher() {
     <Switch
       defaultSelected={theme === 'dark'}
       size="lg"
-      color="primary"
+      color="secondary"
       startContent={theme === 'light' ? <SunIcon /> : <MoonIcon />}
       endContent={theme === 'dark' ? <MoonIcon /> : <SunIcon />}
       onClick={toggleTheme}

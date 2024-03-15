@@ -68,10 +68,10 @@
     "terms&Agreements": "Política de privacidad y términos de servicio"
   },
   "Forgot": {
-    "title": "Restablecer contraseña",
-    "description": "Ingresa tu correo electrónico para restablecer tu contraseña",
-    "send": "Enviar",
-    "email": "Tu email",
+    "title": "Recuperar Contraseña",
+    "description": "Ingresa tu correo electrónico asociado con tu cuenta",
+    "send": "Enviar Código",
+    "email": "Email",
     "message": "Se ha enviado un enlace de\nrecuperación al correo electrónico\nproporcionado.",
     "messageSubtitle": "Si no te llega el correo revisar la bandeja de spam.",
     "messageButton": "Volver a Iniciar Sesión",
