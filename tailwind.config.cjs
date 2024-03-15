@@ -36,13 +36,16 @@ module.exports = {
             DEFAULT: "#eef0f2"
           },
           accent: {
-            DEFAULT: "#45526e"
+            DEFAULT: "#FFFFFF"
           },
           secondary: {
-            DEFAULT: "#826aff"
+            DEFAULT: "#3FAFFE"
           },
           bgPaginator: {
             DEFAULT: "#dae2f8"
+          },
+          bgDefault:{
+            DEFAULT: "#ffffff"
           },
           default: {
             DEFAULT: "#ffffff"
@@ -62,10 +65,16 @@ module.exports = {
           white: {
             DEFAULT: "#000000"
           },
-          blueLight:{
-            DEFAULT: "#3FAFFE"
+          bgGradient:{
+            DEFAULT: "#DADADA"
           },
           selectedMenu:{
+            DEFAULT: "#FFFFFF"
+          },
+          borderInput:{
+            DEFAULT: "#E4E4E7"
+          },
+          bgDashboard:{
             DEFAULT: "#FFFFFF"
           }
         }
@@ -73,16 +82,19 @@ module.exports = {
       dark: {
         colors: {
           primary: {
-            DEFAULT: "#151525"
-          },
-          accent: {
             DEFAULT: "#131518"
           },
+          accent: {
+            DEFAULT: "#020713"
+          },
           secondary: {
-            DEFAULT: "#9747ff"
+            DEFAULT: "#3FAFFE"
           },
           bgPaginator: {
             DEFAULT: "#060d18"
+          },
+          bgDefault:{
+            DEFAULT: "#131518"
           },
           default: {
             DEFAULT: "#1f1f36"
@@ -102,10 +114,16 @@ module.exports = {
           white: {
             DEFAULT: "#FFFFFF"
           },
-          blueLight:{
-            DEFAULT: "#3FAFFE"
+          bgGradient:{
+            DEFAULT: "#000000"
           },
           selectedMenu:{
+            DEFAULT: "#212121"
+          },
+          borderInput:{
+            DEFAULT: "#E4E4E7"
+          },
+          bgDashboard:{
             DEFAULT: "#212121"
           }
         }

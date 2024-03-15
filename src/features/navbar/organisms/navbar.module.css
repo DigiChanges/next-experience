@@ -1,5 +1,5 @@
 .container {
-	@apply fixed bg-accent left-0 ml-[5px] my-[4px] calculateHeight w-[60px] top-0 rounded overflow-hidden transition-all font-poppins z-50;
+	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-0 py-[2rem] w-[60px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 
 .navActive {
@@ -11,11 +11,11 @@
 }
 
 .container nav .openMenu  {
-	@apply max-w-[60px]
+	@apply w-full
 }
 
-.container nav .openMenu img {
-	@apply mt-5 w-10 h-10 transition-all m-auto cursor-pointer;
+.container nav .openMenu img, .container nav .openMenu svg {
+	@apply mt-5 w-8 h-10 transition-all m-auto cursor-pointer;
 }
 
 .container nav .openMenu .rotateIcon {
@@ -43,7 +43,7 @@
 
 
 .container nav ul  {
-	@apply grid grid-cols-1 gap-8 mt-5 mx-2 relative
+	@apply grid grid-cols-1 gap-2 mt-5 mx-2 relative
 }
 
 .selectedItem {
@@ -76,7 +76,7 @@
 }
 
 .container nav ul a img {
-	@apply w-8 h-8 m-auto;
+	@apply w-7 h-7 m-auto;
 }
 
 .lineOne{
@@ -110,7 +110,7 @@
 	}
 
 	.container nav .openMenu  {
-		@apply max-w-[70px]
+
 	}
 
 	.container nav .iconUser {

@@ -28,16 +28,16 @@
     @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3
 }
 .perfil{
-    @apply flex flex-col bg-selectedMenu relative p-[1rem] rounded-[5px] border-solid border-1 border-blueLight
+    @apply flex flex-col bg-selectedMenu relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary
 }
 .containerIconUserOpen{
-    @apply flex items-center border-solid border-b-1 border-b-blueLight mb-2 py-2
+    @apply flex items-center border-solid border-b-1 border-b-secondary mb-2 py-2
 }
 .iconUserOpen{
     @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
 }
  .perfil .perfilSections, .perfil .logOut{
-    @apply py-2 items-center cursor-pointer hover:bg-blueLight
+    @apply py-2 items-center cursor-pointer hover:bg-secondary
 }
 .perfil .perfilSections img, .perfil .logOut img{
     @apply w-[1.5rem] pl-1
@@ -49,7 +49,7 @@
     @apply flex text-white
 }
  .perfil .logOut{
-    @apply flex border-solid border-t-1 border-t-blueLight mt-2
+    @apply flex border-solid border-t-1 border-t-secondary mt-2
 }
 
  .centerAlign {

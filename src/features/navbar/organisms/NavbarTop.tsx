@@ -33,7 +33,6 @@ export const NavbarTop: React.FC<Props> = (props) => {
         ) :
           (
             <>
-              <ThemeSwitcher />
               <ChangeLenguage
                 isLangDropdownOpen={isLangDropdownOpen}
                 handleDropdownLang={handleDropdownLang}

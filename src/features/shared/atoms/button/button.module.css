@@ -1,6 +1,6 @@
 
 .btn{
- @apply w-full h-12 flex items-center justify-center mx-auto my-2 mb-5 font-medium text-[1rem] text-[white] tracking-wider px-[1.3em] rounded-lg border-[none] bg-blueLight;
+ @apply w-full h-12 flex items-center justify-center mx-auto my-2 mb-5 font-medium text-[1rem] text-[white] tracking-wider px-[1.3em] rounded-lg border-[none] bg-secondary shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)];
 }
 
 .btn span{

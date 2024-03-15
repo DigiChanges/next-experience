@@ -6,7 +6,7 @@ export const Welcome: React.FC = () => {
       <h1 data-aos="fade-down" data-aos-duration="1500">
                 Welcome
       </h1>
-
+      <h2>Lorem Ipsum is simply dummy text of the printing and typesetting</h2>
       <div className={style.welcomeDetail}>
         <p>
                     Star Wars is an epic science fiction franchise created by George Lucas. The story unfolds in a galaxy far,

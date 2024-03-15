@@ -1,32 +1,30 @@
-.charactersWelcome {
-	background-color: rgba(0, 0, 0, 0.3);
-	padding: 20px;
-	color: white;
-	height:	max-content;
-	width: 60%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: auto;
+.charactersWelcome{
+	@apply bg-transparent w-[80%] h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start
 }
-
+.charactersWelcome h1{
+	@apply text-[3rem] text-black  border-solid border-b-secondary border-b-[2px] pr-[4rem]
+}
 .charactersWelcome h1 {
-		font-size: 42px;
-	color: black;
-	height: 20%;
 	max-height: fit-content;
-	text-align: center;
 	-webkit-text-stroke: 1px yellow;
 }
+.charactersWelcome h2{
+	@apply text-white h-[10%] text-[1.5rem] font-[400] pt-1 pb-5
+}
 
+
+.welcomeDetail{
+	@apply bg-bgDashboard rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.welcomeDetail p, .welcomeDetail em{
+	@apply text-white
+}
 .welcomeDetail {
 	transition: .5s;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 70px 0;
-	height: max-content;
 	text-align: center;
 	justify-content: center;
 }
