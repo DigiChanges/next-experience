@@ -3,8 +3,9 @@ import style from './changeLenguage.module.css';
 import { locales } from '../../../../config';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';
-import { MdLanguage } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import { MdLanguage } from 'react-icons/md';
+
 
 interface Props {
     isLangDropdownOpen: boolean,
