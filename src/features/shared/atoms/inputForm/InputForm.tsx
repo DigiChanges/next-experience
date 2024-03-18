@@ -9,8 +9,8 @@ type Props<TFormValues extends FieldValues> = {
     input_type: InputType,
     name: Path<TFormValues>;
     label?: string;
-    register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    register?: UseFormRegister<TFormValues>;
+    errors?: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     maxDate?: string;
     className?: string;

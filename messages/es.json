@@ -150,6 +150,15 @@
     "s_passwordMinCharacters": "La contraseña debe tener al menos 8 caracteres",
     "s_passwordsMatch": "Las contraseñas deben coincidir"
   },
+  "RecoveryCode": {
+    "title": "Ingresa  tu código",
+    "description": "Ingresa el código de 5 dígitos enviado al email proporcionado.\nSi no lo encuentras revisa tu bandeja de spam.",
+    "code": "0 0 0 0 0",
+    "send": "Verificar",
+    "singIn": "¿Recuerdas tu contraseña?",
+    "singInLink": "Inicia Sesión Aquí",
+    "codeLink": "Enviar otro código"
+  },
   "ToastLogin": {
     "error": "¡Ups, algo salió mal!",
     "success": "Bienvenido a Next Experience",

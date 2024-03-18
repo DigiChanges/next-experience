@@ -154,6 +154,15 @@
     "s_passwordMinCharacters": "Password must be at least 8 characters",
     "s_passwordsMatch": "Passwords must match"
   },
+  "RecoveryCode": {
+    "title": "Enter your code",
+    "description": "Enter the 5 digit code sent to the email provided. If you can't find it, check your spam folder.",
+    "code": "0 0 0 0 0",
+    "send": "Verify",
+    "singIn": "Do you remember your password?",
+    "singInLink": "Login Here",
+    "codeLink": "Send another code"
+  },
   "ToastLogin": {
     "error": "Oops, something went wrong",
     "success": "Welcome to next experience",
