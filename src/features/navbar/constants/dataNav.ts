@@ -16,11 +16,11 @@ export const dataPerfil = [
   {
     icon: IconUser,
     description: 'perfil',
-    path: '#'
+    path: '/profile'
   }, {
     icon: IconSettings,
     description: 'settings',
-    path: '#'
+    path: '/settings'
   }
 ];
 export const dataLogin = {
