@@ -10,7 +10,7 @@ interface CardItemProps
     type: number;
     id: string;
 }
-export const CardItem: React.FC<CardItemProps> = ({ type, name, id }) => {
+export const  CardItem: React.FC<CardItemProps> = ({ type, name, id }) => {
   return (
     <Card className={style.container}
       radius="lg"

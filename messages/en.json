@@ -72,7 +72,7 @@
     "email": "Email",
     "message": "A link has been sent recovery to email provided.",
     "messageSubtitle": "If you do not receive the email, check your spam folder.",
-    "messageButton": "Return to Log in",
+    "messageButton": "Continue",
     "singIn": "Return to",
     "singInLink": "Log in",
     "register": "if you don't already have one",
@@ -84,6 +84,15 @@
     "send": "Confirm",
     "password": "Password",
     "repeatPassword":"Repeat Password"
+  },
+  "RecoveryCode": {
+    "title": "Enter your code",
+    "description": "Enter the 5 digit code sent to the email provided. If you can't find it, check your spam folder.",
+    "code": "0 0 0 0 0",
+    "send": "Verify",
+    "singIn": "Do you remember your password?",
+    "singInLink": "Login Here",
+    "codeLink": "Send another code"
   },
   "ToastLogin": {
     "error": "Oops, something went wrong",

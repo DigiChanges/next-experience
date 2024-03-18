@@ -37,7 +37,6 @@ export const ForgotPasswordForm: React.FC = () => {
             <h1>{t('title')}</h1>
             <h2>{t('description')}</h2>
             <form className={style.form} onSubmit={(data) => onSubmit(data)}>
-
               <div>
                 <InputForm<IforgotPasswordForm> errors={errors} id={'username'} name={'username'} register={register}
                   type={'email'} label={t('email')} className={style.input}
@@ -58,7 +57,7 @@ export const ForgotPasswordForm: React.FC = () => {
         <div className={style.message}>
           <h2>{t('message')}</h2>
           <h3>{t('messageSubtitle')}</h3>
-          <Link href={'/auth/login'}><span>{t('messageButton')}</span></Link>
+          <Link href={'/auth/recovery-code'}><span>{t('messageButton')}</span></Link>
         </div>
       </Show>
     </div>

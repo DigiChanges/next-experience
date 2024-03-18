@@ -6,6 +6,7 @@ import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
+import Link from "next/link";
 
 interface Props {
     dataPerfil: {
@@ -63,11 +64,11 @@ export const DropdownUser: React.FC<Props> = (props) => {
                   <p>{props.dataUser.username}</p>
               </div>
               {
-                  props.dataPerfil.map(({icon, description}) =>
-                      <div key={t(description)} className={style.perfilSections}>
+                  props.dataPerfil.map(({icon, description, path}) =>
+                      <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>
                           {icon && <Image src={icon} alt='icon perfil'/>}
                           <p>{t(description)}</p>
-                      </div>
+                      </Link>
                   )
               }
               <button className={style.logOut} onClick={singOut}>

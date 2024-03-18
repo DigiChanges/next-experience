@@ -5,8 +5,8 @@ interface FormInputProps<TFormValues extends FieldValues>  {
     type: 'text' | 'number' | 'email' | 'password';
     name: Path<TFormValues>
     label?: string;
-    register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    register?: UseFormRegister<TFormValues>;
+    errors?: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     className?: string;
     placeholder?: string;
