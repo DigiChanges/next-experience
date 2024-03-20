@@ -31,6 +31,7 @@ export const RecoveryCode: React.FC = () => {
     <div className={style.container}>
       <h1>{t('title')}</h1>
       <h2>{t('description')}</h2>
+      <h3>{t('description2')}</h3>
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
         <InputForm<IrecoveryCode> errors={errors} id={'code'} name={'code'} register={register}
           type={'text'} label={t('code')} className={style.input}

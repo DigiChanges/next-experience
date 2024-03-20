@@ -1,8 +1,8 @@
 .container{
-    @apply bg-transparent w-[80%] h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start
+    @apply bg-transparent w-[80%] h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
 }
 .container h1{
-    @apply text-[3rem] text-white border-solid border-b-secondary border-b-[2px] pr-[4rem]
+    @apply text-[2.8rem] text-white border-solid border-b-secondary border-b-[2px] pr-[4rem]
 }
 .container h1 {
     max-height: fit-content;
@@ -15,6 +15,9 @@
 }
 .containerUrl a{
     @apply cursor-pointer hover:underline
+}
+.containerUrl span{
+    @apply text-[1.5rem]
 }
 
 .containerSetting{
@@ -58,37 +61,53 @@
 }
 
 .containerList{
-    @apply relative flex justify-between pt-[1rem] gap-[2rem] h-[100%] w-[100%]
+    @apply relative flex justify-between pt-[1rem] gap-[2rem] h-[100%] w-[100%];
+    overflow-y: scroll;
+}
+.containerList::-webkit-scrollbar {
+    width: 6px;
+}
+.containerList::-webkit-scrollbar-track {
+    @apply bg-transparent
+}
+.containerList::-webkit-scrollbar-thumb {
+    @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
 }
 .tab{
     @apply flex items-start absolute w-[100%]
 }
-.tab input{
+.inputCheck{
     @apply hidden;
 }
-.tab label{
-    @apply inline-block relative top-[1px] z-[3] w-[40%] text-start pl-[1rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.3rem] font-[500] rounded-[8px] hover:bg-[#3FAFFE34]
+.tab .labelCheck{
+    @apply flex items-center gap-2 relative top-[1px] z-[3] w-[40%] text-start pl-[1rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.3rem] font-[500] rounded-[8px] hover:bg-[#3FAFFE34]
 }
-.tab:nth-of-type(1) label{
+.tab:nth-of-type(1) .labelCheck{
     top: 0;
 }
-.tab:nth-of-type(2) label{
+.tab:nth-of-type(2) .labelCheck{
     top: 4rem;
 }
-.tab:nth-of-type(3) label{
+.tab:nth-of-type(3) .labelCheck{
     top: calc(2 * 4rem);
 }
-.tab div{
-    @apply relative hidden top-0 left-0 w-[60%] h-[100%] px-[2rem] text-start
+.tab .divRight{
+    @apply relative hidden top-0 left-0 w-[60%] h-[100%] px-[2rem] pl-[4rem] text-start
 }
-.tab input:checked + label {
+.inputCheck:checked + .labelCheck {
     @apply text-white bg-[#3FAFFE34] border-none rounded-[8px];
 }
-.tab input:checked ~ div{
+.inputCheck:checked ~ .divRight{
     @apply block
 }
-.listRight h3{
+.divRight h3{
     @apply text-[--blue-dark] text-[1.5rem] font-[700]
+}
+.divRight button{
+    @apply bg-secondary rounded-lg h-10 px-[2rem] mt-5 text-white
+}
+.divRight input{
+    @apply !flex
 }
 
 @media (max-width: 640px){
