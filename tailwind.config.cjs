@@ -62,6 +62,9 @@ module.exports = {
           success: {
             DEFAULT: "#31a24c"
           },
+          cancel: {
+            DEFAULT: "#585858"
+          },
           white: {
             DEFAULT: "#000000"
           },
@@ -110,6 +113,9 @@ module.exports = {
           },
           success: {
             DEFAULT: "#65FEA2"
+          },
+          cancel: {
+            DEFAULT: "#585858"
           },
           white: {
             DEFAULT: "#FFFFFF"

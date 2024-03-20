@@ -24,7 +24,7 @@ export default function ThemeSwitcher() {
       size="lg"
       color="secondary"
       startContent={theme === 'light' ? <SunIcon /> : <MoonIcon />}
-      endContent={theme === 'dark' ? <MoonIcon /> : <SunIcon />}
+      endContent={theme === 'dark' ? <MoonIcon /> : <SunIcon color="black" />}
       onClick={toggleTheme}
     >
     </Switch>
