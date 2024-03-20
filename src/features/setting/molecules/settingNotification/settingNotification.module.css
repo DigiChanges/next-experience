@@ -1,0 +1,6 @@
+.notificationUpdate{
+    @apply flex items-center py-3
+}
+.notificationUpdate p{
+    @apply w-full max-w-[20rem]
+}
