@@ -1,5 +1,6 @@
 'use client';
 import React from "react";
+import "./menuSetting.css";
 import style from "./settingNotification.module.css";
 import {Switch} from "@nextui-org/react";
 import {useTranslations} from "next-intl";

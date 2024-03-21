@@ -5,6 +5,8 @@ import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MdLanguage } from 'react-icons/md';
+import {icons} from "../../hooks/icons";
+import Image from 'next/image';
 
 
 interface Props {
@@ -14,6 +16,7 @@ interface Props {
 export const ChangeLenguage: React.FC<Props> = (props) => {
   const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
   const pathName = usePathname();
+  const {IconFlagUsa, IconFlagSpain} = icons();
 
   const params = useSearchParams();
   const paramsString = new URLSearchParams(params).toString();
@@ -34,11 +37,11 @@ export const ChangeLenguage: React.FC<Props> = (props) => {
         <div className={style.perfil}>
           <div className={style.perfilSections}>
             <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
-              locale={'es'}>Español</Link>
+              locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
           </div>
           <div className={style.perfilSections}>
             <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
-              locale={'en'}>Ingles</Link>
+              locale={'en'}>Ingles <Image src={IconFlagUsa} alt="flag usa"/></Link>
           </div>
         </div>
       </motion.ul>

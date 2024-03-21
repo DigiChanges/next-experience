@@ -1,6 +1,24 @@
 .notificationUpdate{
-    @apply flex items-center py-3
+    @apply flex justify-between items-center h-16 py-3 max-w-[250px]
 }
 .notificationUpdate p{
-    @apply w-full max-w-[20rem]
+    @apply w-full
+}
+
+@screen md{
+    .notificationUpdate {
+        @apply max-w-[300px];
+    }
+}
+@screen lg{
+    .notificationUpdate {
+        @apply max-w-[350px];
+    }
+}
+@screen xl{
+}
+@screen 2xl{
+    .notificationUpdate {
+        @apply max-w-[400px];
+    }
 }

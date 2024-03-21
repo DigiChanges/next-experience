@@ -15,6 +15,9 @@ import IconInformation from '../../../asset/icons/informacion.png';
 import IconSuccess from '../../../asset/icons/ok.png';
 import IconAlert from '../../../asset/icons/alerta.png';
 import iconCloseFilter from '../../../asset/icons/boton-cerrar.png';
+import IconFlagSpain from "../../../asset/icons/flag-espana.webp";
+import IconFlagUsa from "../../../asset/icons/flag-usa.webp";
+import IconLogoDgc from "../../../asset/icons/logo-dgc.svg";
 
 
 export const icons = () => {
@@ -34,6 +37,9 @@ export const icons = () => {
     IconInformation,
     IconAlert,
     IconSuccess,
-    iconCloseFilter
+    iconCloseFilter,
+    IconFlagSpain,
+    IconFlagUsa,
+    IconLogoDgc
   };
 };

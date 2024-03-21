@@ -14,7 +14,7 @@
 
 
 .welcomeDetail{
-	@apply bg-bgDashboard rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+	@apply bg-bgGrey rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
 }
 .welcomeDetail p, .welcomeDetail em{
 	@apply text-white
