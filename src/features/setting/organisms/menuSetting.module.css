@@ -1,63 +1,39 @@
 .container{
-    @apply bg-transparent w-[80%] h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
+    @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
 }
 .container h1{
-    @apply text-[2.8rem] text-white border-solid border-b-secondary border-b-[2px] pr-[4rem]
+    @apply font-semibold text-[2rem] text-white border-solid border-b-secondary border-b-[2px]
 }
 .container h1 {
     max-height: fit-content;
 }
 .container h2{
-    @apply text-white h-[10%] text-[1.5rem] font-[400] pt-1 pb-5
+    @apply text-white text-[1.2rem] font-[400] pt-1 pb-5
 }
 .containerUrl{
-    @apply flex items-center gap-2 pl-5 py-3
+    @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[0.8rem] font-normal
 }
 .containerUrl a{
-    @apply cursor-pointer hover:underline
+    @apply cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
 }
 .containerUrl span{
     @apply text-[1.5rem]
 }
+.containerUrl .urlActive{
+    @apply text-white font-medium
+}
 
 .containerSetting{
-    @apply bg-bgDashboard rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+    @apply flex flex-col items-start justify-start w-full bg-bgGrey rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+    transition: .5s;
 }
-.containerSetting p, .containerSetting em{
+.containerSetting p{
     @apply text-white
 }
-.containerSetting {
-    transition: .5s;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    justify-content: flex-start;
-}
 
-.characters_welcome p {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 22px;
-    font-weight: bold;
-}
-.characters_welcome em {
-    font-weight: bold;
-    margin-top: 25px;
-    font-size: 20px;
-}
 .no-welcome {
     transition: .5s;
     display: none;
-}
-.container-img {
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .containerList{
@@ -74,22 +50,22 @@
     @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
 }
 .tab{
-    @apply flex items-start absolute w-[100%]
+    @apply flex items-start justify-between absolute w-[100%]
 }
 .inputCheck{
     @apply hidden;
 }
 .tab .labelCheck{
-    @apply flex items-center gap-2 relative top-[1px] z-[3] w-[40%] text-start pl-[1rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.3rem] font-[500] rounded-[8px] hover:bg-[#3FAFFE34]
+    @apply flex items-center h-16 gap-2 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
 }
 .tab:nth-of-type(1) .labelCheck{
     top: 0;
 }
 .tab:nth-of-type(2) .labelCheck{
-    top: 4rem;
+    top: 5rem;
 }
 .tab:nth-of-type(3) .labelCheck{
-    top: calc(2 * 4rem);
+    top: calc(2 * 5rem);
 }
 .tab .divRight{
     @apply relative hidden top-0 left-0 w-[60%] h-[100%] px-[2rem] pl-[4rem] text-start
@@ -101,7 +77,7 @@
     @apply block
 }
 .divRight h3{
-    @apply text-[--blue-dark] text-[1.5rem] font-[700]
+    @apply text-[--blue-dark] text-[1.5rem] font-semibold
 }
 .divRight button{
     @apply bg-secondary rounded-lg h-10 px-[2rem] mt-5 text-white
@@ -111,11 +87,41 @@
 }
 
 @media (max-width: 640px){
-    .characters_welcome {
-        width: 95%;
-    }
     .loading-animation {
         width: 150px;
         height: 200px;
+    }
+}
+
+@screen md{
+    .container{
+        @apply w-[80%];
+    }
+    .container h1{
+        @apply text-[2.8rem] pr-[4rem]
+    }
+    .container h2{
+        @apply h-[10%] text-[1.5rem];
+    }
+    .tab .labelCheck{
+        @apply text-[1.3rem];
+    }
+    .containerUrl{
+        @apply text-[1rem]
+    }
+}
+@screen lg{
+    .form {
+        @apply max-w-[350px];
+    }
+}
+@screen xl{
+    .btn{
+        @apply  text-[18px];
+    }
+}
+@screen 2xl{
+    .form {
+        @apply max-w-[400px];
     }
 }
