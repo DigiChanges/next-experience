@@ -1,11 +1,13 @@
 .container {
-	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-0 py-[2rem] w-[60px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
+	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-0 py-[2rem] px-2 w-[60px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 
 .navActive {
 	@apply calculateWidth !important;
 }
-
+.logo{
+	@apply !w-[4rem]
+}
 .container nav {
 	@apply w-full pb-8 relative;
 }
@@ -102,7 +104,7 @@
 
 @screen sm {
 	.container {
-		@apply w-[70px];
+		@apply w-[80px];
 	}
 
 	.container p {

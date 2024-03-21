@@ -14,19 +14,20 @@ export const ModalComponent:React.FC<Props> = (props) => {
 
     return (
         <>
-            <Button onPress={onOpen}>{props.button}</Button>
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Button className={style.buttonModal} onPress={onOpen}>{props.button}</Button>
+            <Modal className={style.modal} isOpen={isOpen} onOpenChange={onOpenChange}>
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1"><RxCrossCircled /></ModalHeader>
-                            <ModalBody>
+                            <ModalHeader className="flex flex-col gap-1"></ModalHeader>
+                            <ModalBody className={style.modalBody}>
+                                <RxCrossCircled />
                                 <p>
                                     {props.description}
                                 </p>
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
+                                <Button className={style.dangerButton} color="danger" variant="light" onPress={onClose}>
                                     {props.cancel}
                                 </Button>
                                 <Button color="success" onPress={onClose}>

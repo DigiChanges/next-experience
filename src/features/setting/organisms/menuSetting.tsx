@@ -16,7 +16,7 @@ export const MenuSetting: React.FC = () => {
   return (
     <div className={style.container}>
       <div className={style.containerUrl}>
-        <p>{t('home')}</p><span>›</span><Link href={'/dashboard'}>{t('Dashboard')}</Link><span>›</span><p>{t('Setting')}</p>
+        <p>{t('home')}</p><span>›</span><Link href={'/dashboard'}>{t('Dashboard')}</Link><span>›</span><p className={style.urlActive}>{t('Setting')}</p>
       </div>
       <div className={style.containerSetting}>
         <h1 data-aos="fade-down" data-aos-duration="1500">

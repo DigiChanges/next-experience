@@ -57,27 +57,33 @@ module.exports = {
             DEFAULT: "#6f86d6"
           },
           warning: {
-            DEFAULT: "#f94f37"
+            DEFAULT: "#FE6565"
           },
           success: {
-            DEFAULT: "#31a24c"
+            DEFAULT: "#8DFFBA"
           },
           cancel: {
             DEFAULT: "#585858"
           },
           white: {
-            DEFAULT: "#000000"
+            DEFAULT: "#292D32"
           },
           bgGradient:{
             DEFAULT: "#DADADA"
           },
-          selectedMenu:{
+          bgGrey:{
             DEFAULT: "#FFFFFF"
           },
           borderInput:{
             DEFAULT: "#E4E4E7"
           },
-          bgDashboard:{
+          hoverColor:{
+            DEFAULT: "#D4D4D8"
+          },
+          hoverButtonBlue:{
+            DEFAULT: "#74C5FF"
+          },
+          modal:{
             DEFAULT: "#FFFFFF"
           }
         }
@@ -109,10 +115,10 @@ module.exports = {
             DEFAULT: "#1e2b4f"
           },
           warning: {
-            DEFAULT: "#FE3F3F"
+            DEFAULT: "#FE6565"
           },
           success: {
-            DEFAULT: "#65FEA2"
+            DEFAULT: "#8DFFBA"
           },
           cancel: {
             DEFAULT: "#585858"
@@ -123,14 +129,20 @@ module.exports = {
           bgGradient:{
             DEFAULT: "#000000"
           },
-          selectedMenu:{
+          bgGrey:{
             DEFAULT: "#212121"
           },
           borderInput:{
             DEFAULT: "#E4E4E7"
           },
-          bgDashboard:{
-            DEFAULT: "#212121"
+          hoverColor:{
+            DEFAULT: "#3F3F46"
+          },
+          hoverButtonBlue:{
+            DEFAULT: "#74C5FF"
+          },
+          modal:{
+            DEFAULT: "#1A1C1F"
           }
         }
       }

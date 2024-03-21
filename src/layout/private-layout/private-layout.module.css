@@ -1,5 +1,5 @@
 .containerComponents {
-    @apply flex pl-[65px] bg-bgDefault bg-gradient-to-r from-bgGradient to-60% h-[100vh] ;
+    @apply flex bg-bgDefault bg-gradient-to-r from-bgGradient to-60% h-[100vh] ;
 }
 
 @screen md {
