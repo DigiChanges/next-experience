@@ -1,8 +1,12 @@
 .container{
-    @apply relative max-w-[60px] w-[2.5rem] h-[2.5rem]
+    @apply hidden relative
 }
 .containerIconUser {
-    @apply cursor-pointer;
+    @apply max-w-[60px] w-[2.5rem] h-[2.5rem] cursor-pointer;
+}
+.active{
+    backdrop-filter: blur(4px);
+    height: 100%;
 }
 
 .iconUser {
@@ -55,4 +59,10 @@
 
 .centerAlign {
     @apply top-1/2 transform -translate-y-1/2;
+}
+
+@screen md{
+    .container{
+        @apply block relative
+    }
 }
