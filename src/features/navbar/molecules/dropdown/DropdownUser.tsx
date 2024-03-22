@@ -7,6 +7,11 @@ import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import Link from "next/link";
+import {Accordion, AccordionItem} from "@nextui-org/react";
+import {createSharedPathnamesNavigation} from "next-intl/navigation";
+import {locales} from "@/config";
+import {icons} from "@/features/shared/hooks/icons";
+import {useSearchParams} from "next/navigation";
 
 interface Props {
     dataPerfil: {
@@ -34,6 +39,12 @@ export const DropdownUser: React.FC<Props> = (props) => {
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
   const t = useTranslations('NavigationUser');
   const r = useTranslations('ToastLogOut');
+
+    const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
+    const pathName = usePathname();
+    const { IconFlagUsa, IconFlagSpain } = icons();
+    const params = useSearchParams();
+    const paramsString = new URLSearchParams(params).toString();
 
   const singOut  = async() => {
     await toast.promise(handleSignOut, {
@@ -71,6 +82,18 @@ export const DropdownUser: React.FC<Props> = (props) => {
                       </Link>
                   )
               }
+              <Accordion className={style.langResponsive}>
+                  <AccordionItem key="1" aria-label="Accordion 1" title="Idiomas">
+                      <div className={style.perfilSections}>
+                          <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
+                                locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
+                      </div>
+                      <div className={style.perfilSections}>
+                          <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
+                                locale={'en'}>Ingles <Image src={IconFlagUsa} alt="flag usa"/></Link>
+                      </div>
+                  </AccordionItem>
+              </Accordion>
               <button className={style.logOut} onClick={singOut}>
                   <Image src={props.dataLogin.icon} alt='LogOut'/>
                   <p>{t('logout')}</p>

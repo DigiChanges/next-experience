@@ -55,3 +55,27 @@
  .centerAlign {
      @apply top-1/2 transform -translate-y-1/2;
  }
+.perfil .perfilSections, .perfil .logOut{
+    @apply py-2 items-center cursor-pointer hover:bg-hoverColor active:bg-secondary
+}
+.perfil .perfilSections img, .perfil .logOut img{
+    @apply w-[1.5rem] pl-1
+}
+.perfil .perfilSections p, .perfil .logOut p{
+    @apply ml-6 pr-1
+}
+.perfil .perfilSections{
+    @apply flex text-white
+}
+.perfilSections a{
+    @apply w-full flex justify-between items-center
+}
+.perfilSections a img{
+    @apply object-contain !w-[2rem]
+}
+
+@screen md{
+    .langResponsive{
+        @apply hidden
+    }
+}
