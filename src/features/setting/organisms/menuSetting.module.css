@@ -1,8 +1,8 @@
 .container{
-    @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
+    @apply bg-transparent w-[100%] min-h-[100vh] text-white flex flex-col items-start;
 }
 .container h1{
-    @apply font-semibold text-[2rem] text-white border-solid border-b-secondary border-b-[2px]
+    @apply pt-[4rem] font-semibold text-[2rem] text-white border-solid border-b-secondary border-b-[2px]
 }
 .container h1 {
     max-height: fit-content;
@@ -11,7 +11,7 @@
     @apply text-white text-[1.2rem] font-[400] pt-1 pb-5
 }
 .containerUrl{
-    @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[0.8rem] font-normal
+    @apply hidden
 }
 .containerUrl a{
     @apply cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
@@ -24,7 +24,7 @@
 }
 
 .containerSetting{
-    @apply flex flex-col items-start justify-start w-full bg-bgGrey rounded-2xl p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+    @apply flex flex-col items-start justify-start w-full bg-bgGrey  p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
     transition: .5s;
 }
 .containerSetting p{
@@ -52,9 +52,6 @@
 .tab{
     @apply flex items-start justify-between absolute w-[100%]
 }
-.inputCheck{
-    @apply hidden;
-}
 .tab .labelCheck{
     @apply flex items-center h-16 gap-2 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
 }
@@ -68,22 +65,29 @@
     top: calc(2 * 5rem);
 }
 .tab .divRight{
-    @apply relative hidden top-0 left-0 w-[60%] h-[100%] px-[2rem] pl-[4rem] text-start
+    @apply fixed bg-bgGrey z-50 hidden top-0 right-[-500px] h-[100%] px-[2rem] pt-[5rem] text-start overflow-hidden !transition-all
 }
 .inputCheck:checked + .labelCheck {
     @apply text-white bg-[#3FAFFE34] border-none rounded-[8px];
 }
 .inputCheck:checked ~ .divRight{
-    @apply block
+    @apply block w-[100%] right-0 !transition-all;
+}
+.labelCheckResponsive{
+    @apply absolute flex items-center justify-center top-[1.25rem] left-0 w-full text-center text-[1.2rem] font-semibold
+}
+.labelCheckResponsive svg{
+    @apply absolute h-[2rem] w-[2rem] left-[1.25rem]
 }
 .divRight h3{
-    @apply text-[--blue-dark] text-[1.5rem] font-semibold
+    @apply text-[--blue-dark] text-[1.5rem] font-semibold !transition-all
 }
 .divRight button{
-    @apply bg-secondary rounded-lg h-10 px-[2rem] mt-5 text-white
+    @apply bg-secondary rounded-lg h-10 px-[2rem] mt-5 text-white !transition-all
 }
-.divRight input{
-    @apply !flex
+
+.inputCheck, .inputCheckResponsive{
+    @apply !hidden !transition-all;
 }
 
 @media (max-width: 640px){
@@ -95,10 +99,10 @@
 
 @screen md{
     .container{
-        @apply w-[80%];
+        @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
     }
     .container h1{
-        @apply text-[2.8rem] pr-[4rem]
+        @apply text-[2.8rem] pr-[4rem] pt-0
     }
     .container h2{
         @apply h-[10%] text-[1.5rem];
@@ -107,7 +111,19 @@
         @apply text-[1.3rem];
     }
     .containerUrl{
-        @apply text-[1rem]
+        @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[1rem] font-normal
+    }
+    .tab .divRight{
+        @apply relative w-[60%] h-[100%] pl-[4rem] pt-0 z-[1]
+    }
+    .inputCheck:checked ~ .divRight{
+        @apply block w-[60%] right-0 !transition-all;
+    }
+    .containerSetting{
+        @apply rounded-2xl
+    }
+    .labelCheckResponsive{
+        @apply hidden
     }
 }
 @screen lg{

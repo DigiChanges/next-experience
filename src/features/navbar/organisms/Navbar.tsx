@@ -29,32 +29,35 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className={`${style.container} ${isOpen && style.navActive}`}>
-      <nav>
-        <div className={`${style.openMenu}`}>
-          <Image className={style.logo} src={IconLogoDgc} alt={'logo dgc'}
-            height={400} width={400}/>
-          <RxCross2 className={`${isOpen && style.rotateIcon}`} onClick={handleNavbar} height={200} width={200} />
-        </div>
-        <ul>
-          <span className={style.lineOne}></span>{
-            dataNav.map(({ image, description, path, id }, index) =>
-              <li key={id} className={index === selectedItemIndex ? style.selectedItem : ''}>
-                <Link onClick={(e) => {
-                  !path && e.preventDefault();
-                  handleItemClick(index);
-                }} href={path ?? '#'}>
-                  <div className={style.imgNav}>
-                    <Image src={image} alt={'menu item'}/>
-                  </div>
-                  <p>{t(description)}</p>
-                </Link>
-              </li>)}
-        </ul>
-        <span className={style.lineTwo}></span>
-      </nav>
-      <ThemeSwitcher />
-    </header>
+    <>
+      <RxCross2 className={`${isOpen && style.rotateIcon} ${style.navResponsive}`} onClick={handleNavbar} height={200} width={200} />
+      <header className={`${style.container} ${isOpen && style.navActive}`}>
+        <nav>
+          <div className={`${style.openMenu}`}>
+            <Image className={style.logo} src={IconLogoDgc} alt={'logo dgc'}
+              height={400} width={400}/>
+            <RxCross2 className={`${isOpen && style.rotateIcon}`} onClick={handleNavbar} height={200} width={200} />
+          </div>
+          <ul>
+            <span className={style.lineOne}></span>{
+              dataNav.map(({ image, description, path, id }, index) =>
+                <li key={id} className={index === selectedItemIndex ? style.selectedItem : ''}>
+                  <Link onClick={(e) => {
+                    !path && e.preventDefault();
+                    handleItemClick(index);
+                  }} href={path ?? '#'}>
+                    <div className={style.imgNav}>
+                      <Image src={image} alt={'menu item'}/>
+                    </div>
+                    <p>{t(description)}</p>
+                  </Link>
+                </li>)}
+          </ul>
+          <span className={style.lineTwo}></span>
+        </nav>
+        <ThemeSwitcher />
+      </header>
+    </>
   );
 };
 

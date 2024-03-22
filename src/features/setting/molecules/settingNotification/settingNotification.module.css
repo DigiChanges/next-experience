@@ -1,5 +1,5 @@
 .notificationUpdate{
-    @apply flex justify-between items-center h-16 py-3 max-w-[250px]
+    @apply flex justify-between items-center h-16 py-3 w-full
 }
 .notificationUpdate p{
     @apply w-full
