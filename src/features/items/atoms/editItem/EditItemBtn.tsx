@@ -14,9 +14,10 @@ export const EditItemBtn: React.FC<Props> = ({ id }) => {
 
   return (
     <Link href={`items/update?id=${id}`}>
-      <Button isIconOnly className={style.btnEdit}>
-        <Image src={EditIcon.src} width={100} height={100} alt={'edit'} />
-      </Button>
+        <Button isIconOnly className={style.btnEdit}>
+            <p>Edit</p>
+            <Image src={EditIcon.src} width={100} height={100} alt={'edit'}/>
+        </Button>
     </Link>
   );
 };

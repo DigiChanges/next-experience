@@ -31,8 +31,9 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
   };
 
   return (
-    <div>
+    <>
       <Button isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
+        <p>Delete</p>
         <Image src={DeleteIcon.src} width={100} height={100} alt={'delete'}/>
       </Button>
       {
@@ -50,6 +51,6 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
           </CardBody>
         </Card>
       }
-    </div>
+    </>
   );
 };

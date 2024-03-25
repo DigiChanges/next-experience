@@ -1,11 +1,23 @@
 .container{
-    @apply w-full max-w-[350px] h-[200px] bg-default
+    @apply w-full max-w-[245px] h-[177px] p-3.5 bg-card shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.containerHeader{
+    @apply absolute top-1 right-1 p-0 w-full flex justify-end
+}
+.backgroundHover{
+    @apply bg-hoverCard
 }
 .container .name{
-    @apply font-bold py-2 text-lg
+    @apply font-normal py-2 text-[1.5rem]
 }
-.state{
-    @apply  bg-success rounded-full h-4 w-4 m-4
+.container h2{
+    @apply text-[0.8rem]
+}
+.container p{
+    @apply text-[0.9rem]
+}
+.containerInfo{
+    @apply flex flex-col items-center justify-around h-full;
 }
 
 .cardFooter{
@@ -20,7 +32,6 @@
 
 @screen md {
     .container{
-        @apply w-[320px] h-[220px]
     }
 }
 
@@ -29,7 +40,6 @@
         @apply text-2xl
     }
     .container{
-        @apply w-[400px] h-[250px]
     }
 
 }
@@ -39,7 +49,6 @@
         @apply text-3xl
     }
     .container{
-        @apply w-[450px] h-[280px]
     }
 
 }

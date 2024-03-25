@@ -8,23 +8,23 @@
 }
 
 .listbox {
-   @apply  bg-[#1f1f36]
+   @apply  bg-bgSelectFilter
 }
 
 
 
 /*caja de los select*/
 .popoverContent {
-   @apply bg-[#1f1f36]
+   @apply bg-bgSelectFilter
 }
 
 
 /*color del icon*/
 .rigger {
-   @apply  bg-[#1f1f36]
+   @apply  bg-bgSelectFilter
 }
 
 .color {
-   @apply text-[#ffffff] !important;
+   @apply text-white !important;
 
 }

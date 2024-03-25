@@ -85,7 +85,19 @@ module.exports = {
           },
           modal:{
             DEFAULT: "#FFFFFF"
-          }
+          },
+          card:{
+            DEFAULT: "#F5F5F5"
+          },
+          hoverCard:{
+            DEFAULT: "#32323219"
+          },
+          bgInputFilter:{
+            DEFAULT: "#F5F5F5"
+          },
+          bgSelectFilter:{
+            DEFAULT: "#E4E4E4"
+          },
         }
       },
       dark: {
@@ -143,7 +155,19 @@ module.exports = {
           },
           modal:{
             DEFAULT: "#1A1C1F"
-          }
+          },
+          card:{
+            DEFAULT: "#1A1C1F"
+          },
+          hoverCard:{
+            DEFAULT: "#0000004C"
+          },
+          bgInputFilter:{
+            DEFAULT: "#FFFFFF"
+          },
+          bgSelectFilter:{
+            DEFAULT: "#1A1C1F"
+          },
         }
       }
     }

@@ -1,8 +1,7 @@
-import React from 'react';
-import { Card, CardFooter } from '@nextui-org/react';
+import React, {useState} from 'react';
+import { Card, CardHeader  } from '@nextui-org/react';
 import style from './card.module.css';
-import { DeleteItemBtn } from '../deleteItem/DeleteItemBtn';
-import { EditItemBtn } from '../editItem/EditItemBtn';
+import {Dropdown} from "@/features/shared/atoms/dropdown/Dropdown";
 
 interface CardItemProps
 {
@@ -11,23 +10,24 @@ interface CardItemProps
     id: string;
 }
 export const  CardItem: React.FC<CardItemProps> = ({ type, name, id }) => {
+  const [isDropdownOpen, setisDropdownOpen] = useState<boolean>(false);
+
+  const handleDropdown = () => {
+    setisDropdownOpen(!isDropdownOpen);
+  };
   return (
-    <Card className={style.container}
+    <Card className={isDropdownOpen? `${style.backgroundHover} ${style.container}` : style.container}
       radius="lg"
     >
-      <div className={style.state}>
+      <CardHeader className={style.containerHeader}>
+        <Dropdown isDropdownOpen={isDropdownOpen} handleDropdown={handleDropdown} id={id} />
+      </CardHeader>
+      <div className={style.containerInfo}>
+        <h2 className="text-md">Type: {type}</h2>
+        <h3 className={style.name}>{name}</h3>
+        <p>$500.000</p>
+        <p>EXP: 25/12/2024</p>
       </div>
-      <div className="flex flex-col px-4">
-        <p className="text-md">Type: {type}</p>
-        <h2 className={style.name}>{name}</h2>
-      </div>
-      <CardFooter className={style.cardFooter}>
-        <DeleteItemBtn
-          id={id}/>
-        <div>
-          <EditItemBtn id={id} />
-        </div>
-      </CardFooter>
     </Card>
   );
 };

@@ -36,10 +36,9 @@ export const FilterAndSearch = ({
             type={searchType}
             value={inputVal}
             onChange={e => setInputVal(e.target.value)}
-            labelPlacement={'outside'}
-            label={t('search')}
+            placeholder={t('search')}
             classNames={{
-              input: ['bg-default'],
+              input: ['bg-bgInputFilter'],
               inputWrapper: [style.inputWrapper]
             }}
           />
