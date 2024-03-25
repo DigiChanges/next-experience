@@ -1,9 +1,12 @@
 .btnDelete img {
-    @apply rounded-full h-4 w-4 m-4 m-auto
+    @apply rounded-full h-4 w-4 mr-4
 }
 
 .btnDelete {
-    @apply m-2 w-[32px] min-w-[32px] h-[32px] min-h-[32px] bg-warning
+    @apply w-full h-[32px] min-h-[32px] flex items-center justify-between bg-transparent
+}
+.btnDelete p{
+    @apply text-warning
 }
 
 .containerAlert {
@@ -13,7 +16,7 @@
     @apply w-[350px] max-h-[350px] shadow-md bg-accent py-4 rounded-md flex justify-center items-center
 }
 .img{
-    @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px] 
+    @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px]
 }
 .text{
     @apply text-lg text-center p-4
@@ -33,14 +36,12 @@
     }
 
     .btnDelete {
-        @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px]
     }
 }
 
 @screen lg {
 
     .btnDelete {
-        @apply w-[40px] min-w-[40px] h-[40px] min-h-[40px]
     }
     .text{
         @apply text-lg
@@ -51,7 +52,6 @@
 @screen 2xl {
 
     .btnDelete {
-        @apply w-[48px] min-w-[48px] h-[48px] min-h-[48px]
     }
     .img{
         @apply w-[48px] min-w-[48px] h-[48px] min-h-[48px]
@@ -63,8 +63,8 @@
         @apply flex justify-end p-2  rounded-md bg-success my-2
     }
     .btnClose{
-        @apply flex justify-end  bg-warning p-2 my-2 rounded-md 
+        @apply flex justify-end  bg-warning p-2 my-2 rounded-md
     }
-    
+
 }
 

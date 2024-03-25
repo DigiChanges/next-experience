@@ -1,16 +1,23 @@
 .container {
-    @apply max-w-[1800px] m-auto ;
+    @apply w-[80%] m-auto pt-[4rem] ;
 }
 .subcontainerAddFilter{
-    @apply   flex flex-col w-full bg-accent p-4 rounded-lg shadow-md
+    @apply flex flex-col items-end w-full bg-bgGrey p-4 mt-4 rounded-2xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.subcontainerAddFilter2{
+    @apply flex items-center justify-between w-full
 }
 .containerAddFilter{
-    @apply flex flex-col p-2
+    @apply flex flex-col items-start
 }
-
-
+.subcontainerAddFilter h2{
+    @apply w-full
+}
+.containerAddItemBtn{
+    @apply w-full bg-bgGrey p-2 my-4 rounded-2xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
 .cards {
-    @apply h-[60vh] overflow-y-auto scrollbar-hide  grid grid-cols-1 gap-3 place-items-center mx-1
+    @apply h-[60vh] overflow-y-auto scrollbar-hide grid grid-cols-1 items-start gap-3 place-items-center bg-bgGrey rounded-2xl p-3 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
 }
 .containerPaginationAndAdd{
     @apply p-4 flex justify-end flex-col
@@ -21,24 +28,24 @@
 
 @screen md {
     .cards {
-        @apply grid-cols-2
+        @apply grid-cols-3
     }
 }
 
 @screen lg{
     .subcontainerAddFilter{
-        @apply   flex flex-row
+        @apply   flex flex-col
     }
 }
 @screen xl {
     .cards {
-        @apply grid-cols-3
+        @apply grid-cols-5
     }
 }
 
 @screen 2xl {
     .cards{
-        @apply grid-cols-4 h-[70vh];
+        @apply h-[70vh];
     }
     .container {
         @apply max-w-[1500px] m-auto ;

@@ -3,6 +3,8 @@ import Image from 'next/image';
 import React from 'react';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { icons } from '@/features/shared/hooks/icons';
+import { IoCloseOutline } from "react-icons/io5";
+
 
 type Props = {
   filtersApplied: FilterApplied[]
@@ -22,12 +24,15 @@ export const FiltersApplied = ({
           <li key={el.key} className={style.liRemove}>{
             el.key}
           <button className={style.btnRemove} onClick={() => {
-            handleRemoveFilter(el);
-            handleReplaceURL();
+              handleRemoveFilter(el);
+              handleReplaceURL();
           }}>
-            <Image src={iconCloseFilter.src} alt={'button close'} width={50} height={50}/>
+            <IoCloseOutline />
           </button>
           </li>)
+      }
+      {
+        filtersApplied.length > 0 && <button className={style.buttonClear}>Clear all</button>
       }
     </div>
   );

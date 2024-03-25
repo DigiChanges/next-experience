@@ -4,6 +4,7 @@ import { Button, Image } from '@nextui-org/react';
 import style from './addItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
+import { IoAddOutline } from "react-icons/io5";
 
 
 export const AddItemBtn: React.FC = () => {
@@ -13,11 +14,10 @@ export const AddItemBtn: React.FC = () => {
     <div className={style.container} >
       <Link href={'items/create'}>
         <Button
-          radius='full'
-          isIconOnly color='success'
           aria-label='Like'
         >
-          <Image src={IconAdd.src} width={100} height={100} alt={'add item'} />
+          <IoAddOutline />
+            Add Item
         </Button>
       </Link>
     </div>

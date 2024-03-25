@@ -66,33 +66,37 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   return (
     <section className={style.container}>
       <div className={style.containerAddFilter}>
+        <Title/>
         <div className={style.subcontainerAddFilter}>
-          <Title/>
-          <FilterAndSearch
-            handleSetFiltersApplied={handleSetFiltersApplied}
-            handleSetFilterValues={handleSetFilterValues}
-            keySelected={keySelected}
-            handleReplace={handleReplaceURL}
-            inputFilterData={selectOptionsData}
-          />
+          <div className={style.subcontainerAddFilter2}>
+            <h2>Select filter</h2>
+            <FilterAndSearch
+                handleSetFiltersApplied={handleSetFiltersApplied}
+                handleSetFilterValues={handleSetFilterValues}
+                keySelected={keySelected}
+                handleReplace={handleReplaceURL}
+                inputFilterData={selectOptionsData}
+            />
+          </div>
+          <div className={style.containerAddItem}>
+            <FiltersApplied
+                filtersApplied={filtersApplied}
+                handleReplaceURL={handleReplaceURL}
+                handleRemoveFilter={handleRemoveFilter}
+            />
+          </div>
         </div>
-
-        <div className={style.containerAddItem}>
-          <FiltersApplied
-            filtersApplied={filtersApplied}
-            handleReplaceURL={handleReplaceURL}
-            handleRemoveFilter={handleRemoveFilter}
-          />
+        <div className={style.containerAddItemBtn}>
+          <AddItemBtn/>
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
       <div className={style.cards}>
         {items.map((item) => (
-          <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
+            <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
         ))}
       </div>
       <div className={style.containerPaginationAndAdd}>
-        <AddItemBtn/>
         <Show when={items.length > 0}>
           <div className={style.testNav}>
             <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
