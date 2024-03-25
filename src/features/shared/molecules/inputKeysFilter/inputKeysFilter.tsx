@@ -12,8 +12,6 @@ export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
   const t = useTranslations('Items');
   return (
     <Select
-      labelPlacement={'outside'}
-      label={t('filter')}
       defaultSelectedKeys={[data[0].value]}
       classNames={{
         base:style.container,

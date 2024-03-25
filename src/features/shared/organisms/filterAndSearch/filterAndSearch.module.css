@@ -1,28 +1,38 @@
 .containerSelect{
-    @apply flex flex-col justify-around items-center
+    @apply flex flex-col justify-end items-center
 }
 
 .containerInputFilter {
-    @apply w-full
+    @apply w-full max-w-[200px]
 }
 
 .containerInput{
-    @apply flex  items-center w-full
+    @apply flex  items-center
 }
 
 .input{
-    @apply w-full
+    @apply !text-[#292D32]
+}
+.input input{
+    @apply bg-bgInputFilter !text-[#292D32]
 }
 .btn{
-    @apply mt-[24px] ml-2
+    @apply bg-secondary rounded-[10px] ml-2 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+}
+.btn button{
+    @apply bg-transparent
+}
+
+.inputWrapper {
+    @apply max-w-[250px] w-full bg-bgInputFilter rounded-[10px] hover:bg-bgInputFilter active:bg-bgInputFilter;
 }
 
 @screen md {
     .containerSelect{
-        @apply  flex flex-row  w-full justify-around
+        @apply  flex flex-row  w-full
     }
     .containerInputFilter {
-        @apply w-[40%]
+
     }
     .containerInput{
         @apply pl-2
@@ -30,7 +40,7 @@
 }
 @screen lg{
     .containerSelect{
-        @apply flex  items-center pl-4
+
     }
 }
 
