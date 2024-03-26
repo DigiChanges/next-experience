@@ -1,14 +1,14 @@
 'use client';
 import React from 'react';
-import { Button, Image } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
 import style from './addItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
-import { IoAddOutline } from "react-icons/io5";
-
+import {useTranslations} from "next-intl";
 
 export const AddItemBtn: React.FC = () => {
-  const { IconAdd } = icons();
+  const { IoAddOutline } = icons();
+  const t = useTranslations('Items');
 
   return (
     <div className={style.container} >
@@ -17,7 +17,7 @@ export const AddItemBtn: React.FC = () => {
           aria-label='Like'
         >
           <IoAddOutline />
-            Add Item
+          {t('addItem')}
         </Button>
       </Link>
     </div>

@@ -16,7 +16,7 @@ export const  CardItem: React.FC<CardItemProps> = ({ type, name, id }) => {
     setisDropdownOpen(!isDropdownOpen);
   };
   return (
-    <Card className={isDropdownOpen? `${style.backgroundHover} ${style.container}` : style.container}
+    <Card className={isDropdownOpen ? `${style.backgroundHover} ${style.container}` : style.container}
       radius="lg"
     >
       <CardHeader className={style.containerHeader}>

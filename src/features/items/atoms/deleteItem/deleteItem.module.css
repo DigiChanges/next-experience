@@ -3,10 +3,13 @@
 }
 
 .btnDelete {
-    @apply w-full h-[32px] min-h-[32px] flex items-center justify-between bg-transparent
+    @apply w-full h-[25px] flex items-end justify-between bg-transparent
 }
 .btnDelete p{
-    @apply text-warning
+    @apply text-white !text-[1rem]
+}
+.btnDelete svg{
+    @apply  rounded-full h-[1rem] w-[1rem] mr-4 text-warning
 }
 
 .containerAlert {
@@ -31,7 +34,7 @@
 
 @screen md {
 
-    .btnDelete img {
+    .btnDelete svg {
         @apply h-6 w-6
     }
 

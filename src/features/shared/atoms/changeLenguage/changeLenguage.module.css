@@ -10,7 +10,7 @@
 }
 
 .iconUser {
-    @apply relative max-w-[60px] w-full h-[2.5rem]
+    @apply relative max-w-[60px] w-full h-[2.5rem] transition-all transform duration-500 hover:scale-[102%] active:scale-[98%]
 }
 
 .iconUser p {
@@ -48,7 +48,7 @@
     @apply flex text-white
 }
 .perfilSections a{
-    @apply w-full flex justify-between items-center
+    @apply w-full flex justify-between items-center !no-underline
 }
 .perfilSections a img{
     @apply object-contain !w-[2rem]

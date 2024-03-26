@@ -37,11 +37,16 @@
     "name": "Name",
     "type": "Type",
     "search": "Search",
-    "button": "Filter",
+    "button": "Apply",
     "emptyItems": "No items to display",
     "add": "Add",
     "update": "Update",
-    "deleteAlert":"Are you sure you want to delete this item?"
+    "deleteAlert":"Are you sure you want to delete this item?",
+    "addItem": "Add Item",
+    "clearAll": "Clear all",
+    "delete": "Delete",
+    "edit": "Edit",
+    "selectFilter": "Select filter"
   },
   "Login": {
     "username": "Username",

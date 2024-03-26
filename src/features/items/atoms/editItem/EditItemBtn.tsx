@@ -1,22 +1,24 @@
 
 import React from 'react';
-import { Button, Image } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
 import style from './editItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
+import {useTranslations} from "next-intl";
 
 interface Props {
     id: string;
 }
 
 export const EditItemBtn: React.FC<Props> = ({ id }) => {
-  const { EditIcon } = icons();
+  const { IoMdCreate } = icons();
+    const t = useTranslations('Items');
 
   return (
     <Link href={`items/update?id=${id}`}>
         <Button isIconOnly className={style.btnEdit}>
-            <p>Edit</p>
-            <Image src={EditIcon.src} width={100} height={100} alt={'edit'}/>
+            <p>{t('edit')}</p>
+            <IoMdCreate />
         </Button>
     </Link>
   );

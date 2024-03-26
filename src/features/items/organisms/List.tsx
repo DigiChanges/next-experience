@@ -15,6 +15,7 @@ import { Show } from '@/features/shared/atoms/show/Show';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import {useTranslations} from "next-intl";
 
 interface Props {
     items: ItemsResponse[]
@@ -27,6 +28,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const params = new URLSearchParams(searchParams);
   const { handlePage, currentPage } = usePagination(pagination, params);
   const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter, key } = useFilter(params);
+  const t = useTranslations('Items');
 
   const handleSearch = () => {
     if (inputVal.trim().length > 0) {
@@ -59,7 +61,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         <Title/>
         <div className={style.subcontainerAddFilter}>
           <div className={style.subcontainerAddFilter2}>
-            <h2>Select filter</h2>
+            <h2>{t('selectFilter')}</h2>
             <FilterAndSearch
                 handleSetKey={handleSetKey}
                 searchType={searchType}
@@ -81,11 +83,13 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
-      <div className={style.cards}>
-        {items.map((item) => (
-            <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
-        ))}
-      </div>
+      <Show when={items.length}>
+        <div className={style.cards}>
+          {items.map((item) => (
+              <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
+          ))}
+        </div>
+      </Show>
       <div className={style.containerPaginationAndAdd}>
         <Show when={items.length > 0}>
           <div className={style.testNav}>

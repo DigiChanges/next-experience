@@ -4,6 +4,8 @@ import { Button, Input as InputSearch } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
+import {icons} from "@/features/shared/hooks/icons";
+import {IoFunnel} from "react-icons/io5";
 
 type Props = {
   handleSetKey:(key: string) => void;
@@ -24,6 +26,7 @@ export const FilterAndSearch = ({
   inputFilterData
 }: Props) => {
   const t = useTranslations('Items');
+  const { IoFunnel } = icons();
 
   return (
     <div className={style.containerSelect}>
@@ -44,7 +47,7 @@ export const FilterAndSearch = ({
           />
         </div>
         <div className={style.btn}>
-          <Button onClick={handleSearch}>{t('button')}</Button>
+          <Button onClick={handleSearch}><IoFunnel /> {t('button')}</Button>
         </div>
       </div>
     </div>

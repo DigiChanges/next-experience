@@ -8,14 +8,18 @@ interface Props {
     success: string;
     cancel: string;
     button?: string;
+    displayButton?: boolean;
+    isOpen?: any;
+    onOpen?: any;
+    onOpenChange?: any;
+    isOnClick?: any;
 }
 export const ModalComponent:React.FC<Props> = (props) => {
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     return (
         <>
-            <Button className={style.buttonModal} onPress={onOpen}>{props.button}</Button>
-            <Modal className={style.modal} isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Button className={props.displayButton ? style.buttonModal : style.buttonModalHidden} onPress={props.onOpen}>{props.button}</Button>
+            <Modal className={style.modal} isOpen={props.isOpen} onOpenChange={props.onOpenChange}>
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -30,7 +34,7 @@ export const ModalComponent:React.FC<Props> = (props) => {
                                 <Button className={style.dangerButton} color="danger" variant="light" onPress={onClose}>
                                     {props.cancel}
                                 </Button>
-                                <Button color="success" onPress={onClose}>
+                                <Button color="success" onPress={props.isOnClick}>
                                     {props.success}
                                 </Button>
                             </ModalFooter>

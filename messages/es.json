@@ -38,11 +38,16 @@
     "name": "Nombre",
     "type": "Tipo",
     "search": "Buscar",
-    "button": "Filtrar",
+    "button": "Aplicar",
     "emptyItems": "No hay ítems para mostrar",
     "add": "Agregar",
     "update": "Actualizando",
-    "deleteAlert":"¿Seguro que desea borrar este item?"
+    "deleteAlert":"¿Seguro que desea borrar este item?",
+    "addItem": "Añadir Item",
+    "clearAll": "Limpiar todo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "selectFilter": "Seleccionar filtro"
   },
   "Login": {
     "username": "Nombre de usuario",
