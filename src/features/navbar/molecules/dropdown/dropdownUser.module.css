@@ -6,7 +6,7 @@
  }
 
 .iconUser {
-    @apply relative max-w-[60px] w-full h-full
+    @apply relative max-w-[60px] w-full h-full transition-all transform duration-500 hover:scale-[102%] active:scale-[98%]
 }
 
 .iconUser p {

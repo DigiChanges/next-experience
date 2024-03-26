@@ -1,0 +1,44 @@
+.container{
+    @apply h-screen flex items-center justify-center
+}
+.subContainer{
+    @apply min-h-[400px] bg-modal p-4 rounded-2xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.subTitle{
+    @apply flex items-center justify-center gap-3
+}
+.subTitle h2{
+    @apply font-normal text-white text-[1.5rem]
+}
+.subTitle svg{
+    @apply w-[36px] h-[36px] text-secondary
+}
+
+
+@screen md{
+    .subContainer{
+        @apply w-[500px] p-[2rem]
+    }
+    .subTitle svg{
+        @apply w-[40px] h-[40px]
+    }
+}
+@screen lg {
+    .subContainer{
+        @apply min-h-[600px]
+    }
+}
+@screen xl{
+    .subContainer{
+        @apply max-w-[600px]
+    }
+}
+
+@screen 2xl{
+    .subTitle {
+        @apply text-[26px] !important
+    }
+    .subContainer{
+        @apply w-[600px]
+    }
+}
