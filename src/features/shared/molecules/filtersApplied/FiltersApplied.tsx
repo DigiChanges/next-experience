@@ -1,10 +1,8 @@
 import style from './filtersApplied.module.css';
-import Image from 'next/image';
 import React from 'react';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { icons } from '@/features/shared/hooks/icons';
-import { IoCloseOutline } from "react-icons/io5";
-
+import {useTranslations} from "next-intl";
 
 type Props = {
   filtersApplied: FilterApplied[]
@@ -16,7 +14,9 @@ export const FiltersApplied = ({
   handleRemoveFilter,
   handleReplaceURL
 }: Props) => {
-  const { iconCloseFilter } = icons();
+  const { IoCloseOutline } = icons();
+  const t = useTranslations('Items');
+
   return (
     <div className={style.containerFiltersApplied}>
       {
@@ -32,7 +32,7 @@ export const FiltersApplied = ({
           </li>)
       }
       {
-        filtersApplied.length > 0 && <button className={style.buttonClear}>Clear all</button>
+        filtersApplied.length > 0 && <button className={style.buttonClear}>{t('clearAll')}</button>
       }
     </div>
   );

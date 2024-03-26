@@ -7,6 +7,9 @@
 .backgroundHover{
     @apply bg-hoverCard
 }
+.backgroundHover .containerInfo{
+    @apply blur-[2px]
+}
 .container .name{
     @apply font-normal py-2 text-[1.5rem]
 }

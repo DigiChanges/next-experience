@@ -6,6 +6,8 @@ import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
+import {icons} from "@/features/shared/hooks/icons";
+import {IoFunnel} from "react-icons/io5";
 
 type Props = {
   handleSetFilterValues:(values: {
@@ -27,6 +29,7 @@ export const FilterAndSearch = ({
   handleSetFiltersApplied
 }: Props) => {
   const t = useTranslations('Items');
+  const { IoFunnel } = icons();
 
   return (
     <div className={style.containerSelect}>
@@ -44,7 +47,7 @@ export const FilterAndSearch = ({
           <Button onClick={() => {
             handleSetFiltersApplied();
             handleReplace();
-          }}>{t('button')}</Button>
+          }}><IoFunnel /> {t('button')}</Button>
         </div>
       </div>
     </div>

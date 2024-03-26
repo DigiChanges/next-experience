@@ -1,14 +1,16 @@
 .btnEdit{
-    @apply w-full h-[32px] min-h-[32px] flex items-center justify-between bg-transparent
+    @apply w-full h-[25px] flex items-end justify-between bg-transparent
 }
-
-.btnEdit img{
-    @apply  rounded-full h-4 w-4 mr-4
+.btnEdit p{
+    @apply !text-[1rem]
+}
+.btnEdit svg{
+    @apply  rounded-full h-[1rem] w-[1rem] mr-4 text-secondary
 }
 
 @screen md {
 
-  .btnEdit img{
+  .btnEdit svg{
         @apply h-6 w-6
     }
     .btnEdit{

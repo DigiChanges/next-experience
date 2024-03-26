@@ -36,7 +36,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
     });
   };
   return (
-    <form  onSubmit={handleSubmit(async(data) => { await updateAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(async(data) => { await updateAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -59,15 +59,15 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
         />
       </div>
       <div className={style.containerBtn}>
-        <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('update')}</button>
-        </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
             <button type="button" className={style.close}>
               {s('cancel')}
             </button>
           </Link>
+        </div>
+        <div className={style.btnAdd}>
+          <button type="submit" className={style.addItem}>{t('update')}</button>
         </div>
       </div>
     </form>

@@ -18,7 +18,14 @@ import iconCloseFilter from '../../../asset/icons/boton-cerrar.png';
 import IconFlagSpain from "../../../asset/icons/flag-espana.webp";
 import IconFlagUsa from "../../../asset/icons/flag-usa.webp";
 import IconLogoDgc from "../../../asset/icons/logo-dgc.svg";
-
+import { IoAddOutline } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
+import { IoEllipsisVertical } from 'react-icons/io5';
+import IconNoItems from "../../../asset/icons/noHayItems.svg";
+import { IoCreateOutline } from "react-icons/io5";
+import { IoTrashOutline } from "react-icons/io5";
+import { IoMdCreate } from "react-icons/io";
+import { IoFunnel } from "react-icons/io5";
 
 export const icons = () => {
   return {
@@ -40,6 +47,14 @@ export const icons = () => {
     iconCloseFilter,
     IconFlagSpain,
     IconFlagUsa,
-    IconLogoDgc
+    IconLogoDgc,
+    IoAddOutline,
+    IoCloseOutline,
+    IoEllipsisVertical,
+    IconNoItems,
+    IoCreateOutline,
+    IoTrashOutline,
+    IoMdCreate,
+    IoFunnel
   };
 };

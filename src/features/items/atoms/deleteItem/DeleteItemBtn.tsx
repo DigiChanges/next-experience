@@ -1,12 +1,14 @@
 'use client';
 import React from 'react';
-import { Button, Card, Image, CardBody } from '@nextui-org/react';
+import { Button, Card, Image, CardBody, Modal, useDisclosure } from '@nextui-org/react';
 import style from './deleteItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
+import { IoTrashOutline } from 'react-icons/io5';
+import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
 interface Props {
     id: string;
@@ -14,7 +16,8 @@ interface Props {
 
 export const DeleteItemBtn: React.FC<Props> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
-  const { DeleteIcon, IconAlert } = icons();
+  const { onOpen } = useDisclosure();
+  const { IoTrashOutline, IconAlert } = icons();
 
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
@@ -27,29 +30,28 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
       pending:`${alerts('pending')}`
     });
     handleIsOpen();
+    onOpen();
   };
 
   return (
     <>
       <Button isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
-        <p>Delete</p>
-        <Image src={DeleteIcon.src} width={100} height={100} alt={'delete'}/>
+        <p>{t('delete')}</p>
+        <IoTrashOutline />
       </Button>
       {
-        isOpen && <Card className={style.containerAlert}>
-          <CardBody className={style.subContainer}>
-            <Image className={style.img} src={IconAlert.src} alt="icon alert"/>
-            <p className={style.text}>{t('deleteAlert')}</p>
-
-            <button className={style.btnSuccess} onClick={() => handleDelete(props.id)}>
-              {s('accept')}
-            </button>
-            <button onClick={handleIsOpen} className={style.btnClose}>
-              {s('cancel')}
-            </button>
-          </CardBody>
-        </Card>
+        isOpen && <ModalComponent
+          description={t('deleteAlert')}
+          success={s('accept')}
+          cancel={s('cancel')}
+          displayButton={false}
+          isOpen={isOpen}
+          onOpen={onOpen}
+          onOpenChange={handleIsOpen}
+          isOnClick={() => handleDelete(props.id)}
+        />
       }
+
     </>
   );
 };

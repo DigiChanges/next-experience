@@ -29,7 +29,7 @@ export const FormCreate: React.FC = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -51,17 +51,16 @@ export const FormCreate: React.FC = () => {
           className={style.inputBlock}
         />
       </div>
-      <span className={style.line}></span>
       <div className={style.containerBtn}>
-        <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('add')}</button>
-        </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
             <button type="button" className={style.close}>
               {s('cancel')}
             </button>
           </Link>
+        </div>
+        <div className={style.btnAdd}>
+          <button type="submit" className={style.addItem}>{t('add')}</button>
         </div>
       </div>
     </form>

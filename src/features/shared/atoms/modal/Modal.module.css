@@ -4,6 +4,9 @@
 .buttonModal{
     @apply h-12 my-2 mb-5 font-medium shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] text-[1rem] text-[white] tracking-wider px-[1.3em] rounded-lg border-[none] bg-secondary transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
+.buttonModalHidden{
+    @apply hidden
+}
 .modalBody{
     @apply flex justify-center items-center
 }

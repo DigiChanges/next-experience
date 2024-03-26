@@ -11,13 +11,13 @@ interface Props{
 export const UpdateItemTemplate = async({ id }: Props) => {
   const { data } = await getOne({ id });
   const t = await getTranslations('Update');
+  const { IoCreateOutline } = icons();
 
-  const { IconInformation } = icons();
   return (
     <div className={style.container}>
       <div className={style.subContainer}>
         <div className={style.subTitle}>
-          <Image src={IconInformation.src} width={50} height={50} alt='icon information'/>
+          <IoCreateOutline />
           <h2>{t('title')}</h2>
         </div>
         <FormUpdate data={data} id={id}/>

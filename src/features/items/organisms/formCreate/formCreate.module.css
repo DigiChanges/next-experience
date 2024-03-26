@@ -1,36 +1,50 @@
-.line{
-    @apply  h-1 border-t border-grayLight block mx-2 my-6
+.form{
+    @apply min-h-[350px] flex flex-col justify-between
 }
-
 .inputBlock {
     @apply p-2
 }
-
 .inputBlock input {
-    @apply  w-full p-2 bg-accent border-1 border-grayLight rounded-lg mt-2 text-grayLight
+    @apply  w-full px-2 bg-bgInputFilter mt-1 text-[#292D32] outline-none rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)]
 }
-
 .inputBlock p {
-    @apply text-white pt-2
+    @apply text-warning pt-1 text-[0.7rem]
 }
 .inputBlock label{
-    @apply text-white
+    @apply text-white font-normal text-[0.8rem]
 }
 .btnAdd {
-    @apply  p-2
+    @apply p-2
 }
 .containerBtn{
-    @apply flex justify-end
+    @apply flex justify-center
 }
-
+.containerBtn button{
+    @apply w-[120px] transition-all transform duration-500 active:scale-[98%]
+}
 .addItem {
-    @apply bg-success p-2 rounded-md text-accent
+    @apply bg-success p-2 rounded-md text-[#292D32]
 }
-
 .btnClose{
-    @apply flex justify-end mr-6 p-2 text-white
+    @apply flex justify-end mr-1 p-2 text-white
 }
 .close {
-    @apply bg-warning p-2 m-0 rounded-md !important
+    @apply bg-cancel text-[#FFFFFF] p-2 m-0 rounded-md !important
 }
 
+@screen md{
+    .containerBtn button{
+        @apply w-[150px]
+    }
+    .inputBlock input {
+        @apply h-16;
+    }
+    .btnClose{
+        @apply flex justify-end mr-6 p-2 text-white
+    }
+}
+@screen lg {
+    .form{
+        @apply min-h-[500px]
+    }
+}
