@@ -21,7 +21,7 @@
 
 /*color del icon*/
 .rigger {
-   @apply  bg-bgSelectFilter
+   @apply  bg-bgSelectFilter text-secondary
 }
 
 .color {

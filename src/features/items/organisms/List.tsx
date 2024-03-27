@@ -4,7 +4,7 @@ import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { Pagination } from '@nextui-org/react';
+import {Pagination, Switch} from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
@@ -16,6 +16,8 @@ import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/Fil
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import {useTranslations} from "next-intl";
+import {icons} from "@/features/shared/hooks/icons";
+import {FilterModal} from "@/features/shared/atoms/filterModal/filterModal";
 
 interface Props {
     items: ItemsResponse[]
@@ -69,6 +71,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
     <section className={style.container}>
       <div className={style.containerAddFilter}>
         <Title/>
+        <p className={style.subtitle}>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <div className={style.subcontainerAddFilter}>
           <div className={style.subcontainerAddFilter2}>
             <h2>{t('selectFilter')}</h2>
@@ -88,8 +91,23 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             />
           </div>
         </div>
-        <div className={style.containerAddItemBtn}>
-          <AddItemBtn/>
+        <div className={style.containerAddItemBtnAndModal}>
+          <div className={style.containerAddItemBtn}>
+            <Switch size="sm" color="secondary" defaultSelected>
+              Active
+            </Switch>
+            <AddItemBtn/>
+          </div>
+          <FilterModal
+              handleSetKey={handleSetKey}
+              searchType={searchType}
+              inputVal={inputVal}
+              setInputVal={setInputVal}
+              handleSearch={handleSearch}
+              inputFilterData={selectOptionsData}
+              filtersApplied={filtersApplied}
+              handleRemoveFilter={handleRemoveFilter}
+          />
         </div>
       </div>
       <NoItemsToDisplay data={items}/>

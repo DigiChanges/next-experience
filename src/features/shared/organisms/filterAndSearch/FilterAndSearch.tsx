@@ -8,6 +8,7 @@ import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDyna
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import {icons} from "@/features/shared/hooks/icons";
 import {IoFunnel} from "react-icons/io5";
+import {SearchIcon} from "@nextui-org/shared-icons";
 
 type Props = {
   handleSetFilterValues:(values: {

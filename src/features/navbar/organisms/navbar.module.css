@@ -1,5 +1,5 @@
 .container {
-	@apply absolute flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-[-60px] py-[2rem] px-2 w-[0px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
+	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-[-60px] py-[2rem] px-2 w-[0px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 .navResponsive{
 	@apply fixed z-50 top-5 left-3 !m-0 w-8 h-10 transition-all cursor-pointer;
@@ -101,7 +101,7 @@
 }
 
 .calculateWidth {
-	width: calc(100% - 10px);
+	width: calc(100% - 25%);
 }
 
 .calculateHeight {
