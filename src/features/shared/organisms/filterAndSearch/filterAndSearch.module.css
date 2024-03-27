@@ -1,23 +1,23 @@
 .containerSelect{
-    @apply flex flex-col justify-end items-center
+    @apply flex flex-col justify-end items-center gap-2
 }
 
 .containerInputFilter {
-    @apply w-full max-w-[200px]
+    @apply w-full max-w-[150px]
 }
 
 .containerInput{
-    @apply flex  items-center
+    @apply flex items-center gap-2
 }
 
 .input{
-    @apply !text-[#292D32]
+    @apply w-full max-w-[200px] !text-[#292D32]
 }
 .input input{
     @apply bg-bgInputFilter !text-[#292D32]
 }
 .btn{
-    @apply bg-secondary rounded-[10px] ml-2 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+    @apply bg-secondary rounded-[10px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
 .btn button{
     @apply bg-transparent
@@ -26,16 +26,19 @@
 .inputWrapper {
     @apply max-w-[250px] w-full bg-bgInputFilter rounded-[10px] hover:bg-bgInputFilter active:bg-bgInputFilter;
 }
+.searchIcon{
+    @apply text-secondary mb-0.5 pointer-events-none flex-shrink-0
+}
 
 @screen md {
     .containerSelect{
-        @apply  flex flex-row  w-full
+        @apply  flex flex-row  w-full gap-5
     }
     .containerInputFilter {
 
     }
     .containerInput{
-        @apply pl-2
+        @apply gap-5
     }
 }
 @screen lg{

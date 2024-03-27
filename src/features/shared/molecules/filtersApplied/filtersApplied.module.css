@@ -1,0 +1,27 @@
+.containerFiltersApplied{
+    @apply text-white mt-2 flex gap-2
+}
+.buttonClear{
+    @apply ml-5 cursor-pointer
+}
+
+.liRemove{
+    @apply bg-secondary text-white text-[0.9rem] p-1 px-3 rounded-[12px] flex justify-between items-center h-[24px]
+}
+
+.btnRemove svg{
+    @apply w-4 h-4 ml-1 bg-white text-secondary rounded-[50%]
+}
+
+@screen md {
+    .containerFiltersApplied{
+    }
+    .liRemove{
+
+    }
+}
+
+@screen xl {
+    .liRemove{
+    }
+}
