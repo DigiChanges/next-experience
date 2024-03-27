@@ -12,12 +12,14 @@ import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
+
 export const LoginForm: React.FC = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });
   const t = useTranslations('Login');
   const alerts = useTranslations('ToastLogin');
+  const { IoPersonCircleSharp } = icons();
 
   const onSubmit = handleSubmit(async(data: ILoginForm) => {
     await  toast.promise(handleSignIn(data), {
@@ -30,6 +32,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <div className={style.container}>
+      <IoPersonCircleSharp />
       <h2>{t('title')}</h2>
       <h3>{t('subtitle')}</h3>
       <form className={style.form} onSubmit={(data) => onSubmit(data)} >

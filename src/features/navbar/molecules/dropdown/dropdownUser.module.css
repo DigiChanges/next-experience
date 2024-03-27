@@ -73,6 +73,15 @@
 .perfilSections a img{
     @apply object-contain !w-[2rem]
 }
+.langResponsive{
+    @apply px-0
+}
+.langResponsiveTitle{
+    @apply flex items-center text-[1rem]
+}
+.langResponsiveTitle svg{
+    @apply mr-[1.5rem] w-[1.5rem] h-auto
+}
 
 @screen md{
     .langResponsive{

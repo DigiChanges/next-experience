@@ -32,7 +32,7 @@
     @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
 }
 .perfil .perfilSections, .perfil .logOut{
-    @apply py-2 items-center cursor-pointer rounded-xl hover:bg-hoverColor active:bg-secondary
+    @apply py-2 items-center cursor-pointer rounded-[5px] hover:bg-hoverColor active:bg-secondary
 }
 .perfil .perfilSections img, .perfil .logOut img{
     @apply w-[1.5rem] pl-1

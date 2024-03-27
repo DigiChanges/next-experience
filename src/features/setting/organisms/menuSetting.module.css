@@ -14,7 +14,7 @@
     @apply hidden
 }
 .containerUrl a{
-    @apply cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
+    @apply no-underline text-white cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
 }
 .containerUrl span{
     @apply text-[1.5rem]

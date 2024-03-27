@@ -32,16 +32,19 @@ export const RegisterForm: React.FC = () => {
     <div className={style.container}>
       <h2>{t('title')}</h2>
       <h3>{t('subtitle')}</h3>
-      <p className={style.text}>{t('text')}</p>
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
+        <p className={style.text}>{t('text')}</p>
         <div className={style.containerInputs}>
           <InputForm<IRegisterForm> errors={errors} id={'username'} name={'username'} register={register}
-            type={'email'} label={t('username')} className={style.input} classNameError={style.inputError} placeholder={t('username')}/>
+            type={'email'} label={t('username')} className={style.input}
+            classNameError={style.inputError} placeholder={t('username')}/>
           <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register}
-            type={'password'} label={t('password')} className={style.input} classNameError={style.inputError} placeholder={t('password')}/>
+            type={'password'} label={t('password')} className={style.input}
+            classNameError={style.inputError} placeholder={t('password')}/>
           <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
             register={register} type={'password'} label={t('confirmPassword')}
-            className={style.input} classNameError={style.inputError} placeholder={t('confirmPassword')}/>
+            className={style.input} classNameError={style.inputError}
+            placeholder={t('confirmPassword')}/>
         </div>
         <ButtonAuth descriptionActive={t('confirm')}/>
         <Link href={'/auth/login'}>{t('terms&Agreements')}</Link>

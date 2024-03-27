@@ -9,7 +9,7 @@
         @apply text-white text-[1.5rem] font-[400] pt-2 pb-4
     }
     .text{
-        @apply text-[1rem] font-[400] text-white
+        @apply text-[0.9rem] font-[400] text-white text-center
     }
    .form {
        @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start max-w-[250px] w-full px-[2rem];
@@ -22,7 +22,7 @@
         @apply hidden
     }
    .input input{
-    @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] p-2 bg-transparent;
+    @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none p-2 bg-transparent focus:border-grayLight;
    }
     .inputError{
         @apply border-solid border-2 !border-[#FE3F3F80]

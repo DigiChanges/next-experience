@@ -12,6 +12,7 @@ import {createSharedPathnamesNavigation} from "next-intl/navigation";
 import {locales} from "@/config";
 import {icons} from "@/features/shared/hooks/icons";
 import {useSearchParams} from "next/navigation";
+import {MdLanguage} from "react-icons/md";
 
 interface Props {
     dataPerfil: {
@@ -83,7 +84,7 @@ export const DropdownUser: React.FC<Props> = (props) => {
                   )
               }
               <Accordion className={style.langResponsive}>
-                  <AccordionItem key="1" aria-label="Accordion 1" title="Idiomas">
+                  <AccordionItem key="1" aria-label="Accordion 1" title={<div className={style.langResponsiveTitle}><MdLanguage />Idiomas</div>}>
                       <div className={style.perfilSections}>
                           <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
                                 locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>

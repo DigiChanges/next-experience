@@ -1,0 +1,28 @@
+.buttonModal{
+    @apply !min-w-10 w-full bg-bgGrey rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] p-2 font-medium text-[1rem] tracking-wider px-0 border-[none] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+}
+.buttonModal svg{
+    @apply w-6 h-6 text-secondary
+}
+.modal{
+    @apply w-[300px] my-auto bg-modal text-center text-white shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.buttonModalHidden{
+    @apply hidden
+}
+.modalBody{
+    @apply flex justify-center items-center px-0
+}
+
+.modalBody p{
+    @apply w-full
+}
+.modal button{
+    @apply rounded-[5px]
+}
+
+@screen md{
+    .buttonModal{
+        @apply hidden
+    }
+}

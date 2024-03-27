@@ -26,6 +26,8 @@ import { IoCreateOutline } from "react-icons/io5";
 import { IoTrashOutline } from "react-icons/io5";
 import { IoMdCreate } from "react-icons/io";
 import { IoFunnel } from "react-icons/io5";
+import { IoPersonCircleSharp } from "react-icons/io5";
+import { IoOptionsOutline } from "react-icons/io5";
 
 export const icons = () => {
   return {
@@ -55,6 +57,8 @@ export const icons = () => {
     IoCreateOutline,
     IoTrashOutline,
     IoMdCreate,
-    IoFunnel
+    IoFunnel,
+    IoPersonCircleSharp,
+    IoOptionsOutline
   };
 };
