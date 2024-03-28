@@ -28,7 +28,7 @@
     @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3
 }
 .perfil{
-    @apply flex flex-col bg-bgGrey relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary
+    @apply flex flex-col bg-bgGrey relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary z-40
 }
 .containerIconUserOpen{
     @apply flex items-center border-solid border-b-1 border-b-secondary mb-2 py-2

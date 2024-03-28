@@ -5,7 +5,6 @@ import React from 'react';
 import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
 import {icons} from "@/features/shared/hooks/icons";
-import {IoFunnel} from "react-icons/io5";
 import {SearchIcon} from "@nextui-org/shared-icons";
 
 type Props = {

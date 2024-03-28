@@ -20,7 +20,7 @@
     @apply bg-secondary rounded-[10px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
 .btn button{
-    @apply bg-transparent
+    @apply bg-transparent text-textWhite;
 }
 
 .inputWrapper {

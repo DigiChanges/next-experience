@@ -1,8 +1,8 @@
 .container{
-    @apply hidden relative
+    @apply relative
 }
 .containerIconUser {
-    @apply max-w-[60px] w-[2.5rem] h-[2.5rem] cursor-pointer;
+    @apply max-w-[60px] w-[2rem] h-[2rem] cursor-pointer;
 }
 .active{
     backdrop-filter: blur(4px);
@@ -20,7 +20,7 @@
     @apply transform -rotate-[180deg]
 }
 .containerPerfil{
-    @apply overflow-hidden absolute right-[10px] min-w-[10rem]
+    @apply overflow-hidden absolute right-[10px]
 }
 .perfil{
     @apply flex flex-col bg-bgGrey relative p-1.5 rounded-[5px]
@@ -38,7 +38,7 @@
     @apply w-[1.5rem] pl-1
 }
 .perfil .perfilSections p, .perfil .logOut p{
-    @apply ml-6 pr-1
+    @apply ml-6 mr-2 pr-1
 }
 .perfil .perfilSections{
     @apply flex text-white
@@ -60,5 +60,11 @@
 @screen md{
     .container{
         @apply block relative
+    }
+    .containerPerfil{
+        @apply min-w-[10rem]
+    }
+    .perfil .perfilSections p, .perfil .logOut p{
+        @apply ml-6 pr-1 mr-0
     }
 }

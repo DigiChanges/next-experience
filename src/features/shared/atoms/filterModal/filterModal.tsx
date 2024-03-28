@@ -12,12 +12,11 @@ import {
     Input
 } from "@nextui-org/react";
 import {icons} from "@/features/shared/hooks/icons";
-import {FilterAndSearch} from "@/features/shared/organisms/filterAndSearch/FilterAndSearch";
-import {selectOptionsData} from "@/features/items/constants/selectOptionsData";
 import {FiltersApplied} from "@/features/shared/molecules/filtersApplied/FiltersApplied";
 import {InputFilter} from "@/features/shared/molecules/inputFilter/InputFilter";
 import {SearchIcon} from "@nextui-org/shared-icons";
 import {useTranslations} from "next-intl";
+import {SortComponent} from "@/features/shared/atoms/sort/Sort";
 
 interface Props {
     description?: string;
@@ -68,6 +67,7 @@ export const FilterModal:React.FC<Props> = (props) => {
                                                 }
                                             />
                                         </div>
+                                        <SortComponent isResponsive={true} />
                                     </div>
                                     <div className={style.containerAddItem}>
                                         <FiltersApplied
