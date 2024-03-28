@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import {icons} from "@/features/shared/hooks/icons";
-import {IoFunnel} from "react-icons/io5";
 import {SearchIcon} from "@nextui-org/shared-icons";
 
 type Props = {

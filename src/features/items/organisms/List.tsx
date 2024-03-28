@@ -18,6 +18,7 @@ import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/Filte
 import {useTranslations} from "next-intl";
 import {icons} from "@/features/shared/hooks/icons";
 import {FilterModal} from "@/features/shared/atoms/filterModal/filterModal";
+import {SortComponent} from "@/features/shared/atoms/sort/Sort";
 
 interface Props {
     items: ItemsResponse[]
@@ -70,7 +71,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   return (
     <section className={style.container}>
       <div className={style.containerAddFilter}>
-        <Title/>
+        <Title isResponsive={false}/>
         <p className={style.subtitle}>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <div className={style.subcontainerAddFilter}>
           <div className={style.subcontainerAddFilter2}>
@@ -93,6 +94,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         </div>
         <div className={style.containerAddItemBtnAndModal}>
           <div className={style.containerAddItemBtn}>
+            <SortComponent isResponsive={false}/>
             <Switch size="sm" color="secondary" defaultSelected>
               Active
             </Switch>

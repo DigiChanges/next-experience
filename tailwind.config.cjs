@@ -98,6 +98,9 @@ module.exports = {
           bgSelectFilter:{
             DEFAULT: "#E4E4E4"
           },
+          textWhite:{
+            DEFAULT: "#FFFFFF"
+          },
         }
       },
       dark: {
@@ -167,6 +170,9 @@ module.exports = {
           },
           bgSelectFilter:{
             DEFAULT: "#1A1C1F"
+          },
+          textWhite:{
+            DEFAULT: "#FFFFFF"
           },
         }
       }

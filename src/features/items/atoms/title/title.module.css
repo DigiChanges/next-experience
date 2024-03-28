@@ -2,7 +2,7 @@
     @apply w-full
 }
 .title h1{
-    @apply  font-semibold text-[1.5rem] text-white border-solid border-b-secondary border-b-[2px] text-center
+    @apply pb-[1.5rem] font-semibold text-[1.5rem] text-white border-solid border-b-secondary border-b-[2px] text-center
 }
 .title h1{
     max-height: fit-content;
@@ -13,7 +13,7 @@
         width: fit-content;
     }
     .title h1{
-        @apply text-[3rem] pr-[4rem] pt-0 h-[4.2rem] text-start
+        @apply pb-0 text-[3rem] pr-[4rem] py-0 h-[4.2rem] text-start text-white
     }
 }
 @screen lg{

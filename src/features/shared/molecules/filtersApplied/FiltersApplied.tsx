@@ -19,6 +19,7 @@ export const FiltersApplied = ({
 
   return (
     <div className={style.containerFiltersApplied}>
+      <div className={style.containerLi}>
       {
         filtersApplied.map((el) =>
           <li key={el.key} className={style.liRemove}>{
@@ -31,6 +32,7 @@ export const FiltersApplied = ({
           </button>
           </li>)
       }
+      </div>
       {
         filtersApplied.length > 0 && <button className={style.buttonClear}>{t('clearAll')}</button>
       }

@@ -2,13 +2,13 @@
     @apply w-full max-w-[245px] h-[177px] p-3.5 bg-card shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
 }
 .containerHeader{
-    @apply absolute top-1 right-1 p-0 w-full flex justify-end
+    @apply absolute top-0.5 right-0.5 p-0 w-full flex justify-end z-[1]
 }
 .backgroundHover{
     @apply bg-hoverCard
 }
 .backgroundHover .containerInfo{
-    @apply blur-[1px]
+    @apply blur-[0.5px]
 }
 .container .name{
     @apply font-normal py-2 text-[1.5rem]
@@ -35,6 +35,9 @@
 
 @screen md {
     .container{
+    }
+    .containerHeader{
+        @apply top-1 right-1
     }
 }
 
