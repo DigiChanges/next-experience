@@ -1,11 +1,17 @@
+.modal input{
+    @apply bg-bgInputFilter
+}
+.modal select{
+    @apply !bg-bgSelectFilter
+}
 .buttonModal{
-    @apply !min-w-10 w-full bg-bgGrey rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] p-2 font-medium text-[1rem] tracking-wider px-0 border-[none] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+    @apply !min-w-10 bg-bgGrey rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] p-2 font-medium text-[1rem] tracking-wider px-0 border-[none] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
 .buttonModal svg{
     @apply w-6 h-6 text-secondary
 }
 .modal{
-    @apply w-[300px] my-auto bg-modal text-center text-white shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+    @apply w-[300px] my-auto bg-bgGrey text-center text-white shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
 }
 .buttonModalHidden{
     @apply hidden
@@ -20,9 +26,34 @@
 .modal button{
     @apply rounded-[5px]
 }
+.subcontainerAddFilter, .subcontainerAddFilter2{
+    @apply flex flex-col gap-2
+}
+.subcontainerAddFilter{
+    @apply w-full px-4
+}
+.containerAddItem{
+    @apply w-full
+}
+.btn{
+    @apply mt-5 bg-secondary rounded-[7px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+}
+.btn button{
+    @apply bg-transparent text-textWhite
+}
+
+.inputWrapper {
+    @apply w-full bg-bgInputFilter rounded-[8px] hover:bg-bgInputFilter active:bg-bgInputFilter;
+}
+.searchIcon{
+    @apply text-secondary mb-0.5 pointer-events-none flex-shrink-0
+}
 
 @screen md{
     .buttonModal{
         @apply hidden
+    }
+    .containerAddItem{
+        @apply max-w-[40%] w-full
     }
 }
