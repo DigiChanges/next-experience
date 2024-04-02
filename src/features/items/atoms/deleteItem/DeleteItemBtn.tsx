@@ -13,7 +13,6 @@ interface Props {
 }
 
 export const DeleteItemBtn: React.FC<Props> = (props) => {
-
   const { isOpen, handleIsOpen } = useOpen();
   const { DeleteIcon, IconAlert } = icons();
 

@@ -9,7 +9,6 @@ interface Props{
     id: string;
 }
 export const UpdateItemTemplate = async({ id }: Props) => {
-
   const { data } = await getOne({ id });
   const t = await getTranslations('Update');
 

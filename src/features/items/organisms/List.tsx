@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
@@ -8,8 +8,8 @@ import { Pagination } from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
-import { useSearchParams } from 'next/navigation';
-import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
 import { Show } from '@/features/shared/atoms/show/Show';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
@@ -21,32 +21,42 @@ interface Props {
     pagination: PaginationAPI;
 }
 export const List: React.FC<Props> = ({ items, pagination }) => {
-  const [inputVal, setInputVal] = useState('');
-  const [searchType, setSearchType] = useState('string');
+  const [keySelected, setKeySelected] = useState<OptionKey>({
+    ...selectOptionsData[0]
+  });
   const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams);
+  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
+  const pathname = usePathname();
+  const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(pagination, params);
-  const { handleSetTerm, handleSetKey, filtersApplied, handleRemoveFilter, key } = useFilter(params);
+  const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied } = useFilter(params);
 
-  const handleSearch = () => {
-    if (inputVal.trim().length > 0) {
-      handlePage(1);
-      handleSetTerm(inputVal);
-      setInputVal('');
-    }
+  const handleReplaceURL = () => {
+    replace(`${pathname}?${params.toString()}`);
   };
 
+  useEffect(() => {
+    handleSetFilterValues({
+      key: selectOptionsData[0].value
+    });
+  }, []);
+
   const handleSearchType = useCallback(() => {
-    const data = selectOptionsData.find(({ value }) => value === key);
+    const data = selectOptionsData.find(({ value }) => value === filterValues.key);
     if (data) {
-      setSearchType(data.type);
+      setKeySelected(data);
     }
-  }, [key]);
+  }, [filterValues.key]);
+
+  useEffect(() => {
+    handlePage(1);
+  }, [filterValues.term]);
 
   useEffect(() => {
     handleSearchType();
   }, [handleSearchType]);
 
+  // TODO: Analizar si esto es realmente necesario
   useEffect(() => {
     if (items.length === 0) {
       handlePage(1);
@@ -59,11 +69,10 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         <div className={style.subcontainerAddFilter}>
           <Title/>
           <FilterAndSearch
-            handleSetKey={handleSetKey}
-            searchType={searchType}
-            inputVal={inputVal}
-            setInputVal={setInputVal}
-            handleSearch={handleSearch}
+            handleSetFiltersApplied={handleSetFiltersApplied}
+            handleSetFilterValues={handleSetFilterValues}
+            keySelected={keySelected}
+            handleReplace={handleReplaceURL}
             inputFilterData={selectOptionsData}
           />
         </div>
@@ -71,6 +80,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         <div className={style.containerAddItem}>
           <FiltersApplied
             filtersApplied={filtersApplied}
+            handleReplaceURL={handleReplaceURL}
             handleRemoveFilter={handleRemoveFilter}
           />
         </div>

@@ -1,51 +1,50 @@
 import style from './filterAndSearch.module.css';
-import { InputFilter } from '@/features/shared/molecules/inputFilter/InputFilter';
-import { Button, Input as InputSearch } from '@nextui-org/react';
+import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
+import { Button } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
+import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
+import { OptionKey } from '@/features/items/constants/selectOptionsData';
 
 type Props = {
-  handleSetKey:(key: string) => void;
-  searchType: string;
-  inputVal: string;
-  setInputVal: any;
-  handleSearch: () => void;
-  inputFilterData: Filter[]
+  handleSetFilterValues:(values: {
+    key?: string;
+    term?: string;
+  }) => void;
+  keySelected: OptionKey,
+  inputFilterData: Filter[];
+  handleReplace: () => void;
+  handleSetFiltersApplied: () => void;
 }
 
 
 export const FilterAndSearch = ({
-  handleSearch,
-  searchType,
-  setInputVal,
-  handleSetKey,
-  inputVal,
-  inputFilterData
+  handleReplace,
+  inputFilterData,
+  keySelected,
+  handleSetFilterValues,
+  handleSetFiltersApplied
 }: Props) => {
   const t = useTranslations('Items');
 
   return (
     <div className={style.containerSelect}>
       <div className={style.containerInputFilter}>
-        <InputFilter data={inputFilterData} setValue={handleSetKey}/>
+        <InputKeysFilter data={inputFilterData} handleSetFilterValues={handleSetFilterValues}/>
       </div>
       <div className={style.containerInput}>
         <div className={style.input}>
-          <InputSearch
-            type={searchType}
-            value={inputVal}
-            onChange={e => setInputVal(e.target.value)}
-            labelPlacement={'outside'}
-            label={t('search')}
-            classNames={{
-              input: ['bg-default'],
-              inputWrapper: [style.inputWrapper]
-            }}
+          <InputDynamic
+            keySelected={keySelected}
+            handleSetFilterValues={handleSetFilterValues}
           />
         </div>
         <div className={style.btn}>
-          <Button onClick={handleSearch}>{t('button')}</Button>
+          <Button onClick={() => {
+            handleSetFiltersApplied();
+            handleReplace();
+          }}>{t('button')}</Button>
         </div>
       </div>
     </div>

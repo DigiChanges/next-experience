@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
 
 export type FilterApplied = {
   key: string,
@@ -8,31 +7,32 @@ export type FilterApplied = {
 
 export const useFilter = (params: URLSearchParams) => {
   const [filtersApplied, setFiltersApplied] = useState<FilterApplied[]>([]);
-  const [key, setKey] = useState<string>('name');
-  const [term, setTerm] = useState<string>();
-
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const [filterValues, setFilterValues] = useState<FilterApplied>({
+    key: '',
+    term: ''
+  });
 
   const setFilterParams = () => {
-    if (term) {
-      params.set(`filter[${key}]`, term);
+    if (filterValues.term) {
+      params.set(`filter[${filterValues.key}]`, filterValues.term);
     }
-    replace(`${pathname}?${params.toString()}`);
+  };
+
+  const handleSetFilterValues = (values: {
+    key?: string;
+    term?: string;
+  }) => {
+    if (values.key) {
+      setFilterValues({ ...filterValues, key: values.key });
+    }
+    if (values.term) {
+      setFilterValues({ ...filterValues, term: values.term });
+    }
   };
 
   const handleRemoveFilter = (filterToRemove: FilterApplied) => {
     params.delete(`filter[${filterToRemove.key}]`);
     setFiltersApplied(filtersApplied.filter(filter => filter.key !== filterToRemove.key));
-    replace(`${pathname}?${params.toString()}`);
-  };
-
-  const handleSetKey = (key: string) => {
-    setKey(key);
-  };
-
-  const handleSetTerm = (term: string) => {
-    setTerm(term);
   };
 
   const createFilterFromPair = ([key, value]: [string, string]): FilterApplied => {
@@ -40,22 +40,24 @@ export const useFilter = (params: URLSearchParams) => {
     return { key: newKey, term: value };
   };
 
-  useEffect(() => {
-    setFilterParams();
+  const handleSetFiltersApplied = () => {
     const filters: FilterApplied[] = Array.from(params.entries())
-        .filter(([key]) => key.includes('filter'))
-        .map(createFilterFromPair);
+      .filter(([key]) => key.includes('filter'))
+      .map(createFilterFromPair);
 
     setFiltersApplied(filters);
-  }, [term]);
+  };
+
+  useEffect(() => {
+    setFilterParams();
+  }, [filterValues.term]);
 
   return {
-    handleSetKey,
-    handleSetTerm,
-    key,
-    term,
+    handleSetFilterValues,
+    filterValues,
     setFilterParams,
     filtersApplied,
-    handleRemoveFilter
+    handleRemoveFilter,
+    handleSetFiltersApplied
   };
 };

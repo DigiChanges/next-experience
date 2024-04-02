@@ -17,10 +17,6 @@
     @apply mt-[24px] ml-2
 }
 
-.inputWrapper {
-    @apply bg-default dark:hover:bg-default;
-}
-
 @screen md {
     .containerSelect{
         @apply  flex flex-row  w-full justify-around

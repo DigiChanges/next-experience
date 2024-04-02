@@ -15,6 +15,7 @@ class HttpService {
         body: data ? JSON.stringify(data as T) : undefined,
         ...getDefaultHeaders()
       });
+
       if (!response.ok) {
         throw new Error(`Request failed. ${response.ok}`);
       }

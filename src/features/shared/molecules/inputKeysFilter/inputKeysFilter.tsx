@@ -1,14 +1,14 @@
 import { Select, SelectItem } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
-import style from './inputFilter.module.css';
+import style from './inputKeysFilter.module.css';
 import { useTranslations } from 'next-intl';
 interface Props {
     data: Filter[];
-    setValue: (value: string) => void;
+  handleSetFilterValues: (values: {key: string}) => void;
 }
 
-export const InputFilter = ({ data, setValue }: Props) => {
+export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
   const t = useTranslations('Items');
   return (
     <Select
@@ -29,7 +29,7 @@ export const InputFilter = ({ data, setValue }: Props) => {
           classNames={{
             title: style.color
           }}
-          onClick={() => setValue(value)}
+          onClick={() => handleSetFilterValues({ key: value })}
           key={value}>
           {label}
         </SelectItem>
