@@ -1,0 +1,3 @@
+.inputWrapper {
+    @apply bg-default dark:hover:bg-default;
+}

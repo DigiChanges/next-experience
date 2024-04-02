@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
-type Props = {
+interface Props {
     id: string;
 }
 
@@ -50,7 +50,6 @@ export const DeleteItemBt = (props: Props) => {
           isOnClick={() => handleDelete(props.id)}
         />
       }
-
     </>
   );
 };

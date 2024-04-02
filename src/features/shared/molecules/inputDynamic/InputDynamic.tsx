@@ -10,7 +10,7 @@ export const enum EnumFilterApply {
   FromTo = 1,
   Options = 2
 }
-type Props = {
+interface Props {
   handleSetFilterValues: (values: {
     term: string
   }) => void;
@@ -19,6 +19,7 @@ type Props = {
 }
 
 export const InputDynamic = (props: Props) => {
+export const InputDynamic = (props: Props): JSX.Element => {
   switch (props.keySelected.filter) {
     case EnumFilterApply.Single:
       return <InputSearchSimple {...props}/>;
