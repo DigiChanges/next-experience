@@ -101,11 +101,10 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             <AddItemBtn/>
           </div>
           <FilterModal
-              handleSetKey={handleSetKey}
-              searchType={searchType}
-              inputVal={inputVal}
-              setInputVal={setInputVal}
-              handleSearch={handleSearch}
+              handleSetFiltersApplied={handleSetFiltersApplied}
+              handleSetFilterValues={handleSetFilterValues}
+              keySelected={keySelected}
+              handleReplace={handleReplaceURL}
               inputFilterData={selectOptionsData}
               filtersApplied={filtersApplied}
               handleRemoveFilter={handleRemoveFilter}
