@@ -39,8 +39,8 @@
  .perfil .perfilSections, .perfil .logOut{
     @apply py-2 items-center !no-underline cursor-pointer hover:bg-hoverColor active:bg-secondary
 }
-.perfil .perfilSections img, .perfil .logOut img{
-    @apply w-[1.5rem] pl-1
+.perfil .perfilSections img, .perfil .logOut svg{
+    @apply w-[1.5rem] h-[1.5rem] pl-1
 }
 .perfil .perfilSections p, .perfil .logOut p{
     @apply ml-6 pr-1
@@ -58,7 +58,7 @@
 .perfil .perfilSections, .perfil .logOut{
     @apply py-2 items-center cursor-pointer hover:bg-hoverColor active:bg-secondary
 }
-.perfil .perfilSections img, .perfil .logOut img{
+.perfil .perfilSections img, .perfil .logOut svg{
     @apply w-[1.5rem] pl-1
 }
 .perfil .perfilSections p, .perfil .logOut p{

@@ -24,7 +24,7 @@
 }
 
 .containerSetting{
-    @apply flex flex-col items-start justify-start w-full bg-bgGrey  p-5 h-[100%] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+    @apply flex flex-col items-start justify-start w-full bg-bgGrey  p-5 h-[100vh] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
     transition: .5s;
 }
 .containerSetting p{
@@ -53,7 +53,13 @@
     @apply flex items-start justify-between absolute w-[100%]
 }
 .tab .labelCheck{
-    @apply flex items-center h-16 gap-2 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
+    @apply flex w-full items-center justify-between h-16 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
+}
+.tab .labelCheck svg{
+    @apply text-secondary mr-5 w-6
+}
+.arrowRight{
+    @apply ml-auto !mr-0
 }
 .tab:nth-of-type(1) .labelCheck{
     top: 0;
@@ -90,6 +96,7 @@
     @apply !hidden !transition-all;
 }
 
+
 @media (max-width: 640px){
     .loading-animation {
         width: 150px;
@@ -108,7 +115,8 @@
         @apply h-[10%] text-[1.5rem];
     }
     .tab .labelCheck{
-        @apply text-[1.3rem];
+        @apply text-[1.3rem] justify-start;
+        width: fit-content;
     }
     .containerUrl{
         @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[1rem] font-normal
@@ -120,9 +128,15 @@
         @apply block w-[60%] right-0 !transition-all;
     }
     .containerSetting{
-        @apply rounded-2xl
+        @apply rounded-2xl h-[100%]
     }
     .labelCheckResponsive{
+        @apply hidden
+    }
+    .containerList{
+        @apply min-h-[50vh]
+    }
+    .arrowRight{
         @apply hidden
     }
 }
