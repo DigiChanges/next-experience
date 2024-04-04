@@ -29,6 +29,13 @@ import { IoFunnel } from "react-icons/io5";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { IoOptionsOutline } from "react-icons/io5";
 import { IoSwapVertical } from "react-icons/io5";
+import { IoChevronForward } from "react-icons/io5";
+import { IoChevronBack } from 'react-icons/io5';
+import { GiPadlock } from 'react-icons/gi';
+import { RiUserUnfollowLine } from 'react-icons/ri';
+import { FaRegBell } from 'react-icons/fa';
+import {MdLanguage} from "react-icons/md";
+import { IoLogOut } from "react-icons/io5";
 
 export const icons = () => {
   return {
@@ -61,6 +68,13 @@ export const icons = () => {
     IoFunnel,
     IoPersonCircleSharp,
     IoOptionsOutline,
-    IoSwapVertical
+    IoSwapVertical,
+    IoChevronForward,
+    IoChevronBack,
+    GiPadlock,
+    RiUserUnfollowLine,
+    FaRegBell,
+    MdLanguage,
+    IoLogOut
   };
 };

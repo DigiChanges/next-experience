@@ -12,7 +12,6 @@ import {createSharedPathnamesNavigation} from "next-intl/navigation";
 import {locales} from "@/config";
 import {icons} from "@/features/shared/hooks/icons";
 import {useSearchParams} from "next/navigation";
-import {MdLanguage} from "react-icons/md";
 
 interface Props {
     dataPerfil: {
@@ -43,7 +42,7 @@ export const DropdownUser: React.FC<Props> = (props) => {
 
     const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
     const pathName = usePathname();
-    const { IconFlagUsa, IconFlagSpain } = icons();
+    const { IconFlagUsa, IconFlagSpain, MdLanguage, IoLogOut } = icons();
     const params = useSearchParams();
     const paramsString = new URLSearchParams(params).toString();
 
@@ -96,7 +95,7 @@ export const DropdownUser: React.FC<Props> = (props) => {
                   </AccordionItem>
               </Accordion>
               <button className={style.logOut} onClick={singOut}>
-                  <Image src={props.dataLogin.icon} alt='LogOut'/>
+                  <IoLogOut/>
                   <p>{t('logout')}</p>
               </button>
           </div>

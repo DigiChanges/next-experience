@@ -1,5 +1,5 @@
 .containerComponents {
-    @apply flex justify-center bg-bgDefault bg-gradient-to-r from-bgGradient to-60% min-h-[100vh] ;
+    @apply flex justify-center items-start bg-bgDefault bg-gradient-to-r from-bgGradient to-60% min-h-[100vh] ;
 }
 
 @screen md {

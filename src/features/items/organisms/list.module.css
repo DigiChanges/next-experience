@@ -1,5 +1,5 @@
 .container {
-    @apply w-[90%] m-auto mt-5 ;
+    @apply w-[90%] mx-auto mt-5 ;
 }
 .subcontainerAddFilter{
     @apply hidden
@@ -40,7 +40,7 @@
 
 @screen md {
     .container{
-        @apply pt-[4rem] mt-auto
+        @apply pt-[4rem] mt-0
     }
     .cards {
         @apply grid-cols-3 min-h-[40vh]

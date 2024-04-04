@@ -71,7 +71,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   return (
     <section className={style.container}>
       <div className={style.containerAddFilter}>
-        <Title isResponsive={false}/>
+        <Title />
         <p className={style.subtitle}>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <div className={style.subcontainerAddFilter}>
           <div className={style.subcontainerAddFilter2}>
