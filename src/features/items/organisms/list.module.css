@@ -25,6 +25,9 @@
 .containerAddItemBtnAndModal{
     @apply flex justify-between items-center w-[100%] gap-4
 }
+.containerSwitch span{
+    @apply z-[1]
+}
 .containerAddItem{
     @apply max-w-[30rem] w-full
 }

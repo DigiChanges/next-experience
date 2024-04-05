@@ -3,6 +3,7 @@ import style from './inputSearchFromTo.module.css';
 import React, { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
+import {SearchIcon} from "@nextui-org/shared-icons";
 
 
 type Props = {
@@ -47,19 +48,22 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         labelPlacement={'outside'}
         label={t('search')}
         classNames={{
-          input: ['bg-default'],
-          inputWrapper: [style.inputWrapper]
+            input: [style.input],
+            inputWrapper: [style.inputWrapper],
+            mainWrapper: [style.mainWrapper]
         }}
       />
       <InputSearch
         type={keySelected.type}
         onChange={handleInputChange('to')}
-        labelPlacement={'outside'}
-        label={t('search')}
+        placeholder={t('search')}
         classNames={{
-          input: ['bg-default'],
-          inputWrapper: [style.inputWrapper]
+            input: ['bg-bgInputFilter'],
+            inputWrapper: [style.inputWrapper]
         }}
+        startContent={
+            <SearchIcon className={style.searchIcon}/>
+        }
       />
     </>
   );

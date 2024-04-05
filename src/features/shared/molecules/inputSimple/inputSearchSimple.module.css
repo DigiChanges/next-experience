@@ -1,3 +1,12 @@
+.input{
+    @apply bg-bgInputFilter active:bg-bgInputFilter focus:bg-bgInputFilter;
+}
+.mainWrapper{
+    @apply px-3 w-full h-full bg-bgInputFilter outline-none active:bg-bgInputFilter focus:bg-bgInputFilter;
+}
 .inputWrapper {
-    @apply bg-default dark:hover:bg-default;
+    @apply w-full p-0 bg-bgInputFilter rounded-[8px] hover:bg-bgInputFilter active:bg-bgInputFilter focus:bg-bgInputFilter;
+}
+.searchIcon{
+    @apply bg-bgInputFilter h-full text-secondary mb-0.5 pointer-events-none flex-shrink-0 outline-none
 }

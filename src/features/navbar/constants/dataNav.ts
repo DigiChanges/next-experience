@@ -32,17 +32,12 @@ export const dataLogin = {
 export const dataNav = [
   {
     id: 1,
-    image: DashboardIcon,
-    description: 'dashboard'
-  },
-  {
-    id: 2,
     image: HomeIcon,
     description: 'dashboard',
     path: '/dashboard'
   },
   {
-    id: 3,
+    id: 2,
     image: ItemsIcon,
     description: 'items',
     path: '/items'

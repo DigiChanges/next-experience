@@ -46,26 +46,21 @@
 	@apply mt-5 rounded-full w-10 h-10 m-auto;
 }
 
-
-
-
-
 .container nav ul  {
 	@apply grid grid-cols-1 gap-2 mt-5 mx-2 relative
 }
 
 .selectedItem {
- @apply	bg-selectedItem py-2 rounded-md
+ @apply	bg-hoverButtonBlue py-2 rounded-md
 }
 .container nav ul li{
 	@apply  py-2 cursor-pointer
 }
 
 .container nav ul li:nth-child(2){
-	@apply bg-selectedItem  rounded mt-6  pointer-events-none;
+	@apply bg-hoverButtonBlue  rounded mt-6 ;
 }
 .container nav ul a:nth-child(2){
-	@apply  cursor-default;
 }
 .container nav ul li:hover {
 	@apply bg-secondary  rounded
@@ -83,8 +78,8 @@
 	@apply absolute top-0 text-white centerAlign left-[70px];
 }
 
-.container nav ul a img {
-	@apply w-7 h-7 m-auto;
+.container nav ul a svg {
+	@apply w-6 h-6 m-auto text-white;
 }
 
 .lineOne{

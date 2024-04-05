@@ -12,6 +12,8 @@ import {createSharedPathnamesNavigation} from "next-intl/navigation";
 import {locales} from "@/config";
 import {icons} from "@/features/shared/hooks/icons";
 import {useSearchParams} from "next/navigation";
+import { IoPersonOutline } from "react-icons/io5";
+import { IoSettingsOutline } from "react-icons/io5";
 
 interface Props {
     dataPerfil: {
@@ -77,7 +79,7 @@ export const DropdownUser: React.FC<Props> = (props) => {
               {
                   props.dataPerfil.map(({icon, description, path}) =>
                       <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>
-                          {icon && <Image src={icon} alt='icon perfil'/>}
+                          {path === '/profile' ? <IoPersonOutline /> : <IoSettingsOutline />}
                           <p>{t(description)}</p>
                       </Link>
                   )

@@ -10,6 +10,9 @@ import { icons } from '@/features/shared/hooks/icons';
 
 // Esto lo tengo que traer de dataClose?
 import { RxCross2 } from 'react-icons/rx';
+import { IoHomeOutline } from "react-icons/io5";
+import { IoFileTrayFull } from "react-icons/io5";
+
 import { LuMenuSquare } from 'react-icons/lu';
 import { AiOutlineHome } from 'react-icons/ai';
 import IconLogoDgc from '@/asset/icons/logo-dgc.svg';
@@ -47,7 +50,7 @@ export const Navbar: React.FC = () => {
                     handleItemClick(index);
                   }} href={path ?? '#'}>
                     <div className={style.imgNav}>
-                      <Image src={image} alt={'menu item'}/>
+                      {id === 1 ? <IoHomeOutline/> : <IoFileTrayFull/>}
                     </div>
                     <p>{t(description)}</p>
                   </Link>

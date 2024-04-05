@@ -95,7 +95,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         <div className={style.containerAddItemBtnAndModal}>
           <div className={style.containerAddItemBtn}>
             <SortComponent isResponsive={false}/>
-            <Switch size="sm" color="secondary" defaultSelected>
+            <Switch className={style.containerSwitch} size="sm" color="secondary" defaultSelected>
               Active
             </Switch>
             <AddItemBtn/>

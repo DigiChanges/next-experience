@@ -25,7 +25,7 @@
 }
 
 .containerPerfil{
-    @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3
+    @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3 z-40
 }
 .perfil{
     @apply flex flex-col bg-bgGrey relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary z-40
@@ -39,7 +39,7 @@
  .perfil .perfilSections, .perfil .logOut{
     @apply py-2 items-center !no-underline cursor-pointer hover:bg-hoverColor active:bg-secondary
 }
-.perfil .perfilSections img, .perfil .logOut svg{
+.perfil .perfilSections svg, .perfil .logOut svg{
     @apply w-[1.5rem] h-[1.5rem] pl-1
 }
 .perfil .perfilSections p, .perfil .logOut p{
@@ -58,8 +58,8 @@
 .perfil .perfilSections, .perfil .logOut{
     @apply py-2 items-center cursor-pointer hover:bg-hoverColor active:bg-secondary
 }
-.perfil .perfilSections img, .perfil .logOut svg{
-    @apply w-[1.5rem] pl-1
+.perfil .perfilSections svg, .perfil .logOut svg{
+    @apply w-[1.5rem] pl-1 text-secondary
 }
 .perfil .perfilSections p, .perfil .logOut p{
     @apply ml-6 pr-1
@@ -70,7 +70,7 @@
 .perfilSections a{
     @apply w-full flex justify-between items-center
 }
-.perfilSections a img{
+.perfilSections a svg{
     @apply object-contain !w-[2rem]
 }
 .langResponsive{
