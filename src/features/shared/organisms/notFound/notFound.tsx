@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
-import Error from 'next/error';
-import style from "./notFound.module.css";
+import style from './notFound.module.css';
 
-export const NotFoundComponent: React.FC = () =>{
-    return(
-        <div className={style.container}>
-            <Error statusCode={404} />
-            <a href="/auth/login">Volver a la página principal</a>
-        </div>
-    )
-}
+export const NotFoundComponent: React.FC = () => {
+  return (
+    <div className={style.container}>
+      <h1>404</h1>
+      <h2>Page not found</h2>
+      <a href="/auth/login">Return to main page</a>
+    </div>
+  );
+};

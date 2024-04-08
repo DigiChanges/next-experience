@@ -8,6 +8,11 @@
     "retry": "retry",
     "description": ""
   },
+  "NotFound": {
+    "title": "404",
+    "description": "Página no encontrada",
+    "button": "Volver a la página principal"
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",

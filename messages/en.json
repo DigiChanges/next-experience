@@ -7,6 +7,11 @@
     "title": "titulo del error",
     "retry": "retry"
   },
+  "NotFound": {
+    "title": "404",
+    "description": "Page not found",
+    "button": "Return to main page"
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Home",
