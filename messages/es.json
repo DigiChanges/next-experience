@@ -107,6 +107,16 @@
     "singInLink": "Inicia Sesión Aquí",
     "codeLink": "Enviar otro código"
   },
+  "AuthWelcome": {
+    "title": "¡Bienvenido!",
+    "description": "Chequea tu casilla de email para activar la cuenta",
+    "button": "Volver al login"
+  },
+  "ExpiredLink": {
+    "title": "Link expirado",
+    "description": "Renova tu mail de activación",
+    "button": "Volver al login"
+  },
   "Setting": {
     "title": "Configuración de Cuenta",
     "description": "Personaliza tu cuenta según tus preferencias y necesidades.",

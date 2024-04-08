@@ -105,6 +105,16 @@
     "singInLink": "Login Here",
     "codeLink": "Send another code"
   },
+  "AuthWelcome": {
+    "title": "Welcome!",
+    "description": "Check your email inbox to activate your account",
+    "button": "Back to login"
+  },
+  "ExpiredLink": {
+    "title": "Expired link",
+    "description": "Renew your activation email",
+    "button": "Back to login"
+  },
   "Setting": {
     "title": "Account settings",
     "description": "Customize your account according to your preferences and needs.",

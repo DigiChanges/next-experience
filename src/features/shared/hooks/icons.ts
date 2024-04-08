@@ -36,6 +36,8 @@ import { RiUserUnfollowLine } from 'react-icons/ri';
 import { FaRegBell } from 'react-icons/fa';
 import {MdLanguage} from "react-icons/md";
 import { IoLogOut } from "react-icons/io5";
+import authWelcome from "../../../asset/icons/welcome.webp";
+import expiredLink from "../../../asset/icons/expired.webp";
 
 export const icons = () => {
   return {
@@ -75,6 +77,8 @@ export const icons = () => {
     RiUserUnfollowLine,
     FaRegBell,
     MdLanguage,
-    IoLogOut
+    IoLogOut,
+    authWelcome,
+    expiredLink
   };
 };
