@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import {icons} from "@/features/shared/hooks/icons";
-import {SearchIcon} from "@nextui-org/shared-icons";
 
 type Props = {
   handleSetFilterValues:(values: {
@@ -18,6 +17,7 @@ type Props = {
   inputFilterData: Filter[];
   handleReplace: () => void;
   handleSetFiltersApplied: () => void;
+  classButton?: string;
 }
 
 
@@ -26,7 +26,8 @@ export const FilterAndSearch = ({
   inputFilterData,
   keySelected,
   handleSetFilterValues,
-  handleSetFiltersApplied
+  handleSetFiltersApplied,
+                                  classButton
 }: Props) => {
   const t = useTranslations('Items');
   const { IoFunnel } = icons();
@@ -43,7 +44,7 @@ export const FilterAndSearch = ({
             handleSetFilterValues={handleSetFilterValues}
           />
         </div>
-        <div className={style.btn}>
+        <div className={classButton ? classButton : style.btn}>
           <Button onClick={() => {
             handleSetFiltersApplied();
             handleReplace();

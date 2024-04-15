@@ -7,7 +7,6 @@ import { handleSignUp } from '@/features/auth/register/actions/registerAction';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import style from './register.module.css';
 import Link from 'next/link';
-import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';

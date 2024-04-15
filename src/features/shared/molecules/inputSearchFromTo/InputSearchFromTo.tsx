@@ -45,13 +45,14 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         type={keySelected.type}
         onChange={handleInputChange('from')}
         // onChange={e => setInputVal(e.target.value)}
-        labelPlacement={'outside'}
-        label={t('search')}
+        placeholder={t('search')}
         classNames={{
-            input: [style.input],
-            inputWrapper: [style.inputWrapper],
-            mainWrapper: [style.mainWrapper]
+            input: ['bg-bgInputFilter'],
+            inputWrapper: [style.inputWrapper]
         }}
+        startContent={
+            <SearchIcon className={style.searchIcon}/>
+        }
       />
       <InputSearch
         type={keySelected.type}

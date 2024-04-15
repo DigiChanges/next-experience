@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Modal.module.css";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button} from "@nextui-org/react";
 import { RxCrossCircled } from "react-icons/rx";
 
 interface Props {
@@ -9,10 +9,10 @@ interface Props {
     cancel: string;
     button?: string;
     displayButton?: boolean;
-    isOpen?: any;
-    onOpen?: any;
-    onOpenChange?: any;
-    isOnClick?: any;
+    isOpen?: boolean;
+    onOpen?: () => void;
+    onOpenChange?: () => void;
+    isOnClick?: () => void;
 }
 export const ModalComponent:React.FC<Props> = (props) => {
 

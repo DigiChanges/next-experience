@@ -5,7 +5,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import {useTranslations} from "next-intl";
 
 type Props = {
-  filtersApplied: FilterApplied[]
+  filtersApplied:  FilterApplied[]
   handleRemoveFilter: (filter: FilterApplied) => void;
   handleReplaceURL: () => void;
 }
@@ -34,7 +34,7 @@ export const FiltersApplied = ({
       }
       </div>
       {
-        filtersApplied.length > 0 && <button className={style.buttonClear}>{t('clearAll')}</button>
+        filtersApplied?.length > 0 && <button className={style.buttonClear}>{t('clearAll')}</button>
       }
     </div>
   );

@@ -9,7 +9,7 @@ import {icons} from "@/features/shared/hooks/icons";
 interface Props {
     isDropdownOpen: boolean,
     handleDropdown: () => void,
-    id: any
+    id: string
 }
 export const Dropdown: React.FC<Props> = (props) => {
     const { IoEllipsisVertical } = icons();

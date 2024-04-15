@@ -3,18 +3,19 @@
 }
 
 .containerInputFilter {
-    @apply w-full max-w-[150px]
+    @apply w-full
 }
 
 .containerInput{
-    @apply flex items-center gap-2
+    @apply flex flex-col items-center gap-2 w-full rounded-[8px];
 }
 
 .input{
-    @apply w-full max-w-[200px] !text-[#292D32]
+    @apply w-full !text-[#292D32] rounded-[8px]
 }
 .input input{
-    @apply bg-bgInputFilter !text-[#292D32]
+    @apply bg-bgInputFilter !text-[#292D32];
+
 }
 .btn{
     @apply bg-secondary rounded-[10px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
@@ -35,10 +36,13 @@
         @apply  flex flex-row  w-full gap-5
     }
     .containerInputFilter {
-
+        @apply w-full max-w-[150px]
     }
     .containerInput{
-        @apply gap-5
+        @apply flex flex-row items-center gap-5 w-fit justify-end
+    }
+    .input{
+        @apply w-full max-w-[200px]
     }
 }
 @screen lg{

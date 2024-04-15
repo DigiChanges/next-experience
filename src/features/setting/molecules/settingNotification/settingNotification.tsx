@@ -1,10 +1,10 @@
 'use client';
 import React from "react";
 import "./menuSetting.css";
-import style from "./settingNotification.module.css";
-import {Switch, useDisclosure} from "@nextui-org/react";
+import {useDisclosure} from "@nextui-org/react";
 import {useTranslations} from "next-intl";
 import {ModalComponent} from "@/features/shared/atoms/modal/Modal";
+import SwitchSettingNotification from "@/features/setting/atoms/SwitchNotificationSettings/SwitchNotificationSettings";
 
 export const SettingNotification: React.FC = () =>{
     const t = useTranslations('Setting');
@@ -12,31 +12,16 @@ export const SettingNotification: React.FC = () =>{
 
     return(
         <>
-            <div className={style.notificationUpdate}>
-                <p>{t('tab3switch')}</p>
-                <Switch color={'secondary'} defaultSelected aria-label="Notification"/>
-            </div>
-            <div className={style.notificationUpdate}>
-                <p>{t('tab3switch')}</p>
-                <Switch color={'secondary'} defaultSelected aria-label="Notification"/>
-            </div>
-            <div className={style.notificationUpdate}>
-                <p>{t('tab3switch')}</p>
-                <Switch color={'secondary'} defaultSelected aria-label="Notification"/>
-            </div>
-            <div className={style.notificationUpdate}>
-                <p>{t('tab3switch')}</p>
-                <Switch color={'secondary'} defaultSelected aria-label="Notification"/>
-            </div>
+            <SwitchSettingNotification />
             <ModalComponent
                 displayButton={true}
                 isOpen={isOpen}
                 onOpen={onOpen}
                 onOpenChange={onOpenChange}
-                description={t('tab3modal')}
-                success={t('tab3modalsuccess')}
-                cancel={t('tab3modalcancel')}
-                button={t('tab3button')}
+                description={t('s_notificationSettings-modal')}
+                success={t('s_notificationSettings-continue')}
+                cancel={t('s_notificationSettings-cancel')}
+                button={t('s_notificationSettings-button')}
             />
         </>
     )

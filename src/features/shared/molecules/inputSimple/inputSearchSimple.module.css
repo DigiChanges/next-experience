@@ -2,7 +2,7 @@
     @apply bg-bgInputFilter active:bg-bgInputFilter focus:bg-bgInputFilter;
 }
 .mainWrapper{
-    @apply px-3 w-full h-full bg-bgInputFilter outline-none active:bg-bgInputFilter focus:bg-bgInputFilter;
+    @apply px-3 w-full h-full rounded-[8px] bg-bgInputFilter outline-none active:bg-bgInputFilter focus:bg-bgInputFilter;
 }
 .inputWrapper {
     @apply w-full p-0 bg-bgInputFilter rounded-[8px] hover:bg-bgInputFilter active:bg-bgInputFilter focus:bg-bgInputFilter;

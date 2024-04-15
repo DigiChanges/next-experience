@@ -16,7 +16,6 @@ import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/Fil
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import {useTranslations} from "next-intl";
-import {icons} from "@/features/shared/hooks/icons";
 import {FilterModal} from "@/features/shared/atoms/filterModal/filterModal";
 import {SortComponent} from "@/features/shared/atoms/sort/Sort";
 
