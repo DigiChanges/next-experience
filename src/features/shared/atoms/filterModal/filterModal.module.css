@@ -36,10 +36,13 @@
     @apply w-full
 }
 .btn{
-    @apply mt-5 bg-secondary rounded-[7px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+    @apply absolute bottom-[1rem] right-[1rem] mt-5 bg-secondary rounded-[7px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
 .btn button{
     @apply bg-transparent text-textWhite
+}
+.modalFooter{
+    @apply h-16
 }
 
 .inputWrapper {
@@ -50,6 +53,9 @@
 }
 
 @screen md{
+    .btn{
+        @apply static
+    }
     .buttonModal{
         @apply hidden
     }
