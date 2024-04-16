@@ -33,16 +33,16 @@
 
 @screen md {
     .containerSelect{
-        @apply  flex flex-row  w-full gap-5
+        @apply  flex flex-row items-start w-full gap-5
     }
     .containerInputFilter {
         @apply w-full max-w-[150px]
     }
     .containerInput{
-        @apply flex flex-row items-center gap-5 w-fit justify-end
+        @apply flex flex-row items-start gap-5 w-fit justify-end
     }
     .input{
-        @apply w-full max-w-[200px]
+        @apply w-full max-w-[200px] flex flex-col gap-[10px]
     }
 }
 @screen lg{
