@@ -5,7 +5,7 @@
     @apply hidden
 }
 .subcontainerAddFilter2{
-    @apply flex items-center justify-between w-full
+    @apply flex items-start justify-between w-full
 }
 .containerAddFilter{
     @apply flex flex-col items-start
