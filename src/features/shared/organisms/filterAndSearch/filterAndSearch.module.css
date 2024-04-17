@@ -42,7 +42,7 @@
         @apply flex flex-row items-start gap-5 w-fit justify-end
     }
     .input{
-        @apply w-full max-w-[200px] flex flex-col gap-[10px]
+        @apply w-full max-w-[200px] min-w-[150px] flex flex-col gap-[10px]
     }
 }
 @screen lg{

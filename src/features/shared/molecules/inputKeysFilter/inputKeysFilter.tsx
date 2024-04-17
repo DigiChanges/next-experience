@@ -2,14 +2,12 @@ import { Select, SelectItem } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
 import style from './inputKeysFilter.module.css';
-import { useTranslations } from 'next-intl';
 interface Props {
     data: Filter[];
   handleSetFilterValues: (values: {key: string}) => void;
 }
 
 export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
-  const t = useTranslations('Items');
   return (
     <Select
       defaultSelectedKeys={[data[0].value]}
