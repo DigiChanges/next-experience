@@ -2,7 +2,7 @@
 	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-[-60px] py-[2rem] px-2 w-[0px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
 }
 .navResponsive{
-	@apply fixed z-50 top-5 left-3 !m-0 w-8 h-10 transition-all cursor-pointer;
+	@apply fixed z-50 top-5 left-3 !m-0 w-6 h-8 transition-all cursor-pointer;
 }
 .navActive {
 	@apply calculateWidth left-0 !important;
@@ -23,11 +23,11 @@
 }
 
 .container nav .openMenu img, .container nav .openMenu svg {
-	@apply mt-5 w-8 h-10 transition-all m-auto cursor-pointer;
+	@apply mt-5 w-6 h-8 transition-all m-auto cursor-pointer;
 }
 
 .container nav .openMenu .rotateIcon {
-	@apply transform -rotate-45
+	@apply transform -rotate-180
 }
 
 

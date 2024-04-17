@@ -32,7 +32,15 @@ export const useFilter = (params: URLSearchParams) => {
 
   const handleRemoveFilter = (filterToRemove: FilterApplied) => {
     params.delete(`filter[${filterToRemove.key}]`);
+
     setFiltersApplied(filtersApplied.filter(filter => filter.key !== filterToRemove.key));
+  };
+  const handleRemoveFilterAll = () => {
+    filtersApplied.map(e =>{
+      params.delete(`filter[${e.key}]`);
+
+    })
+    setFiltersApplied([]);
   };
 
   const createFilterFromPair = ([key, value]: [string, string]): FilterApplied => {
@@ -58,6 +66,7 @@ export const useFilter = (params: URLSearchParams) => {
     setFilterParams,
     filtersApplied,
     handleRemoveFilter,
-    handleSetFiltersApplied
+    handleSetFiltersApplied,
+    handleRemoveFilterAll
   };
 };

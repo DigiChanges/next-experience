@@ -8,11 +8,13 @@ type Props = {
   filtersApplied:  FilterApplied[]
   handleRemoveFilter: (filter: FilterApplied) => void;
   handleReplaceURL: () => void;
+  handleRemoveFilterAll: () => void;
 }
 export const FiltersApplied = ({
   filtersApplied,
   handleRemoveFilter,
-  handleReplaceURL
+  handleReplaceURL,
+                                 handleRemoveFilterAll
 }: Props) => {
   const { IoCloseOutline } = icons();
   const t = useTranslations('Items');
@@ -23,7 +25,7 @@ export const FiltersApplied = ({
       {
         filtersApplied.map((el) =>
           <li key={el.key} className={style.liRemove}>{
-            el.key}
+            el.term}
           <button className={style.btnRemove} onClick={() => {
               handleRemoveFilter(el);
               handleReplaceURL();
@@ -34,7 +36,10 @@ export const FiltersApplied = ({
       }
       </div>
       {
-        filtersApplied?.length > 0 && <button className={style.buttonClear}>{t('clearAll')}</button>
+        filtersApplied?.length > 0 && <button className={style.buttonClear} onClick={() => {
+            handleRemoveFilterAll();
+            handleReplaceURL();
+          }}>{t('clearAll')}</button>
       }
     </div>
   );

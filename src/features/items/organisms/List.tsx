@@ -32,7 +32,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(pagination, params);
-  const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied } = useFilter(params);
+  const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
     const t = useTranslations('Items');
 
   const handleReplaceURL = () => {
@@ -88,6 +88,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
                 filtersApplied={filtersApplied}
                 handleReplaceURL={handleReplaceURL}
                 handleRemoveFilter={handleRemoveFilter}
+                handleRemoveFilterAll={handleRemoveFilterAll}
             />
           </div>
         </div>

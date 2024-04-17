@@ -31,7 +31,7 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
 
   const handleSetValuesUnified = () => {
     handleSetFilterValues({
-      term: `${values.from?.toString()}-${  values.to?.toString()}`
+      term: `${values.from?.toString()} / ${  values.to?.toString()}`
     });
   };
 
@@ -50,7 +50,7 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
             input: ['bg-bgInputFilter'],
             inputWrapper: [style.inputWrapper]
         }}
-        startContent={
+        startContent={ keySelected.type !== "date" &&
             <SearchIcon className={style.searchIcon}/>
         }
       />
@@ -62,7 +62,7 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
             input: ['bg-bgInputFilter'],
             inputWrapper: [style.inputWrapper]
         }}
-        startContent={
+        startContent={ keySelected.type !== "date" &&
             <SearchIcon className={style.searchIcon}/>
         }
       />
