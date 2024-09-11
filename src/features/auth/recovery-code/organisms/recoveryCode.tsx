@@ -8,19 +8,23 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { recoveryCodeSchema } from '@/features/auth/recovery-code/validations/recoveryCodeSchema';
 import { toast } from 'react-toastify';
-import { handleSignIn } from '@/features/auth/login/actions/loginAction';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { handleRecoveryCode } from '@/features/auth/recovery-code/actions/recoveryCodeAction';
+import { useSearchParams } from 'next/navigation';
 
 export const RecoveryCode: React.FC = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IrecoveryCode>({
     resolver: yupResolver(recoveryCodeSchema)
   });
+  const searchParams = useSearchParams();
+  let email = searchParams.get('email');
   const t = useTranslations('RecoveryCode');
   const alerts = useTranslations('ToastLogin');
 
   const onSubmit = handleSubmit(async(data: IrecoveryCode) => {
-    await  toast.promise(handleSignIn(data), {
+    if (email === null) { email = ''; }
+    await  toast.promise(handleRecoveryCode(email, data), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
       pending:`${alerts('pending')}`

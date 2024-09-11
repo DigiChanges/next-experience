@@ -3,7 +3,7 @@ import style from './inputSearchFromTo.module.css';
 import React, { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import {SearchIcon} from "@nextui-org/shared-icons";
+import { SearchIcon } from '@nextui-org/shared-icons';
 
 
 type Props = {
@@ -47,10 +47,10 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         // onChange={e => setInputVal(e.target.value)}
         placeholder={t('search')}
         classNames={{
-            input: ['bg-bgInputFilter'],
-            inputWrapper: [style.inputWrapper]
+          input: ['bg-bgInputFilter'],
+          inputWrapper: [style.inputWrapper]
         }}
-        startContent={ keySelected.type !== "date" &&
+        startContent={ keySelected.type !== 'date' &&
             <SearchIcon className={style.searchIcon}/>
         }
       />
@@ -59,10 +59,10 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         onChange={handleInputChange('to')}
         placeholder={t('search')}
         classNames={{
-            input: ['bg-bgInputFilter'],
-            inputWrapper: [style.inputWrapper]
+          input: ['bg-bgInputFilter'],
+          inputWrapper: [style.inputWrapper]
         }}
-        startContent={ keySelected.type !== "date" &&
+        startContent={ keySelected.type !== 'date' &&
             <SearchIcon className={style.searchIcon}/>
         }
       />

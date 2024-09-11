@@ -25,11 +25,11 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
   placeholder,
   classNameError
 }: FormInputProps<TFormValues>) => {
-  const error = errors[name];
+  const error = errors ? errors[name] : undefined;
   return (
     <div className={className}>
       <label htmlFor={id}>{label}</label>
-      <input className={error && classNameError} {...register(name)} type={type} name={name} id={id} placeholder={placeholder} />
+      <input className={error && classNameError} {...register ? register(name) : null} type={type} name={name} id={id} placeholder={placeholder} />
       {error && <p>{error.message as string}</p>}
     </div>
   );

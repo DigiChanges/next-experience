@@ -1,13 +1,12 @@
 'use client';
 import React from 'react';
-import { Button, Card, Image, CardBody, Modal, useDisclosure } from '@nextui-org/react';
+import { Button, useDisclosure } from '@nextui-org/react';
 import style from './deleteItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
-import { IoTrashOutline } from 'react-icons/io5';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
 interface Props {
@@ -17,8 +16,7 @@ interface Props {
 export const DeleteItemBtn: React.FC<Props> = (props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { onOpen } = useDisclosure();
-  const { IoTrashOutline, IconAlert } = icons();
-
+  const { IoTrashOutline } = icons();
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
   const t = useTranslations('Items');

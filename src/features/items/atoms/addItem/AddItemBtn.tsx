@@ -4,7 +4,7 @@ import { Button } from '@nextui-org/react';
 import style from './addItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
-import {useTranslations} from "next-intl";
+import { useTranslations } from 'next-intl';
 
 export const AddItemBtn: React.FC = () => {
   const { IoAddOutline } = icons();
