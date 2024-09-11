@@ -10,16 +10,9 @@ import { icons } from '@/features/shared/hooks/icons';
 
 import BurguerButton from "@/features/navbar/atom/BurguerButton";
 
-import { RxCross2 } from 'react-icons/rx';
 import { IoHomeOutline } from "react-icons/io5";
 import { IoFileTrayFull } from "react-icons/io5";
 
-import { LuMenuSquare } from 'react-icons/lu';
-import { AiOutlineHome } from 'react-icons/ai';
-import IconLogoDgc from '@/asset/icons/logo-dgc.svg';
-
-import { IoHomeOutline } from 'react-icons/io5';
-import { IoFileTrayFull } from 'react-icons/io5';
 
 
 export const Navbar: React.FC = () => {
