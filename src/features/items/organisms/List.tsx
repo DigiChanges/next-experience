@@ -11,7 +11,6 @@ import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { Show } from '@/features/shared/atoms/show/Show';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
@@ -113,20 +112,16 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
-      <Show when={items.length}>
-        <div className={style.cards}>
-          {items.map((item) => (
-            <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
-          ))}
-        </div>
-      </Show>
+      {items.length && <div className={style.cards}>
+        {items.map((item) => (
+          <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
+        ))}
+      </div>}
       <div className={style.containerPaginationAndAdd}>
-        <Show when={items.length > 0}>
-          <div className={style.testNav}>
-            <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-              color={'secondary'}/>
-          </div>
-        </Show>
+        {items.length > 0 && <div className={style.testNav}>
+          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
+            color={'secondary'}/>
+        </div>}
       </div>
     </section>
   );

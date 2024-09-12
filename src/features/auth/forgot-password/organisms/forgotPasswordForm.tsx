@@ -8,7 +8,6 @@ import {  toast } from 'react-toastify';
 import { handleRecoverPassword } from '@/features/auth/forgot-password/actions/forgotPasswordAction';
 import { forgoPasswordSchema } from '@/features/auth/forgot-password/validations/forgotPasswordSchema';
 import { IforgotPasswordForm } from '@/features/auth/forgot-password/interfaces/IforgotPasswordForm';
-import { Show } from '@/features/shared/atoms/show/Show';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
@@ -18,11 +17,11 @@ export const ForgotPasswordForm: React.FC = () => {
     resolver: yupResolver(forgoPasswordSchema)
   });
   const [message, setMessage] = useState(false);
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const t = useTranslations('Forgot');
   const alerts = useTranslations('ToastForgot');
   const onSubmit = handleSubmit(async({ username }: IforgotPasswordForm) => {
-    setEmail(username);
+    // setEmail(username);
     await  toast.promise(handleRecoverPassword(username), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
@@ -55,13 +54,13 @@ export const ForgotPasswordForm: React.FC = () => {
               </div>
             </form> </>)
       }
-      <Show when={message}>
-        <div className={style.message}>
-          <h2>{t('message')}</h2>
-          <h3>{t('messageSubtitle')}</h3>
-          <Link href={`/auth/recovery-code?email=${email}`}><span>{t('messageButton')}</span></Link>
-        </div>
-      </Show>
+      {message &&
+          <div className={style.message}>
+            <h2>{t('message')}</h2>
+            <h3>{t('messageSubtitle')}</h3>
+            {/* <Link href={`/auth/recovery-code?email=${email}`}><span>{t('messageButton')}</span></Link> */}
+          </div>
+      }
     </div>
   );
 };

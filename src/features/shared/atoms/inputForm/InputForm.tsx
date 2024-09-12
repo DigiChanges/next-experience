@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+import style from './inputForm.module.css';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
-interface FormInputProps<TFormValues extends FieldValues>  {
-    type: 'text' | 'number' | 'email' | 'password';
-    name: Path<TFormValues>
+interface Props<TFormValues extends FieldValues> {
+    type: 'text' | 'number' | 'email' | 'password' | 'file' | 'date',
+    type_input?: 'select' | 'simple' | 'file'
+    name: Path<TFormValues>;
     label?: string;
-    register?: UseFormRegister<TFormValues>;
-    errors?: Partial<DeepMap<TFormValues, FieldError>>;
+    register: UseFormRegister<TFormValues>;
+    errors: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     className?: string;
     placeholder?: string;
     value?: string | number;
     classNameError?: string;
+    disabled?: boolean;
+    options?: { value: string | number | boolean, label: string }[];
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputForm = <TFormValues extends Record<string, unknown>>({
@@ -23,13 +28,55 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
   className,
   label,
   placeholder,
-  classNameError
-}: FormInputProps<TFormValues>) => {
-  const error = errors ? errors[name] : undefined;
+  classNameError,
+  disabled,
+  type_input = 'simple',
+  options,
+  onChange,
+  value
+}: Props<TFormValues>) => {
+  // TODO: Investigar mas este error de tipo.
+  const error = errors[name];
+
+  const renderOptions = () => {
+    if (options && options.length > 0) {
+      return options.map(option => (
+        <option key={String(option.value)} value={String(option.value)}>{option.label}</option>
+      ));
+    }
+    return null;
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(event);
+    }
+  };
+
   return (
     <div className={className}>
       <label htmlFor={id}>{label}</label>
-      <input className={error && classNameError} {...register ? register(name) : null} type={type} name={name} id={id} placeholder={placeholder} />
+      <div className={type === 'file' ? style.containerFile : ''}>
+        {type_input === 'select' ? (
+          <select disabled={disabled} className={error && classNameError} {...register(name)} id={id}>
+            {renderOptions()}
+          </select>
+        ) : (
+          <input
+            disabled={disabled}
+            className={error && classNameError} {...register(name)}
+            type={type}
+            max={type === 'date' ? '9999-12-31' : ''}
+            value={value}
+            name={name}
+            id={id}
+            placeholder={placeholder}
+            onChange={handleChange}
+          />
+        )}
+        {type === 'file' && <p>{placeholder}</p>}
+
+      </div>
       {error && <p>{error.message as string}</p>}
     </div>
   );
