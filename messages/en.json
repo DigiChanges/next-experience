@@ -98,7 +98,8 @@
     "tab1modal": "There are unsaved changes, do you want to continue?",
     "tab1modalsuccess": "Continue",
     "tab1modalcancel": "Cancel",
-    "tab1button": "Save Changes"
+    "tab1button": "Save Changes",
+    "resendLink": "Send another link"
   },
   "RecoveryCode": {
     "title": "Enter your code",
@@ -119,6 +120,11 @@
     "title": "Expired link",
     "description": "Renew your activation email",
     "button": "Back to login"
+  },
+  "InvalidLink": {
+    "title": "Invalid link",
+    "description": "Resend the link to recover your password to your email",
+    "button": "Go back"
   },
   "Setting": {
     "title": "Account settings",

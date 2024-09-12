@@ -1,5 +1,6 @@
 'use client';
 import React  from 'react';
+import { redirect, RedirectType } from 'next/navigation';
 import style from './updatePassword.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,7 +11,6 @@ import { useSearchParams } from 'next/navigation';
 import { IupdatePasswordForm } from '@/features/auth/update-password/interfaces/IupdatePassaword';
 import { updateSchema } from '@/features/auth/update-password/validations/updatePasswordSchema';
 import { toast } from 'react-toastify';
-
 
 export const UpdatePasswordForm: React.FC = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IupdatePasswordForm>({
@@ -31,6 +31,7 @@ export const UpdatePasswordForm: React.FC = () => {
     }
     reset();
   });
+  if (!code) { redirect('/auth/invalid-link', RedirectType.push); }
   return (
     <div className={style.container}>
       <h1>{t('title')}</h1>
@@ -47,7 +48,6 @@ export const UpdatePasswordForm: React.FC = () => {
         </div>
         <button type='submit' className={'text-white'}><span>{t('send')}</span></button>
       </form>
-
     </div>
   );
 };
