@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import style from './inputForm.module.css';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
-interface Props<TFormValues extends FieldValues> {
+type Props<TFormValues extends FieldValues> = {
     type: 'text' | 'number' | 'email' | 'password' | 'file' | 'date' | 'datetime-local',
     type_input?: 'select' | 'simple' | 'file'
     name: Path<TFormValues>;
