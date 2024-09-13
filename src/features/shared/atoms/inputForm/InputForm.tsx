@@ -3,13 +3,14 @@ import style from './inputForm.module.css';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 interface Props<TFormValues extends FieldValues> {
-    type: 'text' | 'number' | 'email' | 'password' | 'file' | 'date',
+    type: 'text' | 'number' | 'email' | 'password' | 'file' | 'date' | 'datetime-local',
     type_input?: 'select' | 'simple' | 'file'
     name: Path<TFormValues>;
     label?: string;
     register: UseFormRegister<TFormValues>;
     errors: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
+    maxDate?: string;
     className?: string;
     placeholder?: string;
     value?: string | number;
@@ -32,6 +33,7 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
   disabled,
   type_input = 'simple',
   options,
+  maxDate,
   onChange,
   value
 }: Props<TFormValues>) => {
@@ -66,7 +68,7 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
             disabled={disabled}
             className={error && classNameError} {...register(name)}
             type={type}
-            max={type === 'date' ? '9999-12-31' : ''}
+            max={maxDate}
             value={value}
             name={name}
             id={id}

@@ -12,16 +12,13 @@ export const handleRecoveryCode = async(email: string, data: IrecoveryCode) => {
 
   const { error } = await supabase.auth.verifyOtp({ email, token: data.code, type: 'recovery' });
 
-
-  /* const { error } = await supabase.auth.signInWithPassword({
-    code: data.code
-  }); */
+  // const { error } = await supabase.auth.signInWithPassword({
+  //   code: data.code
+  // });
 
   if (error){
-    throw new Error('Authentication failed');
+    throw new Error('Authentication failed', error);
   }
-  if (!error) {
-    return redirect(`/${lang}/dashboard`, RedirectType.push);
-  }
+  return redirect(`/${lang}/dashboard`, RedirectType.push);
 };
 

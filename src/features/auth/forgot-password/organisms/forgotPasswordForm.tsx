@@ -17,11 +17,9 @@ export const ForgotPasswordForm: React.FC = () => {
     resolver: yupResolver(forgoPasswordSchema)
   });
   const [message, setMessage] = useState(false);
-  // const [email, setEmail] = useState('');
   const t = useTranslations('Forgot');
   const alerts = useTranslations('ToastForgot');
   const onSubmit = handleSubmit(async({ username }: IforgotPasswordForm) => {
-    // setEmail(username);
     await  toast.promise(handleRecoverPassword(username), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
@@ -58,7 +56,6 @@ export const ForgotPasswordForm: React.FC = () => {
           <div className={style.message}>
             <h2>{t('message')}</h2>
             <h3>{t('messageSubtitle')}</h3>
-            {/* <Link href={`/auth/recovery-code?email=${email}`}><span>{t('messageButton')}</span></Link> */}
           </div>
       }
     </div>
