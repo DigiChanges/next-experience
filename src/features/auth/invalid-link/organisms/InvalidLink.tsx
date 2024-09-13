@@ -15,7 +15,9 @@ export const InvalidLink: React.FC = () => {
       <Image src={expiredLink} alt={'invalidLink'} />
       <h2>{t('title')}</h2>
       <p>{t('description')}</p>
-      <Link href={'/auth/forgot-password'}>{t('button')}</Link>
+      <Link href={'/auth/forgot-password'}>
+        <button>{t('button')}</button>
+      </Link>
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import { Input as InputSearch } from '@nextui-org/input';
-import style from './inputSearchSimple.module.css';
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { InputSearch } from '@/features/shared/atoms/inputSearch/InputSearch';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SearchIcon } from '@nextui-org/shared-icons';
+import style from './inputSearchSimple.module.css';
 
 type Props = {
   handleSetFilterValues: (values: {

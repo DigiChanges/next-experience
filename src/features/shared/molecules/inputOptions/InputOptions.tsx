@@ -1,7 +1,8 @@
-import { Select, SelectItem } from '@nextui-org/react';
+import { Select } from '@nextui-org/react';
 import style from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter.module.css';
 import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
+import { SelectItemForm } from '@/features/shared/atoms/select/SelectItemform';
 
 interface Props {
   handleSetFilterValues: (values: {
@@ -27,15 +28,15 @@ export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
       }}
     >
       {keySelected.options.map(({ value, label }) =>
-        <SelectItem
+        <SelectItemForm
           color='secondary'
           classNames={{
             title: style.color
           }}
           onClick={() => handleSetFilterValues({ term: value })}
-          key={value}>
-          {label}
-        </SelectItem>
+          key={value}
+          label={label}
+        />
       )}
     </Select>
   );
