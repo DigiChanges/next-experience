@@ -1,8 +1,8 @@
-import { Select } from '@nextui-org/react';
 import style from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter.module.css';
 import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SelectItemForm } from '@/features/shared/atoms/select/SelectItemform';
+import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
 interface Props {
   handleSetFilterValues: (values: {
@@ -16,7 +16,7 @@ export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
   }
 
   return (
-    <Select
+    <SelectForm
       // TODO: Ver porque no selecciona automaticamente la opcion 0
       defaultSelectedKeys={[keySelected.options[0].value]}
       classNames={{
@@ -38,6 +38,6 @@ export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
           label={label}
         />
       )}
-    </Select>
+    </SelectForm>
   );
 };

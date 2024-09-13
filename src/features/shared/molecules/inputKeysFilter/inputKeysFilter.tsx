@@ -1,8 +1,9 @@
-import { Select } from '@nextui-org/react';
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
 import style from './inputKeysFilter.module.css';
 import { SelectItemForm } from '@/features/shared/atoms/select/SelectItemform';
+import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
+
 interface Props {
     data: Filter[];
   handleSetFilterValues: (values: {key: string}) => void;
@@ -10,7 +11,7 @@ interface Props {
 
 export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
   return (
-    <Select
+    <SelectForm
       defaultSelectedKeys={[data[0].value]}
       classNames={{
         base:style.container,
@@ -31,6 +32,6 @@ export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
           label={label}
         />
       )}
-    </Select>
+    </SelectForm>
   );
 };

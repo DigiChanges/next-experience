@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { SelectItem } from '@nextui-org/react';
 
 type Props = {
-    color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | undefined
+    color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger',
     onClick?: (event: ChangeEvent<HTMLInputElement>) => void;
     key: string | number;
     classNames: {
