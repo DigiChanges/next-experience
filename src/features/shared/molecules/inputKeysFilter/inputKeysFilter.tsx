@@ -1,7 +1,6 @@
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
 import style from './inputKeysFilter.module.css';
-import { SelectItemForm } from '@/features/shared/atoms/select/SelectItemform';
 import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
 interface Props {
@@ -10,6 +9,13 @@ interface Props {
 }
 
 export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
+  const dataProps = {
+    color: 'secondary',
+    classNames:{
+      title: style.color
+    },
+    place:'InputKeysFilter'
+  };
   return (
     <SelectForm
       defaultSelectedKeys={[data[0].value]}
@@ -20,18 +26,9 @@ export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
         popoverContent:style.popoverContent,
         trigger:style.rigger
       }}
-    >
-      {data.map(({ value, label }) =>
-        <SelectItemForm
-          color='secondary'
-          classNames={{
-            title: style.color
-          }}
-          onClick={() => handleSetFilterValues({ key: value })}
-          key={value}
-          label={label}
-        />
-      )}
-    </SelectForm>
+      data={data}
+      dataProps={dataProps}
+      func={handleSetFilterValues}
+    />
   );
 };

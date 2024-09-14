@@ -66,7 +66,8 @@ export const InputForm = <TFormValues extends Record<string, unknown>>({
         ) : (
           <input
             disabled={disabled}
-            className={error && classNameError} {...register(name)}
+            className={error && classNameError}
+            {...register(name)}
             type={type}
             max={maxDate}
             value={value}

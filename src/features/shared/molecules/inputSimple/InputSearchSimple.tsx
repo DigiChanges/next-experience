@@ -24,8 +24,8 @@ export const InputSearchSimple = ({ keySelected,  handleSetFilterValues }: Props
       placeholder={t('search')}
       classNames={{
         input: [style.input],
-        inputWrapper: [style.inputWrapper],
-        mainWrapper: [style.mainWrapper]
+        inputWrapper: [style.inputWrapper]
+        // mainWrapper: [style.mainWrapper]
       }}
       startContent={
         <SearchIcon className={style.searchIcon}/>

@@ -1,34 +1,33 @@
 import React from 'react';
-import { Select } from '@nextui-org/react';
+import { Select, SelectItem } from '@nextui-org/react';
 
 type Props = {
     defaultSelectedKeys: any[],
-    classNames: {
-        description?: string,
-        errorMessage?: string,
-        label?: string,
-        base?: string,
-        value?: string,
-        mainWrapper?: string,
-        trigger?: string,
-        innerWrapper?: string,
-        selectorIcon?: string,
-        spinner?: string,
-        listboxWrapper?: string,
-        listbox?: string,
-        popoverContent?: string,
-        helperWrapper?: string,
-    },
-    children: any
+    classNames?: any,
+    data: any[],
+    dataProps: any,
+    func:any,
 }
 
-export const SelectForm = ({ defaultSelectedKeys, classNames, children } : Props) => {
+export const SelectForm = ({ defaultSelectedKeys, classNames, data, dataProps, func } : Props) => {
   return (
     <Select
       defaultSelectedKeys={defaultSelectedKeys}
       classNames={classNames}
     >
-      {children}
+      {data.map(({ value, label }) =>
+        <SelectItem
+          color={dataProps.color}
+          classNames={dataProps.classNames}
+          onClick={() => {
+            const params = dataProps.place === 'InputKeysFilter' ? { key:value } : { term:value };
+            func(params);
+          }}
+          key={value}
+        >
+          {label}
+        </SelectItem>
+      )}
     </Select>
   );
 };

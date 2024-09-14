@@ -1,7 +1,6 @@
 import style from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter.module.css';
 import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import { SelectItemForm } from '@/features/shared/atoms/select/SelectItemform';
 import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
 interface Props {
@@ -14,6 +13,13 @@ export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
   if (!keySelected.options) {
     throw new Error('You must set options to use this filter');
   }
+  const dataProps = {
+    color: 'secondary',
+    classNames:{
+      title: style.color
+    },
+    place:'InputKeysFilter'
+  };
 
   return (
     <SelectForm
@@ -26,18 +32,9 @@ export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
         popoverContent:style.popoverContent,
         trigger:style.rigger
       }}
-    >
-      {keySelected.options.map(({ value, label }) =>
-        <SelectItemForm
-          color='secondary'
-          classNames={{
-            title: style.color
-          }}
-          onClick={() => handleSetFilterValues({ term: value })}
-          key={value}
-          label={label}
-        />
-      )}
-    </SelectForm>
+      data={keySelected.options}
+      dataProps={dataProps}
+      func={handleSetFilterValues}
+    />
   );
 };
