@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import {NotFoundComponent} from "@/features/shared/organisms/notFound/notFound";
 import style from "../features/shared/atoms/not-found/not-found.module.css"
