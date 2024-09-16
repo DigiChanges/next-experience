@@ -7,7 +7,7 @@ node_modules
 .yarn/install-state.gz
 .idea
 .env.local
-.env
+.env.local
 
 # testing
 /coverage

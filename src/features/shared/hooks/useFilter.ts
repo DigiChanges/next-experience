@@ -36,10 +36,9 @@ export const useFilter = (params: URLSearchParams) => {
     setFiltersApplied(filtersApplied.filter(filter => filter.key !== filterToRemove.key));
   };
   const handleRemoveFilterAll = () => {
-    filtersApplied.map(e =>{
+    filtersApplied.map(e => {
       params.delete(`filter[${e.key}]`);
-
-    })
+    });
     setFiltersApplied([]);
   };
 

@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Card, CardHeader  } from '@nextui-org/react';
 import style from './card.module.css';
-import {Dropdown} from "@/features/shared/atoms/dropdown/Dropdown";
+import { Dropdown } from '@/features/shared/atoms/dropdown/Dropdown';
 
 interface CardItemProps
 {

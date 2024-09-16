@@ -8,7 +8,6 @@ import {  toast } from 'react-toastify';
 import { handleRecoverPassword } from '@/features/auth/forgot-password/actions/forgotPasswordAction';
 import { forgoPasswordSchema } from '@/features/auth/forgot-password/validations/forgotPasswordSchema';
 import { IforgotPasswordForm } from '@/features/auth/forgot-password/interfaces/IforgotPasswordForm';
-import { Show } from '@/features/shared/atoms/show/Show';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
@@ -53,13 +52,12 @@ export const ForgotPasswordForm: React.FC = () => {
               </div>
             </form> </>)
       }
-      <Show when={message}>
-        <div className={style.message}>
-          <h2>{t('message')}</h2>
-          <h3>{t('messageSubtitle')}</h3>
-          <Link href={'/auth/recovery-code'}><span>{t('messageButton')}</span></Link>
-        </div>
-      </Show>
+      {message &&
+          <div className={style.message}>
+            <h2>{t('message')}</h2>
+            <h3>{t('messageSubtitle')}</h3>
+          </div>
+      }
     </div>
   );
 };

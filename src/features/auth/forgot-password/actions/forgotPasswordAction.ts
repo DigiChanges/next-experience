@@ -13,6 +13,6 @@ export const handleRecoverPassword = async(username: string) => {
     });
 
   if (error) {
-    throw new Error('Error at logout');
+    throw new Error('Error at recover password, ', error);
   }
 };

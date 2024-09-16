@@ -5,7 +5,7 @@ import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MdLanguage } from 'react-icons/md';
-import {icons} from "../../hooks/icons";
+import { icons } from '../../hooks/icons';
 import Image from 'next/image';
 
 
@@ -16,7 +16,7 @@ interface Props {
 export const ChangeLenguage: React.FC<Props> = (props) => {
   const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
   const pathName = usePathname();
-  const {IconFlagUsa, IconFlagSpain} = icons();
+  const { IconFlagUsa, IconFlagSpain } = icons();
 
   const params = useSearchParams();
   const paramsString = new URLSearchParams(params).toString();

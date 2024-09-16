@@ -45,7 +45,7 @@ export const UpdatePasswordForm: React.FC = () => {
             className={style.input} placeholder={t('repeatPassword')}
             classNameError={style.inputError}/>
         </div>
-        <button className={'text-white'}><span>{t('send')}</span></button>
+        <button type='submit' className={'text-white'}><span>{t('send')}</span></button>
       </form>
 
     </div>

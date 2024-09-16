@@ -13,8 +13,7 @@ export const handleUpdatePassword = async(password: string, code: string) => {
     password
   });
   if (error) {
-    throw new Error('Error at updating the password');
+    throw new Error('Error at updating the password', error);
   }
-
   redirect('/auth/login', RedirectType.push);
 };

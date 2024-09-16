@@ -3,7 +3,7 @@ import style from './Dropdown.module.css';
 import { motion } from 'framer-motion';
 import { DeleteItemBtn } from '@/features/items/atoms/deleteItem/DeleteItemBtn';
 import { EditItemBtn } from '@/features/items/atoms/editItem/EditItemBtn';
-import {icons} from "@/features/shared/hooks/icons";
+import { icons } from '@/features/shared/hooks/icons';
 
 
 interface Props {
@@ -12,9 +12,9 @@ interface Props {
     id: string
 }
 export const Dropdown: React.FC<Props> = (props) => {
-    const { IoEllipsisVertical } = icons();
+  const { IoEllipsisVertical } = icons();
 
-    return (
+  return (
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdown} className={`${style.iconUser}`}>

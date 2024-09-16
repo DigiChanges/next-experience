@@ -4,20 +4,19 @@ import { CardItem } from '@/features/items/atoms/card/CardItem';
 import style from './list.module.css';
 import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import {Pagination, Switch} from '@nextui-org/react';
+import { Pagination, Switch } from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { Show } from '@/features/shared/atoms/show/Show';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { Title } from '@/features/items/atoms/title/Title';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
-import {useTranslations} from "next-intl";
-import {FilterModal} from "@/features/shared/atoms/filterModal/filterModal";
-import {SortComponent} from "@/features/shared/atoms/sort/Sort";
+import { useTranslations } from 'next-intl';
+import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
+import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 
 interface Props {
     items: ItemsResponse[]
@@ -33,7 +32,7 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(pagination, params);
   const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
-    const t = useTranslations('Items');
+  const t = useTranslations('Items');
 
   const handleReplaceURL = () => {
     replace(`${pathname}?${params.toString()}`);
@@ -76,19 +75,19 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
           <div className={style.subcontainerAddFilter2}>
             <h2>{t('selectFilter')}</h2>
             <FilterAndSearch
-                handleSetFiltersApplied={handleSetFiltersApplied}
-                handleSetFilterValues={handleSetFilterValues}
-                keySelected={keySelected}
-                handleReplace={handleReplaceURL}
-                inputFilterData={selectOptionsData}
+              handleSetFiltersApplied={handleSetFiltersApplied}
+              handleSetFilterValues={handleSetFilterValues}
+              keySelected={keySelected}
+              handleReplace={handleReplaceURL}
+              inputFilterData={selectOptionsData}
             />
           </div>
           <div className={style.containerAddItem}>
             <FiltersApplied
-                filtersApplied={filtersApplied}
-                handleReplaceURL={handleReplaceURL}
-                handleRemoveFilter={handleRemoveFilter}
-                handleRemoveFilterAll={handleRemoveFilterAll}
+              filtersApplied={filtersApplied}
+              handleReplaceURL={handleReplaceURL}
+              handleRemoveFilter={handleRemoveFilter}
+              handleRemoveFilterAll={handleRemoveFilterAll}
             />
           </div>
         </div>
@@ -101,31 +100,28 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
             <AddItemBtn/>
           </div>
           <FilterModal
-              handleSetFiltersApplied={handleSetFiltersApplied}
-              handleSetFilterValues={handleSetFilterValues}
-              keySelected={keySelected}
-              handleReplace={handleReplaceURL}
-              inputFilterData={selectOptionsData}
-              filtersApplied={filtersApplied}
-              handleRemoveFilter={handleRemoveFilter}
+            handleSetFiltersApplied={handleSetFiltersApplied}
+            handleSetFilterValues={handleSetFilterValues}
+            keySelected={keySelected}
+            handleReplace={handleReplaceURL}
+            inputFilterData={selectOptionsData}
+            filtersApplied={filtersApplied}
+            handleRemoveFilter={handleRemoveFilter}
+            handleRemoveFilterAll={handleRemoveFilterAll}
           />
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
-      <Show when={items.length}>
-        <div className={style.cards}>
-          {items.map((item) => (
-              <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
-          ))}
-        </div>
-      </Show>
+      {items.length && <div className={style.cards}>
+        {items.map((item) => (
+          <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
+        ))}
+      </div>}
       <div className={style.containerPaginationAndAdd}>
-        <Show when={items.length > 0}>
-          <div className={style.testNav}>
-            <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-              color={'secondary'}/>
-          </div>
-        </Show>
+        {items.length > 0 && <div className={style.testNav}>
+          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
+            color={'secondary'}/>
+        </div>}
       </div>
     </section>
   );
