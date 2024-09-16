@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import style from './ExpiredLink.module.css';
 import Link from 'next/link';

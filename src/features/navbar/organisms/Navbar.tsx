@@ -9,7 +9,6 @@ import ThemeSwitcher from '@/features/shared/atoms/swich/swich';
 import { icons } from '@/features/shared/hooks/icons';
 import BurguerButton from '@/features/navbar/atom/BurguerButton';
 
-// Esto lo tengo que traer de dataClose?
 import { IoHomeOutline } from 'react-icons/io5';
 import { IoFileTrayFull } from 'react-icons/io5';
 

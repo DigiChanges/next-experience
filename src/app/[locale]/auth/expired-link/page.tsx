@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { PublicLayout } from '@/layout/public-layout/PublicLayout';
 import { ExpiredLinkTemplate } from '@/features/auth/expired-link/template/ExpiredLinkTemplate';
