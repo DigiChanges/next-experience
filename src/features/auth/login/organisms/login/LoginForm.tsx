@@ -25,7 +25,7 @@ export const LoginForm = () => {
     await  toast.promise(handleSignIn(data), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
-      pending:`${alerts('pending')}`,
+      pending:`${alerts('pending')}`
     });
     reset();
   });

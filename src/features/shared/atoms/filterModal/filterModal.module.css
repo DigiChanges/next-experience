@@ -5,7 +5,7 @@
     @apply !bg-bgSelectFilter
 }
 .buttonModal{
-    @apply !min-w-10 bg-bgGrey rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] p-2 font-medium text-[1rem] tracking-wider px-0 border-[none] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+    @apply bg-bgGrey rounded-xl shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] p-2 font-medium text-[1rem] tracking-wider px-0 border-[none] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
 }
 .buttonModal svg{
     @apply w-6 h-6 text-secondary
