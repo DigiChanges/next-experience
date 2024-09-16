@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import { Button, useDisclosure } from '@nextui-org/react';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import { useDisclosure } from '@nextui-org/react';
 import style from './deleteItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
@@ -33,10 +34,10 @@ export const DeleteItemBtn: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Button isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
+      <ButtonForm isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
         <p>{t('delete')}</p>
         <IoTrashOutline />
-      </Button>
+      </ButtonForm>
       {
         isOpen && <ModalComponent
           description={t('deleteAlert')}

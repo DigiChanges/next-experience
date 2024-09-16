@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import style from './filterModal.module.css';
 import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
+  // Modal,
+  // ModalContent,
+  // ModalHeader,
+  // ModalBody,
+  // ModalFooter,
   useDisclosure
 } from '@nextui-org/react';
+// import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { icons } from '@/features/shared/hooks/icons';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { SortComponent } from '@/features/shared/atoms/sort/Sort';
@@ -16,6 +16,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
 interface Props {
     description?: string;
@@ -46,42 +47,49 @@ export const FilterModal:React.FC<Props> = ({ handleSetFilterValues, filtersAppl
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const props = {
+    classNames: {
+      button:style.buttonModal,
+      modal:style.modal,
+      modalBody:style.modalBody,
+      modalHeader:'text-normal flex flex-col items-start justify-start gap-1',
+      modalFooter:style.modalFooter
+    }
+  };
+
   return (
     <>
-      <Button className={style.buttonModal} onPress={onOpen}><IoOptionsOutline /></Button>
-      <Modal className={style.modal} placement="center" isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {() => (
-            <>
-              <ModalHeader className="text-normal flex flex-col items-start justify-start gap-1">Select filter</ModalHeader>
-              <ModalBody className={style.modalBody}>
-                <div className={style.subcontainerAddFilter}>
-                  <div className={style.subcontainerAddFilter2}>
-                    <FilterAndSearch
-                      handleSetFiltersApplied={handleSetFiltersApplied}
-                      handleSetFilterValues={handleSetFilterValues}
-                      keySelected={keySelected}
-                      handleReplace={handleReplaceURL}
-                      inputFilterData={selectOptionsData}
-                      classButton={style.btn}
-                    />
-                    <SortComponent isResponsive={true} />
-                  </div>
-                  <div className={style.containerAddItem}>
-                    <FiltersApplied
-                      filtersApplied={filtersApplied}
-                      handleReplaceURL={handleReplaceURL}
-                      handleRemoveFilter={handleRemoveFilter}
-                      handleRemoveFilterAll={handleRemoveFilterAll}/>
-                  </div>
-                </div>
-              </ModalBody>
-              <ModalFooter className={style.modalFooter}>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+      <ModalComponent
+        classNames={props.classNames}
+        onOpen={onOpen}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        button={<IoOptionsOutline />}
+        modalPlacement="center"
+        header={'Select filter'}
+        description={
+          <div className={style.subcontainerAddFilter}>
+            <div className={style.subcontainerAddFilter2}>
+              <FilterAndSearch
+                handleSetFiltersApplied={handleSetFiltersApplied}
+                handleSetFilterValues={handleSetFilterValues}
+                keySelected={keySelected}
+                handleReplace={handleReplaceURL}
+                inputFilterData={selectOptionsData}
+                classButton={style.btn}
+              />
+              <SortComponent isResponsive={true}/>
+            </div>
+            <div className={style.containerAddItem}>
+              <FiltersApplied
+                filtersApplied={filtersApplied}
+                handleReplaceURL={handleReplaceURL}
+                handleRemoveFilter={handleRemoveFilter}
+                handleRemoveFilterAll={handleRemoveFilterAll}/>
+            </div>
+          </div>
+        }
+      />
     </>
   );
 };

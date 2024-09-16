@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@nextui-org/react';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import style from './editItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
@@ -16,10 +16,10 @@ export const EditItemBtn: React.FC<Props> = ({ id }) => {
 
   return (
     <Link href={`items/update?id=${id}`}>
-      <Button isIconOnly className={style.btnEdit}>
+      <ButtonForm isIconOnly className={style.btnEdit}>
         <p>{t('edit')}</p>
         <IoMdCreate />
-      </Button>
+      </ButtonForm>
     </Link>
   );
 };

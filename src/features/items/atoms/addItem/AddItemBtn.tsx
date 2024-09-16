@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@nextui-org/react';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import style from './addItem.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
@@ -12,12 +12,12 @@ export const AddItemBtn: React.FC = () => {
   return (
     <div className={style.container} >
       <Link href={'items/create'}>
-        <Button
-          aria-label='Like'
+        <ButtonForm
+          ariaLabel='Like'
         >
           <IoAddOutline />
           {t('addItem')}
-        </Button>
+        </ButtonForm>
       </Link>
     </div>
   );
