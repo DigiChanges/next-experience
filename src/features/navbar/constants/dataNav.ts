@@ -1,6 +1,6 @@
 import { icons } from '@/features/shared/hooks/icons';
 import { images } from '@/features/shared/hooks/images';
-import { IoPersonOutline } from "react-icons/io5";
+import { IoPersonOutline } from 'react-icons/io5';
 
 
 const { HomeIcon, ItemsIcon, DashboardIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown } = icons();

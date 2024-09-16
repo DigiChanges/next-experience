@@ -6,7 +6,7 @@ import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import {icons} from "@/features/shared/hooks/icons";
+import { icons } from '@/features/shared/hooks/icons';
 
 type Props = {
   handleSetFilterValues:(values: {
@@ -27,7 +27,7 @@ export const FilterAndSearch = ({
   keySelected,
   handleSetFilterValues,
   handleSetFiltersApplied,
-                                  classButton
+  classButton
 }: Props) => {
   const t = useTranslations('Items');
   const { IoFunnel } = icons();

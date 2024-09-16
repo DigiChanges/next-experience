@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { settingUpdatePasswordSchema } from '@/features/setting/validations/settingUpdatePasswordSchema';
 import { IsettingUpdatePassaword } from '@/features/setting/interfaces/IsettingUpdatePassaword';
-import {ModalComponent} from "@/features/shared/atoms/modal/Modal";
+import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
 export const SettingUpdatePassword: React.FC = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IsettingUpdatePassaword>({

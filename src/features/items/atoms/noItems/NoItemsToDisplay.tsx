@@ -3,7 +3,7 @@ import { Show } from '@/features/shared/atoms/show/Show';
 import { Item } from '@/features/items/interfaces/itemsResponse';
 import style from './noItemsToDisplay.module.css';
 import { useTranslations } from 'next-intl';
-import {icons} from "@/features/shared/hooks/icons";
+import { icons } from '@/features/shared/hooks/icons';
 import { Button, Image } from '@nextui-org/react';
 
 interface Props  {
@@ -11,7 +11,7 @@ interface Props  {
 }
 export const NoItemsToDisplay = ({ data }: Props) => {
   const t = useTranslations('Items');
-    const { IconNoItems } = icons();
+  const { IconNoItems } = icons();
 
   return (
     <Show when={data.length === 0}>
