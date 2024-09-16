@@ -1,0 +1,25 @@
+name: Autocommit Workflow
+
+on:
+  pull_request:
+    branches: [ develop, master ]
+  push:
+    branches: [ develop, master ]
+
+jobs:
+  autocommit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'gavogar'
+          git config --global user.email 'gustavogarcete@gmail.com'
+
+      - name: Create Autocommit
+        run: |
+          git add .
+          git commit -m "ci: delivery" --allow-empty --no-verify
+          git push origin HEAD:${{ github.ref }}
