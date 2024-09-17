@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { icons } from '@/features/shared/hooks/icons';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 
 type Props = {
   handleSetFilterValues:(values: {
@@ -35,11 +36,12 @@ export const FilterAndSearch = ({
   return (
     <div className={style.containerSelect}>
       <div className={style.containerInputFilter}>
-        <InputKeysFilter data={inputFilterData} handleSetFilterValues={handleSetFilterValues}/>
+        <InputKeysFilter color={SelectColorType.SECONDARY} data={inputFilterData} handleSetFilterValues={handleSetFilterValues}/>
       </div>
       <div className={style.containerInput}>
         <div className={style.input}>
           <InputDynamic
+            color={SelectColorType.SECONDARY}
             keySelected={keySelected}
             handleSetFilterValues={handleSetFilterValues}
           />
