@@ -5,7 +5,7 @@ import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-export const AddItemBtn: React.FC = () => {
+export const AddItemBtn = () => {
   const { IoAddOutline } = icons();
   const t = useTranslations('Items');
 

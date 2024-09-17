@@ -3,7 +3,7 @@ import Image from 'next/image';
 import loading from '../../../../public/loading.png';
 import './Loading.css';
 
-const Loading: React.FC = () => {
+const Loading = () => {
   return (
     <div className="container_loading">
       <div className="line_one" />

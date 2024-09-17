@@ -3,7 +3,7 @@ import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
-interface Props {
+type Props = {
   handleSetFilterValues: (values: {
     term: string
   }) => void;

@@ -2,7 +2,7 @@ import React from 'react';
 import './LoaderStars.css';
 
 
-export const LoaderStarsWars: React.FC = () => {
+export const LoaderStarsWars = () => {
   return (
     <div className="vader">
       <div className="shadow"></div>

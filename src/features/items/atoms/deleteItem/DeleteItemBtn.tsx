@@ -10,11 +10,11 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
-interface Props {
+type Props = {
     id: string;
 }
 
-export const DeleteItemBtn: React.FC<Props> = (props) => {
+export const DeleteItemBt = (props: Props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { onOpen } = useDisclosure();
   const { IoTrashOutline } = icons();

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { dataNav } from '@/features/navbar/constants/dataNav';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import ThemeSwitcher from '@/features/shared/atoms/swich/swich';
+import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
 import { icons } from '@/features/shared/hooks/icons';
 
 import BurguerButton from "@/features/navbar/atom/BurguerButton";
@@ -15,7 +15,7 @@ import { IoFileTrayFull } from "react-icons/io5";
 
 
 
-export const Navbar: React.FC = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
   const t = useTranslations('Navigation');

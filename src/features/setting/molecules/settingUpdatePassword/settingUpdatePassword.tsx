@@ -11,7 +11,7 @@ import { useTranslations } from 'next-intl';
 import { settingUpdatePasswordSchema } from '@/features/setting/validations/settingUpdatePasswordSchema';
 import { IsettingUpdatePassaword } from '@/features/setting/interfaces/IsettingUpdatePassaword';
 
-export const SettingUpdatePassword: React.FC = () => {
+export const SettingUpdatePassword = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IsettingUpdatePassaword>({
     resolver: yupResolver(settingUpdatePasswordSchema)
   });

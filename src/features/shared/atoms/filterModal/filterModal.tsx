@@ -1,14 +1,6 @@
 import React, { useMemo } from 'react';
 import style from './filterModal.module.css';
-import {
-  // Modal,
-  // ModalContent,
-  // ModalHeader,
-  // ModalBody,
-  // ModalFooter,
-  useDisclosure
-} from '@nextui-org/react';
-// import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import { useDisclosure } from '@nextui-org/react';
 import { icons } from '@/features/shared/hooks/icons';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { SortComponent } from '@/features/shared/atoms/sort/Sort';
@@ -18,7 +10,7 @@ import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
-interface Props {
+type Props = {
     description?: string;
     success?: string;
     cancel?: string;
@@ -36,7 +28,8 @@ interface Props {
     handleReplace: () => void;
     inputFilterData: OptionKey[];
 }
-export const FilterModal:React.FC<Props> = ({ handleSetFilterValues, filtersApplied, handleRemoveFilter, handleRemoveFilterAll, keySelected, handleSetFiltersApplied }: Props) => {
+
+export const FilterModal = ({ handleSetFilterValues, filtersApplied, handleRemoveFilter, handleRemoveFilterAll, keySelected, handleSetFiltersApplied }: Props) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoOptionsOutline } = icons();
   const searchParams = useSearchParams();

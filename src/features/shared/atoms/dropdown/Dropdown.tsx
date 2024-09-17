@@ -1,17 +1,16 @@
 import React from 'react';
 import style from './Dropdown.module.css';
 import { motion } from 'framer-motion';
-import { DeleteItemBtn } from '@/features/items/atoms/deleteItem/DeleteItemBtn';
+import { DeleteItemBt } from '@/features/items/atoms/deleteItem/DeleteItemBtn';
 import { EditItemBtn } from '@/features/items/atoms/editItem/EditItemBtn';
 import { icons } from '@/features/shared/hooks/icons';
 
-
-interface Props {
+type Props = {
     isDropdownOpen: boolean,
     handleDropdown: () => void,
     id: string
 }
-export const Dropdown: React.FC<Props> = (props) => {
+export const Dropdown = (props: Props) => {
   const { IoEllipsisVertical } = icons();
 
   return (
@@ -32,7 +31,7 @@ export const Dropdown: React.FC<Props> = (props) => {
             <EditItemBtn id={props.id} />
           </div>
           <div className={style.perfilSections}>
-            <DeleteItemBtn
+            <DeleteItemBt
               id={props.id}/>
           </div>
         </div>

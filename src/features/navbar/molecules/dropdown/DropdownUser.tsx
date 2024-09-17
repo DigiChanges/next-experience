@@ -6,15 +6,15 @@ import style from './dropdownUser.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
-import { Accordion, AccordionItem } from '@nextui-org/react';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { locales } from '@/config';
 import { icons } from '@/features/shared/hooks/icons';
 import { useSearchParams } from 'next/navigation';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoSettingsOutline } from 'react-icons/io5';
+import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
 
-interface Props {
+type Props = {
     dataPerfil: {
         icon: StaticImageData;
         description: string;
@@ -35,7 +35,7 @@ interface Props {
     handleDropdownUser: () => void
 }
 
-export const DropdownUser: React.FC<Props> = (props) => {
+export const DropdownUser = (props: Props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
   const t = useTranslations('NavigationUser');
@@ -83,18 +83,24 @@ export const DropdownUser: React.FC<Props> = (props) => {
               </Link>
             )
           }
-          <Accordion className={style.langResponsive}>
-            <AccordionItem key="1" aria-label="Accordion 1" title={<div className={style.langResponsiveTitle}><MdLanguage />Idiomas</div>}>
-              <div className={style.perfilSections}>
-                <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
-                  locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
-              </div>
-              <div className={style.perfilSections}>
-                <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
-                  locale={'en'}>Ingles <Image src={IconFlagUsa} alt="flag usa"/></Link>
-              </div>
-            </AccordionItem>
-          </Accordion>
+          <AccordionComponent key='1'
+            className={{ accordion:style.langResponsive }} accordionItemsProps={{
+              ariaLabel: 'Accordion 1',
+              title: <div className={style.langResponsiveTitle}><MdLanguage/>Idiomas</div>
+            }}
+            accordionItems={[
+              <>
+                <div
+                  className={style.perfilSections}>
+                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
+                    locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
+                </div>
+                <div className={style.perfilSections}>
+                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
+                    locale={'en'}>Ingles <Image src={IconFlagUsa} alt="flag usa"/></Link>
+                </div>
+              </>
+            ]}/>
           <button className={style.logOut} onClick={singOut}>
             <IoLogOut/>
             <p>{t('logout')}</p>

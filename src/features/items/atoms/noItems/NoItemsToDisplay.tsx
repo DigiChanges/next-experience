@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { icons } from '@/features/shared/hooks/icons';
 import { Image } from '@nextui-org/react';
 
-interface Props  {
+type Props = {
     data: Item[];
 }
 export const NoItemsToDisplay = ({ data }: Props) => {

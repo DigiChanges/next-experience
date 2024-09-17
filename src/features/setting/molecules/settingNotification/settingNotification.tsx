@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 import SwitchSettingNotification from '@/features/setting/atoms/SwitchNotificationSettings/SwitchNotificationSettings';
 
-export const SettingNotification: React.FC = () => {
+export const SettingNotification = () => {
   const t = useTranslations('Setting');
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 

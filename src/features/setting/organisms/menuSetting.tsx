@@ -10,7 +10,7 @@ import { useDisclosure } from '@nextui-org/react';
 import { icons } from '@/features/shared/hooks/icons';
 
 
-export const MenuSetting: React.FC = () => {
+export const MenuSetting = () => {
   const t = useTranslations('Setting');
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoChevronForward, GiPadlock, RiUserUnfollowLine, FaRegBell, IoChevronBack } = icons();

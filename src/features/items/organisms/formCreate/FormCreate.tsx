@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { createItem } from '@/features/items/actions/ItemAction';
 import { useTranslations } from 'next-intl';
 
-export const FormCreate: React.FC = () => {
+export const FormCreate = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     resolver: yupResolver(modalSchema)
   });

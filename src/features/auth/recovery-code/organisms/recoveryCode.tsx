@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { handleRecoveryCode } from '@/features/auth/recovery-code/actions/recoveryCodeAction';
 import { useSearchParams } from 'next/navigation';
 
-export const RecoveryCode: React.FC = () => {
+export const RecoveryCode = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IrecoveryCode>({
     resolver: yupResolver(recoveryCodeSchema)
   });

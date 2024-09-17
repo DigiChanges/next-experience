@@ -1,48 +1,47 @@
 import React from 'react';
 import { List } from '@/features/items/organisms/List';
-// import { getItems } from '@/features/items/actions/ItemAction';
+import { getItems } from '@/features/items/actions/ItemAction';
 import { QueryParams } from '@/service/IHttpParams';
 
 type Props = {
     queryParams: QueryParams
 };
 export const ItemsTemplate: (props: Props) => Promise<React.JSX.Element> = async(
-  // { queryParams }: Props
+  { queryParams }: Props
 ) => {
   // const { data, pagination } = await getItems({ queryParams });
-
   const data = [{
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb90',
+    id: '1',
     name: 'Item 1',
     type: 5,
     createdAt: 1663779723,
     updatedAt: 1663779723
   }, {
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb91',
+    id: '2',
     name: 'Item 2',
     type: 10,
     createdAt: 1663779723,
     updatedAt: 1663779723
   }, {
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb92',
+    id: '3',
     name: 'Item 3',
     type: 12,
     createdAt: 1663779723,
     updatedAt: 1663779723
   }, {
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb93',
+    id: '4',
     name: 'Item 4',
     type: 10,
     createdAt: 1663779723,
     updatedAt: 1663779723
   }, {
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb94',
+    id: '5',
     name: 'Item 5',
     type: 12,
     createdAt: 1663779723,
     updatedAt: 1663779723
   }, {
-    id: 'f4c5ff8d-73d3-4ed6-bec1-9866b579bb95',
+    id: '6',
     name: 'Item 6',
     type: 10,
     createdAt: 1663779723,

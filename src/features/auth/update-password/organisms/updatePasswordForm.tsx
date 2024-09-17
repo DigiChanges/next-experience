@@ -12,7 +12,7 @@ import { IupdatePasswordForm } from '@/features/auth/update-password/interfaces/
 import { updateSchema } from '@/features/auth/update-password/validations/updatePasswordSchema';
 import { toast } from 'react-toastify';
 
-export const UpdatePasswordForm: React.FC = () => {
+export const UpdatePasswordForm = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IupdatePasswordForm>({
     resolver: yupResolver(updateSchema)
   });

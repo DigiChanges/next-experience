@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { icons } from '@/features/shared/hooks/icons';
 import { useTranslations } from 'next-intl';
 
-export const Expiredlink: React.FC = () => {
+export const Expiredlink = () => {
   const t = useTranslations('ExpiredLink');
   const { expiredLink } = icons();
 

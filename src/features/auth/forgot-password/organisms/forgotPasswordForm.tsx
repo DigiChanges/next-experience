@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 
-export const ForgotPasswordForm: React.FC = () => {
+export const ForgotPasswordForm = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IforgotPasswordForm>({
     resolver: yupResolver(forgoPasswordSchema)
   });

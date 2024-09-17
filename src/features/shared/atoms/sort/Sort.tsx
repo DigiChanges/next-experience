@@ -2,10 +2,10 @@ import React from 'react';
 import style from './Sort.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 
-interface Props {
+type Props = {
     isResponsive: boolean;
 }
-export const SortComponent:React.FC<Props> = (props) => {
+export const SortComponent = (props: Props) => {
   const { IoSwapVertical } = icons();
   return (
     <div className={props.isResponsive ? style.containerResponsive : style.container}>

@@ -6,11 +6,11 @@ import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-interface Props {
+type Props = {
     id: string;
 }
 
-export const EditItemBtn: React.FC<Props> = ({ id }) => {
+export const EditItemBtn = ({ id }: Props) => {
   const { IoMdCreate } = icons();
   const t = useTranslations('Items');
 

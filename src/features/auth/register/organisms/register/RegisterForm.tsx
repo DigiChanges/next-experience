@@ -11,7 +11,7 @@ import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-export const RegisterForm: React.FC = () => {
+export const RegisterForm = () => {
   const t = useTranslations('Register');
   const alert = useTranslations('ToastRegister');
 
