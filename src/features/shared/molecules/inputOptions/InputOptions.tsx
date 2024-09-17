@@ -1,20 +1,21 @@
 import style from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter.module.css';
 import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
+import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
 interface Props {
   handleSetFilterValues: (values: {
     term: string
   }) => void;
   keySelected: OptionKey;
+  color:SelectColorType
 }
-export const InputOptions = ({ keySelected, handleSetFilterValues }: Props) => {
+export const InputOptions = ({ color, keySelected, handleSetFilterValues }: Props) => {
   if (!keySelected.options) {
     throw new Error('You must set options to use this filter');
   }
   const dataProps = {
-    color: 'secondary',
+    color,
     classNames:{
       title: style.color
     },

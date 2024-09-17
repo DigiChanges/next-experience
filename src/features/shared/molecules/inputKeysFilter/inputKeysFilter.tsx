@@ -1,16 +1,17 @@
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
 import style from './inputKeysFilter.module.css';
-import { SelectForm } from '@/features/shared/atoms/select/SelectForm';
+import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
 interface Props {
     data: Filter[];
   handleSetFilterValues: (values: {key: string}) => void;
+    color:SelectColorType
 }
 
-export const InputKeysFilter = ({ data, handleSetFilterValues }: Props) => {
+export const InputKeysFilter = ({ color, data, handleSetFilterValues }: Props) => {
   const dataProps = {
-    color: 'secondary',
+    color,
     classNames:{
       title: style.color
     },

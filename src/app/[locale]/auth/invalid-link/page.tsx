@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { PublicLayout } from '@/layout/public-layout/PublicLayout';
 import { InvalidLinkTemplate } from '@/features/auth/invalid-link/template/InvalidLinkTemplate';

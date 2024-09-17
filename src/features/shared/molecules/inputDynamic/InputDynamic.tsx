@@ -3,6 +3,8 @@ import { InputSearchSimple } from '@/features/shared/molecules/inputSimple/Input
 import { InputSearchFromTo } from '@/features/shared/molecules/inputSearchFromTo/InputSearchFromTo';
 import { InputOptions } from '@/features/shared/molecules/inputOptions/InputOptions';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+
 export const enum EnumFilterApply {
   Single = 0,
   FromTo = 1,
@@ -13,6 +15,7 @@ interface Props {
     term: string
   }) => void;
   keySelected: OptionKey;
+  color: SelectColorType
 }
 
 export const InputDynamic = (props: Props): JSX.Element => {
