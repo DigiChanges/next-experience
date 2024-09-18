@@ -3,18 +3,20 @@ import { Pagination } from '@nextui-org/react';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 
 type Props = {
-    onChange: (event:any) => void;
+    onChange: (page: number) => void;
     page: number;
     total: number;
-    color: SelectColorType
+    color: SelectColorType;
 }
 
 export const PaginationComponent = ({ onChange, page, total, color }: Props) => {
-  const handleOnChange = (event:any) => {
-    if (onChange) { onChange(event); }
+  const handleOnChange = (newPage: number) => {
+    if (onChange) {
+      onChange(newPage);
+    }
   };
+
   return (
-    <Pagination onChange={handleOnChange} page={page} total={total}
-      color={color}/>
+    <Pagination onChange={handleOnChange} page={page} total={total} color={color} />
   );
 };
