@@ -1,19 +1,30 @@
 import React from 'react';
 import { Button } from '@nextui-org/react';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+
+export enum VariantType {
+    SOLID = 'solid',
+    BORDERED = 'bordered',
+    LIGHT = 'light',
+    FLAT = 'flat',
+    FADED = 'faded',
+    SHADOW = 'shadow',
+    GHOST = 'ghost'
+}
 
 type Props = {
     ariaLabel?: string,
     className?: string,
     isIconOnly?: boolean,
-    color?:any,
-    variant?: any,
-    onClick?: (event: any) => void,
-    onPress?: (event: any) => void,
-    children: any
+    color?: SelectColorType,
+    variant?: VariantType,
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
+    onPress?: (event: React.KeyboardEvent<HTMLButtonElement>) => void,
+    children: React.ReactNode
 }
 
 export const ButtonForm = ({ ariaLabel, className, isIconOnly, onClick, onPress, color, variant, children }: Props) => {
-  const handleOnClick = (event: any) => {
+  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (onClick) {
       onClick(event);
     }

@@ -6,7 +6,7 @@ type Props = {
     onChange: (event:any) => void;
     page: number;
     total: number;
-    color:SelectColorType
+    color: SelectColorType
 }
 
 export const PaginationComponent = ({ onChange, page, total, color }: Props) => {

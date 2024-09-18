@@ -4,7 +4,7 @@ import { SizeType } from '@/features/shared/atoms/swich/switch';
 import { Dropdown } from '@/features/shared/atoms/dropdown/Dropdown';
 
 type CardItemProps = {
-  item:any;
+  item:React.ReactNode;
   className: {
     card:string;
     header:string;

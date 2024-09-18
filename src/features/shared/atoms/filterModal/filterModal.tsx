@@ -8,7 +8,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
-import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
+import { ModalComponent, PlacementType } from '@/features/shared/atoms/modal/Modal';
 
 type Props = {
     description?: string;
@@ -58,7 +58,7 @@ export const FilterModal = ({ handleSetFilterValues, filtersApplied, handleRemov
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         button={<IoOptionsOutline />}
-        modalPlacement="center"
+        modalPlacement={PlacementType.CENTER}
         header={'Select filter'}
         description={
           <div className={style.subcontainerAddFilter}>

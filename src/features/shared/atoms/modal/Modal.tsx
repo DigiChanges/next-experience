@@ -1,18 +1,29 @@
 import React from 'react';
 import style from './Modal.module.css';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@nextui-org/react';
-import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react';
+import { ButtonForm, VariantType } from '@/features/shared/atoms/button/ButtonForm';
 import { RxCrossCircled } from 'react-icons/rx';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+
+export enum PlacementType {
+    CENTER = 'center',
+    AUTO = 'auto',
+    TOP = 'top',
+    TOP_CENTER = 'top-center',
+    BOTTOM = 'bottom',
+    BOTTOM_CENTER = 'bottom-center',
+}
+
 
 type Props = {
     displayButton?: boolean;
-    description?: any;
+    description?: React.ReactNode;
     success?: string;
     cancel?: string;
-    button?: any;
+    button?: React.ReactNode;
     footer?:string;
     header?:string;
-    modalPlacement?: any
+    modalPlacement?: PlacementType;
     classNames?: {
         button?: string;
         modal?: string;
@@ -46,10 +57,10 @@ export const ModalComponent = (props: Props) => {
                       </p>
                     </ModalBody>
                     <ModalFooter>
-                      <ButtonForm className={style.dangerButton} color="danger" variant="light" onPress={onClose}>
+                      <ButtonForm className={style.dangerButton} color={SelectColorType.DANGER} variant={VariantType.LIGHT} onPress={onClose}>
                         {props.cancel}
                       </ButtonForm>
-                      <ButtonForm color="success" onPress={props.isOnClick}>
+                      <ButtonForm color={SelectColorType.SUCCESS} onPress={props.isOnClick}>
                         {props.success}
                       </ButtonForm>
                     </ModalFooter>
@@ -61,7 +72,7 @@ export const ModalComponent = (props: Props) => {
           :
           <>
             <ButtonForm className={props.classNames?.button ?? ''} onPress={props.onOpen}>{props.button ?? null}</ButtonForm>
-            <Modal placement={props.modalPlacement ?? null} className={props.classNames?.modal ?? ''} isOpen={props.isOpen} onOpenChange={props.onOpenChange}>
+            <Modal placement={props.modalPlacement} className={props.classNames?.modal ?? ''} isOpen={props.isOpen} onOpenChange={props.onOpenChange}>
               <ModalContent>
                 {() => (
                   <>

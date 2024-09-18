@@ -13,10 +13,10 @@ type Props = {
     size?:SizeType;
     color:SelectColorType;
     defaultSelected?:boolean;
-    children?:any;
-    startContent?:any;
-    endContent?:any;
-    onClick?:(event:any) => void;
+    children?:React.ReactNode;
+    startContent?:React.ReactNode;
+    endContent?:React.ReactNode;
+    onClick?:(event:React.MouseEvent<HTMLButtonElement>) => void;
     ariaLabel?:string;
 }
 

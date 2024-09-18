@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionItem } from '@nextui-org/react';
 
+
 type Props = {
     className?:{
         accordion:string
