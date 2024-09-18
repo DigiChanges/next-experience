@@ -8,9 +8,9 @@ type Props = {
     };
     accordionItemsProps:{
         ariaLabel:string;
-        title:any;
+        title:React.ReactNode;
     }
-    accordionItems:any[]
+    accordionItems:React.ReactNode[]
 }
 
 export const AccordionComponent = ({ className, accordionItemsProps, accordionItems }: Props) => {
