@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './changeLanguage.module.css';
+import style from './change-language.module.css';
 import { locales } from '@/config';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';

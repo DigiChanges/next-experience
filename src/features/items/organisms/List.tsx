@@ -26,9 +26,7 @@ type Props = {
     pagination: PaginationAPI;
 }
 export const List = ({ items, pagination }: Props) => {
-  const [keySelected, setKeySelected] = useState<OptionKey>({
-    ...selectOptionsData[0]
-  });
+  const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const searchParams = useSearchParams();
   const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const pathname = usePathname();
@@ -37,11 +35,12 @@ export const List = ({ items, pagination }: Props) => {
   const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
   const t = useTranslations('Items');
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
 
-  const handleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const handleDropdown = (id: string) => {
+    setOpenDropdownId(openDropdownId === id ? null : id);
   };
+
 
   const handleReplaceURL = () => {
     replace(`${pathname}?${params.toString()}`);
@@ -121,25 +120,31 @@ export const List = ({ items, pagination }: Props) => {
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
-      {items.length && <div className={style.cards}>
-        {items.map((item) => (
-          <CardItem key={item.id}
-            className={{ card:isDropdownOpen ? `${styleCard.backgroundHover} ${styleCard.container}` : styleCard.container, header:styleCard.containerHeader }}
-            radius={SizeType.SMALL}
-            id={item.id}
-            handleDropdown={handleDropdown}
-            isDropdownOpen={isDropdownOpen}
-            item={
-              <div className={styleCard.containerInfo}>
-                <h2 className="text-md">Type: {item.type}</h2>
-                <h3 className={styleCard.name}>{item.name}</h3>
-                <p>$500.000</p>
-                <p>EXP: 25/12/2024</p>
-              </div>
-            }/>
-
-        ))}
-      </div>}
+      {items.length > 0 && (
+        <div className={style.cards}>
+          {items.map((item) => (
+            <CardItem
+              key={item.id}
+              className={{
+                card: openDropdownId === item.id ? `${styleCard.backgroundHover} ${styleCard.container}` : styleCard.container,
+                header: styleCard.containerHeader
+              }}
+              radius={SizeType.SMALL}
+              id={item.id}
+              handleDropdown={() => handleDropdown(item.id)}
+              isDropdownOpen={openDropdownId === item.id}
+              item={
+                <div className={styleCard.containerInfo}>
+                  <h2 className="text-md">Type: {item.type}</h2>
+                  <h3 className={styleCard.name}>{item.name}</h3>
+                  <p>$500.000</p>
+                  <p>EXP: 25/12/2024</p>
+                </div>
+              }
+            />
+          ))}
+        </div>
+      )}
       <div className={style.containerPaginationAndAdd}>
         {items.length > 0 && <div className={style.testNav}>
           <PaginationComponent onChange={handlePage} page={currentPage} total={pagination.lastPage}

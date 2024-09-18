@@ -1,6 +1,6 @@
 import React from 'react';
 import { Item } from '@/features/items/interfaces/itemsResponse';
-import style from './noItemsToDisplay.module.css';
+import style from './no-items-to-display.module.css';
 import { useTranslations } from 'next-intl';
 import { icons } from '@/features/shared/hooks/icons';
 import { Image } from '@nextui-org/react';

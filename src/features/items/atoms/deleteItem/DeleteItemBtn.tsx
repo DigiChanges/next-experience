@@ -2,7 +2,7 @@
 import React from 'react';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { useDisclosure } from '@nextui-org/react';
-import style from './deleteItem.module.css';
+import style from './delete-item.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { deleteItem } from '@/features/items/actions/ItemAction';

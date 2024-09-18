@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './InvalidLink.module.css';
+import style from './invalid-link.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { icons } from '@/features/shared/hooks/icons';

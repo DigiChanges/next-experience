@@ -1,7 +1,7 @@
 'use client';
 import React  from 'react';
 import { redirect, RedirectType } from 'next/navigation';
-import style from './updatePassword.module.css';
+import style from './update-password.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';

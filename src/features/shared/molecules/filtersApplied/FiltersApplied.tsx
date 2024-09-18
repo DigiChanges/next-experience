@@ -1,4 +1,4 @@
-import style from './filtersApplied.module.css';
+import style from './filters-applied.module.css';
 import React from 'react';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { icons } from '@/features/shared/hooks/icons';

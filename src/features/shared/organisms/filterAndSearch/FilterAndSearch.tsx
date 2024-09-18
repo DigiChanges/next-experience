@@ -1,4 +1,4 @@
-import style from './filterAndSearch.module.css';
+import style from './filter-and-search.module.css';
 import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import React from 'react';

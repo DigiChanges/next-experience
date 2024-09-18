@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './recoveryCode.module.css';
+import style from './recovery-code.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { IrecoveryCode } from '@/features/auth/recovery-code/interfaces/IrecoveryCode';

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import style from './navbarTop.module.css';
+import style from './navbar-top.module.css';
 import { ChangeLanguage } from '@/features/shared/atoms/changeLanguage/changeLanguage';
 import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
 import { dataLogin, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';

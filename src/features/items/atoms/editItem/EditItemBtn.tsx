@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
-import style from './editItem.module.css';
+import style from './edit-item.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './settingUpdatePassword.module.css';
+import style from './setting-update-password.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { toast } from 'react-toastify';
 import { handleUpdatePassword } from '@/features/auth/update-password/actions/updatePasswordAction';

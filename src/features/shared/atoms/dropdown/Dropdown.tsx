@@ -12,7 +12,6 @@ type Props = {
 }
 export const Dropdown = (props: Props) => {
   const { IoEllipsisVertical } = icons();
-
   return (
     <div className={style.container}>
       <div className={style.containerIconUser}>
@@ -25,9 +24,10 @@ export const Dropdown = (props: Props) => {
         animate={{ height: props.isDropdownOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
         className={style.containerPerfil}
+        id={props.id}
       >
-        <div className={style.perfil}>
-          <div className={style.perfilSections}>
+        <div className={style.perfil} id={props.id}>
+          <div className={style.perfilSections} >
             <EditItemBtn id={props.id} />
           </div>
           <div className={style.perfilSections}>

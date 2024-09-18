@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
-import style from './addItem.module.css';
+import style from './add-item.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';

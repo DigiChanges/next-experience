@@ -17,7 +17,7 @@ type CardItemProps = {
 
 export const  CardItem = ({ item, className, radius, isDropdownOpen, handleDropdown, id }: CardItemProps) => {
   return (
-    <Card className={className?.card} radius={radius}>
+    <Card className={className?.card} radius={radius} id={id}>
       <CardHeader className={className?.header}>
         <Dropdown isDropdownOpen={isDropdownOpen} handleDropdown={handleDropdown} id={id} />
       </CardHeader>

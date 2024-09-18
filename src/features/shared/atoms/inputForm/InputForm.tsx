@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import style from './inputForm.module.css';
+import style from './input-form.module.css';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {

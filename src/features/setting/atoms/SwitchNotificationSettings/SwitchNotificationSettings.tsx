@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import style from './SwitchNotificationSettings.module.css';
+import style from './switch-notification-settings.module.css';
 import { SwitchComponent } from '@/features/shared/atoms/swich/switch';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 

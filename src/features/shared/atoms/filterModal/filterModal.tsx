@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import style from './filterModal.module.css';
+import style from './filter-modal.module.css';
 import { useDisclosure } from '@nextui-org/react';
 import { icons } from '@/features/shared/hooks/icons';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';

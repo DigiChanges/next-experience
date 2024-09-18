@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './loginForm.module.css';
+import style from './login-form.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';

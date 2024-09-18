@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoaderStars.css';
+import './loader-stars.css';
 
 
 export const LoaderStarsWars = () => {

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './menuSetting.module.css';
+import style from './menu-setting.module.css';
 import Link from 'next/link';
 import { SettingUpdatePassword } from '@/features/setting/molecules/settingUpdatePassword/settingUpdatePassword';
 import { useTranslations } from 'next-intl';

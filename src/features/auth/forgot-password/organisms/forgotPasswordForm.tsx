@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import style from './forgotPassword.module.css';
+import style from './forgot-password.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';

@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import React from 'react';
-import style from './dropdownUser.module.css';
+import style from './dropdown-user.module.css';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
@@ -19,20 +19,21 @@ type Props = {
         icon: StaticImageData;
         description: string;
         path: string;
-    }[],
+    }[];
     style: {
         readonly [key: string]: string;
-    },
+    };
     dataUser: {
-        image: StaticImageData,
-        username: string,
-        icon: StaticImageData
-    },
+        image: StaticImageData;
+        username: string;
+        icon: StaticImageData;
+    };
     dataLogin: {
-        icon: StaticImageData
-    }
-    isUserDropdownOpen: boolean,
-    handleDropdownUser: () => void
+        icon: StaticImageData;
+    };
+    isUserDropdownOpen: boolean;
+    handleDropdownUser: () => void;
+    id?:string;
 }
 
 export const DropdownUser = (props: Props) => {
@@ -83,7 +84,7 @@ export const DropdownUser = (props: Props) => {
               </Link>
             )
           }
-          <AccordionComponent key='1'
+          <AccordionComponent key={props.id ?? '1'}
             className={{ accordion:style.langResponsive }} accordionItemsProps={{
               ariaLabel: 'Accordion 1',
               title: <div className={style.langResponsiveTitle}><MdLanguage/>Idiomas</div>

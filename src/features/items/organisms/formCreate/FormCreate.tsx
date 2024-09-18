@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './formCreate.module.css';
+import style from './form-create.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { useForm } from 'react-hook-form';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
