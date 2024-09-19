@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
-interface Props {
+type Props = {
     id: string;
 }
 
