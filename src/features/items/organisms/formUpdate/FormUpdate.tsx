@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './formUpdate.module.css';
+import style from './form-update.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import {  useForm } from 'react-hook-form';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
@@ -12,11 +12,11 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
 
-interface Props{
+type Props = {
     id: string;
     data:{ name: string, type: number}
 }
-export const FormUpdate: React.FC<Props> = ({ id, data }) => {
+export const FormUpdate = ({ id, data }: Props) => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,

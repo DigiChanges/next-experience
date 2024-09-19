@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { InputSearch } from '@/features/shared/atoms/inputSearch/InputSearch';
 import { SearchIcon } from '@nextui-org/shared-icons';
-import style from './inputSearchFromTo.module.css';
+import style from './input-search-from-to.module.css';
 
 type Props = {
   keySelected: OptionKey;

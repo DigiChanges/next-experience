@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './welcome.module.css';
-export const Welcome: React.FC = () => {
+export const Welcome = () => {
   return (
     <div className={style.charactersWelcome}>
       <h1 data-aos="fade-down" data-aos-duration="1500">

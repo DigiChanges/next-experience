@@ -1,9 +1,9 @@
 import React from 'react';
 import { Filter } from '../../interfaces/Filter';
-import style from './inputKeysFilter.module.css';
+import style from './input-keys-filter.module.css';
 import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
-interface Props {
+type Props = {
     data: Filter[];
   handleSetFilterValues: (values: {key: string}) => void;
     color:SelectColorType

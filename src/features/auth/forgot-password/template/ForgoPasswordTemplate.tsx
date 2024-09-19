@@ -1,7 +1,7 @@
 import React from 'react';
 import { ForgotPasswordForm } from '@/features/auth/forgot-password/organisms/forgotPasswordForm';
 
-export const ForgoPasswordTemplate: React.FC = () => {
+export const ForgoPasswordTemplate = () => {
   return (
     <ForgotPasswordForm/>
   );

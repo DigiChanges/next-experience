@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './loginForm.module.css';
+import style from './login-form.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
@@ -13,7 +13,7 @@ import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import {  toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-export const LoginForm: React.FC = () => {
+export const LoginForm = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<ILoginForm>({
     resolver: yupResolver(loginSchema)
   });

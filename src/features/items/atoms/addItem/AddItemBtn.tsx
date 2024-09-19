@@ -1,23 +1,23 @@
 import React from 'react';
-import { Button } from '@nextui-org/react';
-import style from './addItem.module.css';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import style from './add-item.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-export const AddItemBtn: React.FC = () => {
+export const AddItemBtn = () => {
   const { IoAddOutline } = icons();
   const t = useTranslations('Items');
 
   return (
     <div className={style.container} >
       <Link href={'items/create'}>
-        <Button
-          aria-label='Like'
+        <ButtonForm
+          ariaLabel='Like'
         >
           <IoAddOutline />
           {t('addItem')}
-        </Button>
+        </ButtonForm>
       </Link>
     </div>
   );

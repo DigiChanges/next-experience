@@ -1,22 +1,23 @@
 'use client';
 import React, { useState } from 'react';
-import style from './navbarTop.module.css';
-import { ChangeLenguage } from '@/features/shared/atoms/changeLenguage/changeLenguage';
-import ThemeSwitcher from '@/features/shared/atoms/swich/swich';
+import style from './navbar-top.module.css';
+import { ChangeLanguage } from '@/features/shared/atoms/changeLanguage/changeLanguage';
+import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
 import { dataLogin, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
 
-interface Props {
+type Props = {
     isPublic: boolean;
 }
-export const NavbarTop: React.FC<Props> = (props) => {
-  const [isUserDropdownOpen, setisUserDropdownOpen] = useState<boolean>(false);
-  const [isLangDropdownOpen, setisLangDropdownOpen] = useState<boolean>(false);
+
+export const NavbarTop = (props: Props) => {
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState<boolean>(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState<boolean>(false);
   const handleDropdownUser = () => {
-    setisUserDropdownOpen(!isUserDropdownOpen);
+    setIsUserDropdownOpen(!isUserDropdownOpen);
   };
   const handleDropdownLang = () => {
-    setisLangDropdownOpen(!isLangDropdownOpen);
+    setIsLangDropdownOpen(!isLangDropdownOpen);
   };
 
   return (
@@ -25,7 +26,7 @@ export const NavbarTop: React.FC<Props> = (props) => {
         {props.isPublic ? (
           <>
             <ThemeSwitcher />
-            <ChangeLenguage
+            <ChangeLanguage
               isLangDropdownOpen={isLangDropdownOpen}
               handleDropdownLang={handleDropdownLang}
             />
@@ -33,7 +34,7 @@ export const NavbarTop: React.FC<Props> = (props) => {
         ) :
           (
             <>
-              <ChangeLenguage
+              <ChangeLanguage
                 isLangDropdownOpen={isLangDropdownOpen}
                 handleDropdownLang={handleDropdownLang}
               />

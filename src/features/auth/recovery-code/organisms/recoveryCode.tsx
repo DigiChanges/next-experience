@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './recoveryCode.module.css';
+import style from './recovery-code.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { IrecoveryCode } from '@/features/auth/recovery-code/interfaces/IrecoveryCode';
@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { handleRecoveryCode } from '@/features/auth/recovery-code/actions/recoveryCodeAction';
 import { useSearchParams } from 'next/navigation';
 
-export const RecoveryCode: React.FC = () => {
+export const RecoveryCode = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IrecoveryCode>({
     resolver: yupResolver(recoveryCodeSchema)
   });

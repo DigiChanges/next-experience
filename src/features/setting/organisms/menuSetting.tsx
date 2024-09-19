@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './menuSetting.module.css';
+import style from './menu-setting.module.css';
 import Link from 'next/link';
 import { SettingUpdatePassword } from '@/features/setting/molecules/settingUpdatePassword/settingUpdatePassword';
 import { useTranslations } from 'next-intl';
@@ -10,7 +10,7 @@ import { useDisclosure } from '@nextui-org/react';
 import { icons } from '@/features/shared/hooks/icons';
 
 
-export const MenuSetting: React.FC = () => {
+export const MenuSetting = () => {
   const t = useTranslations('Setting');
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoChevronForward, GiPadlock, RiUserUnfollowLine, FaRegBell, IoChevronBack } = icons();

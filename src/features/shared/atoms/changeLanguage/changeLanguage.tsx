@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './changeLenguage.module.css';
-import { locales } from '../../../../config';
+import style from './change-language.module.css';
+import { locales } from '@/config';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -8,12 +8,11 @@ import { MdLanguage } from 'react-icons/md';
 import { icons } from '../../hooks/icons';
 import Image from 'next/image';
 
-
-interface Props {
+type Props = {
     isLangDropdownOpen: boolean,
     handleDropdownLang: () => void
 }
-export const ChangeLenguage: React.FC<Props> = (props) => {
+export const ChangeLanguage = (props: Props) => {
   const { Link, usePathname } = createSharedPathnamesNavigation({ locales });
   const pathName = usePathname();
   const { IconFlagUsa, IconFlagSpain } = icons();

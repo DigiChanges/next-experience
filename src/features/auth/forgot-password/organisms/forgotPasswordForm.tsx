@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import style from './forgotPassword.module.css';
+import style from './forgot-password.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 
-export const ForgotPasswordForm: React.FC = () => {
+export const ForgotPasswordForm = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IforgotPasswordForm>({
     resolver: yupResolver(forgoPasswordSchema)
   });

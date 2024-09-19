@@ -1,6 +1,6 @@
-import style from './filterAndSearch.module.css';
+import style from './filter-and-search.module.css';
 import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
-import { Button } from '@nextui-org/react';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import React from 'react';
 import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
@@ -47,10 +47,13 @@ export const FilterAndSearch = ({
           />
         </div>
         <div className={classButton ? classButton : style.btn}>
-          <Button onClick={() => {
+          <ButtonForm onClick={() => {
             handleSetFiltersApplied();
             handleReplace();
-          }}><IoFunnel /> {t('button')}</Button>
+          }}>
+            <IoFunnel />
+            {t('button')}
+          </ButtonForm>
         </div>
       </div>
     </div>

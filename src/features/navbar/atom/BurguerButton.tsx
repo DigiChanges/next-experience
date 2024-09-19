@@ -1,5 +1,5 @@
 import React from 'react';
-interface Props {
+type Props = {
     isOpenBurguer: boolean;
     classStyle?: string;
     classStyleResponsive?: string;

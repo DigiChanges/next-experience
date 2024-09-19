@@ -1,9 +1,9 @@
-import style from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter.module.css';
+import style from '@/features/shared/molecules/inputKeysFilter/input-keys-filter.module.css';
 import React from 'react';
 import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 
-interface Props {
+type Props = {
   handleSetFilterValues: (values: {
     term: string
   }) => void;

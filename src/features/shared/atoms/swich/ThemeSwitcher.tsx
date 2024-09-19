@@ -2,8 +2,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Switch } from '@nextui-org/react';
 import { MoonIcon, SunIcon } from '@nextui-org/shared-icons';
+import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -19,14 +20,14 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <Switch
+    <SwitchComponent
       defaultSelected={theme === 'dark'}
-      size="lg"
-      color="secondary"
+      size={SizeType.LARGE}
+      color={SelectColorType.SECONDARY}
       startContent={theme === 'light' ? <SunIcon /> : <MoonIcon />}
       endContent={theme === 'dark' ? <MoonIcon /> : <SunIcon color="black" />}
       onClick={toggleTheme}
     >
-    </Switch>
+    </SwitchComponent>
   );
 }

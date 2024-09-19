@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
-import { CardItem } from '@/features/items/atoms/card/CardItem';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { CardItem } from '@/features/shared/atoms/card/CardItem';
 import style from './list.module.css';
-import { AddItemBtn } from '../atoms/addItem/AddItemBtn';
+import styleCard from './card.module.css';
+import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { Pagination, Switch } from '@nextui-org/react';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
@@ -17,15 +17,16 @@ import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/Filte
 import { useTranslations } from 'next-intl';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
 import { SortComponent } from '@/features/shared/atoms/sort/Sort';
+import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 
-interface Props {
+type Props = {
     items: ItemsResponse[]
     pagination: PaginationAPI;
 }
-export const List: React.FC<Props> = ({ items, pagination }) => {
-  const [keySelected, setKeySelected] = useState<OptionKey>({
-    ...selectOptionsData[0]
-  });
+export const List = ({ items, pagination }: Props) => {
+  const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const searchParams = useSearchParams();
   const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const pathname = usePathname();
@@ -33,6 +34,13 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
   const { handlePage, currentPage } = usePagination(pagination, params);
   const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
   const t = useTranslations('Items');
+
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
+
+  const handleDropdown = (id: string) => {
+    setOpenDropdownId(openDropdownId === id ? null : id);
+  };
+
 
   const handleReplaceURL = () => {
     replace(`${pathname}?${params.toString()}`);
@@ -94,9 +102,9 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         <div className={style.containerAddItemBtnAndModal}>
           <div className={style.containerAddItemBtn}>
             <SortComponent isResponsive={false}/>
-            <Switch className={style.containerSwitch} size="sm" color="secondary" defaultSelected>
+            <SwitchComponent className={style.containerSwitch} size={SizeType.SMALL} color={SelectColorType.SECONDARY} defaultSelected>
               Active
-            </Switch>
+            </SwitchComponent>
             <AddItemBtn/>
           </div>
           <FilterModal
@@ -112,15 +120,35 @@ export const List: React.FC<Props> = ({ items, pagination }) => {
         </div>
       </div>
       <NoItemsToDisplay data={items}/>
-      {items.length && <div className={style.cards}>
-        {items.map((item) => (
-          <CardItem key={item.id} name={item.name} type={item.type} id={item.id}/>
-        ))}
-      </div>}
+      {items.length > 0 && (
+        <div className={style.cards}>
+          {items.map((item) => (
+            <CardItem
+              key={item.id}
+              className={{
+                card: openDropdownId === item.id ? `${styleCard.backgroundHover} ${styleCard.container}` : styleCard.container,
+                header: styleCard.containerHeader
+              }}
+              radius={SizeType.SMALL}
+              id={item.id}
+              handleDropdown={() => handleDropdown(item.id)}
+              isDropdownOpen={openDropdownId === item.id}
+              item={
+                <div className={styleCard.containerInfo}>
+                  <h2 className="text-md">Type: {item.type}</h2>
+                  <h3 className={styleCard.name}>{item.name}</h3>
+                  <p>$500.000</p>
+                  <p>EXP: 25/12/2024</p>
+                </div>
+              }
+            />
+          ))}
+        </div>
+      )}
       <div className={style.containerPaginationAndAdd}>
         {items.length > 0 && <div className={style.testNav}>
-          <Pagination onChange={handlePage} page={currentPage} total={pagination.lastPage}
-            color={'secondary'}/>
+          <PaginationComponent onChange={handlePage} page={currentPage} total={pagination.lastPage}
+            color={SelectColorType.SECONDARY}/>
         </div>}
       </div>
     </section>

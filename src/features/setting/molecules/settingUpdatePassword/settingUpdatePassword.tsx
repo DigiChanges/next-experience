@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import style from './settingUpdatePassword.module.css';
+import style from './setting-update-password.module.css';
 import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
 import { toast } from 'react-toastify';
 import { handleUpdatePassword } from '@/features/auth/update-password/actions/updatePasswordAction';
@@ -11,7 +11,7 @@ import { useTranslations } from 'next-intl';
 import { settingUpdatePasswordSchema } from '@/features/setting/validations/settingUpdatePasswordSchema';
 import { IsettingUpdatePassaword } from '@/features/setting/interfaces/IsettingUpdatePassaword';
 
-export const SettingUpdatePassword: React.FC = () => {
+export const SettingUpdatePassword = () => {
   const { reset, register, handleSubmit, formState: { errors } } = useForm<IsettingUpdatePassaword>({
     resolver: yupResolver(settingUpdatePasswordSchema)
   });
