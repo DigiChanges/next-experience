@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './recovery-code.module.css';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { IrecoveryCode } from '@/features/auth/recovery-code/interfaces/IrecoveryCode';
 import { useForm } from 'react-hook-form';
@@ -37,7 +37,7 @@ export const RecoveryCode = () => {
       <h3>{t('description2')}</h3>
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
         <InputForm<IrecoveryCode> errors={errors} id={'code'} name={'code'} register={register}
-          type={'text'} label={t('code')} className={style.input}
+          type={'text'} label={t('code')} className={style.input} input_type={InputType.SIMPLE}
           placeholder={t('code')} classNameError={style.inputError}/>
         <ButtonAuth descriptionActive={t('send')}/>
         <div className={style.containerRegister}>

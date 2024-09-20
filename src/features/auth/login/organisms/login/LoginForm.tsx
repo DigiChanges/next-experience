@@ -3,7 +3,7 @@ import React from 'react';
 import style from './login-form.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { ILoginForm } from '../../interfaces/IloginForm';
 import { handleSignIn } from '../../actions/loginAction';
 import { loginSchema } from '../../validations/loginSchema';
@@ -37,8 +37,8 @@ export const LoginForm = () => {
       <h3>{t('subtitle')}</h3>
       <form className={style.form} onSubmit={(data) => onSubmit(data)} >
         <div >
-          <InputForm<ILoginForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={t('username')} placeholder={t('username')}  className={style.input} classNameError={style.inputError} />
-          <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={t('password')} placeholder={t('password')} className={style.input} classNameError={style.inputError} />
+          <InputForm<ILoginForm> errors={errors} id={'username'} name={'username'} register={register} input_type={InputType.SIMPLE} type={'email'} label={t('username')} placeholder={t('username')}  className={style.input} classNameError={style.inputError} />
+          <InputForm<ILoginForm> errors={errors} id={'password'} name={'password'} register={register} input_type={InputType.SIMPLE} type={'password'} label={t('password')} placeholder={t('password')} className={style.input} classNameError={style.inputError} />
         </div>
         <ButtonAuth descriptionActive={t('singIn')} />
         <div className={style.containerRegister}>

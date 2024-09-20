@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import style from './form-update.module.css';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import {  useForm } from 'react-hook-form';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -46,6 +46,7 @@ export const FormUpdate = ({ id, data }: Props) => {
           errors={errors}
           id={'name'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
 
         <InputForm<Item>
@@ -56,6 +57,7 @@ export const FormUpdate = ({ id, data }: Props) => {
           errors={errors}
           id={'type'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
       </div>
       <div className={style.containerBtn}>

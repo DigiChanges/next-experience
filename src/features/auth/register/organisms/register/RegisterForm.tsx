@@ -4,7 +4,7 @@ import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '@/features/auth/register/validations/registerSchema';
 import { handleSignUp } from '@/features/auth/register/actions/registerAction';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import style from './register.module.css';
 import Link from 'next/link';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
@@ -35,14 +35,14 @@ export const RegisterForm = () => {
         <p className={style.text}>{t('text')}</p>
         <div className={style.containerInputs}>
           <InputForm<IRegisterForm> errors={errors} id={'username'} name={'username'} register={register}
-            type={'email'} label={t('username')} className={style.input}
+            type={'email'} label={t('username')} className={style.input} input_type={InputType.SIMPLE}
             classNameError={style.inputError} placeholder={t('username')}/>
           <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register}
-            type={'password'} label={t('password')} className={style.input}
+            type={'password'} label={t('password')} className={style.input} input_type={InputType.SIMPLE}
             classNameError={style.inputError} placeholder={t('password')}/>
           <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
             register={register} type={'password'} label={t('confirmPassword')}
-            className={style.input} classNameError={style.inputError}
+            className={style.input} classNameError={style.inputError} input_type={InputType.SIMPLE}
             placeholder={t('confirmPassword')}/>
         </div>
         <ButtonAuth descriptionActive={t('confirm')}/>

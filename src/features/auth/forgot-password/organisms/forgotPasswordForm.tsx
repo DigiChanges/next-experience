@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import style from './forgot-password.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import {  toast } from 'react-toastify';
 import { handleRecoverPassword } from '@/features/auth/forgot-password/actions/forgotPasswordAction';
 import { forgoPasswordSchema } from '@/features/auth/forgot-password/validations/forgotPasswordSchema';
@@ -38,7 +38,7 @@ export const ForgotPasswordForm = () => {
             <form className={style.form} onSubmit={(data) => onSubmit(data)}>
               <div>
                 <InputForm<IforgotPasswordForm> errors={errors} id={'username'} name={'username'} register={register}
-                  type={'email'} label={t('email')} className={style.input}
+                  type={'email'} label={t('email')} className={style.input} input_type={InputType.SIMPLE}
                   placeholder={t('email')} classNameError={style.inputError}/>
               </div>
               <ButtonAuth descriptionActive={t('send')} />
