@@ -1,5 +1,4 @@
 import React, { ChangeEvent } from 'react';
-import style from './input-form.module.css';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
@@ -13,6 +12,7 @@ type Props<TFormValues extends FieldValues> = {
     classNameError?: string;
     disabled?: boolean;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    value?: string | number;
 }
 
 export const InputFile = <TFormValues extends Record<string, unknown>>({
@@ -25,7 +25,8 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   placeholder,
   classNameError,
   disabled,
-  onChange
+  onChange,
+  value
 }: Props<TFormValues>) => {
   const error = errors[name];
 
@@ -38,16 +39,17 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   return (
     <div className={className}>
       {label && <label htmlFor={id}>{label}</label>}
-      <div className={style.containerFile}>
+      <div>
         <input
           type="file"
           id={id}
+          value={value}
           {...register(name)}
           className={error ? classNameError : ''}
           disabled={disabled}
+          placeholder={placeholder}
           onChange={handleChange}
         />
-        {placeholder && <p>{placeholder}</p>}
       </div>
       {error && <p className={classNameError}>{error.message}</p>}
     </div>

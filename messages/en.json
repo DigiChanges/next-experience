@@ -73,7 +73,8 @@
     "title": "Hello! Sing up",
     "subtitle": "Create an account to access all features",
     "text": "The fields indicated (*) are required.",
-    "terms&Agreements": "Privacy policy and terms of service"
+    "terms&Agreements": "Privacy policy and terms of service",
+    "profileImage": "Profile image*"
   },
   "Forgot": {
     "title": "Reset your password",

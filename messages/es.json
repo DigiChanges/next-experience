@@ -75,7 +75,8 @@
     "title": "¡Hola! Regístrate",
     "subtitle": "Crea una cuenta para acceder a todas las funcionalidades.",
     "text": "Los campos señalados (*) son obligatorios.",
-    "terms&Agreements": "Política de privacidad y términos de servicio"
+    "terms&Agreements": "Política de privacidad y términos de servicio",
+    "profileImage": "Foto de perfil*"
   },
   "Forgot": {
     "title": "Recuperar Contraseña",
