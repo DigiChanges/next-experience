@@ -4,7 +4,7 @@ import { redirect, RedirectType } from 'next/navigation';
 import style from './update-password.module.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { useTranslations } from 'next-intl';
 import { handleUpdatePassword } from '@/features/auth/update-password/actions/updatePasswordAction';
 import { useSearchParams } from 'next/navigation';
@@ -39,10 +39,10 @@ export const UpdatePasswordForm = () => {
       <form className={style.form} onSubmit={(data) => onSubmit(data)}>
         <div>
           <InputForm<IupdatePasswordForm> errors={errors} id={'password'} name={'password'} register={register}
-            type={'password'} label={t('password')} className={style.input}
+            type={'password'} label={t('password')} className={style.input} input_type={InputType.SIMPLE}
             placeholder={t('password')} classNameError={style.inputError}/>
           <InputForm<IupdatePasswordForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
-            register={register} type={'password'} label={t('repeatPassword')}
+            register={register} type={'password'} label={t('repeatPassword')} input_type={InputType.SIMPLE}
             className={style.input} placeholder={t('repeatPassword')}
             classNameError={style.inputError}/>
         </div>

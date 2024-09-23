@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import style from './setting-update-password.module.css';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { toast } from 'react-toastify';
 import { handleUpdatePassword } from '@/features/auth/update-password/actions/updatePasswordAction';
 import { useForm } from 'react-hook-form';
@@ -34,15 +34,15 @@ export const SettingUpdatePassword = () => {
     <form className={style.form} onSubmit={(data) => onSubmit(data)}>
       <div>
         <InputForm<IsettingUpdatePassaword> errors={errors} id={'password'} name={'password'} register={register}
-          type={'password'} label={t('password')} className={style.input}
+          type={'password'} label={t('password')} className={style.input} input_type={InputType.SIMPLE}
           classNameError={style.inputError}/>
         <InputForm<IsettingUpdatePassaword> errors={errors} id={'newPassword'} name={'newPassword'}
           register={register} type={'password'} label={t('newPassword')}
-          className={style.input}
+          className={style.input} input_type={InputType.SIMPLE}
           classNameError={style.inputError}/>
         <InputForm<IsettingUpdatePassaword> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
           register={register} type={'password'} label={t('repeatPassword')}
-          className={style.input}
+          className={style.input} input_type={InputType.SIMPLE}
           classNameError={style.inputError}/>
       </div>
       <button className={'text-white'}><span>{t('send')}</span></button>
