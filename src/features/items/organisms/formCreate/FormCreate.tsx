@@ -11,7 +11,6 @@ import { toast } from 'react-toastify';
 import { createItem, handleUploadFile } from '@/features/items/actions/ItemAction';
 import { useTranslations } from 'next-intl';
 
-
 export const FormCreate = () => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<Item>({
     resolver: yupResolver(modalSchema)
@@ -25,10 +24,12 @@ export const FormCreate = () => {
   const handleChange = async(event: ChangeEvent<HTMLInputElement>) => {
     setIsDisabled(true);
     if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      console.log(file);
-      const id = await handleUploadFile(file);
-      setValue('file', id);
+      const formData = new FormData();
+      formData.append('file', event.target.files[0]);
+      const id = await handleUploadFile(formData);
+      if (id) {
+        setValue('file', id);
+      }
     }
     setIsDisabled(false);
   };
@@ -41,8 +42,12 @@ export const FormCreate = () => {
     });
   };
 
+  const onSubmit = async(data: ItemPayload) => {
+    await createAction(data);
+  };
+
   return (
-    <form className={style.form} onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -71,7 +76,7 @@ export const FormCreate = () => {
         />
 
         <InputForm<Item>
-          type={'text'}
+          type={'file'}
           name={'file'}
           label={t('file')}
           register={register}
@@ -81,9 +86,9 @@ export const FormCreate = () => {
           input_type={InputType.FILE}
           classNameError={style.inputError}
           onChange={handleChange}
+          multiple={true}
           disabled={isDisabled}
         />
-
       </div>
       <div className={style.containerBtn}>
         <div className={style.btnClose}>
@@ -94,7 +99,7 @@ export const FormCreate = () => {
           </Link>
         </div>
         <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('add')}</button>
+          <button type="submit" className={style.addItem} disabled={isDisabled}>{t('add')}</button>
         </div>
       </div>
     </form>

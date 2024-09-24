@@ -62,9 +62,9 @@ export const getOne = async({ id }: PayloadProps) => {
   return HttpService.request<ItemsResponse>(config);
 };
 
-export const handleUploadFile = async(data: File) => {
+export const handleUploadFile = async(data: FormData) => {
   const config: IHttpParams = {
-    url: `${baseUrl}/${base}/files`,
+    url: `${baseUrl}/files`,
     method: 'POST',
     headers: HeadersContentType.FILE_FORM,
     data
