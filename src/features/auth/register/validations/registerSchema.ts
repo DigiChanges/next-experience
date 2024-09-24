@@ -13,6 +13,5 @@ export const registerSchema = yup
             .string()
             .required('*Confirm Password is a required field')
             .oneOf([yup.ref('password')], 'Las contraseñas deben coincidir'),
-      profileImage: yup.mixed().required('Image is required')
     })
     .required();

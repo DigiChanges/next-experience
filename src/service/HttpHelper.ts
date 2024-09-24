@@ -1,25 +1,29 @@
-import { QueryParams } from './IHttpParams';
+import { HeadersContentType, QueryParams } from './IHttpParams';
 import { config as Config } from '../features/shared/actions/config';
 import { cookies } from 'next/headers';
+import { createClient } from '@/lib/server/server';
 
-export function getDefaultHeaders(): Record<string, any> {
+export async function getDefaultHeaders(headers: HeadersContentType): Promise<any> {
   const { credentials } = Config.apiGateway.server;
 
   const cookieStore = cookies();
-  const cookieValue =  cookieStore.get('sb-xovsaxzresdetrmkouss-auth-token');
-  let token;
+  const supabase = createClient(cookieStore);
 
-  if (cookieValue) {
-    token = JSON.parse(cookieValue.value).access_token;
-  }
+  const { data: { session } } = await supabase.auth.getSession();
+  const token = session?.access_token ? `Bearer ${session.access_token}` : '';
 
-  return {
+  const defaultHeaders: any = {
     credentials,
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': token ? `Bearer ${token}` : ''
+      Authorization: token
     }
   };
+
+  if (headers !== HeadersContentType.FILE_FORM) {
+    defaultHeaders.headers['Content-Type'] = headers;
+  }
+
+  return defaultHeaders;
 }
 
 export function getParams(queryParams?: QueryParams) {

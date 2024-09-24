@@ -42,6 +42,7 @@
     "filter": "Seleccionar filtro",
     "name": "Nombre",
     "description": "Descripción",
+    "file": "Archivo",
     "search": "Buscar",
     "button": "Aplicar",
     "emptyItems": "No hay ítems para mostrar",

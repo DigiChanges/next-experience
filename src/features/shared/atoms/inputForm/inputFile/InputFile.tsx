@@ -50,6 +50,7 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
           placeholder={placeholder}
           onChange={handleChange}
         />
+        {/* {value && <p>{value}</p>} */}
       </div>
       {error && <p className={classNameError}>{error.message}</p>}
     </div>

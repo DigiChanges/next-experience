@@ -1,19 +1,26 @@
-import { IHttpParams } from './IHttpParams';
+import { HeadersContentType, IHttpParams } from './IHttpParams';
 import { getDefaultHeaders, getParams } from './HttpHelper';
+
 
 class HttpService {
   static async request<T>(props: IHttpParams) {
     try {
-      const { url, method, queryParams, data } = props;
+      const { url, method, queryParams, data, headers } = props;
 
       const params: URLSearchParams = getParams(queryParams);
 
-      const urlWithParams = `${url}?${params.toString()}`; // Params to string
+      const urlWithParams = `${url}?${params.toString()}`;
+
+      const content = headers ??  HeadersContentType.APP_JSON;
+
+      const defaultHeaders = await getDefaultHeaders(content);
+
+      const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
 
       const response = await fetch(urlWithParams, {
         method,
-        body: data ? JSON.stringify(data as T) : undefined,
-        ...getDefaultHeaders()
+        body,
+        ...defaultHeaders
       });
 
       if (!response.ok) {
