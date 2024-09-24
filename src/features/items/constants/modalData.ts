@@ -1,6 +1,6 @@
 interface IModal {
     name: string;
-    type: 'number' | 'text' | 'email' | 'password';
+    description: 'number' | 'text' | 'email' | 'password';
     label: string;
     id: string
 }
@@ -9,13 +9,13 @@ interface IModal {
 export const modalData : IModal[] = [
   {
     name: 'name',
-    type: 'text',
+    description: 'text',
     label :'Item name',
     id:'name'
   },
   {
     name: 'type',
-    type: 'number',
+    description: 'number',
     label :'Item type',
     id:'type'
   }

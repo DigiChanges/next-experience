@@ -9,10 +9,7 @@ import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
 import { icons } from '@/features/shared/hooks/icons';
 
 import BurguerButton from '@/features/navbar/atom/BurguerButton';
-
-import { IoHomeOutline } from 'react-icons/io5';
-import { IoFileTrayFull } from 'react-icons/io5';
-
+import { IoFileTrayFull, IoHomeOutline } from 'react-icons/io5';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
