@@ -15,7 +15,29 @@ import IconInformation from '../../../asset/icons/informacion.png';
 import IconSuccess from '../../../asset/icons/ok.png';
 import IconAlert from '../../../asset/icons/alerta.png';
 import iconCloseFilter from '../../../asset/icons/boton-cerrar.png';
-
+import IconFlagSpain from '../../../asset/icons/flag-espana.webp';
+import IconFlagUsa from '../../../asset/icons/flag-usa.webp';
+import IconLogoDgc from '../../../asset/icons/logo-dgc.svg';
+import { IoAddOutline } from 'react-icons/io5';
+import { IoCloseOutline } from 'react-icons/io5';
+import { IoEllipsisVertical } from 'react-icons/io5';
+import IconNoItems from '../../../asset/icons/noHayItems.svg';
+import { IoCreateOutline } from 'react-icons/io5';
+import { IoTrashOutline } from 'react-icons/io5';
+import { IoMdCreate } from 'react-icons/io';
+import { IoFunnel } from 'react-icons/io5';
+import { IoPersonCircleSharp } from 'react-icons/io5';
+import { IoOptionsOutline } from 'react-icons/io5';
+import { IoSwapVertical } from 'react-icons/io5';
+import { IoChevronForward } from 'react-icons/io5';
+import { IoChevronBack } from 'react-icons/io5';
+import { GiPadlock } from 'react-icons/gi';
+import { RiUserUnfollowLine } from 'react-icons/ri';
+import { FaRegBell } from 'react-icons/fa';
+import { MdLanguage } from 'react-icons/md';
+import { IoLogOut } from 'react-icons/io5';
+import authWelcome from '../../../asset/icons/welcome.webp';
+import expiredLink from '../../../asset/icons/expired.webp';
 
 export const icons = () => {
   return {
@@ -34,6 +56,29 @@ export const icons = () => {
     IconInformation,
     IconAlert,
     IconSuccess,
-    iconCloseFilter
+    iconCloseFilter,
+    IconFlagSpain,
+    IconFlagUsa,
+    IconLogoDgc,
+    IoAddOutline,
+    IoCloseOutline,
+    IoEllipsisVertical,
+    IconNoItems,
+    IoCreateOutline,
+    IoTrashOutline,
+    IoMdCreate,
+    IoFunnel,
+    IoPersonCircleSharp,
+    IoOptionsOutline,
+    IoSwapVertical,
+    IoChevronForward,
+    IoChevronBack,
+    GiPadlock,
+    RiUserUnfollowLine,
+    FaRegBell,
+    MdLanguage,
+    IoLogOut,
+    authWelcome,
+    expiredLink
   };
 };

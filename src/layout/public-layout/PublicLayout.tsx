@@ -1,8 +1,9 @@
-'use client';
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
+import { NavbarTopTemplate } from '@/features/navbar/template/NavbarTopTemplate';
+import style from './public-layout.module.css';
 
-interface Props {
+type Props = {
     children: React.ReactNode
 }
 
@@ -10,6 +11,11 @@ export const PublicLayout = (props: Props) => {
   const { children } = props;
 
   return (
-    children
+    <>
+      <NavbarTopTemplate isPublic={true} />
+      <div className={`${style.containerComponents}`}>
+        {children}
+      </div>
+    </>
   );
 };

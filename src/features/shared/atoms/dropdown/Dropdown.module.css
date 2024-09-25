@@ -1,0 +1,70 @@
+.container{
+    @apply relative
+}
+.containerIconUser {
+    @apply max-w-[60px] w-[2rem] h-[2rem] cursor-pointer;
+}
+.active{
+    backdrop-filter: blur(4px);
+    height: 100%;
+}
+
+.iconUser {
+    @apply relative max-w-[60px] w-full h-[2.5rem]
+}
+.iconUser svg {
+    @apply text-secondary rounded-full w-6 h-6 m-auto transition-all;
+}
+
+.iconUser .rotate {
+    @apply transform -rotate-[180deg]
+}
+.containerPerfil{
+    @apply overflow-hidden absolute right-[10px]
+}
+.perfil{
+    @apply flex flex-col bg-bgGrey relative p-1.5 rounded-[5px]
+}
+.containerIconUserOpen{
+    @apply flex items-center border-solid border-b-1 border-b-secondary mb-2 py-2
+}
+.iconUserOpen{
+    @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
+}
+.perfil .perfilSections, .perfil .logOut{
+    @apply py-2 items-center cursor-pointer rounded-[5px] hover:bg-hoverColor active:bg-secondary
+}
+.perfil .perfilSections img, .perfil .logOut img{
+    @apply w-[1.5rem] pl-1
+}
+.perfil .perfilSections p, .perfil .logOut p{
+    @apply ml-6 mr-2 pr-1
+}
+.perfil .perfilSections{
+    @apply flex text-white
+}
+.perfilSections a{
+    @apply w-full flex justify-between items-center !no-underline
+}
+.perfilSections a img{
+    @apply object-contain !w-[2rem]
+}
+.perfil .logOut{
+    @apply flex border-solid border-t-1 border-t-secondary mt-2
+}
+
+.centerAlign {
+    @apply top-1/2 transform -translate-y-1/2;
+}
+
+@screen md{
+    .container{
+        @apply block relative
+    }
+    .containerPerfil{
+        @apply min-w-[10rem]
+    }
+    .perfil .perfilSections p, .perfil .logOut p{
+        @apply ml-6 pr-1 mr-0
+    }
+}

@@ -1,0 +1,9 @@
+.container{
+    @apply flex gap-4 items-center justify-end
+}
+.container button{
+    @apply bg-transparent
+}
+.container svg{
+    @apply w-6 h-6 bg-secondary rounded-[4px] text-textWhite
+}

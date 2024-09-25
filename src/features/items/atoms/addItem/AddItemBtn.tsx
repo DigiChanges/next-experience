@@ -1,24 +1,23 @@
-'use client';
 import React from 'react';
-import { Button, Image } from '@nextui-org/react';
-import style from './addItem.module.css';
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import style from './add-item.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-
-export const AddItemBtn: React.FC = () => {
-  const { IconAdd } = icons();
+export const AddItemBtn = () => {
+  const { IoAddOutline } = icons();
+  const t = useTranslations('Items');
 
   return (
     <div className={style.container} >
       <Link href={'items/create'}>
-        <Button
-          radius='full'
-          isIconOnly color='success'
-          aria-label='Like'
+        <ButtonForm
+          ariaLabel='Like'
         >
-          <Image src={IconAdd.src} width={100} height={100} alt={'add item'} />
-        </Button>
+          <IoAddOutline />
+          {t('addItem')}
+        </ButtonForm>
       </Link>
     </div>
   );

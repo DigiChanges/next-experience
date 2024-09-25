@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import style from './formUpdate.module.css';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import style from './form-update.module.css';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import {  useForm } from 'react-hook-form';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,11 +12,11 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
 
-interface Props{
+type Props = {
     id: string;
     data:{ name: string, type: number}
 }
-export const FormUpdate: React.FC<Props> = ({ id, data }) => {
+export const FormUpdate = ({ id, data }: Props) => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
@@ -36,7 +36,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
     });
   };
   return (
-    <form  onSubmit={handleSubmit(async(data) => { await updateAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(async(data) => { await updateAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -46,6 +46,7 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
           errors={errors}
           id={'name'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
 
         <InputForm<Item>
@@ -56,18 +57,19 @@ export const FormUpdate: React.FC<Props> = ({ id, data }) => {
           errors={errors}
           id={'type'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
       </div>
       <div className={style.containerBtn}>
-        <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('update')}</button>
-        </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
             <button type="button" className={style.close}>
               {s('cancel')}
             </button>
           </Link>
+        </div>
+        <div className={style.btnAdd}>
+          <button type="submit" className={style.addItem}>{t('update')}</button>
         </div>
       </div>
     </form>

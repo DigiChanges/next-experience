@@ -4,16 +4,14 @@ import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '@/features/auth/register/validations/registerSchema';
 import { handleSignUp } from '@/features/auth/register/actions/registerAction';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import style from './register.module.css';
 import Link from 'next/link';
-import { icons } from '@/features/shared/hooks/icons';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 
-export const RegisterForm: React.FC = () => {
-  const { IconRocket } = icons();
+export const RegisterForm = () => {
   const t = useTranslations('Register');
   const alert = useTranslations('ToastRegister');
 
@@ -29,17 +27,31 @@ export const RegisterForm: React.FC = () => {
     reset();
   });
 
+
   return (
     <div className={style.container}>
-      <form  className={style.form}  onSubmit={(data) => onSubmit(data)}>
+      <h2>{t('title')}</h2>
+      <h3>{t('subtitle')}</h3>
+      <form className={style.form} onSubmit={(data) => onSubmit(data)}>
+        <p className={style.text}>{t('text')}</p>
         <div className={style.containerInputs}>
-          <InputForm<IRegisterForm> errors={errors} id={'username'} name={'username'} register={register} type={'email'} label={t('username')} className={style.input}/>
-          <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register} type={'password'} label={t('password')} className={style.input}/>
-          <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'} register={register} type={'password'} label={t('confirmPassword')} className={style.input}/>
+          <InputForm<IRegisterForm> errors={errors} id={'username'} name={'username'} register={register}
+            type={'email'} label={t('username')} className={style.input} input_type={InputType.SIMPLE}
+            classNameError={style.inputError} placeholder={t('username')}/>
+          <InputForm<IRegisterForm> errors={errors} id={'password'} name={'password'} register={register}
+            type={'password'} label={t('password')} className={style.input} input_type={InputType.SIMPLE}
+            classNameError={style.inputError} placeholder={t('password')}/>
+          <InputForm<IRegisterForm> errors={errors} id={'confirmPassword'} name={'confirmPassword'}
+            register={register} type={'password'} label={t('confirmPassword')}
+            className={style.input} classNameError={style.inputError} input_type={InputType.SIMPLE}
+            placeholder={t('confirmPassword')}/>
         </div>
-        <ButtonAuth alt={'icon next experience'} descriptionActive={t('confirm')} img={IconRocket.src}/>
+        <ButtonAuth descriptionActive={t('confirm')}/>
+        <Link href={'/auth/login'}>{t('terms&Agreements')}</Link>
         <div className={style.containerRegister}>
-          <Link href={'/auth/login'}>{t('singIn')}</Link>
+          <p>{t('singIn')}
+            <Link href={'/auth/login'}>{t('singInLink')}</Link>
+          </p>
         </div>
       </form>
     </div>

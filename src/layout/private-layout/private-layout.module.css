@@ -1,10 +1,10 @@
 .containerComponents {
-    @apply ml-[65px] ;
+    @apply flex justify-center items-start bg-bgDefault bg-gradient-to-r from-bgGradient to-60% min-h-[100vh] ;
 }
 
 @screen md {
     .containerComponents {
-        @apply ml-[75px]
+        @apply pl-[75px]
     }
 }
 .bgAlert{

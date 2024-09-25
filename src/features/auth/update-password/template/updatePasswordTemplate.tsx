@@ -2,7 +2,7 @@ import { UpdatePasswordForm } from '@/features/auth/update-password/organisms/up
 import React from 'react';
 
 
-export const UpdatePasswordTemplate: React.FC = () => {
+export const UpdatePasswordTemplate = () => {
   return (
     <UpdatePasswordForm/>
   );

@@ -12,7 +12,6 @@ type Props = {
 };
 export const revalidate = 0;
 export default async function Page({ searchParams, params: { locale } } : Props) {
-
   const params = new URLSearchParams(searchParams);
 
   const queryParams: QueryParams = {

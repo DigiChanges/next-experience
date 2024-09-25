@@ -8,6 +8,11 @@
     "retry": "retry",
     "description": ""
   },
+  "NotFound": {
+    "title": "404",
+    "description": "Página no encontrada",
+    "button": "Volver a la página principal"
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",
@@ -38,11 +43,16 @@
     "name": "Nombre",
     "type": "Tipo",
     "search": "Buscar",
-    "button": "Filtrar",
+    "button": "Aplicar",
     "emptyItems": "No hay ítems para mostrar",
     "add": "Agregar",
     "update": "Actualizando",
-    "deleteAlert":"¿Seguro que desea borrar este item?"
+    "deleteAlert":"¿Seguro que desea borrar este item?",
+    "addItem": "Añadir Item",
+    "clearAll": "Limpiar todo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "selectFilter": "Seleccionar filtro"
   },
   "Login": {
     "username": "Nombre de usuario",
@@ -51,28 +61,94 @@
     "createAccount": "Crear cuenta",
     "createAccountTitle": "Aún no tiene una cuenta?",
     "linkCreateAccount": "Registrarse",
-    "forgotPassword": "¿Olvido su contraseña?"
+    "forgotPassword": "¿Olvido su contraseña?",
+    "title": "¡Bienvenido!",
+    "subtitle": "Inicia sesión para acceder"
   },
   "Register": {
-    "username": "Nombre de usuario",
-    "password": "Contraseña",
-    "confirmPassword": "Confirmar contraseña",
-    "confirm": "¡Confirmar!",
-    "singIn": "¿Ya tienes una cuenta?"
+    "username": "Nombre de usuario*",
+    "password": "Contraseña*",
+    "confirmPassword": "Confirmar contraseña*",
+    "confirm": "Registrarse",
+    "singIn": "¿Ya tienes una cuenta?",
+    "singInLink": "Inicia sesión",
+    "title": "¡Hola! Regístrate",
+    "subtitle": "Crea una cuenta para acceder a todas las funcionalidades.",
+    "text": "Los campos señalados (*) son obligatorios.",
+    "terms&Agreements": "Política de privacidad y términos de servicio",
+    "profileImage": "Foto de perfil*"
   },
   "Forgot": {
-    "title": "Restablecer contraseña",
-    "description": "Introduzca su dirección de correo electrónico y le enviaremos instrucciones para restablecer su contraseña.",
-    "send": "Enviar",
-    "email": "Tu email",
-    "message": "Has solicitado restablecer tu contraseña. En breve, recibirá un correo electrónico con un enlace para crear una nueva contraseña\n y acceder a su cuenta."
+    "title": "Recuperar Contraseña",
+    "description": "Ingresa tu correo electrónico asociado con tu cuenta",
+    "send": "Enviar Código",
+    "email": "Email",
+    "message": "Se ha enviado un enlace de\nrecuperación al correo electrónico\nproporcionado.",
+    "messageSubtitle": "Si no te llega el correo revisar la bandeja de spam.",
+    "messageButton": "Continuar",
+    "singIn": "Volver a",
+    "singInLink": "Iniciar Sesión",
+    "register": "si aún no tienes una",
+    "registerLink": "Crea una cuenta"
   },
   "UpdatePss": {
     "title": "Crear una nueva contraseña",
     "description": "Las contraseñas deben tener al menos 8 caracteres",
     "send": "Confirmar",
     "password": "Contraseña",
-    "repeatPassword": "Repetir contraseña"
+    "newPassword": "Nueva Contraseña",
+    "repeatPassword": "Repetir contraseña",
+    "tab1modal": "Hay cambios sin guardar, desea continuar?",
+    "tab1modalsuccess": "Continuar",
+    "tab1modalcancel": "Cancelar",
+    "tab1button": "Guardar Cambios"
+  },
+  "RecoveryCode": {
+    "title": "Ingresa  tu código",
+    "description": "Ingresa el código de 5 dígitos enviado al email proporcionado.",
+    "description2": "Si no lo encuentras revisa tu bandeja de spam.",
+    "code": "0 0 0 0 0",
+    "send": "Verificar",
+    "singIn": "¿Recuerdas tu contraseña?",
+    "singInLink": "Inicia Sesión Aquí",
+    "codeLink": "Enviar otro código"
+  },
+  "AuthWelcome": {
+    "title": "¡Bienvenido!",
+    "description": "Chequea tu casilla de email para activar la cuenta",
+    "button": "Volver al login"
+  },
+  "ExpiredLink": {
+    "title": "Link expirado",
+    "description": "Renova tu mail de activación",
+    "button": "Volver al login"
+  },
+  "Setting": {
+    "title": "Configuración de Cuenta",
+    "description": "Personaliza tu cuenta según tus preferencias y necesidades.",
+    "home": "Inicio",
+    "Dashboard": "Panel de Control",
+    "Setting": "Configuración",
+    "s_changePassword": "Cambiar contraseña",
+    "s_changePasswordTitle": "Cambie su contraseña",
+    "s_deleteAccount": "Eliminar Cuenta",
+    "s_deleteAccount-title": "¿Desea eliminar su cuenta?",
+    "s_deleteAccount-modal": "¿Estás segura de que quieres eliminar esta cuenta?",
+    "s_deleteAccount-accept": "Aceptar",
+    "s_deleteAccount-cancel": "Cancelar",
+    "s_deleteAccount-confirm": "Confirmar",
+    "s_notificationSettings": "Configuración de Notificaciones",
+    "s_notificationSettings-title": "Configuración de Notificaciones",
+    "s_notificationSettings-modal": "Hay cambios sin guardar, desea continuar?",
+    "s_notificationSettings-continue": "Continuar",
+    "s_notificationSettings-cancel": "Cancelar",
+    "s_notificationSettings-button": "Guardar Cambios",
+    "s_notificationSettings-labelSwitch": "Notificación",
+    "s_passwordRequired": "*La contraseña es un campo requerido",
+    "s_passwordNewRequired": "*La nueva contraseña es un campo requerido",
+    "s_passwordConfirmNewRequired": "*Confirmar nueva contraseña es un campo requerido",
+    "s_passwordMinCharacters": "La contraseña debe tener al menos 8 caracteres",
+    "s_passwordsMatch": "Las contraseñas deben coincidir"
   },
   "ToastLogin": {
     "error": "¡Ups, algo salió mal!",

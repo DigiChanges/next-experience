@@ -1,18 +1,25 @@
 .title{
-    @apply text-white relative p-1 text-lg mb-6 font-bold
+    @apply w-full
 }
-.title span{
-    @apply border-b-1  w-full absolute bottom-0 border-grayLight
+.title h1{
+    @apply pb-[1.5rem] font-semibold text-[1.5rem] text-white border-solid border-b-secondary border-b-[2px] text-center
+}
+.title h1{
+    max-height: fit-content;
 }
 
-@screen lg{
+@screen md{
     .title{
-        @apply w-[50%] flex items-end
+        width: fit-content;
     }
+    .title h1{
+        @apply pb-0 text-[3rem] pr-[4rem] py-0 h-[4.2rem] text-start text-white
+    }
+}
+@screen lg{
 }
 
 @screen xl {
     .title{
-        @apply text-xl
     }
 }

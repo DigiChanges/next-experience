@@ -1,0 +1,60 @@
+.container{
+    @apply w-full max-w-[245px] h-[177px] p-3.5 bg-card shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+}
+.containerHeader{
+    @apply absolute top-0.5 right-0.5 p-0 w-full flex justify-end z-[1]
+}
+.backgroundHover{
+    @apply bg-hoverCard
+}
+.backgroundHover .containerInfo{
+    @apply blur-[0.5px]
+}
+.container .name{
+    @apply font-normal py-2 text-[1.5rem]
+}
+.container h2{
+    @apply text-[0.8rem]
+}
+.container p{
+    @apply text-[0.9rem]
+}
+.containerInfo{
+    @apply flex flex-col items-center justify-around h-full;
+}
+
+.cardFooter{
+    @apply  justify-end  overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)]  ml-1
+}
+
+@screen sm {
+    .container .name{
+        @apply text-xl
+    }
+}
+
+@screen md {
+    .container{
+    }
+    .containerHeader{
+        @apply top-1 right-1
+    }
+}
+
+@screen lg {
+    .container .name{
+        @apply text-2xl
+    }
+    .container{
+    }
+
+}
+
+@screen 2xl {
+    .container .name{
+        @apply text-3xl
+    }
+    .container{
+    }
+
+}

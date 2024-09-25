@@ -1,0 +1,68 @@
+.container{
+    @apply h-screen flex flex-col items-center px-1 justify-center
+}
+.container h2, .container h3, .message h3{
+    @apply text-white text-[1.5rem] font-[400] pt-2 pb-4 text-center
+}
+.container h1, .message h2{
+    @apply text-white text-[3rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
+}
+.form, .message {
+    @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start max-w-[250px] w-full px-[2rem];
+}
+.input{
+    @apply h-16 flex flex-col justify-start text-white my-2 mb-4 text-center
+}
+.input ::placeholder{
+    @apply text-center tracking-[0.25em]
+}
+.input label{
+    @apply hidden
+}
+.input input{
+    @apply w-full text-center tracking-[0.5em] mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none p-2 bg-transparent focus:border-grayLight;
+}
+.inputError{
+    @apply border-solid border-2 !border-[#FE3F3F80]
+}
+.input p{
+    @apply text-[12px] pt-1 pl-2 text-warning
+}
+.containerRegister{
+    @apply text-white text-[1rem] flex justify-center
+}
+.containerRegister p{
+    @apply text-white text-[1rem] font-[400] text-center
+}
+.containerRegister a{
+    @apply mx-2 text-secondary font-normal text-[1rem] hover:underline
+}
+
+@screen md{
+    .form {
+        @apply max-w-[300px] ;
+    }
+    .message {
+        @apply max-w-[600px] ;
+    }
+}
+@screen lg{
+    .message {
+        @apply max-w-[350px] ;
+    }
+    .message {
+        @apply max-w-[700px] ;
+    }
+}
+
+@screen 2xl{
+    .form, .message {
+        @apply max-w-[400px];
+    }
+    .message {
+        @apply max-w-[800px];
+    }
+    .containerRegister p, .containerRegister a{
+        @apply  text-sm
+    }
+}

@@ -16,6 +16,7 @@ export const handleSignUp = async({ username, password } : ILoginForm) => {
       emailRedirectTo: `${env.urlFront}/api/auth/callback`
     }
   });
+
   if (error){
     throw new Error('Authentication failed');
   }

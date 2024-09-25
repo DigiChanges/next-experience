@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import style from './formCreate.module.css';
-import { InputForm } from '@/features/shared/atoms/inputForm/InputForm';
+import style from './form-create.module.css';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { useForm } from 'react-hook-form';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { createItem } from '@/features/items/actions/ItemAction';
 import { useTranslations } from 'next-intl';
 
-export const FormCreate: React.FC = () => {
+export const FormCreate = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     resolver: yupResolver(modalSchema)
   });
@@ -29,7 +29,7 @@ export const FormCreate: React.FC = () => {
 
 
   return (
-    <form onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -39,6 +39,7 @@ export const FormCreate: React.FC = () => {
           errors={errors}
           id={'name'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
 
         <InputForm<Item>
@@ -49,19 +50,19 @@ export const FormCreate: React.FC = () => {
           errors={errors}
           id={'type'}
           className={style.inputBlock}
+          input_type={InputType.SIMPLE}
         />
       </div>
-      <span className={style.line}></span>
       <div className={style.containerBtn}>
-        <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('add')}</button>
-        </div>
         <div className={style.btnClose}>
           <Link href={'/items'}>
             <button type="button" className={style.close}>
               {s('cancel')}
             </button>
           </Link>
+        </div>
+        <div className={style.btnAdd}>
+          <button type="submit" className={style.addItem}>{t('add')}</button>
         </div>
       </div>
     </form>
