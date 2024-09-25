@@ -64,7 +64,7 @@ export const getOne = async({ id }: PayloadProps) => {
 
 export const handleUploadFile = async(data: FormData) => {
   const config: IHttpParams = {
-    url: `${baseUrl}/files`,
+    url: 'http://localhost:8089/api/files',
     method: 'POST',
     headers: HeadersContentType.FILE_FORM,
     data

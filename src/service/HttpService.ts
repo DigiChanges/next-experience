@@ -11,12 +11,10 @@ class HttpService {
 
       const urlWithParams = `${url}?${params.toString()}`;
 
-      const content = headers ??  HeadersContentType.APP_JSON;
-
-      const defaultHeaders = await getDefaultHeaders(content);
+      const defaultHeaders = await getDefaultHeaders();
 
       const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
-
+      console.log(urlWithParams);
       const response = await fetch(urlWithParams, {
         method,
         body,

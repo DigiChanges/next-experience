@@ -1,9 +1,9 @@
-import { HeadersContentType, QueryParams } from './IHttpParams';
+import {  QueryParams } from './IHttpParams';
 import { config as Config } from '../features/shared/actions/config';
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
 
-export async function getDefaultHeaders(headers: HeadersContentType): Promise<any> {
+export async function getDefaultHeaders(): Promise<any> {
   const { credentials } = Config.apiGateway.server;
 
   const cookieStore = cookies();
@@ -18,10 +18,6 @@ export async function getDefaultHeaders(headers: HeadersContentType): Promise<an
       Authorization: token
     }
   };
-
-  if (headers !== HeadersContentType.FILE_FORM) {
-    defaultHeaders.headers['Content-Type'] = headers;
-  }
 
   return defaultHeaders;
 }
