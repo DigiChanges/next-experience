@@ -41,6 +41,8 @@
     "filter":"Select Filter",
     "name": "Name",
     "description": "Description",
+    "type": "Type",
+    "file": "File",
     "search": "Search",
     "button": "Apply",
     "emptyItems": "No items to display",

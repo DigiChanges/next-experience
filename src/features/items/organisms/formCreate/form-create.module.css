@@ -13,6 +13,9 @@
 .inputBlock label{
     @apply text-white font-normal text-[0.8rem]
 }
+.input p{
+    @apply text-[12px] pt-1 pl-2 text-warning
+}
 .btnAdd {
     @apply p-2
 }

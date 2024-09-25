@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
-    type: 'text' | 'number' | 'email' | 'password' | 'date' | 'datetime-local',
+    type: 'text' | 'number' | 'email' | 'file' | 'password' | 'date' | 'datetime-local',
     name: Path<TFormValues>;
     label?: string;
     register: UseFormRegister<TFormValues>;
