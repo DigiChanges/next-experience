@@ -11,6 +11,11 @@ type Method =
     | 'link' | 'LINK'
     | 'unlink' | 'UNLINK';
 
+export enum HeadersContentType {
+    APP_JSON = 'application/json',
+    FILE_FORM = 'multipart/form-data'
+}
+
 export interface PaginationParams
 {
     limit: string | null;
@@ -29,4 +34,5 @@ export interface IHttpParams
     method: Method;
     queryParams?: QueryParams;
     data?: unknown;
+    headers?: HeadersContentType;
 }

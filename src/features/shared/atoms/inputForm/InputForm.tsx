@@ -5,7 +5,7 @@ import { InputFile } from '@/features/shared/atoms/inputForm/inputFile/InputFile
 import { InputSelect } from '@/features/shared/atoms/inputForm/inputSelect/InputSelect';
 
 type Props<TFormValues extends FieldValues> = {
-    type: 'text' | 'number' | 'email' | 'password' | 'date' | 'datetime-local',
+    type: 'text' | 'number' | 'email' | 'file' | 'password' | 'date' | 'datetime-local',
     input_type: InputType,
     name: Path<TFormValues>;
     label?: string;
@@ -16,6 +16,7 @@ type Props<TFormValues extends FieldValues> = {
     className?: string;
     placeholder?: string;
     value?: string | number;
+    multiple?:boolean;
     classNameError?: string;
     disabled?: boolean;
     options?: { value: string | number | boolean, label: string }[];

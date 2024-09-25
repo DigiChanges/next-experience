@@ -13,6 +13,7 @@ type Props<TFormValues extends FieldValues> = {
     disabled?: boolean;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     value?: string | number;
+    multiple?:boolean;
 }
 
 export const InputFile = <TFormValues extends Record<string, unknown>>({
@@ -26,7 +27,8 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   classNameError,
   disabled,
   onChange,
-  value
+  value,
+  multiple
 }: Props<TFormValues>) => {
   const error = errors[name];
 
@@ -45,11 +47,13 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
           id={id}
           value={value}
           {...register(name)}
+          multiple={multiple}
           className={error ? classNameError : ''}
           disabled={disabled}
           placeholder={placeholder}
           onChange={handleChange}
         />
+        {/* {value && <p>{value}</p>} */}
       </div>
       {error && <p className={classNameError}>{error.message}</p>}
     </div>

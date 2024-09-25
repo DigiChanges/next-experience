@@ -2,6 +2,7 @@
 export interface ItemsResponse {
     id: string;
     name: string;
+    // file: any;
     description: number;
     createdAt: number;
     updatedAt: number;
@@ -10,6 +11,7 @@ export interface ItemsResponse {
 export type Item =
 {
     name: string;
+    // file: any;
     description: number;
 }
 
