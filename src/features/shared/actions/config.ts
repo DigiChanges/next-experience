@@ -32,6 +32,9 @@ export const config = {
       },
       items: {
         base: `${env.apiBase}/items`
+      },
+      files: {
+        base: `${env.apiBase}/files`
       }
     }
   }
