@@ -8,7 +8,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { modalSchema } from '@/features/items/validations/modalSchema';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
-import { createItem, handleUploadFile } from '@/features/items/actions/ItemAction';
+import { createItem } from '@/features/items/actions/ItemAction';
+// import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { useTranslations } from 'next-intl';
 // import error from '@/app/error';
 
