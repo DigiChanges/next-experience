@@ -1,6 +1,6 @@
 'use server';
 import { config } from '@/features/shared/actions/config';
-import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';
+import { IHttpParams } from '@/service/IHttpParams';
 import HttpService from '@/service/HttpService';
 import { ItemPayload, ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 import PayloadProps from '@/features/shared/interfaces/PayloadProps';
@@ -61,15 +61,3 @@ export const getOne = async({ id }: PayloadProps) => {
 
   return HttpService.request<ItemsResponse>(config);
 };
-
-export const handleUploadFile = async(data: FormData) => {
-  const config: IHttpParams = {
-    url: 'http://localhost:8089/api/files',
-    method: 'POST',
-    headers: HeadersContentType.FILE_FORM,
-    data
-  };
-  return await HttpService.request<ItemsResponse>(config);
-};
-
-
