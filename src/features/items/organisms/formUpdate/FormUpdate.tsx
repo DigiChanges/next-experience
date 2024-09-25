@@ -14,13 +14,13 @@ import { useTranslations } from 'next-intl';
 
 type Props = {
     id: string;
-    data:{ name: string, type: number}
+    data:{ name: string, description: number}
 }
 export const FormUpdate = ({ id, data }: Props) => {
   const { register, handleSubmit, formState: { errors } } = useForm<Item>({
     defaultValues:{
       name : data.name,
-      type: data.type
+      description: data.description
     },
     resolver: yupResolver(modalSchema)
   });
@@ -51,11 +51,11 @@ export const FormUpdate = ({ id, data }: Props) => {
 
         <InputForm<Item>
           type={'number'}
-          name={'type'}
-          label={t('type')}
+          name={'description'}
+          label={t('description')}
           register={register}
           errors={errors}
-          id={'type'}
+          id={'description'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
         />

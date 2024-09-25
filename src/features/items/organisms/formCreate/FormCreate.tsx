@@ -44,11 +44,11 @@ export const FormCreate = () => {
 
         <InputForm<Item>
           type={'number'}
-          name={'type'}
-          label={t('type')}
+          name={'description'}
+          label={t('description')}
           register={register}
           errors={errors}
-          id={'type'}
+          id={'description'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
         />
