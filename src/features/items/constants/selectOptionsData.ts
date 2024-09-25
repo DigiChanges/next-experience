@@ -17,8 +17,8 @@ export const selectOptionsData: OptionKey[] = [
   },
   {
     type: 'number',
-    label: 'Type',
-    value: 'type',
+    label: 'Description',
+    value: 'description',
     filter: EnumFilterApply.Single
   },
   {

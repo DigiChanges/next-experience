@@ -40,7 +40,7 @@
     "title": "Section Items",
     "filter":"Select Filter",
     "name": "Name",
-    "type": "Type",
+    "description": "Description",
     "search": "Search",
     "button": "Apply",
     "emptyItems": "No items to display",
