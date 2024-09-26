@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import style from './profile.module.css';
 import Link from 'next/link';
-import {images} from "@/features/shared/hooks/images";
-import IconPencil from "../../../asset/images/pencil.svg";
-import Image from "next/image";
+import { images } from '@/features/shared/hooks/images';
+import IconPencil from '../../../asset/images/pencil.svg';
+import Image from 'next/image';
 
 export const Profile = () => {
   const t = useTranslations('Profile');
@@ -21,8 +21,8 @@ export const Profile = () => {
         </h1>
         <div className={style.containerList}>
           <div className={style.containerImg}>
-            <Image className={style.user} src={user} alt={"user"} />
-            <Image className={style.pencil} src={IconPencil} alt={"IconPencil"} />
+            <Image className={style.user} src={user} alt={'user'} />
+            <Image className={style.pencil} src={IconPencil} alt={'IconPencil'} />
           </div>
           <div>
             <p>{t('p_name')}:</p>
