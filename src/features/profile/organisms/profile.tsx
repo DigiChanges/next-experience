@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 import style from './profile.module.css';
 import Link from 'next/link';
 import { images } from '@/features/shared/hooks/images';
+import IconPencil from '../../../asset/images/pencil.svg';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
