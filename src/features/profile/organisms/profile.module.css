@@ -22,7 +22,7 @@
 }
 
 .containerProfile{
-    @apply flex flex-col items-start justify-between w-full bg-bgGrey  p-5 h-[100vh] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+    @apply flex flex-col items-start justify-between w-full bg-bgGrey  p-5 min-h-[100vh] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
     transition: .5s;
 }
 .containerProfile p{
@@ -38,7 +38,7 @@
 }
 
 .containerList{
-    @apply relative flex flex-col justify-center items-center gap-[2rem] h-full w-full max-w-[25rem] mx-auto;
+    @apply relative flex flex-col justify-center items-center gap-4 h-full w-full max-w-[25rem] mx-auto py-[2rem];
     overflow-y: scroll;
 }
 .containerList::-webkit-scrollbar {
@@ -51,13 +51,31 @@
     @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
 }
 .containerList div{
-    @apply grid grid-cols-1 gap-4 w-full
+    @apply grid grid-cols-1 gap-1 w-full
 }
 .containerList p{
-    @apply font-bold
+
 }
-.containerList p:nth-child(2){
-    @apply italic text-left font-normal
+.infoUser{
+    @apply !text-white !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput
+}
+.containerButtons{
+    @apply flex items-center justify-center gap-4 w-full max-w-[25rem] mx-auto
+}
+.containerButtons a{
+    @apply w-[12rem] px-4
+}
+.password{
+    @apply bg-secondary !text-white !text-center leading-[1.2]
+}
+.containerImg{
+    @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
+}
+.pencil{
+    @apply absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(150%, 150%);
 }
 
 @media (max-width: 640px){
@@ -81,10 +99,10 @@
         @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[1rem] font-normal
     }
     .containerProfile{
-        @apply rounded-2xl h-[100%]
+        @apply rounded-2xl h-[100%] min-h-[60vh]
     }
     .containerList div{
-        @apply grid-cols-2
+
     }
     .containerList p:nth-child(2){
         @apply text-center

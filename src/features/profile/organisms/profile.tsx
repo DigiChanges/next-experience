@@ -2,9 +2,13 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import style from './profile.module.css';
 import Link from 'next/link';
+import {images} from "@/features/shared/hooks/images";
+import IconPencil from "../../../asset/images/pencil.svg";
+import Image from "next/image";
 
 export const Profile = () => {
   const t = useTranslations('Profile');
+  const { user } = images();
 
   return (
     <div className={style.container}>
@@ -15,26 +19,32 @@ export const Profile = () => {
         <h1 data-aos="fade-down" data-aos-duration="1500">
           {t('title')}
         </h1>
-        <h2>{t('description')}</h2>
         <div className={style.containerList}>
+          <div className={style.containerImg}>
+            <Image className={style.user} src={user} alt={"user"} />
+            <Image className={style.pencil} src={IconPencil} alt={"IconPencil"} />
+          </div>
           <div>
             <p>{t('p_name')}:</p>
-            <p>Maria</p>
+            <p className={style.infoUser}>Maria</p>
           </div>
           <div>
             <p>{t('p_lastname')}:</p>
-            <p>Pepita</p>
+            <p className={style.infoUser}>Pepita</p>
           </div>
           <div>
             <p>{t('p_email')}:</p>
-            <p>pepita@gmail.com</p>
+            <p className={style.infoUser}>pepita@gmail.com</p>
           </div>
           <div>
             <p>{t('p_phone')}:</p>
-            <p>123123123</p>
+            <p className={style.infoUser}>123123123</p>
           </div>
         </div>
-        <Link href={'/settings'}>Editar contraseña</Link>
+        <div className={style.containerButtons}>
+          <Link href={'/dashboard'}>Volver a home</Link>
+          <Link className={style.password} href={'/settings'}>Editar contraseña</Link>
+        </div>
       </div>
     </div>
   );
