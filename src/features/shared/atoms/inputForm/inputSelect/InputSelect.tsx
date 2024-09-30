@@ -5,7 +5,7 @@ type Props<TFormValues extends FieldValues> = {
     name: Path<TFormValues>;
     label?: string;
     register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    errors:  Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     className?: string;
     classNameError?: string;
@@ -24,6 +24,9 @@ export const InputSelect = <TFormValues extends Record<string, unknown>>({
   disabled,
   options
 }: Props<TFormValues>) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  // TODO: arreglar tipado, Type 'Path<TFormValues>' cannot be used to index type 'Partial<DeepMap<TFormValues, FieldError>>'.
   const error = errors[name];
 
   const renderOptions = () => {

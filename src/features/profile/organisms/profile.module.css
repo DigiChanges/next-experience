@@ -1,0 +1,126 @@
+.container{
+    @apply bg-transparent w-[100%] min-h-[100vh] text-white flex flex-col items-start;
+}
+.container h1{
+    @apply pt-[4rem] font-semibold text-[2rem] text-white border-solid border-b-secondary border-b-[2px];
+    max-height: fit-content;
+}
+.container h2{
+    @apply text-white text-[1.2rem] font-[400] pt-1 pb-5
+}
+.containerUrl{
+    @apply hidden
+}
+.containerUrl a{
+    @apply no-underline text-white cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
+}
+.containerUrl span{
+    @apply text-[1.5rem]
+}
+.containerUrl .urlActive{
+    @apply text-white font-medium
+}
+
+.containerProfile{
+    @apply flex flex-col items-start justify-between w-full bg-bgGrey  p-5 min-h-[100vh] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+    transition: .5s;
+}
+.containerProfile p{
+    @apply text-white
+}
+.containerProfile a{
+    @apply w-full max-w-[25rem] h-12 flex items-center justify-center mx-auto py-2 font-medium text-[1rem] text-secondary tracking-wider px-[1.3em] rounded-lg border-[none] border-1 border-secondary shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-hoverButtonBlue hover:text-white active:scale-[98%];
+}
+
+.no-welcome {
+    transition: .5s;
+    display: none;
+}
+
+.containerList{
+    @apply relative flex flex-col justify-center items-center gap-4 h-full w-full max-w-[25rem] mx-auto py-[2rem];
+    overflow-y: scroll;
+}
+.containerList::-webkit-scrollbar {
+    width: 6px;
+}
+.containerList::-webkit-scrollbar-track {
+    @apply bg-transparent
+}
+.containerList::-webkit-scrollbar-thumb {
+    @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
+}
+.containerList div{
+    @apply grid grid-cols-1 gap-1 w-full
+}
+.containerList p{
+
+}
+.infoUser{
+    @apply !text-white !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput
+}
+.containerButtons{
+    @apply flex items-center justify-center gap-4 w-full max-w-[25rem] mx-auto
+}
+.containerButtons a{
+    @apply w-[12rem] px-4
+}
+.password{
+    @apply bg-secondary !text-white !text-center leading-[1.2]
+}
+.containerImg{
+    @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
+}
+.pencil {
+    @apply absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(130%, 130%);
+    cursor: pointer;
+}
+
+@media (max-width: 640px){
+    .loading-animation {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@screen md{
+    .container{
+        @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
+    }
+    .container h1{
+        @apply text-[2.8rem] pr-[4rem] pt-0
+    }
+    .container h2{
+        @apply h-[10%] text-[1.5rem];
+    }
+    .containerUrl{
+        @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[1rem] font-normal
+    }
+    .containerProfile{
+        @apply rounded-2xl h-[100%] min-h-[60vh]
+    }
+    .containerList div{
+
+    }
+    .containerList p:nth-child(2){
+        @apply text-center
+    }
+    .containerList{
+        @apply min-h-[50vh]
+    }
+    .arrowRight{
+        @apply hidden
+    }
+    .containerProfile a{
+        @apply mb-5
+    }
+}
+@screen lg{
+}
+@screen xl{
+}
+@screen 2xl{
+}

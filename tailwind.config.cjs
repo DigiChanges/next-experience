@@ -98,6 +98,9 @@ module.exports = {
           bgInputFilter:{
             DEFAULT: '#F5F5F5'
           },
+          bgInputDisabled:{
+            DEFAULT: '#F4F4F5'
+          },
           bgSelectFilter:{
             DEFAULT: '#E4E4E4'
           },
@@ -173,6 +176,9 @@ module.exports = {
           },
           bgInputFilter:{
             DEFAULT: '#FFFFFF'
+          },
+          bgInputDisabled:{
+            DEFAULT: 'rgba(63,63,70,0.52)'
           },
           bgSelectFilter:{
             DEFAULT: '#1A1C1F'
