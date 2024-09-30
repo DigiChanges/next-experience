@@ -4,6 +4,7 @@ import { UseFormRegister, FieldValues } from 'react-hook-form';
 type Props<TFormValues extends FieldValues> = {
     type: 'text' | 'number' | 'email' | 'password' | 'date' | 'datetime-local',
     name: string | any;
+
     label?: string;
     register: UseFormRegister<TFormValues>;
     errors: any;

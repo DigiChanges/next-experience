@@ -135,7 +135,7 @@ export const List = ({ items, pagination }: Props) => {
               isDropdownOpen={openDropdownId === item.id}
               item={
                 <div className={styleCard.containerInfo}>
-                  <h2 className="text-md">Type: {item.type}</h2>
+                  <h2 className="text-md">Description: {item.description}</h2>
                   <h3 className={styleCard.name}>{item.name}</h3>
                   <p>$500.000</p>
                   <p>EXP: 25/12/2024</p>
