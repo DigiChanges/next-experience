@@ -10,7 +10,7 @@ export const getUser = async() => {
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
   if (error) {
-    throw new Error('Error at updating the password', error);
+    throw new Error('Error at getting the user', error);
   }
   if (!user) {
     redirect('/auth/login', RedirectType.push);
