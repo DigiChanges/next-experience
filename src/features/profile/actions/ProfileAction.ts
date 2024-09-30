@@ -7,8 +7,8 @@ export const getUser = async() => {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
-  const { data: { user }, error } = await supabase.auth.getUser();
-
+  const { data, error } = await supabase.auth.getSession();
+  const user = data?.session?.user;
   if (error) {
     throw new Error('Error at updating the password', error);
   }

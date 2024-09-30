@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
+import { UseFormRegister, FieldValues } from 'react-hook-form';
 import { InputSimple } from '@/features/shared/atoms/inputForm/inputSimple/InputSimple';
 import { InputFile } from '@/features/shared/atoms/inputForm/inputFile/InputFile';
 import { InputSelect } from '@/features/shared/atoms/inputForm/inputSelect/InputSelect';
@@ -7,10 +7,10 @@ import { InputSelect } from '@/features/shared/atoms/inputForm/inputSelect/Input
 type Props<TFormValues extends FieldValues> = {
     type: 'text' | 'number' | 'email' | 'password' | 'date' | 'datetime-local',
     input_type: InputType,
-    name: Path<TFormValues>;
+    name: string | any;
     label?: string;
     register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    errors: any;
     id: string;
     maxDate?: string;
     className?: string;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
+import { UseFormRegister, FieldValues } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
-    name: Path<TFormValues>;
+    name: string | any;
     label?: string;
     register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    errors: any;
     id: string;
     className?: string;
     classNameError?: string;
