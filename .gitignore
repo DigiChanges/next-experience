@@ -6,7 +6,7 @@ node_modules
 .pnp.js
 .yarn/install-state.gz
 .idea
-.env.local
+.env
 .env.local
 
 # testing

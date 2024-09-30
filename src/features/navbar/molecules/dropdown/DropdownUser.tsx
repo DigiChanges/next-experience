@@ -68,7 +68,7 @@ export const DropdownUser = (props: Props) => {
         initial={{ height: 0 }}
         animate={{ height: props.isUserDropdownOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-        className={style.containerPerfil}
+        className={`${style.containerPerfil} ${props.isUserDropdownOpen ? style.shadow : ''}`}
       >
         <div className={style.perfil}>
           <div className={style.containerIconUserOpen}>
