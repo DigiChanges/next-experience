@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import style from './profile.module.css';
 import Link from 'next/link';
 import { images } from '@/features/shared/hooks/images';
-import IconPencil from '../../../asset/images/pencil.svg';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,10 +10,6 @@ import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputFor
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { toast } from 'react-toastify';
-
-type IProfileForm = {
-  file?: FileList | any | null;
-}
 
 type Props = {
     userProfile: {
@@ -27,7 +22,7 @@ type Props = {
 };
 
 export const Profile = ({ userProfile }: Props) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(profileImageSchema)
   });
   const t = useTranslations('Profile');
@@ -44,8 +39,9 @@ export const Profile = ({ userProfile }: Props) => {
 
   const phoneNumber =  userProfile.phone && userProfile.phone?.length > 0 ? userProfile.phone : <>{t('p_phone')}</>;
 
-  const handleFileInputClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.currentTarget.click();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const handleFileInputClick = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -61,9 +57,7 @@ export const Profile = ({ userProfile }: Props) => {
         <div className={style.containerList} id={userProfile.id}>
           <div className={style.containerImg}>
             <Image className={style.user} src={user} alt={'user'}/>
-            <form style={{ color: 'inherit' }} onSubmit={handleSubmit(async(data) => {
-              await createAction(data);
-            })}>
+            <form style={{ color: 'inherit' }} onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
               <div onClick={handleFileInputClick}>
                 <svg
                   className={style.pencil}
