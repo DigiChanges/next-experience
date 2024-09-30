@@ -1,12 +1,12 @@
 import React, { ChangeEvent } from 'react';
-import { UseFormRegister, FieldValues } from 'react-hook-form';
+import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
     type: 'text' | 'number' | 'email' | 'password' | 'date' | 'datetime-local',
-    name: string | any;
+    name: Path<TFormValues>;
     label?: string;
     register: UseFormRegister<TFormValues>;
-    errors: any;
+    errors:  Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     maxDate?: string;
     className?: string;
@@ -32,6 +32,9 @@ export const InputSimple = <TFormValues extends Record<string, unknown>>({
   onChange,
   value
 }: Props<TFormValues>) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  // TODO: arreglar tipado, Type 'Path<TFormValues>' cannot be used to index type 'Partial<DeepMap<TFormValues, FieldError>>'.
   const error = errors[name];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
