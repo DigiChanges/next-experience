@@ -61,5 +61,3 @@ export const getOne = async({ id }: PayloadProps) => {
 
   return HttpService.request<ItemsResponse>(config);
 };
-
-

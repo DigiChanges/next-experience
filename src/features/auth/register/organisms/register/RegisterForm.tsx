@@ -27,7 +27,6 @@ export const RegisterForm = () => {
     reset();
   });
 
-
   return (
     <div className={style.container}>
       <h2>{t('title')}</h2>

@@ -3,7 +3,7 @@ export interface IItemApiResponse
 {
     id: string;
     name: string;
-    type: number;
+    description: number;
     createdAt: number;
     updatedAt: number;
 }
