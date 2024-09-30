@@ -71,11 +71,12 @@
 .containerImg{
     @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
 }
-.pencil{
+.pencil {
     @apply absolute;
     bottom: 50%;
     right: 50%;
-    transform: translate(150%, 150%);
+    transform: translate(130%, 130%);
+    cursor: pointer;
 }
 
 @media (max-width: 640px){
