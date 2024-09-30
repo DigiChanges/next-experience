@@ -12,6 +12,7 @@
     "prepare": "husky install",
     "ts:check": "tsc -p tsconfig.json --noEmit",
     "lint:fix": "eslint 'src/**/*.{js,ts,jsx,tsx,html,json}' --fix",
+    "lint:fix:win": "eslint \"src/**/*.{js,ts,jsx,tsx,html,json}\" --fix",
     "husky:init": "npx husky-init",
     "server:start": "cd json-server && pnpm i && pnpm server:start"
   },
@@ -26,7 +27,7 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.49.2",
+    "react-hook-form": "^7.53.0",
     "react-icons": "^4.12.0",
     "react-magic-motion": "^1.0.9",
     "react-toastify": "^9.1.3",

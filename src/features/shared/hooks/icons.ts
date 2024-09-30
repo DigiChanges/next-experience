@@ -38,6 +38,7 @@ import { MdLanguage } from 'react-icons/md';
 import { IoLogOut } from 'react-icons/io5';
 import authWelcome from '../../../asset/icons/welcome.webp';
 import expiredLink from '../../../asset/icons/expired.webp';
+import IconPencil from '../../../asset/images/pencil.svg';
 
 export const icons = () => {
   return {
@@ -79,6 +80,7 @@ export const icons = () => {
     MdLanguage,
     IoLogOut,
     authWelcome,
-    expiredLink
+    expiredLink,
+    IconPencil
   };
 };

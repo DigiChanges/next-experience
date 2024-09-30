@@ -156,6 +156,17 @@
     "s_passwordMinCharacters": "Password must be at least 8 characters",
     "s_passwordsMatch": "Passwords must match"
   },
+  "Profile": {
+    "title": "Account Information",
+    "description": "Saved during Registration",
+    "home": "Home",
+    "Dashboard": "Dashboard",
+    "Profile": "Profile",
+    "p_name": "Name",
+    "p_lastname": "Lastname",
+    "p_email": "Email",
+    "p_phone": "Phone"
+  },
   "ToastLogin": {
     "error": "Oops, something went wrong",
     "success": "Welcome to next experience",
