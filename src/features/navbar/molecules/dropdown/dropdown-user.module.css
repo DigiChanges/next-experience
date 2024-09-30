@@ -25,7 +25,10 @@
 }
 
 .containerPerfil{
-    @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3 z-40
+    @apply overflow-hidden absolute right-0 min-w-[18rem] mt-3 z-40;
+}
+.shadow{
+    box-shadow: 10px 15px 0px 100vw rgba(0,0,0,0.25);
 }
 .perfil{
     @apply flex flex-col bg-bgGrey relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary z-40

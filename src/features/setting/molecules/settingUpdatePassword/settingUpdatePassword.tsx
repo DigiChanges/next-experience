@@ -32,7 +32,7 @@ export const SettingUpdatePassword = () => {
 
   return (
     <form className={style.form} onSubmit={(data) => onSubmit(data)}>
-      <div>
+      <div className={style.formContainer} >
         <InputForm<IsettingUpdatePassaword> errors={errors} id={'password'} name={'password'} register={register}
           type={'password'} label={t('password')} className={style.input} input_type={InputType.SIMPLE}
           classNameError={style.inputError}/>

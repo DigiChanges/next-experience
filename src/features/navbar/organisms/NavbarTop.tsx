@@ -15,9 +15,11 @@ export const NavbarTop = (props: Props) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState<boolean>(false);
   const handleDropdownUser = () => {
     setIsUserDropdownOpen(!isUserDropdownOpen);
+    setIsLangDropdownOpen(false);
   };
   const handleDropdownLang = () => {
     setIsLangDropdownOpen(!isLangDropdownOpen);
+    setIsUserDropdownOpen(false);
   };
 
   return (

@@ -31,7 +31,7 @@ export const ChangeLanguage = (props: Props) => {
         initial={{ height: 0 }}
         animate={{ height: props.isLangDropdownOpen ? 'auto' : 0 }}
         transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-        className={style.containerPerfil}
+        className={`${style.containerPerfil} ${props.isLangDropdownOpen ? style.shadow : ''}`}
       >
         <div className={style.perfil}>
           <div className={style.perfilSections}>
