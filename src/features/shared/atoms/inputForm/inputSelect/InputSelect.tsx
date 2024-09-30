@@ -5,7 +5,7 @@ type Props<TFormValues extends FieldValues> = {
     name: Path<TFormValues>;
     label?: string;
     register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
+    errors:  Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     className?: string;
     classNameError?: string;
