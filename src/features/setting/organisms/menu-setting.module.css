@@ -50,7 +50,7 @@
     @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
 }
 .tab{
-    @apply flex items-start justify-between absolute w-[100%]
+    @apply flex items-start justify-between absolute w-[100%] transition-all
 }
 .tab .labelCheck{
     @apply flex w-full items-center justify-between h-16 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
@@ -71,7 +71,8 @@
     top: calc(2 * 5rem);
 }
 .tab .divRight{
-    @apply fixed bg-bgGrey z-50 hidden top-0 right-[-500px] h-[100%] px-[2rem] pt-[5rem] text-start overflow-hidden !transition-all
+    @apply fixed bg-bgGrey z-50 hidden top-0 right-[-500px] h-[100%] px-[2rem] pt-[5rem] text-start overflow-hidden !transition-all;
+
 }
 .inputCheck:checked + .labelCheck {
     @apply text-white bg-[#3FAFFE34] border-none rounded-[8px];
@@ -104,7 +105,7 @@
     }
 }
 
-@screen md{
+@screen lg{
     .container{
         @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
     }
