@@ -10,9 +10,10 @@ import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputFor
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { toast } from 'react-toastify';
+import { uploadUser } from '@/features/profile/actions/ProfileAction';
 
 type IProfileForm = {
-  file?: FileList | any | null;
+  file?: object | null | undefined;
 }
 
 type Props = {
@@ -21,20 +22,21 @@ type Props = {
         email?: string;
         last_name?: string;
         first_name?: string;
-        id?: string;
+        id: string;
+        image_id?: string;
     };
 };
 
 export const Profile = ({ userProfile }: Props) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({
-    resolver: yupResolver(profileImageSchema)
-  });
   const t = useTranslations('Profile');
+  const alert = useTranslations('ToastProfile');
+
+  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({ resolver: yupResolver(profileImageSchema) });
   const { user } = images();
-  const alert = useTranslations('ToastCreate');
 
   const createAction = async(data: { file?: object | null | undefined; }) => {
-    await  toast.promise(handleUploadFile({ data }), {
+    const file_id = await handleUploadFile(data);
+    await  toast.promise(uploadUser(file_id.id, userProfile.id), {
       error: `${alert('error')}`,
       success: `${alert('success')}`,
       pending:`${alert('pending')}`

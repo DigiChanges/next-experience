@@ -16,6 +16,7 @@ type Props<TFormValues extends FieldValues> = {
     multiple?:boolean;
 }
 
+
 export const InputFile = <TFormValues extends Record<string, unknown>>({
   name,
   register,
@@ -30,8 +31,6 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   value,
   multiple
 }: Props<TFormValues>) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   // TODO: arreglar tipado, Type 'Path<TFormValues>' cannot be used to index type 'Partial<DeepMap<TFormValues, FieldError>>'.
   const error = errors[name];
 
