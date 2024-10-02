@@ -20,7 +20,7 @@ type Props<TFormValues extends FieldValues> = {
     classNameError?: string;
     disabled?: boolean;
     options?: { value: string | number | boolean, label: string }[];
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React. ChangeEvent<HTMLInputElement>, data?: { file?: object | null | undefined; }) => Promise<any>
 }
 
 export enum InputType {

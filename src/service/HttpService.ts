@@ -16,7 +16,7 @@ class HttpService {
       const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
       const response = await fetch(urlWithParams, {
         method,
-        body,
+        data,
         ...defaultHeaders
       });
 
@@ -25,6 +25,7 @@ class HttpService {
       }
       return await response.json();
     } catch (e) {
+      console.log((e as { message: string})?.message);
       throw new Error((e as { message: string})?.message);
     }
   }

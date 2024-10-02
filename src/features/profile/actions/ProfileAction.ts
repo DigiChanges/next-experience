@@ -24,17 +24,16 @@ export const getUser = async() => {
   const supabase = createClient(cookieStore);
   const user = await getBasicUser();
   const { data, error } = await supabase.from('profiles').select().eq('id', user?.id);
-  console.log(error);
   if (error) {
     throw new Error('Error at getting the user');
   }
   return { id: user?.id, image_id: data[0]?.image_id, phone: user?.phone,  email: user?.email, last_name: data[0]?.last_name, first_name: data[0]?.first_name };
 };
 
-export const uploadUser = async(file: string, id: string) => {
+export const uploadUser = async(image_id: string| null | undefined, id: string) => {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
-  const { error } = await supabase.from('profiles').update({ image_id: file }).eq('id', id);
+  const { error } = await supabase.from('profiles').update({ image_id }).eq('id', id);
 
   if (error) {
     throw new Error('Error at updating the user');

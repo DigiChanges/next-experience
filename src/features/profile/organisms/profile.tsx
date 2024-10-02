@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import style from './profile.module.css';
@@ -13,7 +14,8 @@ import { toast } from 'react-toastify';
 import { uploadUser } from '@/features/profile/actions/ProfileAction';
 
 type IProfileForm = {
-  file?: object | null | undefined;
+  file?: any;
+  image_id?: string| null | undefined;
 }
 
 type Props = {
@@ -29,30 +31,50 @@ type Props = {
 
 export const Profile = ({ userProfile }: Props) => {
   const t = useTranslations('Profile');
-  const alert = useTranslations('ToastProfile');
+  const alert = useTranslations('ToastUpdate');
 
-  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({ resolver: yupResolver(profileImageSchema) });
+  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({
+    resolver: yupResolver(profileImageSchema)
+  });
   const { user } = images();
-
-  const createAction = async(data: { file?: object | null | undefined; }) => {
-    const file_id = await handleUploadFile(data);
-    await  toast.promise(uploadUser(file_id.id, userProfile.id), {
-      error: `${alert('error')}`,
-      success: `${alert('success')}`,
-      pending:`${alert('pending')}`
-    });
-  };
 
   const phoneNumber =  userProfile.phone && userProfile.phone?.length > 0 ? userProfile.phone : <>{t('p_phone')}</>;
 
-  const handleFileInputClick = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.currentTarget.click();
+  const [isHiddenInput, setIsHiddenInput] = React.useState(true);
+
+  const handleFileInputClick = () => {
+    setIsHiddenInput(!isHiddenInput);
+  };
+
+  const handleChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    if (event.target.files && event.target.files[0]) {
+      const file = new FormData();
+      file.append('file', event.target.files[0]);
+      const file_id = await handleUploadFile(file);
+      if (file_id) {
+        return file_id;
+      }
+    }
+  };
+
+  const createAction = async(data: IProfileForm) => {
+    console.log(data);
+    // if (data.image_id) {
+    //   await toast.promise(uploadUser(data.image_id, userProfile.id), {
+    //     error: `${alert('error')}`,
+    //     success: `${alert('success')}`,
+    //     pending: `${alert('pending')}`
+    //   });
+    // }
   };
 
   return (
     <div className={style.container}>
       <div className={style.containerUrl}>
-        <p>{t('home')}</p><span>›</span><Link href={'/dashboard'}>{t('Dashboard')}</Link><span>›</span><p
+        <p>{t('home')}</p><span>›</span>
+        <Link href={'/dashboard'}>{t('Dashboard')}</Link><span>›
+        </span><p
           className={style.urlActive}>{t('Profile')}</p>
       </div>
       <div className={style.containerProfile}>
@@ -61,34 +83,35 @@ export const Profile = ({ userProfile }: Props) => {
         </h1>
         <div className={style.containerList} id={userProfile.id}>
           <div className={style.containerImg}>
-            <Image className={style.user} src={user} alt={'user'}/>
-            <form style={{ color: 'inherit' }} onSubmit={handleSubmit(async(data) => {
-              await createAction(data);
-            })}>
-              <div onClick={handleFileInputClick}>
-                <svg
-                  className={style.pencil}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="48"
-                  height="48"
-                  viewBox="0 0 32 32"
-                  preserveAspectRatio="xMidYMid meet"
-                  style={{ color: 'inherit' }}
-                >
-                  <g transform="translate(0,26) scale(0.1,-0.1)" fill="currentColor" stroke="none">
-                    <path
-                      d="M27 232 c-26 -28 -24 -182 1 -205 28 -26 182 -24 205 1 26 28 24 182 -1 205 -28 26 -182 24 -205 -1z m171 -34 c16 -16 15 -43 -3 -58 -12 -10 -20 -9 -40 4 -14 9 -25 22 -25 29 0 18 21 37 40 37 9 0 21 -5 28 -12z m-61 -116 c-41 -42 -87 -45 -87 -5 0 17 12 39 31 59 l32 33 27 -27 28 -27 -31 -33z"/>
-                  </g>
-                </svg>
-              </div>
+            <Image src={user} alt={'user'} className={style.user}/>
+            <div onClick={handleFileInputClick} style={{ cursor: 'pointer' }}>
+              <svg
+                className={style.pencil}
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 32 32"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <g transform="translate(0,26) scale(0.1,-0.1)" fill="currentColor" stroke="none">
+                  <path
+                    d="M27 232 c-26 -28 -24 -182 1 -205 28 -26 182 -24 205 1 26 28 24 182 -1 205 -28 26 -182 24 -205 -1z m171 -34 c16 -16 15 -43 -3 -58 -12 -10 -20 -9 -40 4 -14 9 -25 22 -25 29 0 18 21 37 40 37 9 0 21 -5 28 -12z m-61 -116 c-41 -42 -87 -45 -87 -5 0 17 12 39 31 59 l32 33 27 -27 28 -27 -31 -33z"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit(createAction)}>
               <InputForm
-                type={'text'}
+                type={'file'}
                 name={'file'}
-                label={t('Image')}
+                label={'Image'}
                 register={register}
                 errors={errors}
                 id={'file'}
                 input_type={InputType.FILE}
+                className={isHiddenInput ? style.hiddenInput : '' }
+                onChange={handleChange}
               />
             </form>
           </div>
