@@ -98,7 +98,7 @@ export const Profile = ({ userProfile }: Props) => {
               </svg>
             </div>
           </div>
-          <div>
+          <div  className={style.hiddenInput}>
             <InputForm
               type={'file'}
               name={'file'}
