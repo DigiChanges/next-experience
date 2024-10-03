@@ -33,17 +33,21 @@ export const Profile = ({ userProfile }: Props) => {
   const t = useTranslations('Profile');
   const alert = useTranslations('ToastUpdate');
 
-  const { register, handleSubmit, formState: { errors } } = useForm<IProfileForm>({
+  console.log(userProfile);
+
+  const { register, setValue, formState: { errors } } = useForm<IProfileForm>({
     resolver: yupResolver(profileImageSchema)
   });
   const { user } = images();
 
   const phoneNumber =  userProfile.phone && userProfile.phone?.length > 0 ? userProfile.phone : <>{t('p_phone')}</>;
 
-  const [isHiddenInput, setIsHiddenInput] = React.useState(true);
 
   const handleFileInputClick = () => {
-    setIsHiddenInput(!isHiddenInput);
+    const input = document.getElementById('file') as HTMLInputElement;
+    if (input) {
+      input.click();
+    }
   };
 
   const handleChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,20 +57,14 @@ export const Profile = ({ userProfile }: Props) => {
       file.append('file', event.target.files[0]);
       const file_id = await handleUploadFile(file);
       if (file_id) {
-        return file_id;
+        setValue('file', file_id.id);
+        await toast.promise(uploadUser(file_id.id, userProfile.id), {
+          error: `${alert('error')}`,
+          success: `${alert('success')}`,
+          pending: `${alert('pending')}`
+        });
       }
     }
-  };
-
-  const createAction = async(data: IProfileForm) => {
-    console.log(data);
-    // if (data.image_id) {
-    //   await toast.promise(uploadUser(data.image_id, userProfile.id), {
-    //     error: `${alert('error')}`,
-    //     success: `${alert('success')}`,
-    //     pending: `${alert('pending')}`
-    //   });
-    // }
   };
 
   return (
@@ -101,19 +99,17 @@ export const Profile = ({ userProfile }: Props) => {
             </div>
           </div>
           <div>
-            <form onSubmit={handleSubmit(createAction)}>
-              <InputForm
-                type={'file'}
-                name={'file'}
-                label={'Image'}
-                register={register}
-                errors={errors}
-                id={'file'}
-                input_type={InputType.FILE}
-                className={isHiddenInput ? style.hiddenInput : '' }
-                onChange={handleChange}
-              />
-            </form>
+            <InputForm
+              type={'file'}
+              name={'file'}
+              label={'Image'}
+              register={register}
+              errors={errors}
+              id={'file'}
+              input_type={InputType.FILE}
+              className={style.hiddenInput}
+              onChange={handleChange}
+            />
           </div>
           <div>
             <p>{t('p_name')}:</p>

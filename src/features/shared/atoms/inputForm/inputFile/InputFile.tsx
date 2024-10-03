@@ -45,6 +45,7 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
         <input
           type="file"
           id={id}
+          multiple={multiple}
           {...register(name)}
           className={error ? classNameError : ''}
           disabled={disabled}
