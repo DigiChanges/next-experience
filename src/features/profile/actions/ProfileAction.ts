@@ -2,6 +2,8 @@
 import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
 import { redirect, RedirectType } from 'next/navigation';
+import { handleGetFile } from '@/features/shared/actions/fileAction';
+import { env } from '@/config/api';
 
 interface User {
   id: string;
@@ -48,9 +50,15 @@ export const getUser = async() => {
     throw new Error('Error at getting the user');
   }
 
+  let image = data[0]?.image_id ?? null;
+  if (image){
+    image = await handleGetFile(image);
+    image = `${env.urlFile}/${image?.isPublic ? env.publicBucket : env.privateBucket}/data/${image?.path}`;
+  }
+
   const userComplete: User = {
     id: user.id,
-    image_id: data[0]?.image_id,
+    image_id: image,
     phone: user.phone ?? null,
     email: user.email ?? null,
     last_name: data[0]?.last_name,

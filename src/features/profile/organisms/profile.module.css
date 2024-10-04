@@ -71,6 +71,9 @@
 .containerImg{
     @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
 }
+.profileImage{
+    @apply w-20 h-20 rounded-[100px]
+}
 .pencil {
     @apply absolute;
     bottom: 50%;

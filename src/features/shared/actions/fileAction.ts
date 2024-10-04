@@ -21,3 +21,16 @@ export const handleUploadFile = async(data: object | null | undefined) => {
   }
 };
 
+export const handleGetFile = async(id:string) => {
+  try {
+    const config: IHttpParams = {
+      url: `${baseUrl}/${base}/metadata/${id}`,
+      method: 'GET'
+    };
+
+    return await HttpService.request(config);
+  } catch (e) {
+    throw new Error((e as { message: string})?.message);
+  }
+};
+

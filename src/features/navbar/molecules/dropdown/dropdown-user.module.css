@@ -15,7 +15,9 @@
 .iconUser .dropdown{
     @apply absolute centerAlign left-[300px] w-6 h-6 m-0
 }
-
+.profileImage{
+    @apply max-w-[56px] w-14 h-12 rounded-[50%] object-cover pr-1
+}
 .iconUser img {
     @apply  rounded-full w-10 h-10 m-auto transition-all;
 }
