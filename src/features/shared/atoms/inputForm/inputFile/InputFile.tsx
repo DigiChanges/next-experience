@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
@@ -11,10 +11,10 @@ type Props<TFormValues extends FieldValues> = {
     placeholder?: string;
     classNameError?: string;
     disabled?: boolean;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    value?: string | number;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>
     multiple?:boolean;
 }
+
 
 export const InputFile = <TFormValues extends Record<string, unknown>>({
   name,
@@ -27,15 +27,11 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   classNameError,
   disabled,
   onChange,
-  value,
   multiple
 }: Props<TFormValues>) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  // TODO: arreglar tipado, Type 'Path<TFormValues>' cannot be used to index type 'Partial<DeepMap<TFormValues, FieldError>>'.
   const error = errors[name];
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event);
     }
@@ -48,9 +44,8 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
         <input
           type="file"
           id={id}
-          value={value}
-          {...register(name)}
           multiple={multiple}
+          {...register(name)}
           className={error ? classNameError : ''}
           disabled={disabled}
           placeholder={placeholder}

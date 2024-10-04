@@ -1,18 +1,36 @@
-
-import { IHttpParams } from '@/service/IHttpParams';
-
+'use server';
+import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';
 import HttpService from '@/service/HttpService';
 import { config } from '@/features/shared/actions/config';
 
 const { baseUrl } = config.apiGateway.server;
 const { base } = config.apiGateway.routes.files;
 
-export const handleUploadFile = async(data: { data: object | null | undefined }) => {
-  const config: IHttpParams = {
-    url: `${baseUrl}/${base}`,
-    method: 'POST',
+export const handleUploadFile = async(data: object | null | undefined) => {
+  try {
+    const config: IHttpParams = {
+      url: `${baseUrl}/${base}`,
+      method: 'POST',
+      headers: HeadersContentType.FILE_FORM,
+      data
+    };
 
-    data
-  };
-  return await HttpService.request(config);
+    return await HttpService.request(config);
+  } catch (e) {
+    throw new Error((e as { message: string})?.message);
+  }
 };
+
+export const handleGetFile = async(id:string) => {
+  try {
+    const config: IHttpParams = {
+      url: `${baseUrl}/${base}/metadata/${id}`,
+      method: 'GET'
+    };
+
+    return await HttpService.request(config);
+  } catch (e) {
+    throw new Error((e as { message: string})?.message);
+  }
+};
+

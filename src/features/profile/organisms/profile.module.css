@@ -53,8 +53,8 @@
 .containerList div{
     @apply grid grid-cols-1 gap-1 w-full
 }
-.containerList p{
-
+.hiddenInput{
+    @apply hidden w-0 h-0 invisible
 }
 .infoUser{
     @apply !text-white !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput
@@ -70,6 +70,9 @@
 }
 .containerImg{
     @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
+}
+.profileImage{
+    @apply w-20 h-20 rounded-[100px]
 }
 .pencil {
     @apply absolute;

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import style from './recovery-code.module.css';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';

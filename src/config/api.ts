@@ -8,6 +8,9 @@ export interface Env {
   apiWithCredentials: string | undefined;
   apiBase: string | undefined;
   urlFront: string | undefined;
+  urlFile: string | undefined;
+  publicBucket: string | undefined;
+  privateBucket: string | undefined;
   [key: string]: string | undefined;
 }
 
@@ -20,7 +23,10 @@ export const env: Env = {
   apiPort: process.env.NEXT_PUBLIC_API_PORT,
   apiWithCredentials: process.env.NEXT_PUBLIC_API_WITH_CREDENTIALS,
   apiBase: process.env.NEXT_PUBLIC_API_BASE,
-  urlFront: process.env.NEXT_PUBLIC_URL_FRONT
+  urlFront: process.env.NEXT_PUBLIC_URL_FRONT,
+  urlFile: process.env.NEXT_PUBLIC_URL_FILE,
+  publicBucket: process.env.NEXT_PUBLIC_PUBLIC_BUCKET,
+  privateBucket: process.env.NEXT_PUBLIC_PRIVATE_BUCKET
 };
 
 export const validateEnv = () => {

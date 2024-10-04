@@ -34,6 +34,14 @@ type Props = {
     isUserDropdownOpen: boolean;
     handleDropdownUser: () => void;
     id?:string;
+    user?: {
+        phone: string | null;
+        email: string | null;
+        last_name: string | null;
+        first_name: string | null;
+        id: string;
+        image_id:  string | null;
+    };
 }
 
 export const DropdownUser = (props: Props) => {
@@ -60,8 +68,8 @@ export const DropdownUser = (props: Props) => {
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-          <Image src={props.dataUser.image} alt={'Icon user'} height={1920} width={1080}/>
-          <Image className={`${style.dropdown} ${rotate}`} src={props.dataUser.icon} alt={'dropdown'}/>
+          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
+          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={props.user?.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
         </button>
       </div>
       <motion.ul
@@ -72,20 +80,20 @@ export const DropdownUser = (props: Props) => {
       >
         <div className={style.perfil}>
           <div className={style.containerIconUserOpen}>
-            <Image className={style.iconUserOpen} src={props.dataUser.image} alt={'Icon user'} height={1920}
-              width={1080}/>
-            <p>{props.dataUser.username}</p>
+            <Image className={style.profileImage} src={props.user?.image_id ?? props.dataUser.image}
+              alt={'Icon user'} width={82} height={82}/>
+            <p>{props.user?.first_name ?? props.dataUser.username}</p>
           </div>
           {
             props.dataPerfil.map(({ description, path }) =>
               <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>
-                {path === '/profile' ? <IoPersonOutline /> : <IoSettingsOutline />}
+                {path === '/profile' ? <IoPersonOutline/> : <IoSettingsOutline/>}
                 <p>{t(description)}</p>
               </Link>
             )
           }
           <AccordionComponent key={props.id ?? '1'}
-            className={{ accordion:style.langResponsive }} accordionItemsProps={{
+            className={{ accordion: style.langResponsive }} accordionItemsProps={{
               ariaLabel: 'Accordion 1',
               title: <div className={style.langResponsiveTitle}><MdLanguage/>Idiomas</div>
             }}
@@ -93,12 +101,15 @@ export const DropdownUser = (props: Props) => {
               <>
                 <div
                   className={style.perfilSections}>
-                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
+                  <Link className={'ml-1 rounded p-1 text-white'}
+                    href={`${pathName}?${paramsString}`}
                     locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
                 </div>
                 <div className={style.perfilSections}>
-                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`}
-                    locale={'en'}>Ingles <Image src={IconFlagUsa} alt="flag usa"/></Link>
+                  <Link className={'ml-1 rounded p-1 text-white'}
+                    href={`${pathName}?${paramsString}`}
+                    locale={'en'}>Ingles <Image src={IconFlagUsa}
+                      alt="flag usa"/></Link>
                 </div>
               </>
             ]}/>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 import { InputSimple } from '@/features/shared/atoms/inputForm/inputSimple/InputSimple';
 import { InputFile } from '@/features/shared/atoms/inputForm/inputFile/InputFile';
@@ -9,8 +9,8 @@ type Props<TFormValues extends FieldValues> = {
     input_type: InputType,
     name: Path<TFormValues>;
     label?: string;
-    register?: UseFormRegister<TFormValues>;
-    errors?: Partial<DeepMap<TFormValues, FieldError>>;
+    register: UseFormRegister<TFormValues>;
+    errors: Partial<DeepMap<TFormValues, FieldError>>;
     id: string;
     maxDate?: string;
     className?: string;
@@ -20,7 +20,7 @@ type Props<TFormValues extends FieldValues> = {
     classNameError?: string;
     disabled?: boolean;
     options?: { value: string | number | boolean, label: string }[];
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>
 }
 
 export enum InputType {
