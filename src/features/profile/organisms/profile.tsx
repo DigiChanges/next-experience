@@ -14,26 +14,24 @@ import { toast } from 'react-toastify';
 import { uploadUser } from '@/features/profile/actions/ProfileAction';
 
 type IProfileForm = {
-  file?: any;
+  file?: object | null | undefined;
   image_id?: string| null | undefined;
 }
 
 type Props = {
     userProfile: {
-        phone?: string;
-        email?: string;
-        last_name?: string;
-        first_name?: string;
+        phone: string | null;
+        email: string | null;
+        last_name: string | null;
+        first_name: string | null;
         id: string;
-        image_id?: string;
+        image_id:  string | null;
     };
 };
 
 export const Profile = ({ userProfile }: Props) => {
   const t = useTranslations('Profile');
   const alert = useTranslations('ToastUpdate');
-
-  console.log(userProfile);
 
   const { register, setValue, formState: { errors } } = useForm<IProfileForm>({
     resolver: yupResolver(profileImageSchema)
@@ -42,9 +40,8 @@ export const Profile = ({ userProfile }: Props) => {
 
   const phoneNumber =  userProfile.phone && userProfile.phone?.length > 0 ? userProfile.phone : <>{t('p_phone')}</>;
 
-
   const handleFileInputClick = () => {
-    const input = document.getElementById('file') as HTMLInputElement;
+    const input: HTMLElement | null = document.getElementById('file');
     if (input) {
       input.click();
     }
@@ -52,10 +49,12 @@ export const Profile = ({ userProfile }: Props) => {
 
   const handleChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
+
     if (event.target.files && event.target.files[0]) {
       const file = new FormData();
       file.append('file', event.target.files[0]);
       const file_id = await handleUploadFile(file);
+
       if (file_id) {
         setValue('file', file_id.id);
         await toast.promise(uploadUser(file_id.id, userProfile.id), {

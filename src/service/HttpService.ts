@@ -25,7 +25,6 @@ class HttpService {
       }
       return await response.json();
     } catch (e) {
-      console.log((e as { message: string})?.message);
       throw new Error((e as { message: string})?.message);
     }
   }

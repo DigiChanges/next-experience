@@ -11,7 +11,7 @@ type Props<TFormValues extends FieldValues> = {
     placeholder?: string;
     classNameError?: string;
     disabled?: boolean;
-    onChange?: (event: React. ChangeEvent<HTMLInputElement>, data?: { file?: object | null | undefined; }) => Promise<any>
+    onChange?: (event: React. ChangeEvent<HTMLInputElement>) => Promise<void>
     multiple?:boolean;
 }
 
@@ -29,7 +29,6 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   onChange,
   multiple
 }: Props<TFormValues>) => {
-  // TODO: arreglar tipado, Type 'Path<TFormValues>' cannot be used to index type 'Partial<DeepMap<TFormValues, FieldError>>'.
   const error = errors[name];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

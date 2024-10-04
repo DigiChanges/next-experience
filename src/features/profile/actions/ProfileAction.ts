@@ -3,9 +3,22 @@ import { cookies } from 'next/headers';
 import { createClient } from '@/lib/server/server';
 import { redirect, RedirectType } from 'next/navigation';
 
-const getBasicUser = async() => {
+interface User {
+  id: string;
+  image_id: string | null;
+  phone: string | null;
+  email: string | null;
+  last_name: string | null;
+  first_name: string | null;
+}
+
+const getCookies = () => {
   const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  return createClient(cookieStore);
+};
+
+const getSession = async() => {
+  const supabase = getCookies();
 
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
@@ -19,25 +32,38 @@ const getBasicUser = async() => {
     return user;
   }
 };
+
 export const getUser = async() => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const user = await getBasicUser();
+  const supabase = getCookies();
+
+  const user = await getSession();
+
+  if (!user) {
+    redirect('/auth/login', RedirectType.push);
+  }
+
   const { data, error } = await supabase.from('profiles').select().eq('id', user?.id);
+
   if (error) {
     throw new Error('Error at getting the user');
   }
-  return { id: user?.id, image_id: data[0]?.image_id, phone: user?.phone,  email: user?.email, last_name: data[0]?.last_name, first_name: data[0]?.first_name };
+
+  const userComplete: User = {
+    id: user.id,
+    image_id: data[0]?.image_id,
+    phone: user.phone ?? null,
+    email: user.email ?? null,
+    last_name: data[0]?.last_name,
+    first_name: data[0]?.first_name
+  };
+
+  return userComplete;
 };
 
 export const uploadUser = async(image_id: string| null | undefined, id: string) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const { error } = await supabase.from('profiles').update({ image_id }).eq('id', id);
+  const supabase = getCookies();
 
-  if (error) {
-    throw new Error('Error at updating the user');
-  } else {
-    redirect('/dashboard', RedirectType.push);
-  }
+  await supabase.from('profiles').update({ image_id }).eq('id', id);
+
+  redirect('/dashboard', RedirectType.push);
 };

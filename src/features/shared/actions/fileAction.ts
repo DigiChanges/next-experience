@@ -6,7 +6,7 @@ import { config } from '@/features/shared/actions/config';
 const { baseUrl } = config.apiGateway.server;
 const { base } = config.apiGateway.routes.files;
 
-export const handleUploadFile = async(data: any) => {
+export const handleUploadFile = async(data: object | null | undefined) => {
   try {
     const config: IHttpParams = {
       url: `${baseUrl}/${base}`,
