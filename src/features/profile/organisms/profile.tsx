@@ -42,6 +42,7 @@ export const Profile = ({ userProfile }: Props) => {
 
   const handleFileInputClick = () => {
     const input: HTMLElement | null = document.getElementById('file');
+
     if (input) {
       input.click();
     }

@@ -14,6 +14,7 @@ export const handleUploadFile = async(data: object | null | undefined) => {
       headers: HeadersContentType.FILE_FORM,
       data
     };
+
     return await HttpService.request(config);
   } catch (e) {
     throw new Error((e as { message: string})?.message);
