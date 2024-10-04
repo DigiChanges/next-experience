@@ -84,7 +84,7 @@ export const Profile = ({ userProfile }: Props) => {
         <div className={style.containerList} id={userProfile.id}>
           <div className={style.containerImg}>
             <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage}/>
-            <div onClick={handleFileInputClick} style={{ cursor: 'pointer' }}>
+            <div onClick={handleFileInputClick}>
               <svg
                 className={style.pencil}
                 xmlns="http://www.w3.org/2000/svg"
