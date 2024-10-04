@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
@@ -11,7 +11,7 @@ type Props<TFormValues extends FieldValues> = {
     placeholder?: string;
     classNameError?: string;
     disabled?: boolean;
-    onChange?: (event: React. ChangeEvent<HTMLInputElement>) => Promise<void>
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>
     multiple?:boolean;
 }
 
@@ -31,7 +31,7 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
 }: Props<TFormValues>) => {
   const error = errors[name];
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event);
     }

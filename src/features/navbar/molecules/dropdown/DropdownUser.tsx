@@ -34,7 +34,7 @@ type Props = {
     isUserDropdownOpen: boolean;
     handleDropdownUser: () => void;
     id?:string;
-    user: {
+    user?: {
         phone: string | null;
         email: string | null;
         last_name: string | null;
@@ -68,8 +68,8 @@ export const DropdownUser = (props: Props) => {
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-          <Image src={props.user.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
-          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={props.user.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
+          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
+          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={props.user?.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
         </button>
       </div>
       <motion.ul
@@ -80,9 +80,9 @@ export const DropdownUser = (props: Props) => {
       >
         <div className={style.perfil}>
           <div className={style.containerIconUserOpen}>
-            <Image className={style.profileImage} src={props.user.image_id ?? props.dataUser.image}
+            <Image className={style.profileImage} src={props.user?.image_id ?? props.dataUser.image}
               alt={'Icon user'} width={82} height={82}/>
-            <p>{props.user.first_name ?? props.dataUser.username}</p>
+            <p>{props.user?.first_name ?? props.dataUser.username}</p>
           </div>
           {
             props.dataPerfil.map(({ description, path }) =>

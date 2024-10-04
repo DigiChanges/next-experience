@@ -8,7 +8,7 @@ import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser'
 
 type Props = {
   isPublic: boolean;
-  user: {
+  user?: {
     phone: string | null;
     email: string | null;
     last_name: string | null;
