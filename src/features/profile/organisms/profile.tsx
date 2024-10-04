@@ -5,6 +5,7 @@ import style from './profile.module.css';
 import Link from 'next/link';
 import { images } from '@/features/shared/hooks/images';
 import Image from 'next/image';
+import IconPencil from '../../../asset/images/pencil.svg';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
@@ -85,19 +86,7 @@ export const Profile = ({ userProfile }: Props) => {
           <div className={style.containerImg}>
             <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage}/>
             <div onClick={handleFileInputClick}>
-              <svg
-                className={style.pencil}
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 32 32"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <g transform="translate(0,26) scale(0.1,-0.1)" fill="currentColor" stroke="none">
-                  <path
-                    d="M27 232 c-26 -28 -24 -182 1 -205 28 -26 182 -24 205 1 26 28 24 182 -1 205 -28 26 -182 24 -205 -1z m171 -34 c16 -16 15 -43 -3 -58 -12 -10 -20 -9 -40 4 -14 9 -25 22 -25 29 0 18 21 37 40 37 9 0 21 -5 28 -12z m-61 -116 c-41 -42 -87 -45 -87 -5 0 17 12 39 31 59 l32 33 27 -27 28 -27 -31 -33z"/>
-                </g>
-              </svg>
+              <Image src={IconPencil} alt={'user'} className={style.pencil}/>
             </div>
           </div>
           <div  className={style.hiddenInput}>
