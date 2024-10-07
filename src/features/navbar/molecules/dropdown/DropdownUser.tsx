@@ -13,6 +13,7 @@ import { useSearchParams } from 'next/navigation';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
+import { User } from '@/features/navbar/organisms/NavbarTop';
 
 type Props = {
     dataPerfil: {
@@ -34,14 +35,7 @@ type Props = {
     isUserDropdownOpen: boolean;
     handleDropdownUser: () => void;
     id?:string;
-    user?: {
-        phone: string | null;
-        email: string | null;
-        last_name: string | null;
-        first_name: string | null;
-        id: string;
-        image_id:  string | null;
-    };
+    user?: User
 }
 
 export const DropdownUser = (props: Props) => {
