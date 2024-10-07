@@ -13,7 +13,6 @@ import { useSearchParams } from 'next/navigation';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
-import { getUser } from '@/features/profile/actions/ProfileAction';
 
 type Props = {
     dataPerfil: {
@@ -35,10 +34,17 @@ type Props = {
     isUserDropdownOpen: boolean;
     handleDropdownUser: () => void;
     id?:string;
+    user?: {
+        phone: string | null;
+        email: string | null;
+        last_name: string | null;
+        first_name: string | null;
+        id: string;
+        image_id:  string | null;
+    };
 }
 
-export const DropdownUser = async(props: Props) => {
-  const user = await getUser();
+export const DropdownUser = (props: Props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
   const rotate = props.isUserDropdownOpen ? style.rotate : '';
   const t = useTranslations('NavigationUser');
@@ -62,8 +68,8 @@ export const DropdownUser = async(props: Props) => {
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-          <Image src={user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
-          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={user?.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
+          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
+          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={props.user?.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
         </button>
       </div>
       <motion.ul
@@ -74,9 +80,9 @@ export const DropdownUser = async(props: Props) => {
       >
         <div className={style.perfil}>
           <div className={style.containerIconUserOpen}>
-            <Image className={style.profileImage} src={user?.image_id ?? props.dataUser.image}
+            <Image className={style.profileImage} src={props.user?.image_id ?? props.dataUser.image}
               alt={'Icon user'} width={82} height={82}/>
-            <p>{user?.first_name ?? props.dataUser.username}</p>
+            <p>{props.user?.first_name ?? props.dataUser.username}</p>
           </div>
           {
             props.dataPerfil.map(({ description, path }) =>
