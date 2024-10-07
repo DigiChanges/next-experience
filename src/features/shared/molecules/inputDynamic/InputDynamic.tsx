@@ -19,7 +19,6 @@ interface Props {
 }
 
 export const InputDynamic = (props: Props) => {
-export const InputDynamic = (props: Props): JSX.Element => {
   switch (props.keySelected.filter) {
     case EnumFilterApply.Single:
       return <InputSearchSimple {...props}/>;

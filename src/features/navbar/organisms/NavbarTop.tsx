@@ -8,14 +8,6 @@ import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser'
 
 type Props = {
   isPublic: boolean;
-  user?: {
-    phone: string | null;
-    email: string | null;
-    last_name: string | null;
-    first_name: string | null;
-    id: string;
-    image_id:  string | null;
-  };
 }
 
 export const NavbarTop = (props: Props) => {
@@ -49,7 +41,6 @@ export const NavbarTop = (props: Props) => {
                 handleDropdownLang={handleDropdownLang}
               />
               <DropdownUser dataPerfil={dataPerfil}
-                user={props.user}
                 style={style} dataUser={dataUser}
                 dataLogin={dataLogin}
                 isUserDropdownOpen={isUserDropdownOpen}
