@@ -2,6 +2,7 @@ export interface Env {
   urlBase: string | undefined;
   supabaseUrl: string | undefined;
   supabaseAnonKey: string | undefined;
+  supabasePrivateKey: string | undefined;
   apiProtocol: string | undefined;
   apiHostname: string | undefined;
   apiPort: string | undefined;
@@ -18,6 +19,7 @@ export const env: Env = {
   urlBase: process.env.NEXT_PUBLIC_URL_BASE,
   supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
   supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  supabasePrivateKey: process.env.NEXT_PRIVATE_SUPABASE_PRIVATE_KEY,
   apiProtocol: process.env.NEXT_PUBLIC_API_PROTOCOL,
   apiHostname: process.env.NEXT_PUBLIC_API_HOSTNAME,
   apiPort: process.env.NEXT_PUBLIC_API_PORT,

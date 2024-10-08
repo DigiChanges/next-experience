@@ -6,7 +6,7 @@ import { env } from '@/config/api';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { createClient } from '@/lib/server/server';
 
-interface User {
+export interface User {
   id: string;
   image_id: string | null;
   phone: string | null;

@@ -16,7 +16,8 @@
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",
-    "items": "Items"
+    "items": "Items",
+    "users": "Usuarios"
   },
   "NavigationUser": {
     "perfil": "Perfil",

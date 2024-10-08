@@ -1,7 +1,7 @@
 import { icons } from '@/features/shared/hooks/icons';
 import { images } from '@/features/shared/hooks/images';
 
-const { HomeIcon, ItemsIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown } = icons();
+const { HomeIcon, ItemsIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown, UsersIcon } = icons();
 const { BgUser } = images();
 
 export const dataClose = {
@@ -41,4 +41,10 @@ export const dataNav = [
     description: 'items',
     path: '/items',
   },
+  {
+    id: 3,
+    image: UsersIcon,
+    description: 'users',
+    path: '/users'
+  }
 ];

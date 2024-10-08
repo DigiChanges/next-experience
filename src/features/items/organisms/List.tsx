@@ -138,6 +138,7 @@ export const List = ({ items, pagination }: Props) => {
           {items.map((item) => (
             <CardItem
               key={item.id}
+              type='items'
               className={{
                 card:
                   openDropdownId === item.id
