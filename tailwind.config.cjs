@@ -65,9 +65,6 @@ module.exports = {
           cancel: {
             DEFAULT: '#585858'
           },
-          cancel: {
-            DEFAULT: "#585858"
-          },
           white: {
             DEFAULT: '#292D32'
           },
@@ -143,9 +140,6 @@ module.exports = {
           },
           cancel: {
             DEFAULT: '#585858'
-          },
-          cancel: {
-            DEFAULT: "#585858"
           },
           white: {
             DEFAULT: '#FFFFFF'
