@@ -17,8 +17,8 @@ import { uploadUser } from '@/features/profile/actions/ProfileAction';
 import { useTheme } from 'next-themes';
 
 type IProfileForm = {
-  file?: object | null | undefined;
-  image_id?: string| null | undefined;
+  file?: object | null;
+  image_id?: string| null;
 }
 
 type Props = {
@@ -56,7 +56,7 @@ export const Profile = ({ userProfile }: Props) => {
   const handleChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
 
-    if (event.target.files && event.target.files[0]) {
+    if (event.target.files?.[0]) {
       const file = new FormData();
       file.append('file', event.target.files[0]);
       const file_id = await handleUploadFile(file);
@@ -89,9 +89,9 @@ export const Profile = ({ userProfile }: Props) => {
         <div className={style.containerList} id={userProfile.id}>
           <div className={style.containerImg}>
             <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage}/>
-            <div onClick={handleFileInputClick}>
+            <button onClick={handleFileInputClick}>
               <Image src={ pencilToggle } alt={'pencil'} className={style.pencil}/>
-            </div>
+            </button>
           </div>
           <div  className={style.hiddenInput}>
             <InputForm
