@@ -85,7 +85,7 @@ export const List = ({ items, pagination }: Props) => {
   return (
     <section className={style.container}>
       <div className={style.containerAddFilter}>
-        <Title />
+        <Title section='Items' />
         <p className={style.subtitle}>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
         <div className={style.subcontainerAddFilter}>
           <div className={style.subcontainerAddFilter2}>

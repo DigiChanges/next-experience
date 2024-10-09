@@ -56,6 +56,23 @@
     "edit": "Editar",
     "selectFilter": "Seleccionar filtro"
   },
+
+  "UserList": {
+    "title": "Sección de Usuarios",
+    "filter": "Seleccionar filtro",
+    "name": "Nombre",
+    "search": "Buscar",
+    "button": "Aplicar",
+    "emptyItems": "No hay usuarios para mostrar",
+    "add": "Agregar",
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este ususario?",
+    "addItem": "Añadir ususario",
+    "clearAll": "Limpiar todo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "selectFilter": "Seleccionar filtro"
+  },
   "Login": {
     "username": "Nombre de usuario",
     "password": "Contraseña",

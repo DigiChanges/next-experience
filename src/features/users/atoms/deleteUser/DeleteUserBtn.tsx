@@ -2,7 +2,7 @@
 import React from 'react';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { useDisclosure } from '@nextui-org/react';
-import style from './delete-item.module.css';
+import style from './delete-user.module.css';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 import { toast } from 'react-toastify';
@@ -20,7 +20,7 @@ export const DeleteUserBtn = (props: Props) => {
   const { IoTrashOutline } = icons();
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
-  const t = useTranslations('Users');
+  const t = useTranslations('UserList');
 
   const handleDelete = async(id: string) => {
     await  toast.promise(deleteUser(id), {
