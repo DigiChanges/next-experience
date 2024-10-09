@@ -61,64 +61,62 @@ export const FormCreate = () => {
   };
 
   return (
-    <>
-      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <InputForm<Item>
-            type={'text'}
-            name={'name'}
-            label={t('name')}
-            register={register}
-            errors={errors}
-            id={'name'}
-            className={style.inputBlock}
-            input_type={InputType.SIMPLE}
-            classNameError={style.inputError}
-            disabled={isDisabled}
-          />
+    <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <InputForm<Item>
+          type={'text'}
+          name={'name'}
+          label={t('name')}
+          register={register}
+          errors={errors}
+          id={'name'}
+          className={style.inputBlock}
+          input_type={InputType.SIMPLE}
+          classNameError={style.inputError}
+          disabled={isDisabled}
+        />
 
-          <InputForm<Item>
-            type={'number'}
-            name={'description'}
-            label={t('description')}
-            register={register}
-            errors={errors}
-            id={'description'}
-            className={style.inputBlock}
-            input_type={InputType.SIMPLE}
-            classNameError={style.inputError}
-            disabled={isDisabled}
-          />
+        <InputForm<Item>
+          type={'number'}
+          name={'description'}
+          label={t('description')}
+          register={register}
+          errors={errors}
+          id={'description'}
+          className={style.inputBlock}
+          input_type={InputType.SIMPLE}
+          classNameError={style.inputError}
+          disabled={isDisabled}
+        />
 
-          {/* <InputForm<Item>*/}
-          {/*  type={'file'}*/}
-          {/*  name={'file'}*/}
-          {/*  label={t('file')}*/}
-          {/*  register={register}*/}
-          {/*  errors={errors}*/}
-          {/*  id={'file'}*/}
-          {/*  className={style.input}*/}
-          {/*  input_type={InputType.FILE}*/}
-          {/*  classNameError={style.inputError}*/}
-          {/*  onChange={(e) => handleChange(e, 'uploadFile')}*/}
-          {/*  multiple={false}*/}
-          {/*  disabled={isDisabled}*/}
-          {/* />*/}
+        {/* <InputForm<Item>*/}
+        {/*  type={'file'}*/}
+        {/*  name={'file'}*/}
+        {/*  label={t('file')}*/}
+        {/*  register={register}*/}
+        {/*  errors={errors}*/}
+        {/*  id={'file'}*/}
+        {/*  className={style.input}*/}
+        {/*  input_type={InputType.FILE}*/}
+        {/*  classNameError={style.inputError}*/}
+        {/*  onChange={(e) => handleChange(e, 'uploadFile')}*/}
+        {/*  multiple={false}*/}
+        {/*  disabled={isDisabled}*/}
+        {/* />*/}
 
+      </div>
+      <div className={style.containerBtn}>
+        <div className={style.btnClose}>
+          <Link href={'/items'}>
+            <button type="button" className={style.close}>
+              {s('cancel')}
+            </button>
+          </Link>
         </div>
-        <div className={style.containerBtn}>
-          <div className={style.btnClose}>
-            <Link href={'/items'}>
-              <button type="button" className={style.close}>
-                {s('cancel')}
-              </button>
-            </Link>
-          </div>
-          <div className={style.btnAdd}>
-            <button type="submit" className={style.addItem} disabled={isDisabled}>{t('add')}</button>
-          </div>
+        <div className={style.btnAdd}>
+          <button type="submit" className={style.addItem} disabled={isDisabled}>{t('add')}</button>
         </div>
-      </form>
-    </>
+      </div>
+    </form>
   );
 };

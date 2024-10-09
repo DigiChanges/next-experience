@@ -104,9 +104,6 @@
     .containerProfile{
         @apply rounded-2xl h-[100%] min-h-[60vh]
     }
-    .containerList div{
-
-    }
     .containerList p:nth-child(2){
         @apply text-center
     }
@@ -123,10 +120,4 @@
         @apply w-[1.6rem] h-[1.6rem];
         transform: translate(180%, 160%);
     }
-}
-@screen lg{
-}
-@screen xl{
-}
-@screen 2xl{
 }
