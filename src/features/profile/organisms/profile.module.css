@@ -75,11 +75,10 @@
     @apply w-20 h-20 rounded-[100px]
 }
 .pencil {
-    @apply absolute;
+    @apply absolute cursor-pointer w-[2rem] h-[2rem];
     bottom: 50%;
     right: 50%;
-    transform: translate(130%, 130%);
-    cursor: pointer;
+    transform: translate(140%, 150%);
 }
 
 @media (max-width: 640px){
@@ -119,6 +118,10 @@
     }
     .containerProfile a{
         @apply mb-5
+    }
+    .pencil {
+        @apply w-[1.6rem] h-[1.6rem];
+        transform: translate(180%, 160%);
     }
 }
 @screen lg{

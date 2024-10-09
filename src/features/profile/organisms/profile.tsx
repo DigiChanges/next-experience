@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { images } from '@/features/shared/hooks/images';
 import Image from 'next/image';
 import IconPencil from '../../../asset/images/pencil.svg';
+import IconPencilWhite from '../../../asset/images/pencilWhite.svg';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
@@ -13,6 +14,7 @@ import { profileImageSchema } from '@/features/profile/validations/profileImageS
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { toast } from 'react-toastify';
 import { uploadUser } from '@/features/profile/actions/ProfileAction';
+import { useTheme } from 'next-themes';
 
 type IProfileForm = {
   file?: object | null | undefined;
@@ -33,6 +35,8 @@ type Props = {
 export const Profile = ({ userProfile }: Props) => {
   const t = useTranslations('Profile');
   const alert = useTranslations('ToastUpdate');
+  const { theme } = useTheme();
+  const pencilToggle = theme === 'dark' ? IconPencilWhite : IconPencil;
 
   const { register, setValue, formState: { errors } } = useForm<IProfileForm>({
     resolver: yupResolver(profileImageSchema)
@@ -86,7 +90,7 @@ export const Profile = ({ userProfile }: Props) => {
           <div className={style.containerImg}>
             <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage}/>
             <div onClick={handleFileInputClick}>
-              <Image src={IconPencil} alt={'user'} className={style.pencil}/>
+              <Image src={ pencilToggle } alt={'pencil'} className={style.pencil}/>
             </div>
           </div>
           <div  className={style.hiddenInput}>
