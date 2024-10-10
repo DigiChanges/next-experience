@@ -1,21 +1,22 @@
 import React from 'react';
-import { Card, CardHeader  } from '@nextui-org/react';
-import { SizeType } from '@/features/shared/atoms/swich/switch';
+import { Card, CardHeader } from '@nextui-org/react';
+
 import { Dropdown } from '@/features/shared/atoms/dropdown/Dropdown';
+import { SizeType } from '@/features/shared/atoms/swich/switch';
 
 type CardItemProps = {
-  item:React.ReactNode;
+  item: React.ReactNode;
   className: {
-    card:string;
-    header:string;
+    card: string;
+    header: string;
   };
-  radius:SizeType;
-  isDropdownOpen:boolean;
-  handleDropdown: ()=> void;
-  id:string;
-}
+  radius: SizeType;
+  isDropdownOpen: boolean;
+  handleDropdown: () => void;
+  id: string;
+};
 
-export const  CardItem = ({ item, className, radius, isDropdownOpen, handleDropdown, id }: CardItemProps) => {
+export const CardItem = ({ item, className, radius, isDropdownOpen, handleDropdown, id }: CardItemProps) => {
   return (
     <Card className={className?.card} radius={radius} id={id}>
       <CardHeader className={className?.header}>
@@ -25,4 +26,3 @@ export const  CardItem = ({ item, className, radius, isDropdownOpen, handleDropd
     </Card>
   );
 };
-

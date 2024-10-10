@@ -1,14 +1,15 @@
-
 import React from 'react';
-import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
-import style from './edit-item.module.css';
-import { icons } from '@/features/shared/hooks/icons';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
+import { icons } from '@/features/shared/hooks/icons';
+
+import style from './edit-item.module.css';
+
 type Props = {
-    id: string;
-}
+  id: string;
+};
 
 export const EditItemBtn = ({ id }: Props) => {
   const { IoMdCreate } = icons();

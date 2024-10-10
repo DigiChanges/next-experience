@@ -1,10 +1,11 @@
 import React from 'react';
-import { LoginTemplate } from '@/features/auth/login/template/LoginTemplate';
-import { PublicLayout } from '@/layout/public-layout/PublicLayout';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import { LoginTemplate } from '@/features/auth/login/template/LoginTemplate';
+import { PublicLayout } from '@/layout/public-layout/PublicLayout';
+
 type Props = {
-    readonly params: {locale: string};
+  readonly params: { locale: string };
 };
 
 export default function Page({ params: { locale } }: Props) {
@@ -12,7 +13,7 @@ export default function Page({ params: { locale } }: Props) {
 
   return (
     <PublicLayout>
-      <LoginTemplate/>
+      <LoginTemplate />
     </PublicLayout>
   );
 }

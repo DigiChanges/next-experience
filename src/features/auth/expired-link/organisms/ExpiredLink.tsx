@@ -1,9 +1,11 @@
 import React from 'react';
-import style from './expired-link.module.css';
-import Link from 'next/link';
 import Image from 'next/image';
-import { icons } from '@/features/shared/hooks/icons';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+
+import { icons } from '@/features/shared/hooks/icons';
+
+import style from './expired-link.module.css';
 
 export const Expiredlink = () => {
   const t = useTranslations('ExpiredLink');

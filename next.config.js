@@ -2,14 +2,15 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNextIntl = require('next-intl/plugin')();
 const nextConfig = {
- images: {
+  images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'https://picsum.photos',
         port: '443'
       }
-    ]
+    ],
+    domains: ['localhost']
   }
 };
 

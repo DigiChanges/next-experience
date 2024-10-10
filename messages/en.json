@@ -40,7 +40,9 @@
     "title": "Section Items",
     "filter":"Select Filter",
     "name": "Name",
+    "description": "Description",
     "type": "Type",
+    "file": "File",
     "search": "Search",
     "button": "Apply",
     "emptyItems": "No items to display",
@@ -153,6 +155,26 @@
     "s_passwordConfirmNewRequired": "*Confirm New Password is a required field",
     "s_passwordMinCharacters": "Password must be at least 8 characters",
     "s_passwordsMatch": "Passwords must match"
+  },
+  "Profile": {
+    "title": "Account Information",
+    "description": "Saved during Registration",
+    "home": "Home",
+    "Dashboard": "Dashboard",
+    "Profile": "Profile",
+    "p_name": "Name",
+    "p_lastname": "Lastname",
+    "p_email": "Email",
+    "p_phone": "Phone"
+  },
+  "RecoveryCode": {
+    "title": "Enter your code",
+    "description": "Enter the 5 digit code sent to the email provided. If you can't find it, check your spam folder.",
+    "code": "0 0 0 0 0",
+    "send": "Verify",
+    "singIn": "Do you remember your password?",
+    "singInLink": "Login Here",
+    "codeLink": "Send another code"
   },
   "ToastLogin": {
     "error": "Oops, something went wrong",
