@@ -1,31 +1,31 @@
 import { icons } from '@/features/shared/hooks/icons';
 import { images } from '@/features/shared/hooks/images';
 
-
 const { HomeIcon, ItemsIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown } = icons();
-const { BgUser }  = images();
+const { BgUser } = images();
 
 export const dataClose = {
-  image: CloseIcon
+  image: CloseIcon,
 };
 export const dataUser = {
   image: BgUser,
   username: 'babyoda@gmail.com',
-  icon: IconDropdown
+  icon: IconDropdown,
 };
 export const dataPerfil = [
   {
     icon: IconUser,
     description: 'perfil',
-    path: '/profile'
-  }, {
+    path: '/profile',
+  },
+  {
     icon: IconSettings,
     description: 'settings',
-    path: '/settings'
-  }
+    path: '/settings',
+  },
 ];
 export const dataLogin = {
-  icon: IconLogOut
+  icon: IconLogOut,
 };
 
 export const dataNav = [
@@ -33,12 +33,12 @@ export const dataNav = [
     id: 1,
     image: HomeIcon,
     description: 'dashboard',
-    path: '/dashboard'
+    path: '/dashboard',
   },
   {
     id: 2,
     image: ItemsIcon,
     description: 'items',
-    path: '/items'
-  }
+    path: '/items',
+  },
 ];

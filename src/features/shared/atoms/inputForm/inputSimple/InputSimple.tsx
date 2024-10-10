@@ -2,20 +2,20 @@ import React, { ChangeEvent } from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
-    type: 'number' | 'text' | 'email' | 'password' | 'date' | 'datetime-local' | 'file';
-    name: Path<TFormValues>;
-    label?: string;
-    register: UseFormRegister<TFormValues>;
-    errors: Partial<DeepMap<TFormValues, FieldError>>;
-    id: string;
-    maxDate?: string;
-    className?: string;
-    placeholder?: string;
-    classNameError?: string;
-    disabled?: boolean;
-    value?: string | number;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+  type: 'number' | 'text' | 'email' | 'password' | 'date' | 'datetime-local' | 'file';
+  name: Path<TFormValues>;
+  label?: string;
+  register: UseFormRegister<TFormValues>;
+  errors: Partial<DeepMap<TFormValues, FieldError>>;
+  id: string;
+  maxDate?: string;
+  className?: string;
+  placeholder?: string;
+  classNameError?: string;
+  disabled?: boolean;
+  value?: string | number;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+};
 
 export const InputSimple = <TFormValues extends Record<string, unknown>>({
   type,
@@ -30,7 +30,7 @@ export const InputSimple = <TFormValues extends Record<string, unknown>>({
   disabled,
   maxDate,
   onChange,
-  value
+  value,
 }: Props<TFormValues>) => {
   const error = errors[name];
 

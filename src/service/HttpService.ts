@@ -1,6 +1,5 @@
-import { HeadersContentType, IHttpParams } from './IHttpParams';
 import { getDefaultHeaders, getParams } from './HttpHelper';
-
+import { HeadersContentType, IHttpParams } from './IHttpParams';
 
 class HttpService {
   static async request<T>(props: IHttpParams) {
@@ -13,11 +12,11 @@ class HttpService {
 
       const defaultHeaders = await getDefaultHeaders();
 
-      const body = headers === HeadersContentType.FILE_FORM ? data as T : JSON.stringify(data as T);
+      const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
       const response = await fetch(urlWithParams, {
         method,
         body,
-        ...defaultHeaders
+        ...defaultHeaders,
       });
 
       if (!response.ok) {
@@ -25,7 +24,7 @@ class HttpService {
       }
       return await response.json();
     } catch (e) {
-      throw new Error((e as { message: string})?.message);
+      throw new Error((e as { message: string })?.message);
     }
   }
 }

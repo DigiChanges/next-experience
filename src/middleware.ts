@@ -1,44 +1,45 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 import { CookieOptions, createServerClient } from '@supabase/ssr';
-import { localePrefix, locales, pathnames } from '@/config';
+import { NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 
-const privateRoutes =  ['/dashboard', '/items'];
+import { localePrefix, locales, pathnames } from '@/config';
 
+import type { NextRequest } from 'next/server';
+
+const privateRoutes = ['/dashboard', '/items'];
 
 const intlMiddleware = createIntlMiddleware({
   defaultLocale: 'en',
   locales,
   pathnames,
-  localePrefix
+  localePrefix,
 });
 
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
 
   const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          get(name: string): string | undefined {
-            return request.cookies.get(name)?.value;
-          },
-          set(name: string, value: string, options: CookieOptions) {
-            const httpOnlyOptions = { ...options, httpOnly: true };
-            request.cookies.set({ name, value, ...httpOnlyOptions });
-          },
-          remove(name: string, options: CookieOptions) {
-            const httpOnlyOptions = { ...options, httpOnly: true };
-            request.cookies.set({ name, value: '', ...httpOnlyOptions });
-          }
-        }
-      }
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string): string | undefined {
+          return request.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          const httpOnlyOptions = { ...options, httpOnly: true };
+          request.cookies.set({ name, value, ...httpOnlyOptions });
+        },
+        remove(name: string, options: CookieOptions) {
+          const httpOnlyOptions = { ...options, httpOnly: true };
+          request.cookies.set({ name, value: '', ...httpOnlyOptions });
+        },
+      },
+    },
   );
 
   const session = await supabase.auth.getSession();
-  const isPrivate = privateRoutes.some(route => {
+  const isPrivate = privateRoutes.some((route) => {
     return url.pathname.includes(route);
   });
 
@@ -48,17 +49,17 @@ export async function middleware(request: NextRequest) {
     redirectUrl.pathname = '/auth/login';
     return NextResponse.redirect(redirectUrl);
   }
-  if (!session.data.session && url.pathname === '/'){
+  if (!session.data.session && url.pathname === '/') {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/auth/login';
     return NextResponse.redirect(redirectUrl);
   }
-  if (session.data.session && url.pathname === '/'){
+  if (session.data.session && url.pathname === '/') {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/dashboard';
     return NextResponse.redirect(redirectUrl);
   }
-  return  intlMiddleware(request);
+  return intlMiddleware(request);
 }
 
 export const config = {
@@ -72,8 +73,6 @@ export const config = {
 
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
-    '/((?!_next|_vercel|.*\\..*).*)'
-  ]
+    '/((?!_next|_vercel|.*\\..*).*)',
+  ],
 };
-
-

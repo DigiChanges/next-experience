@@ -1,42 +1,44 @@
 'use client';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
-import React from 'react';
-import style from './dropdown-user.module.css';
-import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
-import { toast } from 'react-toastify';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { createSharedPathnamesNavigation } from 'next-intl/navigation';
-import { locales } from '@/config';
-import { icons } from '@/features/shared/hooks/icons';
-import { useSearchParams } from 'next/navigation';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
+import { toast } from 'react-toastify';
+
+import { locales } from '@/config';
+import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { User } from '@/features/navbar/organisms/NavbarTop';
+import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
+import { icons } from '@/features/shared/hooks/icons';
+
+import style from './dropdown-user.module.css';
 
 type Props = {
-    dataPerfil: {
-        icon: StaticImageData;
-        description: string;
-        path: string;
-    }[];
-    style: {
-        readonly [key: string]: string;
-    };
-    dataUser: {
-        image: StaticImageData;
-        username: string;
-        icon: StaticImageData;
-    };
-    dataLogin: {
-        icon: StaticImageData;
-    };
-    isUserDropdownOpen: boolean;
-    handleDropdownUser: () => void;
-    id?:string;
-    user?: User
-}
+  dataPerfil: {
+    icon: StaticImageData;
+    description: string;
+    path: string;
+  }[];
+  style: {
+    readonly [key: string]: string;
+  };
+  dataUser: {
+    image: StaticImageData;
+    username: string;
+    icon: StaticImageData;
+  };
+  dataLogin: {
+    icon: StaticImageData;
+  };
+  isUserDropdownOpen: boolean;
+  handleDropdownUser: () => void;
+  id?: string;
+  user?: User;
+};
 
 export const DropdownUser = (props: Props) => {
   const background = props.isUserDropdownOpen ? 'animation' : '';
@@ -50,11 +52,11 @@ export const DropdownUser = (props: Props) => {
   const params = useSearchParams();
   const paramsString = new URLSearchParams(params).toString();
 
-  const singOut  = async() => {
+  const singOut = async () => {
     await toast.promise(handleSignOut, {
       error: `${r('error')}`,
       success: `${r('success')}`,
-      pending:`${r('pending')}`
+      pending: `${r('pending')}`,
     });
   };
 
@@ -62,8 +64,14 @@ export const DropdownUser = (props: Props) => {
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080}/>
-          <Image className={`${style.dropdown} ${rotate}`} width={82} height={82} src={props.user?.image_id ?? props.dataUser.icon} alt={'dropdown'}/>
+          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080} />
+          <Image
+            className={`${style.dropdown} ${rotate}`}
+            width={82}
+            height={82}
+            src={props.user?.image_id ?? props.dataUser.icon}
+            alt={'dropdown'}
+          />
         </button>
       </div>
       <motion.ul
@@ -74,47 +82,54 @@ export const DropdownUser = (props: Props) => {
       >
         <div className={style.perfil}>
           <div className={style.containerIconUserOpen}>
-            <Image className={style.profileImage} src={props.user?.image_id ?? props.dataUser.image}
-              alt={'Icon user'} width={82} height={82}/>
+            <Image
+              className={style.profileImage}
+              src={props.user?.image_id ?? props.dataUser.image}
+              alt={'Icon user'}
+              width={82}
+              height={82}
+            />
             <p>{props.user?.first_name ?? props.dataUser.username}</p>
           </div>
-          {
-            props.dataPerfil.map(({ description, path }) =>
-              <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>
-                {path === '/profile' ? <IoPersonOutline/> : <IoSettingsOutline/>}
-                <p>{t(description)}</p>
-              </Link>
-            )
-          }
-          <AccordionComponent key={props.id ?? '1'}
-            className={{ accordion: style.langResponsive }} accordionItemsProps={{
+          {props.dataPerfil.map(({ description, path }) => (
+            <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>
+              {path === '/profile' ? <IoPersonOutline /> : <IoSettingsOutline />}
+              <p>{t(description)}</p>
+            </Link>
+          ))}
+          <AccordionComponent
+            key={props.id ?? '1'}
+            className={{ accordion: style.langResponsive }}
+            accordionItemsProps={{
               ariaLabel: 'Accordion 1',
-              title: <div className={style.langResponsiveTitle}><MdLanguage/>Idiomas</div>
+              title: (
+                <div className={style.langResponsiveTitle}>
+                  <MdLanguage />
+                  Idiomas
+                </div>
+              ),
             }}
             accordionItems={[
               <>
-                <div
-                  className={style.perfilSections}>
-                  <Link className={'ml-1 rounded p-1 text-white'}
-                    href={`${pathName}?${paramsString}`}
-                    locale={'es'}>Español <Image src={IconFlagSpain} alt="flag spain"/></Link>
+                <div className={style.perfilSections}>
+                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'es'}>
+                    Español <Image src={IconFlagSpain} alt='flag spain' />
+                  </Link>
                 </div>
                 <div className={style.perfilSections}>
-                  <Link className={'ml-1 rounded p-1 text-white'}
-                    href={`${pathName}?${paramsString}`}
-                    locale={'en'}>Ingles <Image src={IconFlagUsa}
-                      alt="flag usa"/></Link>
+                  <Link className={'ml-1 rounded p-1 text-white'} href={`${pathName}?${paramsString}`} locale={'en'}>
+                    Ingles <Image src={IconFlagUsa} alt='flag usa' />
+                  </Link>
                 </div>
-              </>
-            ]}/>
+              </>,
+            ]}
+          />
           <button className={style.logOut} onClick={singOut}>
-            <IoLogOut/>
+            <IoLogOut />
             <p>{t('logout')}</p>
           </button>
         </div>
       </motion.ul>
     </div>
-
   );
 };
-

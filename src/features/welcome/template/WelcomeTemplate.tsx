@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { Welcome } from '@/features/welcome/organisms/Welcome';
 
 const WelcomeTemplate = () => {
   return (
     <>
-      <Welcome/>
+      <Welcome />
     </>
   );
 };
