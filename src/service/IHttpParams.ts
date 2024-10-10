@@ -34,10 +34,11 @@ export interface QueryParams {
   pagination?: PaginationParams;
 }
 
-export interface IHttpParams {
-  url: string;
-  method: Method;
-  queryParams?: QueryParams;
-  data?: unknown;
-  headers?: HeadersContentType;
+export interface IHttpParams
+{
+    url: string;
+    method: Method;
+    queryParams?: QueryParams;
+    data?: unknown;
+    headers?: HeadersContentType;
 }

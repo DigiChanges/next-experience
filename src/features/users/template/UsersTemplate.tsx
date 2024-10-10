@@ -1,18 +1,16 @@
 import React from 'react';
 import { UserList } from '@/features/users/organisms/UsersList';
-import { UsersQueryParams } from '@/service/IHttpParams';
+import { QueryParams } from '@/service/IHttpParams';
 import { getUsers } from '@/features/users/actions/usersAction';
 
 type Props = {
-  queryParams: UsersQueryParams
+  queryParams: QueryParams
 };
 
 export const UsersTemplate: (props: Props) => Promise<React.JSX.Element> = async(
   { queryParams }: Props
 ) => {
   const { data, pagination } = await getUsers({ queryParams });
-
-
 
   return (
     <UserList

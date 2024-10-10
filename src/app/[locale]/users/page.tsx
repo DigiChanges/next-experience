@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import { UsersTemplate } from '@/features/users/template/UsersTemplate';
 import { LoaderStarsWars } from '@/features/shared/atoms/loader/LoaderStarsWars';
 import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
-import { UsersQueryParams } from '@/service/IHttpParams';
-import { paginationInitialUsersParams } from '@/features/items/constants/paginationInitialParams';
+import { QueryParams } from '@/service/IHttpParams';
+// import { paginationInitialUsersParams } from '@/features/items/constants/paginationInitialParams';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 type Props = {
@@ -14,11 +14,7 @@ export const revalidate = 0;
 export default async function Page({ searchParams, params: { locale } } : Props) {
   const params = new URLSearchParams(searchParams);
 
-  const queryParams: UsersQueryParams = {
-    pagination: {
-      page: (params.get('pagination[offset]')) ?? paginationInitialUsersParams.page,
-      perPage: params.get('pagination[limit]') ?? paginationInitialUsersParams.perPage
-    },
+  const queryParams: QueryParams = {
     filter: params
   };
   unstable_setRequestLocale(locale);

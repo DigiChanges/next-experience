@@ -14,9 +14,3 @@ export type PaginationAPI = {
   prevUrl: string;
   currentUrl: string;
 };
-
-export type PaginationUserAPI = {
-    currentPage: number;
-    totalPages: number;
-    totalCount: number;
-};

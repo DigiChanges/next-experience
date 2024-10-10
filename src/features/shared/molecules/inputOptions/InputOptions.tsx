@@ -8,8 +8,9 @@ type Props = {
   handleSetFilterValues: (values: { term: string }) => void;
   keySelected: OptionKey;
   color: SelectColorType;
+  place: string;
 };
-export const InputOptions = ({ color, keySelected, handleSetFilterValues }: Props) => {
+export const InputOptions = ({ color, keySelected, handleSetFilterValues, place }: Props) => {
   if (!keySelected.options) {
     throw new Error('You must set options to use this filter');
   }
@@ -18,7 +19,7 @@ export const InputOptions = ({ color, keySelected, handleSetFilterValues }: Prop
     classNames: {
       title: style.color,
     },
-    place: 'InputKeysFilter',
+    place
   };
 
   return (

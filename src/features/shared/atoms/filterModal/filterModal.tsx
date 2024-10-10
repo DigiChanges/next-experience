@@ -26,6 +26,7 @@ type Props = {
   keySelected: OptionKey;
   handleReplace: () => void;
   inputFilterData: OptionKey[];
+    type?: string;
 };
 
 export const FilterModal = ({
@@ -35,6 +36,7 @@ export const FilterModal = ({
   handleRemoveFilterAll,
   keySelected,
   handleSetFiltersApplied,
+  type,
 }: Props) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoOptionsOutline } = icons();
@@ -77,7 +79,7 @@ export const FilterModal = ({
                 inputFilterData={selectOptionsData}
                 classButton={style.btn}
               />
-              <SortComponent isResponsive={true} />
+              { type && type === 'UserList' ? <></> : <SortComponent isResponsive={true} />}
             </div>
             <div className={style.containerAddItem}>
               <FiltersApplied

@@ -30,46 +30,10 @@ const getCurrentUser = async() => {
   }
 };
 
-export const getUsers = async({ queryParams }:any) => {
-  const supabase = getCookies();
-  const role = await getCurrentUser();
-
-  if (queryParams){
-
-  }
-
-  if (role[0].role_id.slug !== 'admin'){
-    throw new Error('You dont have the required permission to do this request');
-  }
-
-  const { data, error } = await supabase
-      .from('users_has_roles')
-      .select('*, user_id!inner(*), role_id!inner(*)');
-
-  if (error) {
-    throw new Error(`Error at getting the users: ${error.message}`);
-  }
-
-  if (!data) {
-    redirect('/auth/login', RedirectType.push);
-  }
-
-  const formatedUsers = data.map(user => ({
-    id: user.user_id.id,
-    image_id: user.user_id.image_id,
-    phone: null,
-    email: user.user_id.email,
-    last_name: user.user_id.last_name,
-    first_name: user.user_id.first_name,
-    role: user.role_id.name
-  }));
-
-  return { data: formatedUsers, pagination: { currentPage: 1, totalPages: 1, totalCount: 1 } };
-};
-
 export const deleteUser = async(id: string) => {
   const supabase = getCookies();
   const role = await getCurrentUser();
+
 
   if (role[0].role_id === 'admin'){
     throw new Error('You dont have the required permission to do this request');
@@ -82,46 +46,90 @@ export const deleteUser = async(id: string) => {
   }
 };
 
-
-export const getAll = async(payload: { table: any; queryParams: { filter: string[]; }; orderBy: { key: any; ascending: any; }; }) => {
+export const getUsers = async({ queryParams }:any) => {
   try {
     const supabase = getCookies();
-    let query = supabase.from(payload.table).select();
+    const role = await getCurrentUser();
 
-    if (payload.queryParams) {
-      const filterConditions = useFilterSupabase(payload.queryParams);
+    if (role[0].role_id.slug !== 'admin'){
+      throw new Error('You dont have the required permission to do this request');
+    }
+
+    let query = supabase
+        .from('users_has_roles')
+        .select('*, user_id!inner(*), role_id!inner(*)');
+
+    if (queryParams) {
+      const filterConditions = useFilterSupabase(queryParams);
 
       Object.entries(filterConditions).forEach(([column, value]) => {
-        query = query.eq(column, value);
+        query = query.ilike(column, value);
       });
     }
 
-    if (payload.orderBy) {
-      query = query.order(payload.orderBy.key, { ascending: payload.orderBy.ascending });
+    const { data, error } = await query;
+
+    if (error) {
+      console.error('Error at getting all users', error);
     }
 
-    return await query;
+    if (!data) {
+      console.error('Error at getting all users', error);
+    }
+
+    const formatedUsers = data ? data.map(user => ({
+      id: user.user_id.id,
+      image_id: user.user_id.image_id,
+      phone: null,
+      email: user.user_id.email,
+      last_name: user.user_id.last_name,
+      first_name: user.user_id.first_name,
+      role: user.role_id.name
+    })) : [];
+
+    return {
+      data: formatedUsers,
+      pagination: {
+        total: 1,
+        offset: 0,
+        limit: 10,
+        perPage: 1,
+        currentPage: 1,
+        lastPage: 1,
+        from: 0,
+        to: 1,
+        path: '',
+        firstUrl: '',
+        lastUrl: '1',
+        nextUrl: '',
+        prevUrl: '',
+        currentUrl: ''
+      }
+    };
   } catch (error) {
-    throw new Error(`Error at getting items from ${payload.table}, error: ${error}`);
+    throw new Error(`Error at getting users, error: ${error}`);
   }
 };
-export const useFilterSupabase = (queryParams: { filter: string[]; }) => {
+export const useFilterSupabase = (queryParams: { filter: any[]; }) => {
   const createFilterFromPair = ([key, value]: [string, string]) => {
-    const newKey = key.replace('filter[', '').replace(']', '');
-    return { key: newKey, term: value };
+    const keyFirstPartName = key.includes('role') ? 'role_id.' : 'user_id.';
+    const newKey = key.includes('role') ? key.replace('filter[role]', 'slug') : key.replace('filter[', keyFirstPartName).replace(']', '');
+    return { key: newKey, term: `%${value}%` };
   };
 
   const filterObject: Record<string, string> = {};
 
   if (queryParams.filter) {
-    queryParams.filter.forEach((value: string, key: string | number) => {
+    queryParams.filter.forEach((value, key) => {
       filterObject[key] = value;
     });
   }
   return Object.entries(filterObject).reduce((acc, [key, value]) => {
-    const { key: newKey, term } = createFilterFromPair([key, value as string]);
-    acc[newKey] = term;
+    if (key.startsWith('filter[')) {
+      const { key: newKey, term } = createFilterFromPair([key, value as string]);
+      acc[newKey] = term;
+      return acc;
+    }
     return acc;
   }, {} as Record<string, string>);
 };
-
