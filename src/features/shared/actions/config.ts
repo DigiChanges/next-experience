@@ -7,7 +7,7 @@ export const config = {
       hostname: env.apiHostname,
       port: env.apiPort,
       baseUrl: `${env.apiProtocol}://${env.apiHostname}:${env.apiPort}`,
-      credentials: env.apiWithCredentials
+      credentials: env.apiWithCredentials,
     },
     routes: {
       auth: {
@@ -20,22 +20,22 @@ export const config = {
         forgotPassword: `${env.apiBase}/auth/forgot-password`,
         changeForgotPassword: `${env.apiBase}/auth/change-forgot-password`,
         register: `${env.apiBase}/auth/signup`,
-        verifyYourAccount: `${env.apiBase}/auth/verify-your-account`
+        verifyYourAccount: `${env.apiBase}/auth/verify-your-account`,
       },
       users: {
         base: `${env.apiBase}/users`,
         editPassword: `${env.apiBase}/users/change-user-password`,
-        assignRole: `${env.apiBase}/users/assign-role`
+        assignRole: `${env.apiBase}/users/assign-role`,
       },
       roles: {
-        base: `${env.apiBase}/roles`
+        base: `${env.apiBase}/roles`,
       },
       items: {
-        base: `${env.apiBase}/items`
+        base: `${env.apiBase}/items`,
       },
       files: {
-        base: `${env.apiBase}/files`
-      }
-    }
-  }
+        base: `${env.apiBase}/files`,
+      },
+    },
+  },
 };

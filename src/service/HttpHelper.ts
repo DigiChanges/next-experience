@@ -1,7 +1,10 @@
-import {  QueryParams } from './IHttpParams';
-import { config as Config } from '../features/shared/actions/config';
 import { cookies } from 'next/headers';
+
 import { createClient } from '@/lib/server/server';
+
+import { config as Config } from '../features/shared/actions/config';
+
+import { QueryParams } from './IHttpParams';
 
 export async function getDefaultHeaders(): Promise<any> {
   const { credentials } = Config.apiGateway.server;
@@ -9,14 +12,16 @@ export async function getDefaultHeaders(): Promise<any> {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
-  const { data: { session } } = await supabase.auth.getSession();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
   const token = session?.access_token ? `Bearer ${session.access_token}` : '';
 
   const defaultHeaders: any = {
     credentials,
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   };
 
   return defaultHeaders;

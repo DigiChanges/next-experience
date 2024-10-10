@@ -1,12 +1,12 @@
 import React from 'react';
+
 import style from './button.module.css';
 
 type Props = {
-    descriptionActive: string;
-    img?: string;
-    alt?: string
-}
-
+  descriptionActive: string;
+  img?: string;
+  alt?: string;
+};
 
 export const ButtonAuth = (props: Props) => {
   return (

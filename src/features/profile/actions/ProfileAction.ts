@@ -1,9 +1,10 @@
 'use server';
 import { cookies } from 'next/headers';
-import { createClient } from '@/lib/server/server';
 import { redirect, RedirectType } from 'next/navigation';
-import { handleGetFile } from '@/features/shared/actions/fileAction';
+
 import { env } from '@/config/api';
+import { handleGetFile } from '@/features/shared/actions/fileAction';
+import { createClient } from '@/lib/server/server';
 
 interface User {
   id: string;
@@ -19,7 +20,7 @@ const getCookies = () => {
   return createClient(cookieStore);
 };
 
-const getSession = async() => {
+const getSession = async () => {
   const supabase = getCookies();
 
   const { data, error } = await supabase.auth.getSession();
@@ -35,7 +36,7 @@ const getSession = async() => {
   }
 };
 
-export const getUser = async() => {
+export const getUser = async () => {
   const supabase = getCookies();
 
   const user = await getSession();
@@ -51,7 +52,7 @@ export const getUser = async() => {
   }
 
   let image = data[0]?.image_id ?? null;
-  if (image){
+  if (image) {
     image = await handleGetFile(image);
     image = `${env.urlFile}/${image?.isPublic ? env.publicBucket : env.privateBucket}/data/${image?.path}`;
   }
@@ -62,13 +63,13 @@ export const getUser = async() => {
     phone: user.phone ?? null,
     email: user.email ?? null,
     last_name: data[0]?.last_name,
-    first_name: data[0]?.first_name
+    first_name: data[0]?.first_name,
   };
 
   return userComplete;
 };
 
-export const uploadUser = async(image_id: string| null | undefined, id: string) => {
+export const uploadUser = async (image_id: string | null | undefined, id: string) => {
   const supabase = getCookies();
 
   await supabase.from('profiles').update({ image_id }).eq('id', id);

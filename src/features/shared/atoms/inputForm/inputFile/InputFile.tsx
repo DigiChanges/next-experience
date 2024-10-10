@@ -2,19 +2,18 @@ import React from 'react';
 import { UseFormRegister, FieldValues, DeepMap, FieldError, Path } from 'react-hook-form';
 
 type Props<TFormValues extends FieldValues> = {
-    name: Path<TFormValues>;
-    label?: string;
-    register: UseFormRegister<TFormValues>;
-    errors:  Partial<DeepMap<TFormValues, FieldError>>;
-    id: string;
-    className?: string;
-    placeholder?: string;
-    classNameError?: string;
-    disabled?: boolean;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>
-    multiple?:boolean;
-}
-
+  name: Path<TFormValues>;
+  label?: string;
+  register: UseFormRegister<TFormValues>;
+  errors: Partial<DeepMap<TFormValues, FieldError>>;
+  id: string;
+  className?: string;
+  placeholder?: string;
+  classNameError?: string;
+  disabled?: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
+  multiple?: boolean;
+};
 
 export const InputFile = <TFormValues extends Record<string, unknown>>({
   name,
@@ -27,7 +26,7 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
   classNameError,
   disabled,
   onChange,
-  multiple
+  multiple,
 }: Props<TFormValues>) => {
   const error = errors[name];
 
@@ -42,7 +41,7 @@ export const InputFile = <TFormValues extends Record<string, unknown>>({
       {label && <label htmlFor={id}>{label}</label>}
       <div>
         <input
-          type="file"
+          type='file'
           id={id}
           multiple={multiple}
           {...register(name)}

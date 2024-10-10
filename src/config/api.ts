@@ -26,7 +26,7 @@ export const env: Env = {
   urlFront: process.env.NEXT_PUBLIC_URL_FRONT,
   urlFile: process.env.NEXT_PUBLIC_URL_FILE,
   publicBucket: process.env.NEXT_PUBLIC_PUBLIC_BUCKET,
-  privateBucket: process.env.NEXT_PUBLIC_PRIVATE_BUCKET
+  privateBucket: process.env.NEXT_PUBLIC_PRIVATE_BUCKET,
 };
 
 export const validateEnv = () => {
@@ -36,5 +36,3 @@ export const validateEnv = () => {
     }
   });
 };
-
-

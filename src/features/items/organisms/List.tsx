@@ -1,30 +1,32 @@
 'use client';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { CardItem } from '@/features/shared/atoms/card/CardItem';
-import style from './list.module.css';
-import styleCard from './card.module.css';
-import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
-import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { usePagination } from '@/features/shared/hooks/usePagination';
-import { useFilter } from '@/features/shared/hooks/useFilter';
-import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
-import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
-import { Title } from '@/features/items/atoms/title/Title';
-import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { useTranslations } from 'next-intl';
+
+import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
+import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
+import { Title } from '@/features/items/atoms/title/Title';
+import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
+import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
+import { CardItem } from '@/features/shared/atoms/card/CardItem';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
+import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
+import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
-import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
-import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
+import { useFilter } from '@/features/shared/hooks/useFilter';
+import { usePagination } from '@/features/shared/hooks/usePagination';
+import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
+import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+
+import styleCard from './card.module.css';
+import style from './list.module.css';
 
 type Props = {
-    items: ItemsResponse[]
-    pagination: PaginationAPI;
-}
+  items: ItemsResponse[];
+  pagination: PaginationAPI;
+};
 export const List = ({ items, pagination }: Props) => {
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const searchParams = useSearchParams();
@@ -32,7 +34,14 @@ export const List = ({ items, pagination }: Props) => {
   const pathname = usePathname();
   const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(pagination, params);
-  const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
+  const {
+    handleSetFilterValues,
+    filterValues,
+    filtersApplied,
+    handleRemoveFilter,
+    handleSetFiltersApplied,
+    handleRemoveFilterAll,
+  } = useFilter(params);
   const t = useTranslations('Items');
 
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
@@ -41,14 +50,13 @@ export const List = ({ items, pagination }: Props) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
   };
 
-
   const handleReplaceURL = () => {
     replace(`${pathname}?${params.toString()}`);
   };
 
   useEffect(() => {
     handleSetFilterValues({
-      key: selectOptionsData[0].value
+      key: selectOptionsData[0].value,
     });
   }, []);
 
@@ -101,11 +109,16 @@ export const List = ({ items, pagination }: Props) => {
         </div>
         <div className={style.containerAddItemBtnAndModal}>
           <div className={style.containerAddItemBtn}>
-            <SortComponent isResponsive={false}/>
-            <SwitchComponent className={style.containerSwitch} size={SizeType.SMALL} color={SelectColorType.SECONDARY} defaultSelected>
+            <SortComponent isResponsive={false} />
+            <SwitchComponent
+              className={style.containerSwitch}
+              size={SizeType.SMALL}
+              color={SelectColorType.SECONDARY}
+              defaultSelected
+            >
               Active
             </SwitchComponent>
-            <AddItemBtn/>
+            <AddItemBtn />
           </div>
           <FilterModal
             handleSetFiltersApplied={handleSetFiltersApplied}
@@ -119,15 +132,18 @@ export const List = ({ items, pagination }: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={items}/>
+      <NoItemsToDisplay data={items} />
       {items.length > 0 && (
         <div className={style.cards}>
           {items.map((item) => (
             <CardItem
               key={item.id}
               className={{
-                card: openDropdownId === item.id ? `${styleCard.backgroundHover} ${styleCard.container}` : styleCard.container,
-                header: styleCard.containerHeader
+                card:
+                  openDropdownId === item.id
+                    ? `${styleCard.backgroundHover} ${styleCard.container}`
+                    : styleCard.container,
+                header: styleCard.containerHeader,
               }}
               radius={SizeType.SMALL}
               id={item.id}
@@ -135,7 +151,7 @@ export const List = ({ items, pagination }: Props) => {
               isDropdownOpen={openDropdownId === item.id}
               item={
                 <div className={styleCard.containerInfo}>
-                  <h2 className="text-md">Description: {item.description}</h2>
+                  <h2 className='text-md'>Description: {item.description}</h2>
                   <h3 className={styleCard.name}>{item.name}</h3>
                   <p>$500.000</p>
                   <p>EXP: 25/12/2024</p>
@@ -146,10 +162,16 @@ export const List = ({ items, pagination }: Props) => {
         </div>
       )}
       <div className={style.containerPaginationAndAdd}>
-        {items.length > 0 && <div className={style.testNav}>
-          <PaginationComponent onChange={handlePage} page={currentPage} total={pagination.lastPage}
-            color={SelectColorType.SECONDARY}/>
-        </div>}
+        {items.length > 0 && (
+          <div className={style.testNav}>
+            <PaginationComponent
+              onChange={handlePage}
+              page={currentPage}
+              total={pagination.lastPage}
+              color={SelectColorType.SECONDARY}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

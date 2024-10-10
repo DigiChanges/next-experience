@@ -1,10 +1,12 @@
 'use client';
 import React, { useState } from 'react';
-import style from './navbar-top.module.css';
-import { ChangeLanguage } from '@/features/shared/atoms/changeLanguage/changeLanguage';
-import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
+
 import { dataLogin, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
+import { ChangeLanguage } from '@/features/shared/atoms/changeLanguage/changeLanguage';
+import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
+
+import style from './navbar-top.module.css';
 
 export interface User {
   phone: string | null;
@@ -12,14 +14,13 @@ export interface User {
   last_name: string | null;
   first_name: string | null;
   id: string;
-  image_id:  string | null;
+  image_id: string | null;
 }
 
 type Props = {
   isPublic: boolean;
-  user?: User
-
-}
+  user?: User;
+};
 
 export const NavbarTop = (props: Props) => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState<boolean>(false);
@@ -39,27 +40,22 @@ export const NavbarTop = (props: Props) => {
         {props.isPublic ? (
           <>
             <ThemeSwitcher />
-            <ChangeLanguage
-              isLangDropdownOpen={isLangDropdownOpen}
-              handleDropdownLang={handleDropdownLang}
+            <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
+          </>
+        ) : (
+          <>
+            <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
+            <DropdownUser
+              dataPerfil={dataPerfil}
+              style={style}
+              dataUser={dataUser}
+              dataLogin={dataLogin}
+              user={props.user}
+              isUserDropdownOpen={isUserDropdownOpen}
+              handleDropdownUser={handleDropdownUser}
             />
           </>
-        ) :
-          (
-            <>
-              <ChangeLanguage
-                isLangDropdownOpen={isLangDropdownOpen}
-                handleDropdownLang={handleDropdownLang}
-              />
-              <DropdownUser dataPerfil={dataPerfil}
-                style={style} dataUser={dataUser}
-                dataLogin={dataLogin} user={props.user}
-                isUserDropdownOpen={isUserDropdownOpen}
-                handleDropdownUser={handleDropdownUser}
-              />
-            </>
-          )
-        }
+        )}
       </nav>
     </header>
   );

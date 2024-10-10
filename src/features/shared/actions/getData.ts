@@ -2,9 +2,9 @@ import { env } from '@/config/api';
 
 export async function getData<T>(uri: string) {
   const res = await fetch(`${env.urlBase}/${uri}`, {
-    headers:{
-      'Content-Type':'application/json'
-    }
+    headers: {
+      'Content-Type': 'application/json',
+    },
   });
 
   if (!res.ok) {
