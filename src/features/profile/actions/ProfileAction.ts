@@ -6,13 +6,14 @@ import { env } from '@/config/api';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { createClient } from '@/lib/server/server';
 
-interface User {
+export interface User {
   id: string;
   image_id: string | null;
   phone: string | null;
   email: string | null;
   last_name: string | null;
   first_name: string | null;
+  role: string | null;
 }
 
 const getCookies = () => {
@@ -64,6 +65,7 @@ export const getUser = async () => {
     email: user.email ?? null,
     last_name: data[0]?.last_name,
     first_name: data[0]?.first_name,
+    role: 'operator',
   };
 
   return userComplete;

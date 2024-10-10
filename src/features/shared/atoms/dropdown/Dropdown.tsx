@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 
 import { DeleteItemBt } from '@/features/items/atoms/deleteItem/DeleteItemBtn';
 import { EditItemBtn } from '@/features/items/atoms/editItem/EditItemBtn';
+// import { DeleteUserBtn } from '@/features/users/atoms/deleteUser/DeleteUserBtn';
 import { icons } from '@/features/shared/hooks/icons';
 
 import style from './Dropdown.module.css';
 
 type Props = {
+  type: string;
   isDropdownOpen: boolean;
   handleDropdown: () => void;
   id: string;
@@ -29,11 +31,10 @@ export const Dropdown = (props: Props) => {
         id={props.id}
       >
         <div className={style.perfil} id={props.id}>
+          <div className={style.perfilSections}>{props.type === 'items' ? <EditItemBtn id={props.id} /> : <></>}</div>
           <div className={style.perfilSections}>
-            <EditItemBtn id={props.id} />
-          </div>
-          <div className={style.perfilSections}>
-            <DeleteItemBt id={props.id} />
+            {props.type === 'items' ? <DeleteItemBt id={props.id} /> : <></>}
+            {/* {props.type === 'items' ? <DeleteItemBt id={props.id} /> : <DeleteUserBtn id={props.id}></DeleteUserBtn>} */}
           </div>
         </div>
       </motion.ul>

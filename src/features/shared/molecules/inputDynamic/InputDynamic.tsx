@@ -15,6 +15,7 @@ interface Props {
   handleSetFilterValues: (values: { term: string }) => void;
   keySelected: OptionKey;
   color: SelectColorType;
+  place: string;
 }
 
 export const InputDynamic = (props: Props) => {

@@ -43,6 +43,7 @@ export const FilterAndSearch = ({
       <div className={style.containerInput}>
         <div className={style.input}>
           <InputDynamic
+            place='InputDynamic'
             color={SelectColorType.SECONDARY}
             keySelected={keySelected}
             handleSetFilterValues={handleSetFilterValues}

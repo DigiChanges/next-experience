@@ -15,8 +15,9 @@
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Home",
-    "items": "Items"
-  },
+    "items": "Items",
+    "users": "Users"
+},
   "NavigationUser": {
     "perfil": "Profile",
     "settings": "Settings",
@@ -50,6 +51,23 @@
     "update": "Update",
     "deleteAlert":"Are you sure you want to delete this item?",
     "addItem": "Add Item",
+    "clearAll": "Clear all",
+    "delete": "Delete",
+    "edit": "Edit",
+    "selectFilter": "Select filter"
+  },
+  "UserList": {
+    "title": "Section Users",
+    "filter":"Select Filter",
+    "name": "Name",
+    "description": "Description",
+    "search": "Search",
+    "button": "Apply",
+    "emptyItems": "No users to display",
+    "add": "Add",
+    "update": "Update",
+    "deleteAlert":"Are you sure you want to delete this user?",
+    "addItem": "Add User",
     "clearAll": "Clear all",
     "delete": "Delete",
     "edit": "Edit",

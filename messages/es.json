@@ -16,7 +16,8 @@
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",
-    "items": "Items"
+    "items": "Items",
+    "users": "Usuarios"
   },
   "NavigationUser": {
     "perfil": "Perfil",
@@ -50,6 +51,23 @@
     "update": "Actualizando",
     "deleteAlert":"¿Seguro que desea borrar este item?",
     "addItem": "Añadir Item",
+    "clearAll": "Limpiar todo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "selectFilter": "Seleccionar filtro"
+  },
+
+  "UserList": {
+    "title": "Sección de Usuarios",
+    "filter": "Seleccionar filtro",
+    "name": "Nombre",
+    "search": "Buscar",
+    "button": "Aplicar",
+    "emptyItems": "No hay usuarios para mostrar",
+    "add": "Agregar",
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este ususario?",
+    "addItem": "Añadir ususario",
     "clearAll": "Limpiar todo",
     "delete": "Eliminar",
     "edit": "Editar",

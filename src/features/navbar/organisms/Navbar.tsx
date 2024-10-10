@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { IoFileTrayFull, IoHomeOutline } from 'react-icons/io5';
+import { IoFileTrayFull, IoHomeOutline, IoPeopleOutline } from 'react-icons/io5';
 
 import BurguerButton from '@/features/navbar/atom/BurguerButton';
 import { dataNav } from '@/features/navbar/constants/dataNav';
@@ -47,7 +47,9 @@ export const Navbar = () => {
                   }}
                   href={path ?? '#'}
                 >
-                  <div className={style.imgNav}>{id === 1 ? <IoHomeOutline /> : <IoFileTrayFull />}</div>
+                  <div className={style.imgNav}>
+                    {id === 1 ? <IoHomeOutline /> : id === 2 ? <IoFileTrayFull /> : <IoPeopleOutline />}
+                  </div>
                   <p>{t(description)}</p>
                 </Link>
               </li>
