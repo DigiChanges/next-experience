@@ -83,6 +83,6 @@ export const icons = () => {
     authWelcome,
     expiredLink,
     IconPencil,
-    UsersIcon
+    UsersIcon,
   };
 };

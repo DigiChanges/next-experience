@@ -1,22 +1,26 @@
 'use client';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import styles from './users.module.css';
+
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
+import { Title } from '@/features/items/atoms/title/Title';
 import styleCard from '@/features/items/organisms/card.module.css';
 import { User } from '@/features/profile/actions/ProfileAction';
+import { CardItem } from '@/features/shared/atoms/card/CardItem';
+import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
-import { Title } from '@/features/items/atoms/title/Title';
+import { SizeType } from '@/features/shared/atoms/swich/switch';
+
+import { useFilter } from '@/features/shared/hooks/useFilter';
+import { usePagination } from '@/features/shared/hooks/usePagination';
+import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
+import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
-import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
-import { SizeType } from '@/features/shared/atoms/swich/switch';
-import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
-import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { CardItem } from '@/features/shared/atoms/card/CardItem';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { usePagination } from '@/features/shared/hooks/usePagination';
-import { useFilter } from '@/features/shared/hooks/useFilter';
-import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
+
+import styles from './users.module.css';
 
 interface Props {
   users: User[];
@@ -30,7 +34,14 @@ export const UserList = (props: Props) => {
   const pathname = usePathname();
   const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(props.pagination, params);
-  const { handleSetFilterValues, filterValues, filtersApplied, handleRemoveFilter, handleSetFiltersApplied, handleRemoveFilterAll } = useFilter(params);
+  const {
+    handleSetFilterValues,
+    filterValues,
+    filtersApplied,
+    handleRemoveFilter,
+    handleSetFiltersApplied,
+    handleRemoveFilterAll,
+  } = useFilter(params);
 
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
 
@@ -44,7 +55,7 @@ export const UserList = (props: Props) => {
 
   useEffect(() => {
     handleSetFilterValues({
-      key: selectOptionsData[0].value
+      key: selectOptionsData[0].value,
     });
   }, []);
 
@@ -72,7 +83,7 @@ export const UserList = (props: Props) => {
   return (
     <section className={styles.container}>
       <div className={styles.containerAddFilter}>
-        <Title section='UserList'/>
+        <Title section='UserList' />
         <p className={styles.subtitle}>Users</p>
         <div className={styles.subcontainerAddFilter}>
           <div className={styles.subcontainerAddFilter2}>
@@ -94,8 +105,7 @@ export const UserList = (props: Props) => {
           </div>
         </div>
         <div className={styles.containerAddItemBtnAndModal}>
-          <div className={styles.containerAddItemBtn}>
-          </div>
+          <div className={styles.containerAddItemBtn}></div>
           <FilterModal
             type='UserList'
             handleSetFiltersApplied={handleSetFiltersApplied}
@@ -109,7 +119,7 @@ export const UserList = (props: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={props.users}/>
+      <NoItemsToDisplay data={props.users} />
       {props.users && props.users.length > 0 && (
         <div className={styles.cards}>
           {props.users.map((user) => (
@@ -117,8 +127,11 @@ export const UserList = (props: Props) => {
               key={user.id}
               type='users'
               className={{
-                card: openDropdownId === user.id ? `${styleCard.backgroundHover} ${styleCard.container}` : styleCard.container,
-                header: styleCard.containerHeader
+                card:
+                  openDropdownId === user.id
+                    ? `${styleCard.backgroundHover} ${styleCard.container}`
+                    : styleCard.container,
+                header: styleCard.containerHeader,
               }}
               radius={SizeType.SMALL}
               id={user.id}
@@ -136,12 +149,16 @@ export const UserList = (props: Props) => {
         </div>
       )}
       <div className={styles.containerPaginationAndAdd}>
-        {props.users && props.users.length > 0 &&
-            <div className={styles.testNav}>
-              <PaginationComponent onChange={handlePage} page={currentPage} total={props.pagination?.lastPage}
-                color={SelectColorType.SECONDARY}/>
-            </div>
-        }
+        {props.users && props.users.length > 0 && (
+          <div className={styles.testNav}>
+            <PaginationComponent
+              onChange={handlePage}
+              page={currentPage}
+              total={props.pagination?.lastPage}
+              color={SelectColorType.SECONDARY}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

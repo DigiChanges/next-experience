@@ -19,7 +19,7 @@ export const InputOptions = ({ color, keySelected, handleSetFilterValues, place 
     classNames: {
       title: style.color,
     },
-    place
+    place,
   };
 
   return (

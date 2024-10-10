@@ -25,7 +25,7 @@ type IProfileForm = {
 };
 
 type Props = {
-    userProfile: User
+  userProfile: User;
 };
 
 export const Profile = ({ userProfile }: Props) => {

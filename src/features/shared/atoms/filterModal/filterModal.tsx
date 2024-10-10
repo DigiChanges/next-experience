@@ -26,7 +26,7 @@ type Props = {
   keySelected: OptionKey;
   handleReplace: () => void;
   inputFilterData: OptionKey[];
-    type?: string;
+  type?: string;
 };
 
 export const FilterModal = ({
@@ -79,7 +79,7 @@ export const FilterModal = ({
                 inputFilterData={selectOptionsData}
                 classButton={style.btn}
               />
-              { type && type === 'UserList' ? <></> : <SortComponent isResponsive={true} />}
+              {type && type === 'UserList' ? <></> : <SortComponent isResponsive={true} />}
             </div>
             <div className={style.containerAddItem}>
               <FiltersApplied

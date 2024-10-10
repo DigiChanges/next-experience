@@ -65,7 +65,7 @@ export const getUser = async () => {
     email: user.email ?? null,
     last_name: data[0]?.last_name,
     first_name: data[0]?.first_name,
-    role:'operator'
+    role: 'operator',
   };
 
   return userComplete;

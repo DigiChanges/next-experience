@@ -1,11 +1,11 @@
 import { EnumFilterApply } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 
-export interface OptionKey{
-    label: string;
-    value: string;
-    type: string;
-    filter: EnumFilterApply;
-    options?: { label: string, value: string }[];
+export interface OptionKey {
+  label: string;
+  value: string;
+  type: string;
+  filter: EnumFilterApply;
+  options?: { label: string; value: string }[];
 }
 
 export const selectOptionsData: OptionKey[] = [
@@ -13,7 +13,7 @@ export const selectOptionsData: OptionKey[] = [
     label: 'Email',
     value: 'email',
     type: 'text',
-    filter: EnumFilterApply.Single
+    filter: EnumFilterApply.Single,
   },
   {
     type: 'text',
@@ -23,12 +23,12 @@ export const selectOptionsData: OptionKey[] = [
     options: [
       {
         label: 'Admin',
-        value: 'admin'
+        value: 'admin',
       },
       {
         label: 'Operator',
-        value: 'operator'
-      }
-    ]
-  }
+        value: 'operator',
+      },
+    ],
+  },
 ];

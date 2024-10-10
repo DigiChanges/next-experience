@@ -1,6 +1,6 @@
 import {
   InitialPaginationParams,
-  InitialUsersPaginationParams
+  InitialUsersPaginationParams,
 } from '@/features/shared/interfaces/InitialPaginationParams';
 
 export const paginationInitialParams: InitialPaginationParams = {
@@ -10,6 +10,5 @@ export const paginationInitialParams: InitialPaginationParams = {
 
 export const paginationInitialUsersParams: InitialUsersPaginationParams = {
   page: '1',
-  perPage: '6'
+  perPage: '6',
 };
-

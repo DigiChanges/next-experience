@@ -47,7 +47,9 @@ export const Navbar = () => {
                   }}
                   href={path ?? '#'}
                 >
-                  <div className={style.imgNav}>{id === 1 ? <IoHomeOutline /> : id === 2 ? <IoFileTrayFull /> : <IoPeopleOutline />}</div>
+                  <div className={style.imgNav}>
+                    {id === 1 ? <IoHomeOutline /> : id === 2 ? <IoFileTrayFull /> : <IoPeopleOutline />}
+                  </div>
                   <p>{t(description)}</p>
                 </Link>
               </li>

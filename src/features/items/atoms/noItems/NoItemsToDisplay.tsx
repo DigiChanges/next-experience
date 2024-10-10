@@ -2,14 +2,14 @@ import React from 'react';
 import { Image } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
 
-import { User } from '@/features/navbar/organisms/NavbarTop';
 import { Item } from '@/features/items/interfaces/itemsResponse';
+import { User } from '@/features/navbar/organisms/NavbarTop';
 import { icons } from '@/features/shared/hooks/icons';
 
 import style from './no-items-to-display.module.css';
 
 type Props = {
-    data: Item[] | User[];
+  data: Item[] | User[];
 };
 export const NoItemsToDisplay = ({ data }: Props) => {
   const t = useTranslations('Items');

@@ -45,6 +45,6 @@ export const dataNav = [
     id: 3,
     image: UsersIcon,
     description: 'users',
-    path: '/users'
-  }
+    path: '/users',
+  },
 ];

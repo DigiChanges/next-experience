@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import style from './title.module.css';
 
 interface Props {
-    section: string
+  section: string;
 }
 
 export const Title = ({ section }: Props) => {
