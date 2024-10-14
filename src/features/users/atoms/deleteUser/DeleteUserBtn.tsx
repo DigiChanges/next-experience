@@ -21,7 +21,6 @@ type Props = {
 export const DeleteUserBtn = (props: Props) => {
   const { isOpen, handleIsOpen } = useOpen();
   const { onOpen } = useDisclosure();
-  const { IoTrashOutline } = icons();
   const alerts = useTranslations('ToastDelete');
   const s = useTranslations('Shared');
   const t = useTranslations('UserList');
@@ -36,6 +35,8 @@ export const DeleteUserBtn = (props: Props) => {
     onOpen();
   };
 
+  const { IoTrashOutline } = icons();
+
   return (
     <>
       <ButtonForm isIconOnly className={style.btnDelete} onClick={handleIsOpen}>
@@ -44,13 +45,13 @@ export const DeleteUserBtn = (props: Props) => {
       </ButtonForm>
       {isOpen && (
         <ModalComponent
-          description={t('deleteAlert')}
-          success={s('accept')}
-          cancel={s('cancel')}
           displayButton={false}
           isOpen={isOpen}
           onOpen={onOpen}
           onOpenChange={handleIsOpen}
+          description={t('deleteAlert')}
+          success={s('accept')}
+          cancel={s('cancel')}
           isOnClick={() => handleDelete(props.id)}
         />
       )}

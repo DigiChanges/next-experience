@@ -29,17 +29,19 @@ interface Props {
 
 export const UserList = (props: Props) => {
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
-  const searchParams = useSearchParams();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
+  const searchParams = useSearchParams();
+  const params = useMemo(() => {
+    const newParams = new URLSearchParams();
 
-  const handleReplaceURL = () => {
-    replace(`${pathname}?${params.toString()}`);
-  };
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newParams.append(key, value);
+    }
 
+    return newParams;
+  }, [searchParams]);
   const { handlePage, currentPage } = usePagination(props.pagination, params);
   const {
     handleSetFilterValues,
@@ -52,6 +54,17 @@ export const UserList = (props: Props) => {
 
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
 
+  const handleReplaceURL = () => {
+    replace(`${pathname}?${params.toString()}`);
+  };
+
+  const handleSearchType = useCallback(() => {
+    const data = selectOptionsData.find(({ value }) => value === filterValues.key);
+    if (data) {
+      setKeySelected(data);
+    }
+  }, [filterValues.key]);
+
   const handleDropdown = (id: string) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
   };
@@ -61,13 +74,6 @@ export const UserList = (props: Props) => {
       key: selectOptionsData[0].value,
     });
   }, []);
-
-  const handleSearchType = useCallback(() => {
-    const data = selectOptionsData.find(({ value }) => value === filterValues.key);
-    if (data) {
-      setKeySelected(data);
-    }
-  }, [filterValues.key]);
 
   useEffect(() => {
     handlePage(1);
