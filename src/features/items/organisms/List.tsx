@@ -30,7 +30,16 @@ type Props = {
 export const List = ({ items, pagination }: Props) => {
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const searchParams = useSearchParams();
-  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
+  const params = useMemo(() => {
+    const newParams = new URLSearchParams();
+
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newParams.append(key, value);
+    }
+
+    return newParams;
+  }, [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
   const { handlePage, currentPage } = usePagination(pagination, params);

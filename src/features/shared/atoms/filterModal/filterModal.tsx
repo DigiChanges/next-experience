@@ -41,7 +41,16 @@ export const FilterModal = ({
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoOptionsOutline } = icons();
   const searchParams = useSearchParams();
-  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
+  const params = useMemo(() => {
+    const newParams = new URLSearchParams();
+
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newParams.append(key, value);
+    }
+
+    return newParams;
+  }, [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleReplaceURL = () => {

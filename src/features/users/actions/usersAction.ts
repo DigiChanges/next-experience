@@ -57,17 +57,38 @@ export const getUsers = async ({ queryParams }: any) => {
       throw new Error('You dont have the required permission to do this request');
     }
 
-    let query = supabase.from('users_has_roles').select('*, user_id!inner(*), role_id!inner(*)');
+    let query = supabase.from('users_has_roles').select('*, user_id!inner(*), role_id!inner(*)', { count: 'exact' });
+
+    const pagination = {
+      offset: 0,
+      limit: 2,
+    };
 
     if (queryParams) {
       const filterConditions = filterSupabase(queryParams);
 
-      Object.entries(filterConditions).forEach(([column, value]) => {
+      pagination.offset = Number(filterConditions.offset) || 0;
+      pagination.limit = Number(filterConditions.limit) || 2;
+
+      const filters: Record<string, string> = Object.entries(filterConditions).reduce(
+        (acc, [key, value]) => {
+          if (key === 'offset' || key === 'limit') {
+            return acc;
+          }
+          acc[key] = value as string;
+          return acc;
+        },
+        {} as Record<string, string>,
+      );
+
+      Object.entries(filters).forEach(([column, value]) => {
         query = query.ilike(column, value);
       });
     }
 
-    const { data, error } = await query;
+    query = query.range(pagination.offset, pagination.limit);
+
+    const { data, count, error } = await query;
 
     if (error) {
       console.error('Error at getting all users', error);
@@ -89,24 +110,44 @@ export const getUsers = async ({ queryParams }: any) => {
         }))
       : [];
 
+    const paginationResponse =
+      data && count
+        ? {
+            total: count,
+            offset: pagination.offset,
+            limit: pagination.limit,
+            perPage: 2,
+            currentPage: Math.ceil(pagination.offset / pagination.limit) + 1,
+            lastPage: Math.ceil(count / (pagination.limit + 1)),
+            from: 0,
+            to: 2,
+            path: '',
+            firstUrl: '',
+            lastUrl: '',
+            nextUrl: '',
+            prevUrl: '',
+            currentUrl: '',
+          }
+        : {
+            total: 1,
+            offset: 0,
+            limit: 0,
+            perPage: 0,
+            currentPage: 1,
+            lastPage: 1,
+            from: 0,
+            to: 0,
+            path: '',
+            firstUrl: '',
+            lastUrl: '1',
+            nextUrl: '',
+            prevUrl: '',
+            currentUrl: '',
+          };
+
     return {
       data: formatedUsers,
-      pagination: {
-        total: 1,
-        offset: 0,
-        limit: 10,
-        perPage: 1,
-        currentPage: 1,
-        lastPage: 1,
-        from: 0,
-        to: 1,
-        path: '',
-        firstUrl: '',
-        lastUrl: '1',
-        nextUrl: '',
-        prevUrl: '',
-        currentUrl: '',
-      },
+      pagination: paginationResponse,
     };
   } catch (error) {
     throw new Error(`Error at getting users, error: ${error}`);
@@ -121,6 +162,11 @@ export const filterSupabase = (queryParams: { filter: any[] }) => {
     return { key: newKey, term: `%${value}%` };
   };
 
+  const createPaginationFromPair = ([key, value]: [string, string]) => {
+    const newKey = key.replace('pagination[', '').replace(']', '');
+    return { key: newKey, term: value };
+  };
+
   const filterObject: Record<string, string> = {};
 
   if (queryParams.filter) {
@@ -132,6 +178,11 @@ export const filterSupabase = (queryParams: { filter: any[] }) => {
     (acc, [key, value]) => {
       if (key.startsWith('filter[')) {
         const { key: newKey, term } = createFilterFromPair([key, value as string]);
+        acc[newKey] = term;
+        return acc;
+      }
+      if (key.startsWith('pagination[')) {
+        const { key: newKey, term } = createPaginationFromPair([key, value as string]);
         acc[newKey] = term;
         return acc;
       }

@@ -14,10 +14,10 @@ import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SizeType } from '@/features/shared/atoms/swich/switch';
 
 import { useFilter } from '@/features/shared/hooks/useFilter';
-import { usePagination } from '@/features/shared/hooks/usePagination';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+import { usePagination } from '@/features/users/atoms/usePagination/usePagination';
 import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
 
 import styles from './users.module.css';
@@ -30,9 +30,16 @@ interface Props {
 export const UserList = (props: Props) => {
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const searchParams = useSearchParams();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const handleReplaceURL = () => {
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   const { handlePage, currentPage } = usePagination(props.pagination, params);
   const {
     handleSetFilterValues,
@@ -47,10 +54,6 @@ export const UserList = (props: Props) => {
 
   const handleDropdown = (id: string) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
-  };
-
-  const handleReplaceURL = () => {
-    replace(`${pathname}?${params.toString()}`);
   };
 
   useEffect(() => {

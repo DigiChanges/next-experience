@@ -21,7 +21,7 @@ export const ChangeLanguage = (props: Props) => {
   const { IconFlagUsa, IconFlagSpain } = icons();
 
   const params = useSearchParams();
-  const paramsString = new URLSearchParams(params).toString();
+  const paramsString = new URLSearchParams(Array.from(params.entries())).toString();
 
   return (
     <div className={style.container}>

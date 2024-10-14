@@ -32,6 +32,8 @@ export const InputSimple = <TFormValues extends Record<string, unknown>>({
   onChange,
   value,
 }: Props<TFormValues>) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const error = errors[name];
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

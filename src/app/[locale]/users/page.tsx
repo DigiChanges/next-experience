@@ -6,7 +6,6 @@ import { LoaderStarsWars } from '@/features/shared/atoms/loader/LoaderStarsWars'
 import { UsersTemplate } from '@/features/users/template/UsersTemplate';
 import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
 import { QueryParams } from '@/service/IHttpParams';
-// import { paginationInitialUsersParams } from '@/features/items/constants/paginationInitialParams';
 
 type Props = {
   readonly searchParams: { readonly [key: string]: string };
