@@ -9,25 +9,7 @@
 }
 
 @screen md {
-
-  .btnEdit svg{
+    .btnEdit svg {
         @apply h-6 w-6
-    }
-    .btnEdit{
-
-    }
-
-}
-@screen lg {
-
-   .btnEdit{
-
-    }
-}
-
-@screen 2xl {
-
-     .btnEdit{
-
     }
 }

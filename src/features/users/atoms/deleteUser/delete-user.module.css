@@ -33,29 +33,18 @@
 }
 
 @screen md {
-
     .btnDelete svg {
         @apply h-6 w-6
-    }
-
-    .btnDelete {
     }
 }
 
 @screen lg {
-
-    .btnDelete {
-    }
     .text{
         @apply text-lg
     }
-
 }
 
 @screen 2xl {
-
-    .btnDelete {
-    }
     .img{
         @apply w-[48px] min-w-[48px] h-[48px] min-h-[48px]
     }

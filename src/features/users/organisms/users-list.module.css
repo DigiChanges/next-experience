@@ -59,8 +59,6 @@
     }
 }
 
-@screen lg{
-}
 @screen xl {
     .cards {
         @apply grid-cols-5
@@ -68,8 +66,6 @@
 }
 
 @screen 2xl {
-    .cards{
-    }
     .container {
         @apply max-w-[1500px] m-auto ;
     }

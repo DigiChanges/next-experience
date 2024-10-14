@@ -75,7 +75,7 @@ export const getUsers = async ({ queryParams }: any) => {
           if (key === 'offset' || key === 'limit') {
             return acc;
           }
-          acc[key] = value as string;
+          acc[key] = value;
           return acc;
         },
         {} as Record<string, string>,
@@ -177,12 +177,12 @@ export const filterSupabase = (queryParams: { filter: any[] }) => {
   return Object.entries(filterObject).reduce(
     (acc, [key, value]) => {
       if (key.startsWith('filter[')) {
-        const { key: newKey, term } = createFilterFromPair([key, value as string]);
+        const { key: newKey, term } = createFilterFromPair([key, value]);
         acc[newKey] = term;
         return acc;
       }
       if (key.startsWith('pagination[')) {
-        const { key: newKey, term } = createPaginationFromPair([key, value as string]);
+        const { key: newKey, term } = createPaginationFromPair([key, value]);
         acc[newKey] = term;
         return acc;
       }

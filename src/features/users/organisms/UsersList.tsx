@@ -20,7 +20,7 @@ import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/Fil
 import { usePagination } from '@/features/users/atoms/usePagination/usePagination';
 import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
 
-import styles from './users.module.css';
+import styles from './users-list.module.css';
 
 interface Props {
   users: User[];
