@@ -67,7 +67,10 @@
     "subtitle": "Inicia sesión para acceder"
   },
   "Register": {
-    "username": "Nombre de usuario*",
+    "username": "Nombre*",
+    "lastname": "Apellido*",
+    "phone": "Teléfono",
+    "email": "Correo electrónico*",
     "password": "Contraseña*",
     "confirmPassword": "Confirmar contraseña*",
     "confirm": "Registrarse",

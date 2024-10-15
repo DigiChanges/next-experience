@@ -1,18 +1,17 @@
-
 .container{
-    @apply h-screen flex flex-col items-center px-1 justify-center
+    @apply h-full min-h-screen flex flex-col items-center px-[2rem] py-[3rem] justify-center
    }
     .container h2{
-        @apply text-white text-[3rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
+        @apply w-full text-center text-white text-[2.5rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
     }
     .container h3{
-        @apply text-white text-[1.5rem] font-[400] pt-2 pb-4
+        @apply text-white text-[1.2rem] text-center font-[400] pt-2 pb-4
     }
     .text{
         @apply text-[0.9rem] font-[400] text-white text-center
     }
    .form {
-       @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start max-w-[250px] w-full px-[2rem];
+       @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start w-full;
    }
 
    .input{
@@ -24,30 +23,44 @@
    .input input{
     @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none p-2 bg-transparent focus:border-grayLight;
    }
+    .input input[type=number]::-webkit-inner-spin-button,
+    .input input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+    }
     .inputError{
         @apply border-solid border-2 !border-[#FE3F3F80]
     }
    .input p{
-       @apply text-[12px] pt-1 pl-2 text-warning
+       @apply border-none text-[12px] pt-1 pl-2 text-warning
    }
 
     .containerRegister{
         @apply text-white text-[1rem] flex justify-center text-center
     }
     .containerRegister p{
-        @apply text-white text-[1rem] font-[400]
+        @apply text-white text-[0.8rem] font-[400]
     }
     .containerRegister a, .container a{
-        @apply ml-2 text-secondary font-normal text-[1rem] hover:underline
+        @apply ml-2 text-secondary font-normal text-[0.8rem] hover:underline
     }
     .container a{
         @apply text-center pb-2
     }
 
    @screen md{
-       .form {
+       .container h2{
+           @apply text-[3rem]
+       }
+       .container h3{
+           @apply text-[1.5rem]
+       }
+       .form, .container h2 {
            @apply max-w-[300px];
-         }
+       }
+       .containerRegister p, .containerRegister a{
+           @apply text-[1rem]
+       }
    }
    @screen lg{
        .form {
