@@ -14,7 +14,7 @@
     "husky:init": "npx husky-init",
     "server:start": "cd json-server && pnpm i && pnpm server:start",
     "lint:fix": "next lint --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write ./src/*"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
