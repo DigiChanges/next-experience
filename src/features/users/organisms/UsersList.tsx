@@ -3,15 +3,15 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { Title } from '@/features/items/atoms/title/Title';
 import styleCard from '@/features/items/organisms/card.module.css';
-import { User } from '@/features/profile/actions/ProfileAction';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { CardItem } from '@/features/shared/atoms/card/CardItem';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
+import { NoItemsToDisplay } from '@/features/shared/atoms/noItems/NoItemsToDisplay';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SizeType } from '@/features/shared/atoms/swich/switch';
+import { Title } from '@/features/shared/atoms/title/Title';
 
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
@@ -128,7 +128,7 @@ export const UserList = (props: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={props.users} />
+      <NoItemsToDisplay data={props.users} section='UserList' />
       {props.users && props.users.length > 0 && (
         <div className={styles.cards}>
           {props.users.map((user) => (

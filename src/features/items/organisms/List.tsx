@@ -4,16 +4,16 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
-import { NoItemsToDisplay } from '@/features/items/atoms/noItems/NoItemsToDisplay';
-import { Title } from '@/features/items/atoms/title/Title';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 import { CardItem } from '@/features/shared/atoms/card/CardItem';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
+import { NoItemsToDisplay } from '@/features/shared/atoms/noItems/NoItemsToDisplay';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
+import { Title } from '@/features/shared/atoms/title/Title';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
@@ -63,18 +63,18 @@ export const List = ({ items, pagination }: Props) => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  useEffect(() => {
-    handleSetFilterValues({
-      key: selectOptionsData[0].value,
-    });
-  }, []);
-
   const handleSearchType = useCallback(() => {
     const data = selectOptionsData.find(({ value }) => value === filterValues.key);
     if (data) {
       setKeySelected(data);
     }
   }, [filterValues.key]);
+
+  useEffect(() => {
+    handleSetFilterValues({
+      key: selectOptionsData[0].value,
+    });
+  }, []);
 
   useEffect(() => {
     handlePage(1);
@@ -141,7 +141,7 @@ export const List = ({ items, pagination }: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={items} />
+      <NoItemsToDisplay data={items} section='Items' />
       {items.length > 0 && (
         <div className={style.cards}>
           {items.map((item) => (

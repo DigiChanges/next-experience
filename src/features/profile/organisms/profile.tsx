@@ -8,8 +8,9 @@ import { useTheme } from 'next-themes';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { uploadUser, User } from '@/features/profile/actions/ProfileAction';
+import { uploadUser } from '@/features/profile/actions/ProfileAction';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { images } from '@/features/shared/hooks/images';

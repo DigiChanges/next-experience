@@ -11,7 +11,6 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
   const setParams = (offset: number, limit: number) => {
     params.set('pagination[offset]', String(offset));
     params.set('pagination[limit]', String(limit));
-    // Update the URL
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -26,7 +25,6 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
 
   useEffect(() => {
     setPaginationParams();
-
     replace(`${pathname}?${params.toString()}`);
   }, [currentPage]);
 
