@@ -48,7 +48,7 @@ export const deleteUser = async (id: string) => {
   }
 };
 
-export const filterSupabase = (queryParams: { filter: any[] }) => {
+export const filterSupabase = (queryParams: { filter?: URLSearchParams | undefined }) => {
   const createFilterFromPair = ([key, value]: [string, string]) => {
     const keyFirstPartName = key.includes('role') ? 'role_id.' : 'user_id.';
 
