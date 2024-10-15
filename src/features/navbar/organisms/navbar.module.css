@@ -1,161 +1,158 @@
 .container {
-	@apply fixed flex flex-col justify-between items-center bg-accent shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] left-[-60px] py-[2rem] px-2 w-[0px] top-0 bottom-0 rounded overflow-hidden transition-all font-poppins z-50;
+  @apply fixed bottom-0 left-[-60px] top-0 z-50 flex w-[0px] flex-col items-center justify-between overflow-hidden rounded bg-accent px-2 py-[2rem] font-poppins shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all;
 }
-.navResponsive{
-	@apply fixed z-50 top-5 left-3 !m-0 w-6 h-8 transition-all cursor-pointer;
+.navResponsive {
+  @apply fixed left-3 top-5 z-50 !m-0 h-8 w-6 cursor-pointer transition-all;
 }
 .navActive {
-	@apply calculateWidth left-0 !important;
+  @apply calculateWidth left-0 !important;
 }
-.navActive .navResponsive{
-	@apply z-[-1] transition-all duration-0
+.navActive .navResponsive {
+  @apply z-[-1] transition-all duration-0;
 }
 
-.logo{
-	@apply !w-[4rem]
+.logo {
+  @apply !w-[4rem];
 }
 .container nav {
-	@apply w-full pb-8 relative;
+  @apply relative w-full pb-8;
 }
 
-.container nav .openMenu  {
-	@apply w-full
+.container nav .openMenu {
+  @apply w-full;
 }
 
-.container nav .openMenu img, .container nav .openMenu svg {
-	@apply mt-5 w-6 h-8 transition-all m-auto cursor-pointer;
+.container nav .openMenu img,
+.container nav .openMenu svg {
+  @apply m-auto mt-5 h-8 w-6 cursor-pointer transition-all;
 }
 
 .container nav .openMenu .rotateIcon {
-	@apply transform -rotate-180
+  @apply -rotate-180 transform;
 }
 
-
 .container nav .iconUser {
-	@apply relative max-w-[60px]
+  @apply relative max-w-[60px];
 }
 
 .container nav .iconUser p {
-	@apply absolute centerAlign left-[70px] text-white;
+  @apply centerAlign absolute left-[70px] text-white;
 }
-.container nav .iconUser .dropdown{
-    @apply absolute centerAlign left-[300px] w-6 h-6 m-0
+.container nav .iconUser .dropdown {
+  @apply centerAlign absolute left-[300px] m-0 h-6 w-6;
 }
 
 .container nav .iconUser img {
-	@apply mt-5 rounded-full w-10 h-10 m-auto;
+  @apply m-auto mt-5 h-10 w-10 rounded-full;
 }
 
-.container nav ul  {
-	@apply grid grid-cols-1 gap-2 mt-5 mx-2 relative
+.container nav ul {
+  @apply relative mx-2 mt-5 grid grid-cols-1 gap-2;
 }
 
 .selectedItem {
- @apply	bg-hoverButtonBlue py-2 rounded-md
+  @apply rounded-md bg-hoverButtonBlue py-2;
 }
-.container nav ul li{
-	@apply  py-2 cursor-pointer
+.container nav ul li {
+  @apply cursor-pointer py-2;
 }
 
-.container nav ul li:nth-child(2){
-	@apply bg-hoverButtonBlue  rounded mt-6 ;
+.container nav ul li:nth-child(2) {
+  @apply mt-6 rounded bg-hoverButtonBlue;
 }
-.container nav ul a:nth-child(2){
+.container nav ul a:nth-child(2) {
 }
 .container nav ul li:hover {
-	@apply bg-secondary  rounded
+  @apply rounded bg-secondary;
 }
 
 .container nav ul a {
-	@apply relative block cursor-pointer;
+  @apply relative block cursor-pointer;
 }
-.container nav ul a .imgNav{
-	@apply max-w-[60px]
+.container nav ul a .imgNav {
+  @apply max-w-[60px];
 }
-
 
 .container nav ul a p {
-	@apply absolute top-0 text-white centerAlign left-[70px];
+  @apply centerAlign absolute left-[70px] top-0 text-white;
 }
 
 .container nav ul a svg {
-	@apply w-6 h-6 m-auto text-white;
+  @apply m-auto h-6 w-6 text-white;
 }
 
-.lineOne{
-	@apply absolute top-0  h-[0.5px] bg-grayLight w-[90%] left-1/2 transform -translate-x-1/2;
+.lineOne {
+  @apply absolute left-1/2 top-0 h-[0.5px] w-[90%] -translate-x-1/2 transform bg-grayLight;
 }
 .lineTwo {
-	@apply absolute bottom-0 h-[0.5px] bg-grayLight w-[90%] left-1/2 transform -translate-x-1/2;
+  @apply absolute bottom-0 left-1/2 h-[0.5px] w-[90%] -translate-x-1/2 transform bg-grayLight;
 }
 
 /*Re usable classes*/
 
 .centerAlign {
-	@apply top-1/2 transform -translate-y-1/2;
+  @apply top-1/2 -translate-y-1/2 transform;
 }
 
 .calculateWidth {
-	width: calc(100% - 25%);
+  width: calc(100% - 25%);
 }
 
 .calculateHeight {
-	height: calc(100vh - 8px)
+  height: calc(100vh - 8px);
 }
 
 @screen sm {
-	.container {
-		@apply w-[80px];
-	}
+  .container {
+    @apply w-[80px];
+  }
 
-	.container p {
-		@apply font-medium
-	}
+  .container p {
+    @apply font-medium;
+  }
 
-	.container nav .openMenu  {
+  .container nav .openMenu {
+  }
 
-	}
+  .container nav .iconUser {
+    @apply max-w-[70px];
+  }
 
-	.container nav .iconUser {
-		@apply max-w-[70px];
-	}
+  .container nav .iconUser p {
+    @apply left-[80px];
+  }
+  .container nav ul a .imgNav {
+    @apply max-w-[70px];
+  }
 
-	.container nav .iconUser p {
-		@apply left-[80px];
-	}
-	.container nav ul a .imgNav{
-		@apply max-w-[70px]
-	}
+  .container nav ul a p {
+    @apply left-[80px];
+  }
 
-	.container nav ul a p {
-		@apply left-[80px];
-	}
-
-	/*Re usable classes*/
-	.calculateWidth {
-		width: calc(70% - 10px);
-	}
+  /*Re usable classes*/
+  .calculateWidth {
+    width: calc(70% - 10px);
+  }
 }
- @screen md {
-	 .container {
-		 @apply fixed left-0;
-	 }
-	 .navResponsive{
-		 @apply hidden
-	 }
- }
+@screen md {
+  .container {
+    @apply fixed left-0;
+  }
+  .navResponsive {
+    @apply hidden;
+  }
+}
 
 @screen lg {
-	/*Re usable classes*/
+  /*Re usable classes*/
 
-	.calculateWidth {
-		width: calc(30% - 10px);
-	}
+  .calculateWidth {
+    width: calc(30% - 10px);
+  }
 }
 
 @screen 2xl {
-	.calculateWidth {
-		width: calc(20% - 10px);
-	}
+  .calculateWidth {
+    width: calc(20% - 10px);
+  }
 }
-

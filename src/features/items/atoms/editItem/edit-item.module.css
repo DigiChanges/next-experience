@@ -1,33 +1,26 @@
-.btnEdit{
-    @apply w-full h-[25px] flex items-end justify-between bg-transparent
+.btnEdit {
+  @apply flex h-[25px] w-full items-end justify-between bg-transparent;
 }
-.btnEdit p{
-    @apply !text-[1rem]
+.btnEdit p {
+  @apply !text-[1rem];
 }
-.btnEdit svg{
-    @apply  rounded-full h-[1rem] w-[1rem] mr-4 text-secondary
+.btnEdit svg {
+  @apply mr-4 h-[1rem] w-[1rem] rounded-full text-secondary;
 }
 
 @screen md {
-
-  .btnEdit svg{
-        @apply h-6 w-6
-    }
-    .btnEdit{
-
-    }
-
+  .btnEdit svg {
+    @apply h-6 w-6;
+  }
+  .btnEdit {
+  }
 }
 @screen lg {
-
-   .btnEdit{
-
-    }
+  .btnEdit {
+  }
 }
 
 @screen 2xl {
-
-     .btnEdit{
-
-    }
+  .btnEdit {
+  }
 }

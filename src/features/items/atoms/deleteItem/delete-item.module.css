@@ -1,73 +1,67 @@
 .btnDelete img {
-    @apply rounded-full h-4 w-4 mr-4
+  @apply mr-4 h-4 w-4 rounded-full;
 }
 
 .btnDelete {
-    @apply w-full h-[25px] flex items-end justify-between bg-transparent
+  @apply flex h-[25px] w-full items-end justify-between bg-transparent;
 }
-.btnDelete p{
-    @apply text-white !text-[1rem]
+.btnDelete p {
+  @apply !text-[1rem] text-white;
 }
-.btnDelete svg{
-    @apply  rounded-full h-[1rem] w-[1rem] mr-4 text-warning
+.btnDelete svg {
+  @apply mr-4 h-[1rem] w-[1rem] rounded-full text-warning;
 }
 
 .containerAlert {
-    @apply text-white fixed inset-0 bg-default bg-opacity-25 backdrop-blur z-10 flex justify-center items-center ml-[65px];
+  @apply fixed inset-0 z-10 ml-[65px] flex items-center justify-center bg-default bg-opacity-25 text-white backdrop-blur;
 }
 .subContainer {
-    @apply w-[350px] max-h-[350px] shadow-md bg-accent py-4 rounded-md flex justify-center items-center
+  @apply flex max-h-[350px] w-[350px] items-center justify-center rounded-md bg-accent py-4 shadow-md;
 }
-.img{
-    @apply w-[36px] min-w-[36px] h-[36px] min-h-[36px]
+.img {
+  @apply h-[36px] min-h-[36px] w-[36px] min-w-[36px];
 }
-.text{
-    @apply text-lg text-center p-4
+.text {
+  @apply p-4 text-center text-lg;
 }
 
-.btnSuccess{
-    @apply flex justify-end p-2  rounded-md bg-success text-accent my-2 text-sm
+.btnSuccess {
+  @apply my-2 flex justify-end rounded-md bg-success p-2 text-sm text-accent;
 }
-.btnClose{
-    @apply flex justify-end  bg-warning p-2 my-2 rounded-md text-sm
+.btnClose {
+  @apply my-2 flex justify-end rounded-md bg-warning p-2 text-sm;
 }
 
 @screen md {
+  .btnDelete svg {
+    @apply h-6 w-6;
+  }
 
-    .btnDelete svg {
-        @apply h-6 w-6
-    }
-
-    .btnDelete {
-    }
+  .btnDelete {
+  }
 }
 
 @screen lg {
-
-    .btnDelete {
-    }
-    .text{
-        @apply text-lg
-    }
-
+  .btnDelete {
+  }
+  .text {
+    @apply text-lg;
+  }
 }
 
 @screen 2xl {
-
-    .btnDelete {
-    }
-    .img{
-        @apply w-[48px] min-w-[48px] h-[48px] min-h-[48px]
-    }
-    .text{
-        @apply text-xl
-    }
-    .btnSuccess{
-        @apply flex justify-end p-2  rounded-md bg-success my-2
-    }
-    .btnClose{
-        @apply flex justify-end  bg-warning p-2 my-2 rounded-md
-    }
-
+  .btnDelete {
+  }
+  .img {
+    @apply h-[48px] min-h-[48px] w-[48px] min-w-[48px];
+  }
+  .text {
+    @apply text-xl;
+  }
+  .btnSuccess {
+    @apply my-2 flex justify-end rounded-md bg-success p-2;
+  }
+  .btnClose {
+    @apply my-2 flex justify-end rounded-md bg-warning p-2;
+  }
 }
-

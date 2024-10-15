@@ -5,7 +5,10 @@ export const registerSchema = yup
   .shape({
     name: yup.string().required('*Name is a required field').min(3).max(20),
     lastname: yup.string().required('*Lastname is a required field').min(3).max(20),
-    phone: yup.number().transform((value) => (isNaN(value) ? undefined : value)).nullable(),
+    phone: yup
+      .number()
+      .transform((value) => (isNaN(value) ? undefined : value))
+      .nullable(),
     username: yup.string().email('Enter a valid email address').required('*Email is a required field'),
     password: yup
       .string()

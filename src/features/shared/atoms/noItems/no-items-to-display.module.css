@@ -1,8 +1,7 @@
 .container {
-    @apply w-full h-[60vh] overflow-y-auto scrollbar-hide flex flex-col justify-center items-center gap-5 place-items-center bg-bgGrey rounded-2xl p-3 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
-
+  @apply flex h-[60vh] w-full flex-col place-items-center items-center justify-center gap-5 overflow-y-auto rounded-2xl bg-bgGrey p-3 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] scrollbar-hide;
 }
 
 .container h2 {
-    @apply w-full mb-5 text-center text-[2rem] text-secondary;
+  @apply mb-5 w-full text-center text-[2rem] text-secondary;
 }

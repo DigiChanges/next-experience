@@ -1,58 +1,56 @@
-.containerSelect{
-    @apply flex flex-col justify-end items-center gap-2
+.containerSelect {
+  @apply flex flex-col items-center justify-end gap-2;
 }
 
 .containerInputFilter {
-    @apply w-full
+  @apply w-full;
 }
 
-.containerInput{
-    @apply flex flex-col items-center gap-2 w-full rounded-[8px];
+.containerInput {
+  @apply flex w-full flex-col items-center gap-2 rounded-[8px];
 }
 
-.input{
-    @apply w-full !text-[#292D32] rounded-[8px]
+.input {
+  @apply w-full rounded-[8px] !text-[#292D32];
 }
-.input input{
-    @apply bg-bgInputFilter !text-[#292D32];
-
+.input input {
+  @apply bg-bgInputFilter !text-[#292D32];
 }
-.btn{
-    @apply bg-secondary rounded-[10px] transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+.btn {
+  @apply transform rounded-[10px] bg-secondary transition-all duration-500 hover:bg-hoverButtonBlue active:scale-[98%];
 }
-.btn button{
-    @apply bg-transparent text-textWhite;
+.btn button {
+  @apply bg-transparent text-textWhite;
 }
 
 .inputWrapper {
-    @apply max-w-[250px] w-full bg-bgInputFilter rounded-[10px] hover:bg-bgInputFilter active:bg-bgInputFilter;
+  @apply w-full max-w-[250px] rounded-[10px] bg-bgInputFilter hover:bg-bgInputFilter active:bg-bgInputFilter;
 }
-.searchIcon{
-    @apply text-secondary mb-0.5 pointer-events-none flex-shrink-0
+.searchIcon {
+  @apply pointer-events-none mb-0.5 flex-shrink-0 text-secondary;
 }
 
 @screen md {
-    .containerSelect{
-        @apply  flex flex-row items-start w-full gap-5
-    }
-    .containerInputFilter {
-        @apply w-full max-w-[150px]
-    }
-    .containerInput{
-        @apply flex flex-row items-start gap-5 w-fit justify-end
-    }
-    .input{
-        @apply w-full max-w-[200px] min-w-[150px] flex flex-col gap-[10px]
-    }
+  .containerSelect {
+    @apply flex w-full flex-row items-start gap-5;
+  }
+  .containerInputFilter {
+    @apply w-full max-w-[150px];
+  }
+  .containerInput {
+    @apply flex w-fit flex-row items-start justify-end gap-5;
+  }
+  .input {
+    @apply flex w-full min-w-[150px] max-w-[200px] flex-col gap-[10px];
+  }
 }
-@screen lg{
-    .containerSelect{
-
-    }
+@screen lg {
+  .containerSelect {
+  }
 }
 
 @screen 2xl {
-    .containerInput{
-        @apply max-w-[450px]
-    }
+  .containerInput {
+    @apply max-w-[450px];
+  }
 }

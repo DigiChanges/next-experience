@@ -1,40 +1,39 @@
-.modal{
-    @apply w-[250px] my-auto bg-modal text-center text-white shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)]
+.modal {
+  @apply my-auto w-[250px] bg-modal text-center text-white shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
 }
-.buttonModal{
-    @apply h-12 my-2 mb-5 font-medium shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] text-[1rem] text-[white] tracking-wider px-[1.3em] rounded-lg border-[none] bg-secondary transition-all transform duration-500 hover:bg-hoverButtonBlue active:scale-[98%]
+.buttonModal {
+  @apply my-2 mb-5 h-12 transform rounded-lg border-[none] bg-secondary px-[1.3em] text-[1rem] font-medium tracking-wider text-[white] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-500 hover:bg-hoverButtonBlue active:scale-[98%];
 }
-.buttonModalHidden{
-    @apply hidden
+.buttonModalHidden {
+  @apply hidden;
 }
-.modalBody{
-    @apply flex justify-center items-center
+.modalBody {
+  @apply flex items-center justify-center;
 }
-.modalBody svg{
-    @apply text-[2.5rem] text-danger
+.modalBody svg {
+  @apply text-[2.5rem] text-danger;
 }
-.modalBody p{
-    @apply w-full
+.modalBody p {
+  @apply w-full;
 }
-.modal button{
-    @apply rounded-[5px]
+.modal button {
+  @apply rounded-[5px];
 }
 
-
-@screen md{
-    .modal {
-        @apply max-w-[350px];
-    }
+@screen md {
+  .modal {
+    @apply max-w-[350px];
+  }
 }
-@screen lg{
-    .modal {
-        @apply max-w-[400px];
-    }
+@screen lg {
+  .modal {
+    @apply max-w-[400px];
+  }
 }
-@screen xl{
+@screen xl {
 }
-@screen 2xl{
-    .modal {
-        @apply max-w-[400px];
-    }
+@screen 2xl {
+  .modal {
+    @apply max-w-[400px];
+  }
 }

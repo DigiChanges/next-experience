@@ -1,78 +1,83 @@
-.container{
-    @apply h-full min-h-screen flex flex-col items-center px-[2rem] py-[3rem] justify-center
-   }
-    .container h2{
-        @apply w-full text-center text-white text-[2.5rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
-    }
-    .container h3{
-        @apply text-white text-[1.2rem] text-center font-[400] pt-2 pb-4
-    }
-    .text{
-        @apply text-[0.9rem] font-[400] text-white text-center
-    }
-   .form {
-       @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start w-full;
-   }
+.container {
+  @apply flex h-full min-h-screen flex-col items-center justify-center px-[2rem] py-[3rem];
+}
+.container h2 {
+  @apply w-full border-b-[2px] border-solid border-b-secondary px-[2rem] text-center text-[2.5rem] font-semibold text-white;
+}
+.container h3 {
+  @apply pb-4 pt-2 text-center text-[1.2rem] font-[400] text-white;
+}
+.text {
+  @apply text-center text-[0.9rem] font-[400] text-white;
+}
+.form {
+  @apply flex w-full flex-col justify-start rounded-md bg-transparent p-2 backdrop-blur-[10px];
+}
 
-   .input{
-    @apply h-16 flex flex-col justify-start text-white my-2 mb-4
-   }
-    .input label{
-        @apply hidden
-    }
-   .input input{
-    @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none p-2 bg-transparent focus:border-grayLight;
-   }
-    .input input[type=number]::-webkit-inner-spin-button,
-    .input input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-    }
-    .inputError{
-        @apply border-solid border-2 !border-[#FE3F3F80]
-    }
-   .input p{
-       @apply border-none text-[12px] pt-1 pl-2 text-warning
-   }
+.input {
+  @apply my-2 mb-4 flex h-16 flex-col justify-start text-white;
+}
+.input label {
+  @apply hidden;
+}
+.input input {
+  @apply mt-2 h-12 w-full rounded-lg border-2 border-borderInput bg-transparent p-2 shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none focus:border-grayLight;
+}
+.input input[type='number']::-webkit-inner-spin-button,
+.input input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inputError {
+  @apply border-2 border-solid !border-[#FE3F3F80];
+}
+.input p {
+  @apply border-none pl-2 pt-1 text-[12px] text-warning;
+}
 
-    .containerRegister{
-        @apply text-white text-[1rem] flex justify-center text-center
-    }
-    .containerRegister p{
-        @apply text-white text-[0.8rem] font-[400]
-    }
-    .containerRegister a, .container a{
-        @apply ml-2 text-secondary font-normal text-[0.8rem] hover:underline
-    }
-    .container a{
-        @apply text-center pb-2
-    }
+.containerRegister {
+  @apply flex justify-center text-center text-[1rem] text-white;
+}
+.containerRegister p {
+  @apply text-[0.8rem] font-[400] text-white;
+}
+.containerRegister a,
+.container a {
+  @apply ml-2 text-[0.8rem] font-normal text-secondary hover:underline;
+}
+.container a {
+  @apply pb-2 text-center;
+}
 
-   @screen md{
-       .container h2{
-           @apply text-[3rem]
-       }
-       .container h3{
-           @apply text-[1.5rem]
-       }
-       .form, .container h2 {
-           @apply max-w-[300px];
-       }
-       .containerRegister p, .containerRegister a{
-           @apply text-[1rem]
-       }
-   }
-   @screen lg{
-       .form {
-           @apply max-w-[350px];
-         }
-   }
+@screen md {
+  .container h2 {
+    @apply text-[3rem];
+  }
+  .container h3 {
+    @apply text-[1.5rem];
+  }
+  .form,
+  .container h2 {
+    @apply max-w-[300px];
+  }
+  .containerRegister p,
+  .containerRegister a {
+    @apply text-[1rem];
+  }
+}
+@screen lg {
+  .form {
+    @apply max-w-[350px];
+  }
+}
 
-   @screen 2xl{
-       .form {
-           @apply max-w-[400px];
-         }
-       .containerRegister p, .containerRegister a, .container a{
-           @apply  text-sm
-       }
-   }
+@screen 2xl {
+  .form {
+    @apply max-w-[400px];
+  }
+  .containerRegister p,
+  .containerRegister a,
+  .container a {
+    @apply text-sm;
+  }
+}

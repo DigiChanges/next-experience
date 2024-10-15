@@ -1,11 +1,11 @@
 .containerComponents {
-    @apply bg-bgDefault bg-gradient-to-r from-bgGradient to-60% min-h-[100vh] h-full ;
+  @apply h-full min-h-[100vh] bg-bgDefault bg-gradient-to-r from-bgGradient to-60%;
 }
 
 @screen md {
-    .containerComponents {
-    }
+  .containerComponents {
+  }
 }
-.bgAlert{
-    @apply bg-default
+.bgAlert {
+  @apply bg-default;
 }

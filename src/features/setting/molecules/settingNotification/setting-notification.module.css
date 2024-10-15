@@ -1,24 +1,24 @@
-.notificationUpdate{
-    @apply flex justify-between items-center h-16 py-3 w-full
+.notificationUpdate {
+  @apply flex h-16 w-full items-center justify-between py-3;
 }
-.notificationUpdate p{
-    @apply w-full
+.notificationUpdate p {
+  @apply w-full;
 }
 
-@screen md{
-    .notificationUpdate {
-        @apply max-w-[300px];
-    }
+@screen md {
+  .notificationUpdate {
+    @apply max-w-[300px];
+  }
 }
-@screen lg{
-    .notificationUpdate {
-        @apply max-w-[350px];
-    }
+@screen lg {
+  .notificationUpdate {
+    @apply max-w-[350px];
+  }
 }
-@screen xl{
+@screen xl {
 }
-@screen 2xl{
-    .notificationUpdate {
-        @apply max-w-[400px];
-    }
+@screen 2xl {
+  .notificationUpdate {
+    @apply max-w-[400px];
+  }
 }
