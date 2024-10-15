@@ -42,8 +42,12 @@ const getCookies = () => {
   return createClient(cookieStore);
 };
 
+interface QueryParms {
+  filter?: URLSearchParams | undefined;
+}
+
 type Props = {
-  queryParams?: any;
+  queryParams?: QueryParms;
 };
 
 export const fetchUser = async (): Promise<User> => {
@@ -77,7 +81,7 @@ export const fetchUser = async (): Promise<User> => {
   }
 };
 
-export const fetchUsers = async (props: Props): Promise<PaginatedResponse> => {
+export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
   const supabase = getCookies();
   const currentUserRole = await getCurrentUserRole();
 
