@@ -43,15 +43,51 @@ export const RegisterForm = () => {
         <div className={style.containerInputs}>
           <InputForm<IRegisterForm>
             errors={errors}
-            id={'username'}
-            name={'username'}
+            id={'name'}
+            name={'name'}
             register={register}
-            type={'email'}
+            type={'text'}
             label={t('username')}
             className={style.input}
             input_type={InputType.SIMPLE}
             classNameError={style.inputError}
             placeholder={t('username')}
+          />
+          <InputForm<IRegisterForm>
+            errors={errors}
+            id={'lastname'}
+            name={'lastname'}
+            register={register}
+            type={'text'}
+            label={t('lastname')}
+            className={style.input}
+            input_type={InputType.SIMPLE}
+            classNameError={style.inputError}
+            placeholder={t('lastname')}
+          />
+          <InputForm<IRegisterForm>
+            errors={errors}
+            id={'phone'}
+            name={'phone'}
+            register={register}
+            type={'number'}
+            label={t('phone')}
+            className={style.input}
+            input_type={InputType.SIMPLE}
+            classNameError={style.inputError}
+            placeholder={t('phone')}
+          />
+          <InputForm<IRegisterForm>
+            errors={errors}
+            id={'username'}
+            name={'username'}
+            register={register}
+            type={'email'}
+            label={t('email')}
+            className={style.input}
+            input_type={InputType.SIMPLE}
+            classNameError={style.inputError}
+            placeholder={t('email')}
           />
           <InputForm<IRegisterForm>
             errors={errors}

@@ -1,5 +1,5 @@
 .containerComponents {
-    @apply bg-bgDefault bg-gradient-to-r from-bgGradient to-60% h-[100vh] ;
+    @apply bg-bgDefault bg-gradient-to-r from-bgGradient to-60% min-h-[100vh] h-full ;
 }
 
 @screen md {
