@@ -1,7 +1,6 @@
 'use server';
 import { cookies } from 'next/headers';
 
-import { env } from '@/config/api';
 import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
@@ -42,8 +41,12 @@ const getCookies = () => {
   return createClient(cookieStore);
 };
 
+interface QueryParms {
+  filter?: URLSearchParams | undefined;
+}
+
 type Props = {
-  queryParams?: any;
+  queryParams?: QueryParms;
 };
 
 export const fetchUser = async (): Promise<User> => {
@@ -60,7 +63,7 @@ export const fetchUser = async (): Promise<User> => {
     let image = data[0]?.image_id ?? null;
     if (image) {
       image = await handleGetFile(image);
-      image = `${env.urlFile}/${image?.isPublic ? env.publicBucket : env.privateBucket}/data/${image?.path}`;
+      image = image?.path;
     }
 
     return {
@@ -77,7 +80,7 @@ export const fetchUser = async (): Promise<User> => {
   }
 };
 
-export const fetchUsers = async (props: Props): Promise<PaginatedResponse> => {
+export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
   const supabase = getCookies();
   const currentUserRole = await getCurrentUserRole();
 
