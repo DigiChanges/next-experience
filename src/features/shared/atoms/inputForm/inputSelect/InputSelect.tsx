@@ -25,6 +25,7 @@ export const InputSelect = <TFormValues extends Record<string, unknown>>({
   options,
 }: Props<TFormValues>) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error TS2536: Type Path<TFormValues> cannot be used to index type Partial<DeepMap<TFormValues, FieldError>>
   const error = errors[name];
 
   const renderOptions = () => {
