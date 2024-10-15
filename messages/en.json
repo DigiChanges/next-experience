@@ -84,7 +84,10 @@
     "subtitle": "Login to access"
   },
   "Register": {
-    "username": "Username*",
+    "username": "Name*",
+    "lastname": "Lastname*",
+    "phone": "Phone",
+    "email": "Email*",
     "password":"Password*",
     "confirmPassword":"Confirm Password*",
     "confirm": "Confirm!",
