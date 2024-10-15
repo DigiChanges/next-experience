@@ -24,6 +24,8 @@ export const InputSelect = <TFormValues extends Record<string, unknown>>({
   disabled,
   options,
 }: Props<TFormValues>) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const error = errors[name];
 
   const renderOptions = () => {

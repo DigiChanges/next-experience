@@ -39,6 +39,7 @@ import DeleteIcon from '../../../asset/icons/Trash.png';
 import IconUser from '../../../asset/icons/user.png';
 import authWelcome from '../../../asset/icons/welcome.webp';
 import IconPencil from '../../../asset/images/pencil.svg';
+import UsersIcon from '../../../asset/images/usersIcon.svg';
 
 export const icons = () => {
   return {
@@ -82,5 +83,6 @@ export const icons = () => {
     authWelcome,
     expiredLink,
     IconPencil,
+    UsersIcon,
   };
 };

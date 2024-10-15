@@ -50,7 +50,7 @@ export const DropdownUser = (props: Props) => {
   const pathName = usePathname();
   const { IconFlagUsa, IconFlagSpain, MdLanguage, IoLogOut } = icons();
   const params = useSearchParams();
-  const paramsString = new URLSearchParams(params).toString();
+  const paramsString = new URLSearchParams(Array.from(params.entries())).toString();
 
   const singOut = async () => {
     await toast.promise(handleSignOut, {

@@ -2,17 +2,19 @@ import React from 'react';
 import { Image } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
 
-import { Item } from '@/features/items/interfaces/itemsResponse';
 import { icons } from '@/features/shared/hooks/icons';
 
 import style from './no-items-to-display.module.css';
 
-type Props = {
-  data: Item[];
+type Props<Type> = {
+  data: Type[];
+  section: string;
 };
-export const NoItemsToDisplay = ({ data }: Props) => {
-  const t = useTranslations('Items');
+
+export const NoItemsToDisplay = <Type,>({ data, section }: Props<Type>) => {
+  const t = useTranslations(section);
   const { IconNoItems } = icons();
+
   return (
     <>
       {data.length === 0 && (

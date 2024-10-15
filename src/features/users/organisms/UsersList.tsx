@@ -1,34 +1,36 @@
 'use client';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 
-import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
-import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
-import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import styleCard from '@/features/items/organisms/card.module.css';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { CardItem } from '@/features/shared/atoms/card/CardItem';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
 import { NoItemsToDisplay } from '@/features/shared/atoms/noItems/NoItemsToDisplay';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
-import { SortComponent } from '@/features/shared/atoms/sort/Sort';
-import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
+import { SizeType } from '@/features/shared/atoms/swich/switch';
 import { Title } from '@/features/shared/atoms/title/Title';
+
 import { useFilter } from '@/features/shared/hooks/useFilter';
-import { usePagination } from '@/features/shared/hooks/usePagination';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+import { usePagination } from '@/features/users/atoms/usePagination/usePagination';
+import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
 
-import styleCard from './card.module.css';
-import style from './list.module.css';
+import styles from './users-list.module.css';
 
-type Props = {
-  items: ItemsResponse[];
+interface Props {
+  users: User[];
   pagination: PaginationAPI;
-};
-export const List = ({ items, pagination }: Props) => {
+}
+
+export const UserList = (props: Props) => {
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
+  const pathname = usePathname();
+  const { replace } = useRouter();
   const searchParams = useSearchParams();
   const params = useMemo(() => {
     const newParams = new URLSearchParams();
@@ -40,9 +42,7 @@ export const List = ({ items, pagination }: Props) => {
 
     return newParams;
   }, [searchParams]);
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const { handlePage, currentPage } = usePagination(pagination, params);
+  const { handlePage, currentPage } = usePagination(props.pagination, params);
   const {
     handleSetFilterValues,
     filterValues,
@@ -51,13 +51,8 @@ export const List = ({ items, pagination }: Props) => {
     handleSetFiltersApplied,
     handleRemoveFilterAll,
   } = useFilter(params);
-  const t = useTranslations('Items');
 
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
-
-  const handleDropdown = (id: string) => {
-    setOpenDropdownId(openDropdownId === id ? null : id);
-  };
 
   const handleReplaceURL = () => {
     replace(`${pathname}?${params.toString()}`);
@@ -69,6 +64,10 @@ export const List = ({ items, pagination }: Props) => {
       setKeySelected(data);
     }
   }, [filterValues.key]);
+
+  const handleDropdown = (id: string) => {
+    setOpenDropdownId(openDropdownId === id ? null : id);
+  };
 
   useEffect(() => {
     handleSetFilterValues({
@@ -84,21 +83,19 @@ export const List = ({ items, pagination }: Props) => {
     handleSearchType();
   }, [handleSearchType]);
 
-  // TODO: Analizar si esto es realmente necesario
   useEffect(() => {
-    if (items.length === 0) {
+    if (props.users.length === 0) {
       handlePage(1);
     }
-  }, [handlePage, items]);
+  }, [handlePage, props.users]);
 
   return (
-    <section className={style.container}>
-      <div className={style.containerAddFilter}>
-        <Title section='Items' />
-        <p className={style.subtitle}>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-        <div className={style.subcontainerAddFilter}>
-          <div className={style.subcontainerAddFilter2}>
-            <h2>{t('selectFilter')}</h2>
+    <section className={styles.container}>
+      <div className={styles.containerAddFilter}>
+        <Title section='UserList' />
+        <p className={styles.subtitle}>Users</p>
+        <div className={styles.subcontainerAddFilter}>
+          <div className={styles.subcontainerAddFilter2}>
             <FilterAndSearch
               handleSetFiltersApplied={handleSetFiltersApplied}
               handleSetFilterValues={handleSetFilterValues}
@@ -107,7 +104,7 @@ export const List = ({ items, pagination }: Props) => {
               inputFilterData={selectOptionsData}
             />
           </div>
-          <div className={style.containerAddItem}>
+          <div className={styles.containerAddItem}>
             <FiltersApplied
               filtersApplied={filtersApplied}
               handleReplaceURL={handleReplaceURL}
@@ -116,20 +113,10 @@ export const List = ({ items, pagination }: Props) => {
             />
           </div>
         </div>
-        <div className={style.containerAddItemBtnAndModal}>
-          <div className={style.containerAddItemBtn}>
-            <SortComponent isResponsive={false} />
-            <SwitchComponent
-              className={style.containerSwitch}
-              size={SizeType.SMALL}
-              color={SelectColorType.SECONDARY}
-              defaultSelected
-            >
-              Active
-            </SwitchComponent>
-            <AddItemBtn />
-          </div>
+        <div className={styles.containerAddItemBtnAndModal}>
+          <div className={styles.containerAddItemBtn}></div>
           <FilterModal
+            type='UserList'
             handleSetFiltersApplied={handleSetFiltersApplied}
             handleSetFilterValues={handleSetFilterValues}
             keySelected={keySelected}
@@ -141,43 +128,42 @@ export const List = ({ items, pagination }: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={items} section='Items' />
-      {items.length > 0 && (
-        <div className={style.cards}>
-          {items.map((item) => (
+      <NoItemsToDisplay data={props.users} section='UserList' />
+      {props.users && props.users.length > 0 && (
+        <div className={styles.cards}>
+          {props.users.map((user) => (
             <CardItem
-              key={item.id}
-              type='items'
+              key={user.id}
+              type='users'
               className={{
                 card:
-                  openDropdownId === item.id
+                  openDropdownId === user.id
                     ? `${styleCard.backgroundHover} ${styleCard.container}`
                     : styleCard.container,
                 header: styleCard.containerHeader,
               }}
               radius={SizeType.SMALL}
-              id={item.id}
-              handleDropdown={() => handleDropdown(item.id)}
-              isDropdownOpen={openDropdownId === item.id}
+              id={user.id}
+              handleDropdown={() => handleDropdown(user.id)}
+              isDropdownOpen={openDropdownId === user.id}
               item={
                 <div className={styleCard.containerInfo}>
-                  <h2 className='text-md'>Description: {item.description}</h2>
-                  <h3 className={styleCard.name}>{item.name}</h3>
-                  <p>$500.000</p>
-                  <p>EXP: 25/12/2024</p>
+                  {user.first_name ? <h2 className={styleCard.name}>{user.first_name}</h2> : <></>}
+                  <p className='text-md'>Email: {user.email}</p>
+                  <p className='text-md'>Role: {user.role}</p>
                 </div>
               }
             />
           ))}
         </div>
       )}
-      <div className={style.containerPaginationAndAdd}>
-        {items.length > 0 && (
-          <div className={style.testNav}>
+      <div className={styles.containerPaginationAndAdd}>
+        {props.users && props.users.length > 0 && (
+          <div className={styles.testNav}>
             <PaginationComponent
               onChange={handlePage}
               page={currentPage}
-              total={pagination.lastPage}
+              total={props.pagination?.lastPage}
               color={SelectColorType.SECONDARY}
             />
           </div>

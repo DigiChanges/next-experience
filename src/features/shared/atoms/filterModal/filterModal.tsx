@@ -26,6 +26,7 @@ type Props = {
   keySelected: OptionKey;
   handleReplace: () => void;
   inputFilterData: OptionKey[];
+  type?: string;
 };
 
 export const FilterModal = ({
@@ -35,11 +36,21 @@ export const FilterModal = ({
   handleRemoveFilterAll,
   keySelected,
   handleSetFiltersApplied,
+  type,
 }: Props) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoOptionsOutline } = icons();
   const searchParams = useSearchParams();
-  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
+  const params = useMemo(() => {
+    const newParams = new URLSearchParams();
+
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newParams.append(key, value);
+    }
+
+    return newParams;
+  }, [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleReplaceURL = () => {
@@ -77,7 +88,7 @@ export const FilterModal = ({
                 inputFilterData={selectOptionsData}
                 classButton={style.btn}
               />
-              <SortComponent isResponsive={true} />
+              {type && type === 'UserList' ? <></> : <SortComponent isResponsive={true} />}
             </div>
             <div className={style.containerAddItem}>
               <FiltersApplied

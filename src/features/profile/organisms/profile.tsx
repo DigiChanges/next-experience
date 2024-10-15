@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 import { uploadUser } from '@/features/profile/actions/ProfileAction';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { images } from '@/features/shared/hooks/images';
@@ -25,14 +26,7 @@ type IProfileForm = {
 };
 
 type Props = {
-  userProfile: {
-    phone: string | null;
-    email: string | null;
-    last_name: string | null;
-    first_name: string | null;
-    id: string;
-    image_id: string | null;
-  };
+  userProfile: User;
 };
 
 export const Profile = ({ userProfile }: Props) => {
