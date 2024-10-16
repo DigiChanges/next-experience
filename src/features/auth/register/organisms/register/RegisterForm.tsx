@@ -79,8 +79,8 @@ export const RegisterForm = () => {
           />
           <InputForm<IRegisterForm>
             errors={errors}
-            id={'username'}
-            name={'username'}
+            id={'email'}
+            name={'email'}
             register={register}
             type={'email'}
             label={t('email')}

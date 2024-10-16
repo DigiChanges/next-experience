@@ -9,7 +9,7 @@ export const registerSchema = yup
       .number()
       .transform((value) => (isNaN(value) ? undefined : value))
       .nullable(),
-    username: yup.string().email('Enter a valid email address').required('*Email is a required field'),
+    email: yup.string().email('Enter a valid email address').required('*Email is a required field'),
     password: yup
       .string()
       .required('*Password is a required field')
