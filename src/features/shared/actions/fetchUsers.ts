@@ -2,7 +2,7 @@
 import { cookies } from 'next/headers';
 
 import { getSession } from '@/features/profile/actions/ProfileAction';
-// import { handleGetFile } from '@/features/shared/actions/fileAction';
+import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
 import { createClient } from '@/lib/server/server';
 
@@ -60,15 +60,15 @@ export const fetchUser = async (): Promise<User> => {
       throw new Error('Error at getting the user');
     }
 
-    // let image = data[0]?.image_id ?? null;
-    // if (image) {
-    //   image = await handleGetFile(image);
-    //   image = image?.path;
-    // }
+    let image = data[0]?.image_id ?? null;
+    if (image) {
+      image = await handleGetFile(image);
+      image = image?.path;
+    }
 
     return {
       id: user.id,
-      image_id: null,
+      image_id: image,
       phone: data[0]?.phone ?? null,
       email: data[0]?.email ?? null,
       last_name: data[0]?.last_name,
