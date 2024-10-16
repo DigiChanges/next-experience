@@ -1,0 +1,38 @@
+.form{
+    @apply w-full flex flex-col justify-center items-center gap-4
+}
+.infoUserNotEdit input, .infoUserEdit input{
+    @apply !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput outline-none focus:border-grayLight
+}
+.infoUserEdit input{
+    @apply !bg-borderInput !text-[#000000]
+}
+.infoUserEdit input[type=number]::-webkit-inner-spin-button,
+.infoUserEdit input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.inputError{
+    @apply border-solid border-2 !border-[#FE3F3F80]
+}
+.infoUserEdit p{
+    @apply border-none text-[12px] pt-0 pl-2 !text-warning
+}
+.containerButtons{
+    @apply !flex flex-col-reverse items-center justify-center !gap-4 w-full max-w-[25rem] mx-auto mt-4
+}
+.buttonSecondary, .buttonEdit{
+    @apply w-full min-w-[12rem] px-4 h-12 flex text-center items-center justify-center mx-auto py-2 font-medium text-[1rem] text-secondary tracking-wider leading-[1.2] rounded-lg border-[none] border-1 border-secondary shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-hoverButtonBlue hover:text-bgInputFilter active:scale-[98%];
+}
+.buttonEdit{
+    @apply bg-secondary !text-bgInputFilter !text-center leading-[1.2]
+}
+
+@screen md{
+    .containerButtons{
+        @apply flex-row !gap-1
+    }
+    .buttonSecondary, .buttonEdit{
+        @apply mb-5
+    }
+}

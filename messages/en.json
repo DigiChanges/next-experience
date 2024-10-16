@@ -186,7 +186,11 @@
     "p_name": "Name",
     "p_lastname": "Lastname",
     "p_email": "Email",
-    "p_phone": "Phone"
+    "p_phone": "Phone",
+    "p_confirm": "Save changes",
+    "p_edit": "Edit data",
+    "p_change_password": "Change password",
+    "p_cancel": "Cancel"
   },
   "RecoveryCode": {
     "title": "Enter your code",
