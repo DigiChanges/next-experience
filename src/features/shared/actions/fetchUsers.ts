@@ -1,10 +1,9 @@
 'use server';
-import { cookies } from 'next/headers';
 
 import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { createClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/server/server';
 
 export interface User {
   id: string;
@@ -36,11 +35,6 @@ export interface PaginatedResponse {
   };
 }
 
-const getCookies = () => {
-  const cookieStore = cookies();
-  return createClient(cookieStore);
-};
-
 interface QueryParms {
   filter?: URLSearchParams | undefined;
 }
@@ -50,7 +44,7 @@ type Props = {
 };
 
 export const fetchUser = async (): Promise<User> => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
   const user = await getSession();
 
   if (user && user.id) {
@@ -81,7 +75,7 @@ export const fetchUser = async (): Promise<User> => {
 };
 
 export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
   const currentUserRole = await getCurrentUserRole();
 
   if (currentUserRole[0].role_id.slug !== 'admin') {

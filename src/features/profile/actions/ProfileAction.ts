@@ -1,16 +1,11 @@
 'use server';
-import { cookies } from 'next/headers';
 import { redirect, RedirectType } from 'next/navigation';
 
-import { createClient } from '@/lib/server/server';
-
-const getCookies = () => {
-  const cookieStore = cookies();
-  return createClient(cookieStore);
-};
+import { ProfileType as IProfileType } from '@/features/profile/interfaces/profileResponse';
+import { getSupabaseClient, getSupabaseClientServer } from '@/lib/server/server';
 
 export const getSession = async () => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
 
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
@@ -25,10 +20,75 @@ export const getSession = async () => {
   }
 };
 
-export const uploadUser = async (image_id: string | null | undefined, id: string) => {
-  const supabase = getCookies();
+type NewUserByAdmin = {
+  email: string;
+  password: string;
+  account_active: boolean;
+};
 
-  await supabase.from('profiles').update({ image_id }).eq('id', id);
+export const addNewUserByAdmin = async ({ email, password, account_active }: NewUserByAdmin) => {
+  const supabase = getSupabaseClientServer();
+
+  if (account_active) {
+    const { error } = await supabase.auth.admin.createUser({
+      email: email,
+      password: password,
+      email_confirm: true,
+    });
+
+    if (error) {
+      console.log(error);
+    }
+  } else {
+    const { error: createError } = await supabase.auth.admin.createUser({
+      email: email,
+      password: password,
+    });
+
+    if (createError) {
+      console.log(createError);
+    }
+
+    const { error: SendError } = await supabase.auth.resend({
+      type: 'signup',
+      email: email,
+      options: {
+        emailRedirectTo: 'https://example.com/welcome',
+      },
+    });
+
+    if (SendError) {
+      console.log(SendError);
+    }
+  }
+};
+
+type UpdatedUserByThemselves = {
+  id: string;
+  first_name: string | null;
+  last_name: string | null;
+  phone: string | null;
+  email: string | null;
+  image_id: string | null | undefined;
+};
+
+export const uploadUser = async (props: UpdatedUserByThemselves) => {
+  const supabase = getSupabaseClient();
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({
+      first_name: props.first_name,
+      last_name: props.last_name,
+      phone: props.phone,
+      email: props.email,
+      image_id: props.image_id,
+    })
+    .eq('id', props.id);
+
+  if (error) {
+    console.log(error);
+  }
 
   redirect('/dashboard', RedirectType.push);
 };

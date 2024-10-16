@@ -1,17 +1,11 @@
 'use server';
-import { cookies } from 'next/headers';
 
 import { redirect, RedirectType } from 'next/navigation';
 
-import { createClient } from '@/lib/server/server';
-
-const getCookies = () => {
-  const cookieStore = cookies();
-  return createClient(cookieStore);
-};
+import { getSupabaseClient } from '@/lib/server/server';
 
 export const getCurrentUserRole = async () => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
   const {
     data: { session },
     error,
@@ -34,7 +28,7 @@ export const getCurrentUserRole = async () => {
 };
 
 export const deleteUser = async (id: string) => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
   const role = await getCurrentUserRole();
 
   if (role[0].role_id === 'admin') {
