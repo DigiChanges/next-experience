@@ -129,7 +129,7 @@ export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
     ? data.map((user) => ({
         id: user.user_id.id,
         image_id: user.user_id.image_id,
-        phone: null,
+        phone: user.user_id.phone,
         email: user.user_id.email,
         last_name: user.user_id.last_name,
         first_name: user.user_id.first_name,
