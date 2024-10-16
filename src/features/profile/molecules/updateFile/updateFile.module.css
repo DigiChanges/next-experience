@@ -1,0 +1,22 @@
+.containerImg{
+    @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
+}
+.profileImage{
+    @apply w-20 h-20 rounded-[100px]
+}
+.pencil {
+    @apply absolute cursor-pointer w-[2rem] h-[2rem];
+    bottom: 50%;
+    right: 50%;
+    transform: translate(140%, 150%);
+}
+.hiddenInput, .hiddenInput label, .hiddenInput input{
+    @apply hidden w-0 h-0 invisible
+}
+
+@screen md{
+    .pencil {
+        @apply w-[1.6rem] h-[1.6rem];
+        transform: translate(180%, 160%);
+    }
+}

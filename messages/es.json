@@ -208,7 +208,11 @@
     "p_name": "Nombre",
     "p_lastname": "Apellido",
     "p_email": "Correo electrónico",
-    "p_phone": "Teléfono"
+    "p_phone": "Teléfono",
+    "p_confirm": "Guardar cambios",
+    "p_edit": "Editar datos",
+    "p_change_password": "Cambiar contraseña",
+    "p_cancel": "Cancelar"
   },
   "RecoveryCode": {
     "title": "Ingresa  tu código",
