@@ -21,6 +21,8 @@ import { usePagination } from '@/features/users/atoms/usePagination/usePaginatio
 import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
 
 import styles from './users-list.module.css';
+import {AddBtn} from "@/features/shared/atoms/addBtn/AddBtn";
+import {useTranslations} from "next-intl";
 
 interface Props {
   users: User[];
@@ -28,6 +30,7 @@ interface Props {
 }
 
 export const UserList = (props: Props) => {
+  const t = useTranslations('UserList');
   const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -105,6 +108,7 @@ export const UserList = (props: Props) => {
             />
           </div>
           <div className={styles.containerAddItem}>
+            <AddBtn linkButton={'users/create'} ariaLabelButton={t('addItem')} textButton={t('addItem')} />
             <FiltersApplied
               filtersApplied={filtersApplied}
               handleReplaceURL={handleReplaceURL}

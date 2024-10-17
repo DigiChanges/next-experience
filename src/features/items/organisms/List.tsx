@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-import { AddItemBtn } from '@/features/items/atoms/addItem/AddItemBtn';
 import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
 import { CardItem } from '@/features/shared/atoms/card/CardItem';
@@ -22,6 +21,7 @@ import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/Fil
 
 import styleCard from './card.module.css';
 import style from './list.module.css';
+import {AddBtn} from "@/features/shared/atoms/addBtn/AddBtn";
 
 type Props = {
   items: ItemsResponse[];
@@ -127,7 +127,7 @@ export const List = ({ items, pagination }: Props) => {
             >
               Active
             </SwitchComponent>
-            <AddItemBtn />
+            <AddBtn linkButton={'items/create'} ariaLabelButton={t('addItem')} textButton={t('addItem')} />
           </div>
           <FilterModal
             handleSetFiltersApplied={handleSetFiltersApplied}

@@ -10,6 +10,7 @@ import { createItem } from '@/features/items/actions/ItemAction';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { modalSchema } from '@/features/items/validations/modalSchema';
 // import { handleUploadFile } from '@/features/shared/actions/fileAction';
+import { BtnFormCreateUpdate } from '@/features/shared/atoms/btnFormCreateUpdate/BtnFormCreateUpdate';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 
 import style from './form-create.module.css';
@@ -109,20 +110,12 @@ export const FormCreate = () => {
         {/*  disabled={isDisabled}*/}
         {/* />*/}
       </div>
-      <div className={style.containerBtn}>
-        <div className={style.btnClose}>
-          <Link href={'/items'}>
-            <button type='button' className={style.close}>
-              {s('cancel')}
-            </button>
-          </Link>
-        </div>
-        <div className={style.btnAdd}>
-          <button type='submit' className={style.addItem} disabled={isDisabled}>
-            {t('add')}
-          </button>
-        </div>
-      </div>
+      <BtnFormCreateUpdate
+        linkCancel={t('linkItems')}
+        textCancel={s('cancel')}
+        disabledButton={isDisabled}
+        textSubmit={t('add')}
+      />
     </form>
   );
 };

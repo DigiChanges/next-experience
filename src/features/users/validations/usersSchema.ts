@@ -10,3 +10,17 @@ export const profileImageSchema = yup
       .nullable(),
   })
   .required();
+
+export const createUserSchema = yup
+  .object()
+  .shape({
+    name: yup.string().min(3).required('*User name is a required field'),
+    lastName: yup.string().min(3).required('*Lastname is a required field'),
+    phone: yup.number(),
+    email: yup.string().email('Enter a valid email address').required('*Email is a required field'),
+    password: yup
+      .string()
+      .required('*Password is a required field')
+      .min(8, 'La contraseña debe tener al menos 8 caracteres'),
+  })
+  .required();
