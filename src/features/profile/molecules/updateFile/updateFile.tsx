@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 import IconPencil from '@/asset/images/pencil.svg';
 import IconPencilWhite from '@/asset/images/pencilWhite.svg';
-import { uploadUser } from '@/features/profile/actions/ProfileAction';
+import { updateUserImage } from '@/features/profile/actions/ProfileAction';
 import style from '@/features/profile/molecules/updateFile/updateFile.module.css';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
 import { User } from '@/features/shared/actions/fetchUsers';
@@ -37,6 +37,7 @@ export const UpdateFile = ({ userProfile }: Props) => {
   } = useForm<IProfileForm>({
     resolver: yupResolver(profileImageSchema),
   });
+
   const { user } = images();
   const handleFileInputClick = () => {
     const input: HTMLElement | null = document.getElementById('file');
@@ -45,6 +46,7 @@ export const UpdateFile = ({ userProfile }: Props) => {
       input.click();
     }
   };
+
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
 
@@ -64,7 +66,7 @@ export const UpdateFile = ({ userProfile }: Props) => {
 
       if (file_id) {
         setValue('file', file_id.id);
-        await toast.promise(uploadUser(data), {
+        await toast.promise(updateUserImage(data), {
           error: `${alert('error')}`,
           success: `${alert('success')}`,
           pending: `${alert('pending')}`,

@@ -3,7 +3,7 @@
 import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { getSupabaseClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/public/publicClient';
 
 export interface User {
   id: string;

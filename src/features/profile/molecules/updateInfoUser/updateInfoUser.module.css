@@ -12,6 +12,12 @@
     -webkit-appearance: none;
     margin: 0;
 }
+.infoUser{
+    @apply !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput
+}
+.infoUser{
+    @apply !text-grayLight
+}
 .inputError{
     @apply border-solid border-2 !border-[#FE3F3F80]
 }

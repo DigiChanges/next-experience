@@ -1,6 +1,4 @@
-import { cookies } from 'next/headers';
-
-import { createClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/public/publicClient';
 
 import { config as Config } from '../features/shared/actions/config';
 
@@ -9,8 +7,7 @@ import { QueryParams } from './IHttpParams';
 export async function getDefaultHeaders(): Promise<any> {
   const { credentials } = Config.apiGateway.server;
 
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = getSupabaseClient();
 
   const {
     data: { session },

@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
 
-import { handleSignUp } from '@/features/auth/register/actions/registerAction';
+import { updateUser } from '@/features/profile/actions/ProfileAction';
 import { ProfileType as IProfileType } from '@/features/profile/interfaces/profileResponse';
 import style from '@/features/profile/molecules/updateInfoUser/updateInfoUser.module.css';
 import { profileUpdateSchema } from '@/features/profile/validations/profileUpdateSchema';
@@ -21,6 +21,7 @@ interface Props {
   handleEditButton: () => void;
   phoneNumber: string;
 }
+
 export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumber }: Props) => {
   const t = useTranslations('Profile');
   const alert = useTranslations('ToastUpdate');
@@ -28,20 +29,17 @@ export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumbe
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<IProfileType>({
     resolver: yupResolver(profileUpdateSchema),
   });
 
-  // TODO: acá falta cambiar el handleSignUp por lo que corresponda
   const onSubmit = handleSubmit(async (data: IProfileType) => {
-    await toast.promise(handleSignUp(data), {
+    await toast.promise(updateUser(data, userProfile.id), {
       error: `${alert('error')}`,
       success: `${alert('success')}`,
       pending: `${alert('pending')}`,
     });
-    reset();
   });
 
   return (
@@ -72,19 +70,10 @@ export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumbe
         placeholder={userProfile.last_name ?? t('p_lastname')}
         disabled={!edit && true}
       />
-      <InputForm<IProfileType>
-        errors={errors}
-        id={'email'}
-        name={'email'}
-        register={register}
-        type={'email'}
-        label={`${t('p_email')}:`}
-        className={style.infoUserNotEdit}
-        input_type={InputType.SIMPLE}
-        classNameError={style.inputError}
-        placeholder={userProfile.email ?? t('p_email')}
-        disabled={true}
-      />
+      <div>
+        <p>{t('p_email')}:</p>
+        <p className={style.infoUser}>{userProfile.email ?? <>{t('p_email')}</>}</p>
+      </div>
       <InputForm<IProfileType>
         errors={errors}
         id={'phone'}

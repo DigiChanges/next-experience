@@ -9,11 +9,9 @@ export interface ProfileResponse {
 }
 
 export type ProfileType = {
-  id: string;
   first_name?: string;
   last_name?: string;
-  email: string;
-  phone: number;
+  phone?: number;
 };
 
 export interface ProfilePayload extends ProfileType {}

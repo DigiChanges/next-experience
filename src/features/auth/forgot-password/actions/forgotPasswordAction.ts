@@ -1,11 +1,10 @@
 'use server';
-import { cookies } from 'next/headers';
 
 import { env } from '@/config/api';
-import { createClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/public/publicClient';
+
 export const handleRecoverPassword = async (username: string) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = getSupabaseClient();
 
   const { error } = await supabase.auth.resetPasswordForEmail(username, {
     redirectTo: `${env.urlFront}/auth/update-password`,
