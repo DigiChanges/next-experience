@@ -1,18 +1,18 @@
-.input{
-    @apply bg-bgInputFilter active:bg-bgInputFilter focus:bg-bgInputFilter;
+.input {
+  @apply bg-bgInputFilter focus:bg-bgInputFilter active:bg-bgInputFilter;
 }
-.mainWrapper{
-    @apply px-3 w-full h-full bg-bgInputFilter outline-none active:bg-bgInputFilter focus:bg-bgInputFilter;
+.mainWrapper {
+  @apply h-full w-full bg-bgInputFilter px-3 outline-none focus:bg-bgInputFilter active:bg-bgInputFilter;
 }
 .inputWrapper {
-    @apply w-full mb-3 bg-bgInputFilter rounded-[10px] hover:bg-bgInputFilter active:bg-bgInputFilter;
+  @apply mb-3 w-full rounded-[10px] bg-bgInputFilter hover:bg-bgInputFilter active:bg-bgInputFilter;
 }
-.searchIcon{
-    @apply text-secondary mb-0.5 pointer-events-none flex-shrink-0
+.searchIcon {
+  @apply pointer-events-none mb-0.5 flex-shrink-0 text-secondary;
 }
 
 @screen md {
-    .inputWrapper {
-        @apply max-w-[250px] mb-0
-    }
+  .inputWrapper {
+    @apply mb-0 max-w-[250px];
+  }
 }

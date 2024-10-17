@@ -1,9 +1,9 @@
-.containerNotFound{
-    @apply bg-[#131518] bg-gradient-to-r from-bgGradient to-60% h-[100vh] m-0 p-3 font-poppins;
+.containerNotFound {
+  @apply m-0 h-[100vh] bg-[#131518] bg-gradient-to-r from-bgGradient to-60% p-3 font-poppins;
 }
 
-@screen md{
-    .containerNotFound{
-        @apply p-0
-    }
+@screen md {
+  .containerNotFound {
+    @apply p-0;
+  }
 }

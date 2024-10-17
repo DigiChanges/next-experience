@@ -1,70 +1,74 @@
-.container{
-    @apply relative
+.container {
+  @apply relative;
 }
 .containerIconUser {
-    @apply max-w-[60px] w-[2rem] h-[2rem] cursor-pointer;
+  @apply h-[2rem] w-[2rem] max-w-[60px] cursor-pointer;
 }
-.active{
-    backdrop-filter: blur(4px);
-    height: 100%;
+.active {
+  backdrop-filter: blur(4px);
+  height: 100%;
 }
 
 .iconUser {
-    @apply relative max-w-[60px] w-full h-[2.5rem]
+  @apply relative h-[2.5rem] w-full max-w-[60px];
 }
 .iconUser svg {
-    @apply text-secondary rounded-full w-6 h-6 m-auto transition-all;
+  @apply m-auto h-6 w-6 rounded-full text-secondary transition-all;
 }
 
 .iconUser .rotate {
-    @apply transform -rotate-[180deg]
+  @apply -rotate-[180deg] transform;
 }
-.containerPerfil{
-    @apply overflow-hidden absolute right-[10px]
+.containerPerfil {
+  @apply absolute right-[10px] overflow-hidden;
 }
-.perfil{
-    @apply flex flex-col bg-bgGrey relative p-1.5 rounded-[5px]
+.perfil {
+  @apply relative flex flex-col rounded-[5px] bg-bgGrey p-1.5;
 }
-.containerIconUserOpen{
-    @apply flex items-center border-solid border-b-1 border-b-secondary mb-2 py-2
+.containerIconUserOpen {
+  @apply mb-2 flex items-center border-b-1 border-solid border-b-secondary py-2;
 }
-.iconUserOpen{
-    @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
+.iconUserOpen {
+  @apply h-full w-full max-w-[56px] rounded-[50%] object-cover pr-1;
 }
-.perfil .perfilSections, .perfil .logOut{
-    @apply py-2 items-center cursor-pointer rounded-[5px] hover:bg-hoverColor active:bg-secondary
+.perfil .perfilSections,
+.perfil .logOut {
+  @apply cursor-pointer items-center rounded-[5px] py-2 hover:bg-hoverColor active:bg-secondary;
 }
-.perfil .perfilSections img, .perfil .logOut img{
-    @apply w-[1.5rem] pl-1
+.perfil .perfilSections img,
+.perfil .logOut img {
+  @apply w-[1.5rem] pl-1;
 }
-.perfil .perfilSections p, .perfil .logOut p{
-    @apply ml-6 mr-2 pr-1
+.perfil .perfilSections p,
+.perfil .logOut p {
+  @apply ml-6 mr-2 pr-1;
 }
-.perfil .perfilSections{
-    @apply flex text-white
+.perfil .perfilSections {
+  @apply flex text-white;
 }
-.perfilSections a{
-    @apply w-full flex justify-between items-center !no-underline
+.perfilSections a {
+  @apply flex w-full items-center justify-between !no-underline;
 }
-.perfilSections a img{
-    @apply object-contain !w-[2rem]
+.perfilSections a img {
+  @apply !w-[2rem] object-contain;
 }
-.perfil .logOut{
-    @apply flex border-solid border-t-1 border-t-secondary mt-2
+.perfil .logOut {
+  @apply mt-2 flex border-t-1 border-solid border-t-secondary;
 }
 
 .centerAlign {
-    @apply top-1/2 transform -translate-y-1/2;
+  @apply top-1/2 -translate-y-1/2 transform;
 }
 
-@screen md{
-    .container{
-        @apply block relative
-    }
-    .containerPerfil{
-        @apply min-w-[10rem]
-    }
-    .perfil .perfilSections p, .perfil .logOut p{
-        @apply ml-6 pr-1 mr-0
-    }
+@screen md {
+  .container {
+    @apply relative block;
+  }
+  .containerPerfil {
+    @apply min-w-[10rem];
+  }
+  .perfil .perfilSections p,
+  .perfil .logOut p {
+    @apply ml-6 mr-0 pr-1;
+  }
 }

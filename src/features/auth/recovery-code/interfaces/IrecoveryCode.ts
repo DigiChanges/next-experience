@@ -1,3 +1,3 @@
 export type IrecoveryCode = {
-    code : string;
-}
+  code: string;
+};

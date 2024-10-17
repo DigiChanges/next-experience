@@ -1,4 +1,4 @@
 export type IupdatePasswordForm = {
-    password : string;
-    confirmPassword : string
-}
+  password: string;
+  confirmPassword: string;
+};

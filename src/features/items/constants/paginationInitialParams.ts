@@ -2,5 +2,5 @@ import { InitialPaginationParams } from '@/features/shared/interfaces/InitialPag
 
 export const paginationInitialParams: InitialPaginationParams = {
   limit: '5',
-  offset: '0'
+  offset: '0',
 };

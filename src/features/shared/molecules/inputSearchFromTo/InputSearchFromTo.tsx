@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import { InputSearch } from '@/features/shared/atoms/inputSearch/InputSearch';
 import { SearchIcon } from '@nextui-org/shared-icons';
+import { useTranslations } from 'next-intl';
+
+import { InputSearch } from '@/features/shared/atoms/inputSearch/InputSearch';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
+
 import style from './input-search-from-to.module.css';
 
 type Props = {
   keySelected: OptionKey;
-  handleSetFilterValues: (values: {
-    term: string
-  }) => void;
-}
+  handleSetFilterValues: (values: { term: string }) => void;
+};
 
 interface ValuesState {
   from: number | Date | null;
@@ -20,7 +21,7 @@ interface ValuesState {
 export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props) => {
   const [values, setValues] = useState<ValuesState>({
     from: null,
-    to: null
+    to: null,
   });
   const t = useTranslations('Items');
 
@@ -30,7 +31,7 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
 
   const handleSetValuesUnified = () => {
     handleSetFilterValues({
-      term: `${values.from?.toString()} / ${  values.to?.toString()}`
+      term: `${values.from?.toString()} / ${values.to?.toString()}`,
     });
   };
 
@@ -47,11 +48,9 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         placeholder={t('search')}
         classNames={{
           input: ['bg-bgInputFilter'],
-          inputWrapper: [style.inputWrapper]
+          inputWrapper: [style.inputWrapper],
         }}
-        startContent={ keySelected.type !== 'date' &&
-            <SearchIcon className={style.searchIcon}/>
-        }
+        startContent={keySelected.type !== 'date' && <SearchIcon className={style.searchIcon} />}
       />
       <InputSearch
         type={keySelected.type}
@@ -59,11 +58,9 @@ export const InputSearchFromTo = ({ keySelected, handleSetFilterValues }: Props)
         placeholder={t('search')}
         classNames={{
           input: ['bg-bgInputFilter'],
-          inputWrapper: [style.inputWrapper]
+          inputWrapper: [style.inputWrapper],
         }}
-        startContent={ keySelected.type !== 'date' &&
-            <SearchIcon className={style.searchIcon}/>
-        }
+        startContent={keySelected.type !== 'date' && <SearchIcon className={style.searchIcon} />}
       />
     </>
   );

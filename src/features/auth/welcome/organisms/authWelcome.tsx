@@ -1,9 +1,11 @@
 import React from 'react';
-import style from './auth-welcome.module.css';
-import Link from 'next/link';
 import Image from 'next/image';
-import { icons } from '@/features/shared/hooks/icons';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+
+import { icons } from '@/features/shared/hooks/icons';
+
+import style from './auth-welcome.module.css';
 
 export const AuthWelcome = () => {
   const t = useTranslations('AuthWelcome');

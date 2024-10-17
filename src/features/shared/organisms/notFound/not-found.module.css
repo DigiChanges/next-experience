@@ -1,33 +1,33 @@
-.container{
-    @apply h-full w-full flex flex-col justify-center items-center;
+.container {
+  @apply flex h-full w-full flex-col items-center justify-center;
 }
-.container h1{
-    @apply text-[#FFFFFF] text-[8rem] px-[2rem] m-0 p-0;
-    border-bottom: #3FAFFE solid 2px;
-    font-weight: bolder;
-    font-style: italic;
-    height: 10rem;
+.container h1 {
+  @apply m-0 p-0 px-[2rem] text-[8rem] text-[#FFFFFF];
+  border-bottom: #3faffe solid 2px;
+  font-weight: bolder;
+  font-style: italic;
+  height: 10rem;
 }
-.container h2{
-    @apply text-[#FFFFFF] text-[1.5rem] font-[400] pt-2 pb-4 m-0 p-0;
-    font-weight: normal;
+.container h2 {
+  @apply m-0 p-0 pb-4 pt-2 text-[1.5rem] font-[400] text-[#FFFFFF];
+  font-weight: normal;
 }
-.container a{
-    @apply  h-12 flex items-center justify-center mx-auto my-2 mb-5 font-medium text-[1rem] !text-[#FFFFFF] tracking-wider px-[1.3em] rounded-lg border-[none] bg-[#3FAFFE] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-[#74C5FF] active:scale-[98%];
-    text-decoration: none;
+.container a {
+  @apply mx-auto my-2 mb-5 flex h-12 transform items-center justify-center rounded-lg border-[none] bg-[#3FAFFE] px-[1.3em] text-[1rem] font-medium tracking-wider !text-[#FFFFFF] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-500 hover:bg-[#74C5FF] active:scale-[98%];
+  text-decoration: none;
 }
 
-@screen md{
-    .container a{
-        @apply  text-[16px];
-    }
-    .container h1{
-        @apply text-[10rem];
-        height: 13rem;
-    }
+@screen md {
+  .container a {
+    @apply text-[16px];
+  }
+  .container h1 {
+    @apply text-[10rem];
+    height: 13rem;
+  }
 }
-@screen xl{
-    .containerv a{
-        @apply  text-[18px];
-    }
+@screen xl {
+  .containerv a {
+    @apply text-[18px];
+  }
 }

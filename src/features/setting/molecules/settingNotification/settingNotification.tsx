@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
+
 import './menu-setting.css';
 import { useDisclosure } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
-import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
+
 import SwitchSettingNotification from '@/features/setting/atoms/SwitchNotificationSettings/SwitchNotificationSettings';
+import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 
 export const SettingNotification = () => {
   const t = useTranslations('Setting');

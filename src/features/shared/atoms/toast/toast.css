@@ -1,18 +1,18 @@
-:root{
-    --toastify-color-success: #8DFFBA;
-    --toastify-color-progress-success: rgba(217, 217, 217, 0.5) !important;
-    --toastify-icon-color-success: #292D32!important;
-    --toastify-color-error: #FE6565 !important;
-    --toastify-color-progress-error: rgba(217, 217, 217, 0.5) !important;
-    --toastify-icon-color-error: #292D32!important;
+:root {
+  --toastify-color-success: #8dffba;
+  --toastify-color-progress-success: rgba(217, 217, 217, 0.5) !important;
+  --toastify-icon-color-success: #292d32 !important;
+  --toastify-color-error: #fe6565 !important;
+  --toastify-color-progress-error: rgba(217, 217, 217, 0.5) !important;
+  --toastify-icon-color-error: #292d32 !important;
 }
 
-.Toastify__toast--error{
-    @apply !bg-warning !text-black;
+.Toastify__toast--error {
+  @apply !bg-warning !text-black;
 }
-.Toastify__toast--success{
-    @apply !bg-success !text-black;
+.Toastify__toast--success {
+  @apply !bg-success !text-black;
 }
-.Toastify__close-button{
-    @apply !text-black;
+.Toastify__close-button {
+  @apply !text-black;
 }
