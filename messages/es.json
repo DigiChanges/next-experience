@@ -32,7 +32,8 @@
     "title": "Editar ítem"
   },
   "Add": {
-    "title": "Crear ítem"
+    "title": "Crear ítem",
+    "titleUser": "Crear usuario"
   },
   "Shared": {
     "cancel": "Cancelar",
@@ -54,13 +55,17 @@
     "clearAll": "Limpiar todo",
     "delete": "Eliminar",
     "edit": "Editar",
-    "selectFilter": "Seleccionar filtro"
+    "selectFilter": "Seleccionar filtro",
+    "linkItems": "/items"
   },
 
   "UserList": {
     "title": "Sección de Usuarios",
     "filter": "Seleccionar filtro",
     "name": "Nombre",
+    "lastName": "Apellido",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
     "search": "Buscar",
     "button": "Aplicar",
     "emptyItems": "No hay usuarios para mostrar",
@@ -71,7 +76,8 @@
     "clearAll": "Limpiar todo",
     "delete": "Eliminar",
     "edit": "Editar",
-    "selectFilter": "Seleccionar filtro"
+    "selectFilter": "Seleccionar filtro",
+    "linkUsers": "/users"
   },
   "Login": {
     "username": "Nombre de usuario",
