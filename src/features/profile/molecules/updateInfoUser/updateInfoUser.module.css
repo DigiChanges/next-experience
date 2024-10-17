@@ -1,44 +1,47 @@
-.form{
-    @apply w-full flex flex-col justify-center items-center gap-4
+.form {
+  @apply flex w-full flex-col items-center justify-center gap-4;
 }
-.infoUserNotEdit input, .infoUserEdit input{
-    @apply !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput outline-none focus:border-grayLight
+.infoUserNotEdit input,
+.infoUserEdit input {
+  @apply rounded-[8px] border-2 border-borderInput bg-bgInputDisabled px-4 py-2 !text-left font-normal outline-none focus:border-grayLight;
 }
-.infoUserEdit input{
-    @apply !bg-borderInput !text-[#000000]
+.infoUserEdit input {
+  @apply !bg-borderInput !text-[#000000];
 }
-.infoUserEdit input[type=number]::-webkit-inner-spin-button,
-.infoUserEdit input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.infoUserEdit input[type='number']::-webkit-inner-spin-button,
+.infoUserEdit input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.infoUser{
-    @apply !text-left font-normal px-4 py-2 rounded-[8px] bg-bgInputDisabled border-2 border-borderInput
+.infoUser {
+  @apply rounded-[8px] border-2 border-borderInput bg-bgInputDisabled px-4 py-2 !text-left font-normal;
 }
-.infoUser{
-    @apply !text-grayLight
+.infoUser {
+  @apply !text-grayLight;
 }
-.inputError{
-    @apply border-solid border-2 !border-[#FE3F3F80]
+.inputError {
+  @apply border-2 border-solid !border-[#FE3F3F80];
 }
-.infoUserEdit p{
-    @apply border-none text-[12px] pt-0 pl-2 !text-warning
+.infoUserEdit p {
+  @apply border-none pl-2 pt-0 text-[12px] !text-warning;
 }
-.containerButtons{
-    @apply !flex flex-col-reverse items-center justify-center !gap-4 w-full max-w-[25rem] mx-auto mt-4
+.containerButtons {
+  @apply mx-auto mt-4 !flex w-full max-w-[25rem] flex-col-reverse items-center justify-center !gap-4;
 }
-.buttonSecondary, .buttonEdit{
-    @apply w-full min-w-[12rem] px-4 h-12 flex text-center items-center justify-center mx-auto py-2 font-medium text-[1rem] text-secondary tracking-wider leading-[1.2] rounded-lg border-[none] border-1 border-secondary shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all transform duration-500 hover:bg-hoverButtonBlue hover:text-bgInputFilter active:scale-[98%];
+.buttonSecondary,
+.buttonEdit {
+  @apply mx-auto flex h-12 w-full min-w-[12rem] transform items-center justify-center rounded-lg border-1 border-[none] border-secondary px-4 py-2 text-center text-[1rem] font-medium leading-[1.2] tracking-wider text-secondary shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-500 hover:bg-hoverButtonBlue hover:text-bgInputFilter active:scale-[98%];
 }
-.buttonEdit{
-    @apply bg-secondary !text-bgInputFilter !text-center leading-[1.2]
+.buttonEdit {
+  @apply bg-secondary !text-center leading-[1.2] !text-bgInputFilter;
 }
 
-@screen md{
-    .containerButtons{
-        @apply flex-row !gap-1
-    }
-    .buttonSecondary, .buttonEdit{
-        @apply mb-5
-    }
+@screen md {
+  .containerButtons {
+    @apply flex-row !gap-1;
+  }
+  .buttonSecondary,
+  .buttonEdit {
+    @apply mb-5;
+  }
 }
