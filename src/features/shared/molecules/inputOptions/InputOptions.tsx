@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SelectColorType, SelectForm } from '@/features/shared/atoms/select/SelectForm';
 import style from '@/features/shared/molecules/inputKeysFilter/input-keys-filter.module.css';
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 type Props = {
   handleSetFilterValues: (values: { term: string }) => void;

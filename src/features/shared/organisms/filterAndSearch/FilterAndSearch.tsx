@@ -1,13 +1,14 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { icons } from '@/features/shared/hooks/icons';
 import { Filter } from '@/features/shared/interfaces/Filter';
 import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
 import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import style from './filter-and-search.module.css';
 

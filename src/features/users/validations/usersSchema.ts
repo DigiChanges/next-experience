@@ -22,5 +22,7 @@ export const createUserSchema = yup
       .string()
       .required('*Password is a required field')
       .min(8, 'La contraseña debe tener al menos 8 caracteres'),
+    role: yup.string().min(3).required('*Role is a required field'),
+    active: yup.boolean().required('*Active user is a required field'),
   })
   .required();

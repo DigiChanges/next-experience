@@ -1,44 +1,44 @@
 .container {
-    @apply flex h-screen items-center justify-center;
+  @apply flex h-screen items-center justify-center;
 }
 .subContainer {
-    @apply min-h-[400px] rounded-2xl bg-modal p-4 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+  @apply min-h-[400px] rounded-2xl bg-modal p-4 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
 }
 .subTitle {
-    @apply flex items-center justify-center gap-3;
+  @apply flex items-center justify-center gap-3;
 }
 .subTitle h2 {
-    @apply text-[1.5rem] font-normal text-white;
+  @apply text-[1.5rem] font-normal text-white;
 }
 .subTitle svg {
-    @apply h-[36px] w-[36px] text-secondary;
+  @apply h-[36px] w-[36px] text-secondary;
 }
 
 @screen md {
-    .subContainer {
-        @apply w-[500px] p-[2rem];
-    }
-    .subTitle svg {
-        @apply h-[40px] w-[40px];
-    }
+  .subContainer {
+    @apply w-[500px] p-[2rem];
+  }
+  .subTitle svg {
+    @apply h-[40px] w-[40px];
+  }
 }
 
 @screen lg {
-    .subContainer {
-        @apply min-h-[600px];
-    }
+  .subContainer {
+    @apply min-h-[600px];
+  }
 }
 @screen xl {
-    .subContainer {
-        @apply max-w-[600px];
-    }
+  .subContainer {
+    @apply max-w-[600px];
+  }
 }
 
 @screen 2xl {
-    .subTitle {
-        @apply text-[26px] !important;
-    }
-    .subContainer {
-        @apply w-[600px];
-    }
+  .subTitle {
+    @apply text-[26px] !important;
+  }
+  .subContainer {
+    @apply w-[600px];
+  }
 }

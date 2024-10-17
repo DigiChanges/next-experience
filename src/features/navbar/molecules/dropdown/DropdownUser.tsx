@@ -12,8 +12,8 @@ import { toast } from 'react-toastify';
 import { locales } from '@/config';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
 import { User } from '@/features/navbar/organisms/NavbarTop';
-import { AccordionComponent } from '@/features/shared/atoms/accordion/accordion';
 import { icons } from '@/features/shared/hooks/icons';
+import { AccordionComponent } from '@/features/shared/molecules/accordion/accordion';
 
 import style from './dropdown-user.module.css';
 

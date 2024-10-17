@@ -3,25 +3,28 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
+import { deleteItem } from '@/features/items/actions/ItemAction';
+import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { CardItem } from '@/features/shared/atoms/card/CardItem';
+import { AddBtn } from '@/features/shared/atoms/addBtn/AddBtn';
+import { CardEntity } from '@/features/shared/atoms/card/CardEntity';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
-import { NoItemsToDisplay } from '@/features/shared/atoms/noItems/NoItemsToDisplay';
+import { NoEntitiesToDisplay } from '@/features/shared/atoms/noEntitiesToDisplay/NoEntitiesToDisplay';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
-import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
 import { Title } from '@/features/shared/atoms/title/Title';
 import { useFilter } from '@/features/shared/hooks/useFilter';
 import { usePagination } from '@/features/shared/hooks/usePagination';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import { SortComponent } from '@/features/shared/molecules/sort/Sort';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import styleCard from './card.module.css';
 import style from './list.module.css';
-import {AddBtn} from "@/features/shared/atoms/addBtn/AddBtn";
 
 type Props = {
   items: ItemsResponse[];
@@ -141,13 +144,14 @@ export const List = ({ items, pagination }: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={items} section='Items' />
+      <NoEntitiesToDisplay data={items} section='Items' />
       {items.length > 0 && (
         <div className={style.cards}>
           {items.map((item) => (
-            <CardItem
+            <CardEntity
+              editPath={'items/update'}
+              handleDelete={deleteItem}
               key={item.id}
-              type='items'
               className={{
                 card:
                   openDropdownId === item.id

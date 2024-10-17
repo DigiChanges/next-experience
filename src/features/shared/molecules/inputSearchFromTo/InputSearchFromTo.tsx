@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { SearchIcon } from '@nextui-org/shared-icons';
 import { useTranslations } from 'next-intl';
 
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { InputSearch } from '@/features/shared/atoms/inputSearch/InputSearch';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import style from './input-search-from-to.module.css';
 

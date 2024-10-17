@@ -4,16 +4,18 @@ import { useDisclosure } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
 import { toast } from 'react-toastify';
 
-import { deleteItem } from '@/features/items/actions/ItemAction';
 import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
 
-import style from './delete-item.module.css';
+import PayloadProps from '@/features/shared/interfaces/PayloadProps';
+
+import style from './delete-entity.module.css';
 
 type Props = {
   id: string;
+  handleDelete: ({ id }: PayloadProps) => Promise<void>;
 };
 
 export const DeleteItemBt = (props: Props) => {
@@ -25,7 +27,7 @@ export const DeleteItemBt = (props: Props) => {
   const t = useTranslations('Items');
 
   const handleDelete = async (id: string) => {
-    await toast.promise(deleteItem({ id }), {
+    await toast.promise(props.handleDelete({ id }), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
       pending: `${alerts('pending')}`,
@@ -42,10 +44,10 @@ export const DeleteItemBt = (props: Props) => {
       </ButtonForm>
       {isOpen && (
         <ModalComponent
+          displayButton={true}
           description={t('deleteAlert')}
           success={s('accept')}
           cancel={s('cancel')}
-          displayButton={false}
           isOpen={isOpen}
           onOpen={onOpen}
           onOpenChange={handleIsOpen}

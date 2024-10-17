@@ -2,13 +2,15 @@ import React, { useMemo } from 'react';
 import { useDisclosure } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
+import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { ModalComponent, PlacementType } from '@/features/shared/atoms/modal/Modal';
-import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 import { icons } from '@/features/shared/hooks/icons';
 import { FilterApplied } from '@/features/shared/hooks/useFilter';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import { SortComponent } from '@/features/shared/molecules/sort/Sort';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import style from './filter-modal.module.css';
 
