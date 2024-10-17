@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,9 +8,11 @@ import { toast } from 'react-toastify';
 
 import { createItem } from '@/features/items/actions/ItemAction';
 
-import { BtnFormCreateUpdate } from '@/features/shared/atoms/btnFormCreateUpdate/BtnFormCreateUpdate';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
+import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
 
+import { activeOptions, rolesOptions } from '@/features/users/constants/selectOptionsData';
+import { ICreateUser } from '@/features/users/interfaces/ICreateUser';
 import { User, UserPayload } from '@/features/users/interfaces/usersResponse';
 import { createUserSchema } from '@/features/users/validations/usersSchema';
 
@@ -20,7 +23,7 @@ export const FormCreate = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<User>({
+  } = useForm<ICreateUser>({
     resolver: yupResolver(createUserSchema),
   });
   const t = useTranslations('UserList');
@@ -30,25 +33,49 @@ export const FormCreate = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   // TODO: falta reemplazar el createItem
-  const createAction = async (data: UserPayload, name: string) => {
-    if (!name || name === 'submitForm') {
-      await toast.promise(createItem({ data }), {
-        error: alert('error'),
-        success: alert('success'),
-        pending: alert('pending'),
-      });
-      setIsDisabled(false);
-    }
+  const createAction = async (data: UserPayload) => {
+    // await toast.promise(createItem({ data }), {
+    //   error: alert('error'),
+    //   success: alert('success'),
+    //   pending: alert('pending'),
+    // });
+    setIsDisabled(false);
   };
 
   const onSubmit = async (data: UserPayload) => {
-    await createAction(data, 'submitForm');
+    await createAction(data);
   };
 
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <InputForm<User>
+        <InputForm<ICreateUser>
+          type={'text'}
+          name={'role'}
+          label={t('role')}
+          register={register}
+          errors={errors}
+          id={'role'}
+          className={style.inputBlock}
+          input_type={InputType.SELECT}
+          classNameError={style.inputError}
+          disabled={isDisabled}
+          options={rolesOptions}
+        />
+        <InputForm<ICreateUser>
+          type={'text'}
+          name={'active'}
+          label={t('active')}
+          register={register}
+          errors={errors}
+          id={'active'}
+          className={style.inputBlock}
+          input_type={InputType.SELECT}
+          classNameError={style.inputError}
+          disabled={isDisabled}
+          options={activeOptions}
+        />
+        <InputForm<ICreateUser>
           type={'text'}
           name={'name'}
           label={t('name')}
@@ -60,7 +87,7 @@ export const FormCreate = () => {
           classNameError={style.inputError}
           disabled={isDisabled}
         />
-        <InputForm<User>
+        <InputForm<ICreateUser>
           type={'text'}
           name={'lastName'}
           label={t('lastName')}
@@ -72,7 +99,7 @@ export const FormCreate = () => {
           classNameError={style.inputError}
           disabled={isDisabled}
         />
-        <InputForm<User>
+        <InputForm<ICreateUser>
           type={'number'}
           name={'phone'}
           label={t('phone')}
@@ -84,7 +111,7 @@ export const FormCreate = () => {
           classNameError={style.inputError}
           disabled={isDisabled}
         />
-        <InputForm<User>
+        <InputForm<ICreateUser>
           type={'email'}
           name={'email'}
           label={t('email')}
@@ -95,7 +122,7 @@ export const FormCreate = () => {
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
         />
-        <InputForm<User>
+        <InputForm<ICreateUser>
           errors={errors}
           id={'password'}
           name={'password'}

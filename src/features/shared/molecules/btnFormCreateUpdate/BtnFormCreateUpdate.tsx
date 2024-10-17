@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import style from '@/features/shared/atoms/btnFormCreateUpdate/btnFormCreateUpdate.module.css';
+import style from '@/features/shared/molecules/btnFormCreateUpdate/btnFormCreateUpdate.module.css';
 
 interface Props {
   linkCancel: string;

@@ -1,56 +1,56 @@
 .form {
-    @apply flex min-h-[350px] flex-col justify-between;
+  @apply flex min-h-[350px] flex-col justify-between;
 }
 .inputBlock {
-    @apply p-2;
+  @apply p-2;
 }
 .inputBlock input {
-    @apply mt-1 h-12 w-full rounded-lg border-2 border-borderInput bg-bgInputFilter px-2 text-[#292D32] shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none;
+  @apply mt-1 h-12 w-full rounded-lg border-2 border-borderInput bg-bgInputFilter px-2 text-[#292D32] shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none;
 }
 .inputBlock p {
-    @apply pt-1 text-[0.7rem] text-warning;
+  @apply pt-1 text-[0.7rem] text-warning;
 }
 .inputBlock label {
-    @apply text-[0.8rem] font-normal text-white;
+  @apply text-[0.8rem] font-normal text-white;
 }
 .inputError {
-    @apply border-2 border-solid !border-[#FE3F3F80];
+  @apply border-2 border-solid !border-[#FE3F3F80];
 }
 .inputBlock p {
-    @apply border-none pl-2 pt-1 text-[12px] text-warning;
+  @apply border-none pl-2 pt-1 text-[12px] text-warning;
 }
 .btnAdd {
-    @apply p-2;
+  @apply p-2;
 }
 .containerBtn {
-    @apply flex justify-center;
+  @apply flex justify-center;
 }
 .containerBtn button {
-    @apply w-[120px] transform transition-all duration-500 active:scale-[98%];
+  @apply w-[120px] transform transition-all duration-500 active:scale-[98%];
 }
 .addItem {
-    @apply rounded-md bg-success p-2 text-[#292D32];
+  @apply rounded-md bg-success p-2 text-[#292D32];
 }
 .btnClose {
-    @apply mr-1 flex justify-end p-2 text-white;
+  @apply mr-1 flex justify-end p-2 text-white;
 }
 .close {
-    @apply m-0 rounded-md bg-cancel p-2 text-[#FFFFFF] !important;
+  @apply m-0 rounded-md bg-cancel p-2 text-[#FFFFFF] !important;
 }
 
 @screen md {
-    .containerBtn button {
-        @apply w-[150px];
-    }
-    .inputBlock input {
-        @apply h-16;
-    }
-    .btnClose {
-        @apply mr-6 flex justify-end p-2 text-white;
-    }
+  .containerBtn button {
+    @apply w-[150px];
+  }
+  .inputBlock input {
+    @apply h-16;
+  }
+  .btnClose {
+    @apply mr-6 flex justify-end p-2 text-white;
+  }
 }
 @screen lg {
-    .form {
-        @apply min-h-[500px];
-    }
+  .form {
+    @apply min-h-[500px];
+  }
 }

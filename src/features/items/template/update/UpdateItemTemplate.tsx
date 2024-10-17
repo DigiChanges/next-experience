@@ -11,7 +11,7 @@ type Props = {
   id: string;
 };
 export const UpdateItemTemplate = async ({ id }: Props) => {
-  const { data } = await getOne({ id });
+  const data = await getOne({ id });
   const t = await getTranslations('Update');
   const { IoCreateOutline } = icons();
 

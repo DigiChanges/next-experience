@@ -4,14 +4,14 @@ import { useTranslations } from 'next-intl';
 
 import { icons } from '@/features/shared/hooks/icons';
 
-import style from './no-items-to-display.module.css';
+import style from './no-entities-to-display.module.css';
 
 type Props<Type> = {
   data: Type[];
   section: string;
 };
 
-export const NoItemsToDisplay = <Type,>({ data, section }: Props<Type>) => {
+export const NoEntitiesToDisplay = <Type,>({ data, section }: Props<Type>) => {
   const t = useTranslations(section);
   const { IconNoItems } = icons();
 

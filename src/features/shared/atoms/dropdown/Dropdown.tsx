@@ -1,18 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { DeleteItemBt } from '@/features/items/atoms/deleteItem/DeleteItemBtn';
-import { EditItemBtn } from '@/features/items/atoms/editItem/EditItemBtn';
-// import { DeleteUserBtn } from '@/features/users/atoms/deleteUser/DeleteUserBtn';
+import { DeleteItemBt } from '@/features/shared/atoms/deleteEntity/DeleteEntityBtn';
+import { EditEntityBtn } from '@/features/shared/atoms/editEntity/EditEntityBtn';
 import { icons } from '@/features/shared/hooks/icons';
+
+import PayloadProps from '@/features/shared/interfaces/PayloadProps';
 
 import style from './Dropdown.module.css';
 
 type Props = {
-  type: string;
+  handleDelete: ({ id }: PayloadProps) => Promise<void>;
   isDropdownOpen: boolean;
   handleDropdown: () => void;
   id: string;
+  editPath: string;
 };
 export const Dropdown = (props: Props) => {
   const { IoEllipsisVertical } = icons();
@@ -31,10 +33,11 @@ export const Dropdown = (props: Props) => {
         id={props.id}
       >
         <div className={style.perfil} id={props.id}>
-          <div className={style.perfilSections}>{props.type === 'items' ? <EditItemBtn id={props.id} /> : <></>}</div>
           <div className={style.perfilSections}>
-            {props.type === 'items' ? <DeleteItemBt id={props.id} /> : <></>}
-            {/* {props.type === 'items' ? <DeleteItemBt id={props.id} /> : <DeleteUserBtn id={props.id}></DeleteUserBtn>} */}
+            <EditEntityBtn editPath={props.editPath} id={props.id} />
+          </div>
+          <div className={style.perfilSections}>
+            <DeleteItemBt handleDelete={props.handleDelete} id={props.id} />
           </div>
         </div>
       </motion.ul>

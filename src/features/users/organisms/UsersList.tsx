@@ -3,11 +3,15 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
+import { useTranslations } from 'next-intl';
+
+import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import styleCard from '@/features/items/organisms/card.module.css';
 import { User } from '@/features/shared/actions/fetchUsers';
-import { CardItem } from '@/features/shared/atoms/card/CardItem';
+import { AddBtn } from '@/features/shared/atoms/addBtn/AddBtn';
+import { CardEntity } from '@/features/shared/atoms/card/CardEntity';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
-import { NoItemsToDisplay } from '@/features/shared/atoms/noItems/NoItemsToDisplay';
+import { NoEntitiesToDisplay } from '@/features/shared/atoms/noEntitiesToDisplay/NoEntitiesToDisplay';
 import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginations';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SizeType } from '@/features/shared/atoms/swich/switch';
@@ -18,11 +22,10 @@ import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { usePagination } from '@/features/users/atoms/usePagination/usePagination';
-import { OptionKey, selectOptionsData } from '@/features/users/constants/selectOptionsData';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import styles from './users-list.module.css';
-import {AddBtn} from "@/features/shared/atoms/addBtn/AddBtn";
-import {useTranslations} from "next-intl";
 
 interface Props {
   users: User[];
@@ -132,13 +135,15 @@ export const UserList = (props: Props) => {
           />
         </div>
       </div>
-      <NoItemsToDisplay data={props.users} section='UserList' />
+      <NoEntitiesToDisplay data={props.users} section='UserList' />
       {props.users && props.users.length > 0 && (
         <div className={styles.cards}>
           {props.users.map((user) => (
-            <CardItem
+            <CardEntity
+              editPath={'users/update'}
+              // @ts-expect-error test
+              handleDelete={() => fetch('')}
               key={user.id}
-              type='users'
               className={{
                 card:
                   openDropdownId === user.id

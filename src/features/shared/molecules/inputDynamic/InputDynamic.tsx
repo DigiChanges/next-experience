@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { InputOptions } from '@/features/shared/molecules/inputOptions/InputOptions';
 import { InputSearchFromTo } from '@/features/shared/molecules/inputSearchFromTo/InputSearchFromTo';
 import { InputSearchSimple } from '@/features/shared/molecules/inputSimple/InputSearchSimple';
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 export const enum EnumFilterApply {
   Single = 0,

@@ -8,8 +8,8 @@ import { toast } from 'react-toastify';
 import { createItem } from '@/features/items/actions/ItemAction';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { modalSchema } from '@/features/items/validations/modalSchema';
-import { BtnFormCreateUpdate } from '@/features/shared/atoms/btnFormCreateUpdate/BtnFormCreateUpdate';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
+import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
 
 import style from './form-create.module.css';
 
