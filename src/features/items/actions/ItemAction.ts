@@ -55,7 +55,6 @@ export const updateItem = async ({ id, data }: PayloadProps<ItemPayload>) => {
 };
 
 export const getOne = async ({ id }: PayloadProps) => {
-  console.log(`${baseUrl}/${base}/${id}`);
   const config: IHttpParams = {
     url: `${baseUrl}/${base}/${id}`,
     method: 'GET',
