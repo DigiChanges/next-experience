@@ -1,11 +1,12 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
+import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+
 // import { ProfileType as IProfileType } from '@/features/profile/interfaces/profileResponse';
-import { getSupabaseClient } from '@/lib/public/publicClient';
 
 export const getSession = async () => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
 
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
@@ -27,7 +28,7 @@ type UpdatedUser = {
 };
 
 export const updateUser = async (data: UpdatedUser, id: string) => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
   const phone = data.phone ? data.phone.toString() : null;
   const { error } = await supabase
     .from('profiles')
@@ -51,7 +52,7 @@ type UpdatedUserImage = {
 };
 
 export const updateUserImage = async (props: UpdatedUserImage) => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
 
   const { error } = await supabase
     .from('profiles')

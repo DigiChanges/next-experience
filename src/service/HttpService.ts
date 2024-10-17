@@ -13,6 +13,7 @@ class HttpService {
       const defaultHeaders = await getDefaultHeaders();
 
       const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
+      console.log(body);
       const response = await fetch(urlWithParams, {
         method,
         body,

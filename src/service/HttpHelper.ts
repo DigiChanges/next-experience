@@ -1,4 +1,4 @@
-import { getSupabaseClient } from '@/lib/public/publicClient';
+import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 import { config as Config } from '../features/shared/actions/config';
 
@@ -7,7 +7,7 @@ import { QueryParams } from './IHttpParams';
 export async function getDefaultHeaders(): Promise<any> {
   const { credentials } = Config.apiGateway.server;
 
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
 
   const {
     data: { session },

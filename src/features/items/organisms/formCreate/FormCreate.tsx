@@ -27,19 +27,17 @@ export const FormCreate = () => {
 
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
-  const createAction = async (data: ItemPayload, name: string) => {
-    if (!name || name === 'submitForm') {
-      await toast.promise(createItem({ data }), {
-        error: alert('error'),
-        success: alert('success'),
-        pending: alert('pending'),
-      });
-      setIsDisabled(false);
-    }
+  const createAction = async (data: ItemPayload) => {
+    await toast.promise(createItem({ data }), {
+      error: alert('error'),
+      success: alert('success'),
+      pending: alert('pending'),
+    });
+    setIsDisabled(false);
   };
 
   const onSubmit = async (data: ItemPayload) => {
-    await createAction(data, 'submitForm');
+    await createAction(data);
   };
 
   return (

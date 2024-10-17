@@ -1,10 +1,10 @@
 'use server';
 
 import { env } from '@/config/api';
-import { getSupabaseClient } from '@/lib/public/publicClient';
+import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export const handleRecoverPassword = async (username: string) => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
 
   const { error } = await supabase.auth.resetPasswordForEmail(username, {
     redirectTo: `${env.urlFront}/auth/update-password`,
