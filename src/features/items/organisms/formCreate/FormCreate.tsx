@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -9,12 +8,10 @@ import { toast } from 'react-toastify';
 import { createItem } from '@/features/items/actions/ItemAction';
 import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
 import { modalSchema } from '@/features/items/validations/modalSchema';
-// import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { BtnFormCreateUpdate } from '@/features/shared/atoms/btnFormCreateUpdate/BtnFormCreateUpdate';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 
 import style from './form-create.module.css';
-// import error from '@/app/error';
 
 export const FormCreate = () => {
   const {
@@ -29,27 +26,6 @@ export const FormCreate = () => {
   const alert = useTranslations('ToastCreate');
 
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-
-  // const handleChange = async(event: ChangeEvent<HTMLInputElement>, name: string) => {
-  //   try {
-  //     if (name === 'uploadFile') {
-  //       event.preventDefault();
-  //       setIsDisabled(true);
-  //       if (event.target.files && event.target.files[0]) {
-  //         const formData = new FormData();
-  //         formData.append('file', event.target.files[0]);
-  //         const id = await handleUploadFile(formData);
-  //         if (id) {
-  //           setValue('file', id);
-  //         }
-  //       }
-  //       setIsDisabled(false);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     setIsDisabled(false);
-  //   }
-  // };
 
   const createAction = async (data: ItemPayload, name: string) => {
     if (!name || name === 'submitForm') {
@@ -94,21 +70,6 @@ export const FormCreate = () => {
           classNameError={style.inputError}
           disabled={isDisabled}
         />
-
-        {/* <InputForm<Item>*/}
-        {/*  type={'file'}*/}
-        {/*  name={'file'}*/}
-        {/*  label={t('file')}*/}
-        {/*  register={register}*/}
-        {/*  errors={errors}*/}
-        {/*  id={'file'}*/}
-        {/*  className={style.input}*/}
-        {/*  input_type={InputType.FILE}*/}
-        {/*  classNameError={style.inputError}*/}
-        {/*  onChange={(e) => handleChange(e, 'uploadFile')}*/}
-        {/*  multiple={false}*/}
-        {/*  disabled={isDisabled}*/}
-        {/* />*/}
       </div>
       <BtnFormCreateUpdate
         linkCancel={t('linkItems')}
