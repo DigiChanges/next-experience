@@ -1,12 +1,11 @@
 'use server';
-import { cookies } from 'next/headers';
+
 import { redirect, RedirectType } from 'next/navigation';
 
-import { createClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/public/publicClient';
 
 export const handleUpdatePassword = async (password: string, code: string) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = getSupabaseClient();
 
   await supabase.auth.exchangeCodeForSession(code);
 

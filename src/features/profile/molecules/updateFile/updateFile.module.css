@@ -1,22 +1,24 @@
-.containerImg{
-    @apply relative !flex flex-col justify-center items-center gap-4 mx-auto
+.containerImg {
+  @apply relative mx-auto !flex flex-col items-center justify-center gap-4;
 }
-.profileImage{
-    @apply w-20 h-20 rounded-[100px]
+.profileImage {
+  @apply h-20 w-20 rounded-[100px];
 }
 .pencil {
-    @apply absolute cursor-pointer w-[2rem] h-[2rem];
-    bottom: 50%;
-    right: 50%;
-    transform: translate(140%, 150%);
+  @apply absolute h-[2rem] w-[2rem] cursor-pointer;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(140%, 150%);
 }
-.hiddenInput, .hiddenInput label, .hiddenInput input{
-    @apply hidden w-0 h-0 invisible
+.hiddenInput,
+.hiddenInput label,
+.hiddenInput input {
+  @apply invisible hidden h-0 w-0;
 }
 
-@screen md{
-    .pencil {
-        @apply w-[1.6rem] h-[1.6rem];
-        transform: translate(180%, 160%);
-    }
+@screen md {
+  .pencil {
+    @apply h-[1.6rem] w-[1.6rem];
+    transform: translate(180%, 160%);
+  }
 }

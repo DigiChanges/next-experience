@@ -3,8 +3,13 @@ import { cookies } from 'next/headers';
 
 import { env } from '@/config/api';
 
-export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
+const createClientServer = (cookieStore: ReturnType<typeof cookies>) => {
   return createServerClient(env.supabaseUrl!, env.supabaseAnonKey!, {
+    global: {
+      headers: {
+        Authorization: `Bearer ${process.env.SUPABASE_PRIVATE_KEY}`,
+      },
+    },
     cookies: {
       get(name: string) {
         return cookieStore.get(name)?.value;
@@ -29,4 +34,9 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
       },
     },
   });
+};
+
+export const getSupabaseClientServer = () => {
+  const cookieStore = cookies();
+  return createClientServer(cookieStore);
 };

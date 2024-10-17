@@ -1,14 +1,13 @@
 'use server';
-import { cookies } from 'next/headers';
+
 import { redirect, RedirectType } from 'next/navigation';
 
 import { env } from '@/config/api';
 import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm';
-import { createClient } from '@/lib/server/server';
+import { getSupabaseClient } from '@/lib/public/publicClient';
 
 export const handleSignUp = async (props: IRegisterForm) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = getSupabaseClient();
 
   const { error } = await supabase.auth.signUp({
     email: props.email,

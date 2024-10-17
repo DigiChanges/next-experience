@@ -10,7 +10,7 @@ import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { ModalComponent } from '@/features/shared/atoms/modal/Modal';
 import { icons } from '@/features/shared/hooks/icons';
 import { useOpen } from '@/features/shared/hooks/useOpen';
-import { deleteUser } from '@/features/users/actions/usersAction';
+import { deleteUserByAdmin } from '@/features/users/actions/adminUserAction';
 
 import style from './delete-user.module.css';
 
@@ -26,7 +26,7 @@ export const DeleteUserBtn = (props: Props) => {
   const t = useTranslations('UserList');
 
   const handleDelete = async (id: string) => {
-    await toast.promise(deleteUser(id), {
+    await toast.promise(deleteUserByAdmin(id), {
       error: `${alerts('error')}`,
       success: `${alerts('success')}`,
       pending: `${alerts('pending')}`,

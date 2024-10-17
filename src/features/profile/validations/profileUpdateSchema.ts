@@ -4,6 +4,6 @@ export const profileUpdateSchema = yup
   .shape({
     first_name: yup.string().min(3).max(20),
     last_name: yup.string().min(3).max(20),
-    phone: yup.number().min(6),
+    phone: yup.number().min(6).optional(),
   })
   .required();

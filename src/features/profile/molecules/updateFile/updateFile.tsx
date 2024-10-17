@@ -9,13 +9,13 @@ import { toast } from 'react-toastify';
 
 import IconPencil from '@/asset/images/pencil.svg';
 import IconPencilWhite from '@/asset/images/pencilWhite.svg';
-import { uploadUser } from '@/features/profile/actions/ProfileAction';
+import { updateUserImage } from '@/features/profile/actions/ProfileAction';
 import style from '@/features/profile/molecules/updateFile/updateFile.module.css';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { images } from '@/features/shared/hooks/images';
-import {User} from "@/features/shared/actions/fetchUsers";
 
 type IProfileForm = {
   file?: object | null;
@@ -37,6 +37,7 @@ export const UpdateFile = ({ userProfile }: Props) => {
   } = useForm<IProfileForm>({
     resolver: yupResolver(profileImageSchema),
   });
+
   const { user } = images();
   const handleFileInputClick = () => {
     const input: HTMLElement | null = document.getElementById('file');
@@ -45,6 +46,7 @@ export const UpdateFile = ({ userProfile }: Props) => {
       input.click();
     }
   };
+
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
 
@@ -53,9 +55,18 @@ export const UpdateFile = ({ userProfile }: Props) => {
       file.append('file', event.target.files[0]);
       const file_id = await handleUploadFile(file);
 
+      const data = {
+        id: userProfile.id,
+        first_name: userProfile.first_name,
+        last_name: userProfile.last_name,
+        phone: userProfile.phone,
+        email: userProfile.email,
+        image_id: file_id.id,
+      };
+
       if (file_id) {
         setValue('file', file_id.id);
-        await toast.promise(uploadUser(file_id.id, userProfile.id), {
+        await toast.promise(updateUserImage(data), {
           error: `${alert('error')}`,
           success: `${alert('success')}`,
           pending: `${alert('pending')}`,

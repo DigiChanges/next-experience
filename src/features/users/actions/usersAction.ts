@@ -1,17 +1,11 @@
 'use server';
-import { cookies } from 'next/headers';
 
 import { redirect, RedirectType } from 'next/navigation';
 
-import { createClient } from '@/lib/server/server';
-
-const getCookies = () => {
-  const cookieStore = cookies();
-  return createClient(cookieStore);
-};
+import { getSupabaseClient } from '@/lib/public/publicClient';
 
 export const getCurrentUserRole = async () => {
-  const supabase = getCookies();
+  const supabase = getSupabaseClient();
   const {
     data: { session },
     error,
@@ -30,21 +24,6 @@ export const getCurrentUserRole = async () => {
     return data;
   } else {
     throw new Error('Error at getting the current user');
-  }
-};
-
-export const deleteUser = async (id: string) => {
-  const supabase = getCookies();
-  const role = await getCurrentUserRole();
-
-  if (role[0].role_id === 'admin') {
-    throw new Error('You dont have the required permission to do this request');
-  }
-
-  const { error } = await supabase.auth.admin.deleteUser(id);
-
-  if (error) {
-    throw new Error(`Error at deleting the user: ${error.message}`);
   }
 };
 
