@@ -1,7 +1,7 @@
 'use server';
 
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { getSupabaseClientServer } from '@/lib/private/privateClient';
+import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 type NewUserByAdmin = {
   first_name: string | undefined;
@@ -13,7 +13,7 @@ type NewUserByAdmin = {
 };
 
 export const addNewUserByAdmin = async (props: NewUserByAdmin) => {
-  const supabase = getSupabaseClientServer();
+  const supabase = supabaseClientManager.getPrivateClient();
 
   const { error } = await supabase.auth.admin.createUser({
     email: props.email,
@@ -49,7 +49,7 @@ export const updateUserByAdmin = async () => {
 };
 
 export const deleteUserByAdmin = async (id: string) => {
-  const supabase = getSupabaseClientServer();
+  const supabase = supabaseClientManager.getPublicClient();
   const role = await getCurrentUserRole();
 
   if (role[0].role_id === 'admin') {

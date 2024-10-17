@@ -36,6 +36,7 @@ export const createItem = async ({ data }: PayloadProps<ItemPayload>) => {
     method: 'POST',
     data,
   };
+
   await HttpService.request<ItemsResponse>(config);
 
   revalidatePath('/items');

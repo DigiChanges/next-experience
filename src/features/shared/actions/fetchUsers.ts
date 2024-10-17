@@ -3,7 +3,7 @@
 import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { getSupabaseClient } from '@/lib/public/publicClient';
+import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export interface User {
   id: string;
@@ -44,7 +44,7 @@ type Props = {
 };
 
 export const fetchUser = async (): Promise<User> => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
   const user = await getSession();
 
   if (user && user.id) {
@@ -75,7 +75,7 @@ export const fetchUser = async (): Promise<User> => {
 };
 
 export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
-  const supabase = getSupabaseClient();
+  const supabase = supabaseClientManager.getPublicClient();
   const currentUserRole = await getCurrentUserRole();
 
   if (currentUserRole[0].role_id.slug !== 'admin') {
