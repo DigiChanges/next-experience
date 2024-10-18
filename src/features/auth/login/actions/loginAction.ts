@@ -4,12 +4,12 @@ import { redirect, RedirectType } from 'next/navigation';
 
 import { getLang } from '@/features/shared/hooks/getLang';
 
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 import { ILoginForm } from '../interfaces/IloginForm';
 
 export const handleSignIn = async (data: ILoginForm) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const { lang } = getLang();
 
   const { error } = await supabase.auth.signInWithPassword({

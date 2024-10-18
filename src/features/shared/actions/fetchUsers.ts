@@ -5,7 +5,7 @@ import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
 import { PayloadUpdateRole, RolesResponse } from '@/features/users/interfaces/rolesResponse';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export interface User {
   id: string;
@@ -47,7 +47,7 @@ type Props = {
 };
 
 export const fetchUser = async (id?: string | undefined): Promise<User> => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const user = await getSession();
 
   if (user && user.id && !id) {
@@ -61,6 +61,7 @@ export const fetchUser = async (id?: string | undefined): Promise<User> => {
     }
 
     let image = data[0]?.image_id ?? null;
+
     if (image) {
       image = await handleGetFile(image);
       image = image?.path;
@@ -108,7 +109,7 @@ export const fetchUser = async (id?: string | undefined): Promise<User> => {
 };
 
 export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const currentUserRole = await getCurrentUserRole();
 
   if (currentUserRole[0].role_id.slug !== 'admin') {
@@ -191,7 +192,7 @@ export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
 };
 
 export const getRoles = async () => {
-  const supabase = supabaseClientManager.getPrivateClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { data, error } = await supabase.from('roles').select();
   if (error) {
@@ -202,7 +203,7 @@ export const getRoles = async () => {
 };
 
 export const updateRole = async ({ user_id, role_id }: PayloadUpdateRole) => {
-  const supabase = supabaseClientManager.getPrivateClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error: RolUpdateError } = await supabase
     .from(SupabaseTable.USER_HAS_ROLES)

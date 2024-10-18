@@ -15,7 +15,7 @@ import { profileImageSchema } from '@/features/profile/validations/profileImageS
 import { User } from '@/features/shared/actions/fetchUsers';
 import { handleGetFile, handleUploadFile } from '@/features/shared/actions/fileAction';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
-import { images } from '@/features/shared/hooks/images';
+import { useContextUser } from '@/contexts/UserContext';
 
 type IProfileForm = {
   file?: object | string | null;
@@ -28,8 +28,7 @@ interface Props {
 }
 
 export const UserImage = ({ userProfile, edit }: Props) => {
-  const { user } = images();
-  const [imagePath, setImagePath] = useState<StaticImageData | string>(user);
+  const { avatar, handleSetAvatar } = useContextUser();
   const alert = useTranslations('ToastUpdate');
   const { theme } = useTheme();
   const pencilToggle = theme === 'dark' ? IconPencilWhite : IconPencil;
@@ -75,7 +74,7 @@ export const UserImage = ({ userProfile, edit }: Props) => {
         });
 
         const image = await handleGetFile(fileMetadata.id);
-        setImagePath(image.path);
+        handleSetAvatar(image.path);
       }
     }
   };
@@ -83,7 +82,7 @@ export const UserImage = ({ userProfile, edit }: Props) => {
   return (
     <>
       <div className={style.containerImg}>
-        <Image src={imagePath} alt={'user'} width={82} height={82} className={style.profileImage} />
+        <Image src={avatar} alt={'user'} width={82} height={82} className={style.profileImage} />
         {edit && (
           <button onClick={handleFileInputClick}>
             <Image src={pencilToggle} alt={'pencil'} className={style.pencil} />

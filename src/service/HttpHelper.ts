@@ -1,4 +1,4 @@
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 import { config as Config } from '../features/shared/actions/config';
 
@@ -12,7 +12,7 @@ interface DefaultHeaders {
 export async function getDefaultHeaders(headers?: HeadersContentType): Promise<DefaultHeaders> {
   const { credentials } = Config.apiGateway.server;
 
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const {
     data: { session },

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { dataLogin, dataPerfil, dataUser } from '@/features/navbar/constants/dataNav';
 import { DropdownUser } from '@/features/navbar/molecules/dropdown/DropdownUser';
@@ -7,6 +7,7 @@ import { ChangeLanguage } from '@/features/shared/atoms/changeLanguage/changeLan
 import ThemeSwitcher from '@/features/shared/atoms/swich/ThemeSwitcher';
 
 import style from './navbar-top.module.css';
+import { useContextUser } from '@/contexts/UserContext';
 
 export interface User {
   phone: string | null;
@@ -23,6 +24,7 @@ type Props = {
 };
 
 export const NavbarTop = (props: Props) => {
+  const { avatar, handleSetAvatar } = useContextUser();
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState<boolean>(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState<boolean>(false);
   const handleDropdownUser = () => {
@@ -33,6 +35,15 @@ export const NavbarTop = (props: Props) => {
     setIsLangDropdownOpen(!isLangDropdownOpen);
     setIsUserDropdownOpen(false);
   };
+  const handleSetAvatarUser = () => {
+    if(props.user?.image_id) {
+      handleSetAvatar(props.user.image_id);
+    }
+  }
+
+  useEffect(() => {
+    handleSetAvatarUser();
+  }, []);
 
   return (
     <header className={style.container}>
@@ -46,6 +57,7 @@ export const NavbarTop = (props: Props) => {
           <>
             <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
             <DropdownUser
+              avatar={avatar}
               dataPerfil={dataPerfil}
               style={style}
               dataUser={dataUser}

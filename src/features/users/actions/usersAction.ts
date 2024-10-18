@@ -3,10 +3,10 @@
 import { redirect, RedirectType } from 'next/navigation';
 
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const getCurrentUserRole = async () => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const {
     data: { session },
     error,

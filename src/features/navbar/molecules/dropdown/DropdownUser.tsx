@@ -16,10 +16,11 @@ import { icons } from '@/features/shared/hooks/icons';
 import { AccordionComponent } from '@/features/shared/molecules/accordion/accordion';
 
 import style from './dropdown-user.module.css';
+import { useContextUser } from '@/contexts/UserContext';
 
 type Props = {
+  avatar: string | StaticImageData;
   dataPerfil: {
-    icon: StaticImageData;
     description: string;
     path: string;
   }[];
@@ -64,7 +65,7 @@ export const DropdownUser = (props: Props) => {
     <div className={style.container}>
       <div className={style.containerIconUser}>
         <button onClick={props.handleDropdownUser} className={`${style.iconUser} ${background}`}>
-          <Image src={props.user?.image_id ?? props.dataUser.image} alt={'Icon user'} height={1080} width={1080} />
+          <Image src={props.avatar} alt={'Icon user'} height={1080} width={1080} />
           <Image
             className={`${style.dropdown} ${rotate}`}
             width={82}

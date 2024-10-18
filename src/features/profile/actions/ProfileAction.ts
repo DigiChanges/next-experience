@@ -1,12 +1,12 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
-import { updateRole } from '@/features/shared/actions/fetchUsers';
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
+import { updateRole } from '@/features/shared/actions/fetchUsers';
 
 export const getSession = async () => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
@@ -30,7 +30,7 @@ type UpdatedUser = {
 };
 
 export const updateUser = async (data: UpdatedUser, id: string) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const phone = data.phone ? data.phone.toString() : null;
 
   const { error } = await supabase
@@ -60,7 +60,7 @@ type UpdatedUserImage = {
 };
 
 export const updateUserImage = async (props: UpdatedUserImage) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error } = await supabase
     .from(SupabaseTable.PROFILES)
