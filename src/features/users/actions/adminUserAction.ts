@@ -1,8 +1,7 @@
 'use server';
 
-import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
+import { updateRole } from '@/features/shared/actions/fetchUsers';
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { PayloadUpdateRole } from '@/features/users/interfaces/rolesResponse';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 type NewUserByAdmin = {
@@ -13,32 +12,6 @@ type NewUserByAdmin = {
   password: string;
   role: string;
   account_active: boolean;
-};
-
-export const getRoles = async () => {
-  const supabase = supabaseClientManager.getPrivateClient();
-
-  const { data, error } = await supabase.from('roles').select();
-  if (error) {
-    throw new Error('Error getting the roles');
-  } else {
-    return data;
-  }
-};
-
-export const updateRole = async ({ user_id, role_id }: PayloadUpdateRole) => {
-  const supabase = supabaseClientManager.getPrivateClient();
-
-  const { error: RolUpdateError } = await supabase
-    .from(SupabaseTable.USER_HAS_ROLES)
-    .update({
-      role_id,
-    })
-    .eq('user_id', user_id);
-
-  if (RolUpdateError) {
-    throw new Error('Error updating the role of the user');
-  }
 };
 
 export const addNewUserByAdmin = async (props: NewUserByAdmin) => {

@@ -1,8 +1,8 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
+import { updateRole } from '@/features/shared/actions/fetchUsers';
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
-import { updateRole } from '@/features/users/actions/adminUserAction';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export const getSession = async () => {

@@ -1,10 +1,9 @@
 import React from 'react';
 import { getTranslations } from 'next-intl/server';
 
-import { fetchUser } from '@/features/shared/actions/fetchUsers';
+import { fetchUser, getRoles } from '@/features/shared/actions/fetchUsers';
 import { icons } from '@/features/shared/hooks/icons';
 
-import { getRoles } from '@/features/users/actions/adminUserAction';
 import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import { FormUpdateUser } from '@/features/users/organisms/formUpdate/FormUpdateUser';
 

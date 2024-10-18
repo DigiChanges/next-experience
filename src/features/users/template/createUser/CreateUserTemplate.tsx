@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getRoles } from '@/features/users/actions/adminUserAction';
+import { getRoles } from '@/features/shared/actions/fetchUsers';
 import { SubTitle } from '@/features/users/atoms/subtitle/Subtitle';
 import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import { FormCreate } from '@/features/users/organisms/formCreate/FormCreateUser';

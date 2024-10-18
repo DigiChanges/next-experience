@@ -4,7 +4,7 @@ import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
+import { PayloadUpdateRole, RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export interface User {
@@ -188,4 +188,30 @@ export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
   };
 
   return paginationResponse;
+};
+
+export const getRoles = async () => {
+  const supabase = supabaseClientManager.getPrivateClient();
+
+  const { data, error } = await supabase.from('roles').select();
+  if (error) {
+    throw new Error('Error getting the roles');
+  } else {
+    return data;
+  }
+};
+
+export const updateRole = async ({ user_id, role_id }: PayloadUpdateRole) => {
+  const supabase = supabaseClientManager.getPrivateClient();
+
+  const { error: RolUpdateError } = await supabase
+    .from(SupabaseTable.USER_HAS_ROLES)
+    .update({
+      role_id,
+    })
+    .eq('user_id', user_id);
+
+  if (RolUpdateError) {
+    throw new Error('Error updating the role of the user');
+  }
 };
