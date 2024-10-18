@@ -1,7 +1,7 @@
 export interface UsersResponse {
   id: string;
-  name: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   email: string;
   phone?: number;
   password: string;
@@ -10,11 +10,13 @@ export interface UsersResponse {
 }
 
 export type User = {
-  name: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   phone?: number;
   email: string;
   password: string;
+  role: string;
+  account_active: boolean;
 };
 
 export interface UserPayload extends User {}

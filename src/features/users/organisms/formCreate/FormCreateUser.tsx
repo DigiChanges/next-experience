@@ -1,4 +1,3 @@
-/* eslint-disable */
 'use client';
 import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,19 +5,20 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { createItem } from '@/features/items/actions/ItemAction';
-
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
 
-import { activeOptions, rolesOptions } from '@/features/users/constants/selectOptionsData';
+import { addNewUserByAdmin } from '@/features/users/actions/adminUserAction';
+import { activeOptions } from '@/features/users/constants/selectOptionsData';
+import { transformToInputOptions } from '@/features/users/helpers/transformToInputOptions';
 import { ICreateUser } from '@/features/users/interfaces/ICreateUser';
-import { User, UserPayload } from '@/features/users/interfaces/usersResponse';
+import { Roles } from '@/features/users/interfaces/rolesResponse';
+import { UserPayload } from '@/features/users/interfaces/usersResponse';
 import { createUserSchema } from '@/features/users/validations/usersSchema';
 
 import style from './formCreateUser.module.css';
 
-export const FormCreate = () => {
+export const FormCreate = ({ roles }: Roles) => {
   const {
     register,
     handleSubmit,
@@ -30,15 +30,16 @@ export const FormCreate = () => {
   const s = useTranslations('Shared');
   const alert = useTranslations('ToastCreate');
 
+  const rolesTransformed = transformToInputOptions(roles);
+
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
-  // TODO: falta reemplazar el createItem
   const createAction = async (data: UserPayload) => {
-    // await toast.promise(createItem({ data }), {
-    //   error: alert('error'),
-    //   success: alert('success'),
-    //   pending: alert('pending'),
-    // });
+    await toast.promise(addNewUserByAdmin(data), {
+      error: alert('error'),
+      success: alert('success'),
+      pending: alert('pending'),
+    });
     setIsDisabled(false);
   };
 
@@ -60,15 +61,15 @@ export const FormCreate = () => {
           input_type={InputType.SELECT}
           classNameError={style.inputError}
           disabled={isDisabled}
-          options={rolesOptions}
+          options={rolesTransformed}
         />
         <InputForm<ICreateUser>
           type={'text'}
-          name={'active'}
+          name={'account_active'}
           label={t('active')}
           register={register}
           errors={errors}
-          id={'active'}
+          id={'account_active'}
           className={style.inputBlock}
           input_type={InputType.SELECT}
           classNameError={style.inputError}
@@ -77,11 +78,11 @@ export const FormCreate = () => {
         />
         <InputForm<ICreateUser>
           type={'text'}
-          name={'name'}
+          name={'first_name'}
           label={t('name')}
           register={register}
           errors={errors}
-          id={'name'}
+          id={'first_name'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
@@ -89,11 +90,11 @@ export const FormCreate = () => {
         />
         <InputForm<ICreateUser>
           type={'text'}
-          name={'lastName'}
+          name={'last_name'}
           label={t('lastName')}
           register={register}
           errors={errors}
-          id={'lastName'}
+          id={'last_name'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
