@@ -1,0 +1,25 @@
+.title {
+  @apply w-full;
+}
+.title h1 {
+  @apply border-b-[2px] border-solid border-b-secondary pb-[1.5rem] text-center text-[1.5rem] font-semibold text-white;
+}
+.title h1 {
+  max-height: fit-content;
+}
+
+@screen md {
+  .title {
+    width: fit-content;
+  }
+  .title h1 {
+    @apply h-[4.2rem] py-0 pb-0 pr-[4rem] text-start text-[3rem] text-white;
+  }
+}
+@screen lg {
+}
+
+@screen xl {
+  .title {
+  }
+}

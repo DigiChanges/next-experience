@@ -1,0 +1,33 @@
+.form {
+  @apply flex min-h-[350px] flex-col justify-between;
+}
+.inputBlock {
+  @apply p-2;
+}
+.inputBlock input,
+.inputBlock select {
+  @apply mt-1 h-12 w-full rounded-lg border-2 border-borderInput bg-bgInputFilter px-2 text-[#292D32] shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none;
+}
+.inputBlock select {
+  @apply cursor-pointer;
+}
+.inputBlock label {
+  @apply text-[0.8rem] font-normal text-white;
+}
+.inputError {
+  @apply border-2 border-solid !border-[#FE3F3F80];
+}
+.inputBlock p {
+  @apply border-none pl-2 pt-1 text-[12px] text-warning;
+}
+.inputBlock input[type='number']::-webkit-inner-spin-button,
+.inputBlock input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@screen lg {
+  .form {
+    @apply min-h-[500px];
+  }
+}

@@ -1,19 +1,24 @@
-import { IHttpParams } from './IHttpParams';
 import { getDefaultHeaders, getParams } from './HttpHelper';
+import { HeadersContentType, IHttpParams } from './IHttpParams';
 
 class HttpService {
   static async request<T>(props: IHttpParams) {
     try {
-      const { url, method, queryParams, data } = props;
+      const { url, method, queryParams, data, headers } = props;
 
       const params: URLSearchParams = getParams(queryParams);
 
-      const urlWithParams = `${url}?${params.toString()}`; // Params to string
+      const urlWithParams = `${url}?${params.toString()}`;
+
+      const defaultHeaders = await getDefaultHeaders(headers);
+
+      const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
 
       const response = await fetch(urlWithParams, {
         method,
-        body: data ? JSON.stringify(data as T) : undefined,
-        ...getDefaultHeaders()
+        // @ts-expect-error body error type
+        body,
+        ...defaultHeaders,
       });
 
       if (!response.ok) {
@@ -21,7 +26,7 @@ class HttpService {
       }
       return await response.json();
     } catch (e) {
-      throw new Error((e as { message: string})?.message);
+      throw new Error((e as { message: string })?.message);
     }
   }
 }

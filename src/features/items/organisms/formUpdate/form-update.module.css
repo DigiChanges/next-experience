@@ -1,50 +1,50 @@
-.form{
-    @apply min-h-[350px] flex flex-col justify-between
+.form {
+  @apply flex min-h-[350px] flex-col justify-between;
 }
 .inputBlock {
-    @apply p-2
+  @apply p-2;
 }
 .inputBlock input {
-    @apply  w-full px-2 bg-bgInputFilter mt-1 text-[#292D32] outline-none rounded-lg h-12 border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)]
+  @apply mt-1 h-12 w-full rounded-lg border-2 border-borderInput bg-bgInputFilter px-2 text-[#292D32] shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none;
 }
 .inputBlock p {
-    @apply text-warning pt-1 text-[0.7rem]
+  @apply pt-1 text-[0.7rem] text-warning;
 }
-.inputBlock label{
-    @apply text-white font-normal text-[0.8rem]
+.inputBlock label {
+  @apply text-[0.8rem] font-normal text-white;
 }
 .btnAdd {
-    @apply p-2
+  @apply p-2;
 }
-.containerBtn{
-    @apply flex justify-center
+.containerBtn {
+  @apply flex justify-center;
 }
-.containerBtn button{
-    @apply w-[120px] transition-all transform duration-500 active:scale-[98%]
+.containerBtn button {
+  @apply w-[120px] transform transition-all duration-500 active:scale-[98%];
 }
 .addItem {
-    @apply bg-success p-2 rounded-md text-[#292D32]
+  @apply rounded-md bg-success p-2 text-[#292D32];
 }
-.btnClose{
-    @apply flex justify-end mr-1 p-2 text-white
+.btnClose {
+  @apply mr-1 flex justify-end p-2 text-white;
 }
 .close {
-    @apply bg-cancel text-[#FFFFFF] p-2 m-0 rounded-md !important
+  @apply m-0 rounded-md bg-cancel p-2 text-[#FFFFFF] !important;
 }
 
-@screen md{
-    .containerBtn button{
-        @apply w-[150px]
-    }
-    .inputBlock input {
-        @apply h-16;
-    }
-    .btnClose{
-        @apply flex justify-end mr-6 p-2 text-white
-    }
+@screen md {
+  .containerBtn button {
+    @apply w-[150px];
+  }
+  .inputBlock input {
+    @apply h-16;
+  }
+  .btnClose {
+    @apply mr-6 flex justify-end p-2 text-white;
+  }
 }
 @screen lg {
-    .form{
-        @apply min-h-[500px]
-    }
+  .form {
+    @apply min-h-[500px];
+  }
 }

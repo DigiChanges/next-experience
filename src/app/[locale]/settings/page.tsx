@@ -1,6 +1,7 @@
 import React from 'react';
-import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
+
 import { SettingTemplate } from '@/features/setting/template/SettingTemplate';
+import { PrivateLayout } from '@/layout/private-layout/PrivateLayout';
 
 export default function Page() {
   return (

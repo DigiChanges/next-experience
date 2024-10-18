@@ -1,9 +1,9 @@
-.containerFile{
-    @apply relative flex items-center justify-center w-full bg-bgInputFilter h-12 p-2 !m-0 !mt-1 rounded-lg border-2 border-borderInput shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)]
+.containerFile {
+  @apply relative !m-0 !mt-1 flex h-12 w-full items-center justify-center rounded-lg border-2 border-borderInput bg-bgInputFilter p-2 shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)];
 }
-.containerFile p{
-    @apply text-center text-[#292D32] transition-all transform duration-300 hover:scale-[102%]
+.containerFile p {
+  @apply transform text-center text-[#292D32] transition-all duration-300 hover:scale-[102%];
 }
-.containerFile input{
-    @apply !absolute !top-0 !right-0 !left-0 !bottom-0 w-full h-full !bg-transparent !p-0 !m-0 border-none opacity-0 cursor-pointer;
+.containerFile input {
+  @apply !absolute !bottom-0 !left-0 !right-0 !top-0 !m-0 h-full w-full cursor-pointer border-none !bg-transparent !p-0 opacity-0;
 }

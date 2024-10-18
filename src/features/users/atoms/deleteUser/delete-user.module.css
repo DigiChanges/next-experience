@@ -1,0 +1,60 @@
+.btnDelete img {
+  @apply mr-4 h-4 w-4 rounded-full;
+}
+
+.btnDelete {
+  @apply flex h-[25px] w-full items-end justify-between bg-transparent;
+}
+.btnDelete p {
+  @apply !text-[1rem] text-white;
+}
+.btnDelete svg {
+  @apply mr-4 h-[1rem] w-[1rem] rounded-full text-warning;
+}
+
+.containerAlert {
+  @apply fixed inset-0 z-10 ml-[65px] flex items-center justify-center bg-default bg-opacity-25 text-white backdrop-blur;
+}
+.subContainer {
+  @apply flex max-h-[350px] w-[350px] items-center justify-center rounded-md bg-accent py-4 shadow-md;
+}
+.img {
+  @apply h-[36px] min-h-[36px] w-[36px] min-w-[36px];
+}
+.text {
+  @apply p-4 text-center text-lg;
+}
+
+.btnSuccess {
+  @apply my-2 flex justify-end rounded-md bg-success p-2 text-sm text-accent;
+}
+.btnClose {
+  @apply my-2 flex justify-end rounded-md bg-warning p-2 text-sm;
+}
+
+@screen md {
+  .btnDelete svg {
+    @apply h-6 w-6;
+  }
+}
+
+@screen lg {
+  .text {
+    @apply text-lg;
+  }
+}
+
+@screen 2xl {
+  .img {
+    @apply h-[48px] min-h-[48px] w-[48px] min-w-[48px];
+  }
+  .text {
+    @apply text-xl;
+  }
+  .btnSuccess {
+    @apply my-2 flex justify-end rounded-md bg-success p-2;
+  }
+  .btnClose {
+    @apply my-2 flex justify-end rounded-md bg-warning p-2;
+  }
+}

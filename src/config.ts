@@ -6,8 +6,8 @@ export const pathnames = {
   '/': '/',
   '/pathnames': {
     en: '/pathnames',
-    es: '/pfadnamen'
-  }
+    es: '/pfadnamen',
+  },
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`

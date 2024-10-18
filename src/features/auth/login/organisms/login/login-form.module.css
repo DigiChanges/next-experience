@@ -1,64 +1,78 @@
-
-.container{
- @apply h-screen flex flex-col items-center px-1 justify-center
+.container {
+  @apply flex h-screen flex-col items-center justify-center px-[2rem];
 }
-.container h2{
-    @apply text-white text-[3rem] font-semibold border-solid border-b-secondary border-b-[2px] px-[2rem]
+.container h2 {
+  @apply mx-[2rem] w-full border-b-[2px] border-solid border-b-secondary text-center text-[2.5rem] font-semibold text-white;
 }
-.container h3{
-    @apply text-white text-[1.5rem] font-[400] pt-2 pb-4
+.container h3 {
+  @apply pb-4 pt-2 text-center text-[1.2rem] font-[400] text-white;
 }
-.container svg{
-    @apply w-14 h-14 text-secondary mb-3
+.container svg {
+  @apply mb-3 h-14 w-14 text-secondary;
 }
 .form {
-    @apply bg-transparent backdrop-blur-[10px] p-2 rounded-md flex flex-col justify-start max-w-[250px] w-full px-[2rem];
+  @apply flex w-full flex-col justify-start rounded-md bg-transparent p-2 backdrop-blur-[10px];
+}
+.linkForgot {
+  @apply mt-2 text-center text-[1rem] text-secondary hover:underline;
+}
+.input {
+  @apply my-2 mb-4 flex h-16 flex-col justify-start text-white;
+}
+.input label {
+  @apply hidden;
+}
+.input input {
+  @apply mt-2 h-12 w-full rounded-lg border-2 border-borderInput bg-transparent p-2 shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] outline-none focus:border-grayLight;
+}
+.inputError {
+  @apply border-2 border-solid !border-[#FE3F3F80];
+}
+.input p {
+  @apply border-none pl-2 pt-1 text-[12px] text-warning;
+}
+
+.containerRegister {
+  @apply flex justify-center text-center text-[0.8rem] text-white;
+}
+.containerRegister p {
+  @apply text-[0.8rem] font-[400] text-white;
+}
+.containerRegister a {
+  @apply ml-2 text-[0.8rem] font-normal text-secondary hover:underline;
+}
+
+@screen md {
+  .container h2 {
+    @apply text-[3rem];
   }
-.linkForgot{
- @apply text-secondary text-center text-[1rem] mt-2 hover:underline
+  .container h3 {
+    @apply text-[1.5rem];
+  }
+  .form,
+  .container h2 {
+    @apply max-w-[300px];
+  }
+  .containerRegister p,
+  .containerRegister a {
+    @apply text-[1rem];
+  }
 }
-.input{
- @apply h-16 flex flex-col justify-start text-white my-2 mb-4
-}
-.input label{
-    @apply hidden
-}
-.input input{
- @apply w-full mt-2 rounded-lg h-12 border-2 border-borderInput outline-none shadow-[0_2px_2px_0px_rgba(0,0,0,0.05)] p-2 bg-transparent focus:border-grayLight;
-}
-.inputError{
-    @apply border-solid border-2 !border-[#FE3F3F80]
-}
-.input p{
-    @apply text-[12px] pt-1.5 pl-2 text-warning
-}
-
-.containerRegister{
-    @apply text-white text-[1rem] flex justify-center text-center
-}
-.containerRegister p{
-    @apply text-white text-[1rem] font-[400]
-}
-.containerRegister a{
- @apply ml-2 text-secondary font-normal text-[1rem] hover:underline
+@screen lg {
+  .form,
+  .container h2 {
+    @apply max-w-[350px];
+  }
 }
 
-@screen md{
-    .form {
-        @apply max-w-[300px];
-      }
-}
-@screen lg{
-    .form {
-        @apply max-w-[350px];
-      }
-}
-
-@screen 2xl{
-    .form {
-        @apply max-w-[400px];
-      }
-      .containerRegister p, .containerRegister a, .linkForgot{
-        @apply  text-sm
-    }
+@screen 2xl {
+  .form,
+  .container h2 {
+    @apply max-w-[400px];
+  }
+  .containerRegister p,
+  .containerRegister a,
+  .linkForgot {
+    @apply text-sm;
+  }
 }

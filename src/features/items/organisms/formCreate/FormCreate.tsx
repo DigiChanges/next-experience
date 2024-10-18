@@ -1,35 +1,47 @@
 'use client';
-import React from 'react';
-import style from './form-create.module.css';
-import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
-import { useForm } from 'react-hook-form';
-import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
+import React, { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { modalSchema } from '@/features/items/validations/modalSchema';
-import Link from 'next/link';
-import { toast } from 'react-toastify';
-import { createItem } from '@/features/items/actions/ItemAction';
 import { useTranslations } from 'next-intl';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+
+import { createItem } from '@/features/items/actions/ItemAction';
+import { Item, ItemPayload } from '@/features/items/interfaces/itemsResponse';
+import { modalSchema } from '@/features/items/validations/modalSchema';
+import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
+import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
+
+import style from './form-create.module.css';
 
 export const FormCreate = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<Item>({
-    resolver: yupResolver(modalSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Item>({
+    resolver: yupResolver(modalSchema),
   });
   const t = useTranslations('Items');
   const s = useTranslations('Shared');
   const alert = useTranslations('ToastCreate');
 
-  const createAction = async(data: ItemPayload) => {
-    await  toast.promise(createItem({ data }), {
-      error: `${alert('error')}`,
-      success: `${alert('success')}`,
-      pending:`${alert('pending')}`
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+
+  const createAction = async (data: ItemPayload) => {
+    await toast.promise(createItem({ data }), {
+      error: alert('error'),
+      success: alert('success'),
+      pending: alert('pending'),
     });
+    setIsDisabled(false);
   };
 
+  const onSubmit = async (data: ItemPayload) => {
+    await createAction(data);
+  };
 
   return (
-    <form className={style.form} onSubmit={handleSubmit(async(data) => { await createAction(data); })}>
+    <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <InputForm<Item>
           type={'text'}
@@ -40,31 +52,29 @@ export const FormCreate = () => {
           id={'name'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
+          classNameError={style.inputError}
+          disabled={isDisabled}
         />
 
         <InputForm<Item>
           type={'number'}
-          name={'type'}
-          label={t('type')}
+          name={'description'}
+          label={t('description')}
           register={register}
           errors={errors}
-          id={'type'}
+          id={'description'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
+          classNameError={style.inputError}
+          disabled={isDisabled}
         />
       </div>
-      <div className={style.containerBtn}>
-        <div className={style.btnClose}>
-          <Link href={'/items'}>
-            <button type="button" className={style.close}>
-              {s('cancel')}
-            </button>
-          </Link>
-        </div>
-        <div className={style.btnAdd}>
-          <button type="submit" className={style.addItem}>{t('add')}</button>
-        </div>
-      </div>
+      <BtnFormCreateUpdate
+        linkCancel={t('linkItems')}
+        textCancel={s('cancel')}
+        disabledButton={isDisabled}
+        textSubmit={t('add')}
+      />
     </form>
   );
 };

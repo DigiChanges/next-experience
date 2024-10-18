@@ -3,16 +3,10 @@ import React from 'react';
 import { NextPageContext } from 'next';
 
 type Props = {
-    statusCode?: number;
+  statusCode?: number;
 };
 function ErrorHandler({ statusCode }: Props) {
-  return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : 'An error occurred on client'}
-    </p>
-  );
+  return <p>{statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}</p>;
 }
 
 ErrorHandler.getInitialProps = ({ res, err }: NextPageContext) => {

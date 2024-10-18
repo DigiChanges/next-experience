@@ -1,4 +1,5 @@
 import { URLSearchParams } from 'url';
+
 import { InitialPaginationParams } from '@/features/shared/interfaces/InitialPaginationParams';
 
 export const setInitialPaginationParams = (params: URLSearchParams, initialParams: InitialPaginationParams) => {

@@ -1,0 +1,26 @@
+.infoUser {
+  @apply rounded-[8px] border-2 border-borderInput bg-bgInputDisabled px-4 py-2 !text-left font-normal;
+}
+.infoUser {
+  @apply !text-grayLight;
+}
+.containerButtons {
+  @apply mx-auto mt-4 !flex w-full max-w-[25rem] flex-col-reverse items-center justify-center !gap-4;
+}
+.buttonSecondary,
+.buttonEdit {
+  @apply mx-auto flex h-12 w-full min-w-[12rem] transform items-center justify-center rounded-lg border-1 border-[none] border-secondary px-4 py-2 text-center text-[1rem] font-medium leading-[1.2] tracking-wider text-secondary shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-500 hover:bg-hoverButtonBlue hover:text-bgInputFilter active:scale-[98%];
+}
+.buttonEdit {
+  @apply bg-secondary !text-center leading-[1.2] !text-bgInputFilter;
+}
+
+@screen md {
+  .containerButtons {
+    @apply flex-row !gap-1;
+  }
+  .buttonSecondary,
+  .buttonEdit {
+    @apply mb-5;
+  }
+}

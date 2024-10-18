@@ -1,5 +1,4 @@
 export interface Env {
-  urlBase: string | undefined;
   supabaseUrl: string | undefined;
   supabaseAnonKey: string | undefined;
   apiProtocol: string | undefined;
@@ -12,7 +11,6 @@ export interface Env {
 }
 
 export const env: Env = {
-  urlBase: process.env.NEXT_PUBLIC_URL_BASE,
   supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
   supabaseAnonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   apiProtocol: process.env.NEXT_PUBLIC_API_PROTOCOL,
@@ -20,7 +18,7 @@ export const env: Env = {
   apiPort: process.env.NEXT_PUBLIC_API_PORT,
   apiWithCredentials: process.env.NEXT_PUBLIC_API_WITH_CREDENTIALS,
   apiBase: process.env.NEXT_PUBLIC_API_BASE,
-  urlFront: process.env.NEXT_PUBLIC_URL_FRONT
+  urlFront: process.env.NEXT_PUBLIC_URL_FRONT,
 };
 
 export const validateEnv = () => {
@@ -30,5 +28,3 @@ export const validateEnv = () => {
     }
   });
 };
-
-

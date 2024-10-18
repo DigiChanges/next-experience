@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 
 export const usePagination = (pagination: PaginationAPI, params: URLSearchParams) => {
@@ -9,8 +10,8 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
   };
 
   const setPaginationParams = () => {
-    const offset = (currentPage - 1) * pagination.perPage;
-    setParams(offset, pagination.limit);
+    const offset = (currentPage - 1) * pagination?.perPage;
+    setParams(offset, pagination?.limit);
   };
 
   const handlePage = (page: number) => {
@@ -23,6 +24,6 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
 
   return {
     handlePage,
-    currentPage
+    currentPage,
   };
 };
