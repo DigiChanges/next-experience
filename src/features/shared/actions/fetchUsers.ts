@@ -4,6 +4,7 @@ import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
 import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
+import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export interface User {
@@ -13,7 +14,8 @@ export interface User {
   email: string | null;
   last_name: string | null;
   first_name: string | null;
-  role: string | null;
+  role: RolesResponse;
+  account_active: boolean;
 }
 
 export interface PaginatedResponse {
@@ -44,12 +46,15 @@ type Props = {
   queryParams?: QueryParms;
 };
 
-export const fetchUser = async (): Promise<User> => {
+export const fetchUser = async (id?: string | undefined): Promise<User> => {
   const supabase = supabaseClientManager.getPublicClient();
   const user = await getSession();
 
-  if (user && user.id) {
-    const { data, error } = await supabase.from(SupabaseTable.PROFILES).select().eq('id', user.id);
+  if (user && user.id && !id) {
+    const { data, error } = await supabase
+      .from(SupabaseTable.USER_HAS_ROLES)
+      .select('*, user_id!inner(*), role_id!inner(*)')
+      .eq('user_id', user.id);
 
     if (error) {
       throw new Error('Error at getting the user');
@@ -64,11 +69,38 @@ export const fetchUser = async (): Promise<User> => {
     return {
       id: user.id,
       image_id: image,
-      phone: data[0]?.phone ?? null,
-      email: data[0]?.email ?? null,
-      last_name: data[0]?.last_name,
-      first_name: data[0]?.first_name,
-      role: 'operator',
+      phone: data[0]?.user_id.phone ?? null,
+      email: data[0]?.user_id.email ?? null,
+      last_name: data[0]?.user_id.last_name,
+      first_name: data[0]?.user_id.first_name,
+      account_active: data[0]?.user_id.account_active,
+      role: data[0]?.role_id,
+    };
+  } else if (id) {
+    const { data, error } = await supabase
+      .from(SupabaseTable.USER_HAS_ROLES)
+      .select('*, user_id!inner(*), role_id!inner(*)')
+      .eq('user_id', id);
+
+    if (error) {
+      throw new Error('Error at getting the user');
+    }
+
+    let image = data[0]?.image_id ?? null;
+    if (image) {
+      image = await handleGetFile(image);
+      image = image?.path;
+    }
+
+    return {
+      id: id,
+      image_id: image,
+      phone: data[0]?.user_id.phone ?? null,
+      email: data[0]?.user_id.email ?? null,
+      last_name: data[0]?.user_id.last_name,
+      first_name: data[0]?.user_id.first_name,
+      account_active: data[0]?.user_id.account_active,
+      role: data[0].role_id,
     };
   } else {
     throw new Error('User not found');
@@ -130,6 +162,7 @@ export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
         email: user.user_id.email,
         last_name: user.user_id.last_name,
         first_name: user.user_id.first_name,
+        account_active: user.user_id.account_active,
         role: user.role_id.name,
       }))
     : [];

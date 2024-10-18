@@ -159,7 +159,7 @@ export const UserList = (props: Props) => {
                 <div className={styleCard.containerInfo}>
                   {user.first_name ? <h2 className={styleCard.name}>{user.first_name}</h2> : <></>}
                   <p className='text-md'>Email: {user.email}</p>
-                  <p className='text-md'>Role: {user.role}</p>
+                  <p className='text-md'>Role: {user.role.name}</p>
                 </div>
               }
             />

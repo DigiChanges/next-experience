@@ -1,6 +1,8 @@
 'use server';
 
+import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
+import { PayloadUpdateRole } from '@/features/users/interfaces/rolesResponse';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 type NewUserByAdmin = {
@@ -21,6 +23,21 @@ export const getRoles = async () => {
     throw new Error('Error getting the roles');
   } else {
     return data;
+  }
+};
+
+export const updateRole = async ({ user_id, role_id }: PayloadUpdateRole) => {
+  const supabase = supabaseClientManager.getPrivateClient();
+
+  const { error: RolUpdateError } = await supabase
+    .from(SupabaseTable.USER_HAS_ROLES)
+    .update({
+      role_id,
+    })
+    .eq('user_id', user_id);
+
+  if (RolUpdateError) {
+    throw new Error('Error updating the role of the user');
   }
 };
 
@@ -48,16 +65,7 @@ export const addNewUserByAdmin = async (props: NewUserByAdmin) => {
     throw new Error('Error creating a new user');
   }
 
-  const { error: RolUpdateError } = await supabase
-    .from('users_has_roles')
-    .update({
-      role_id: props.role,
-    })
-    .eq('user_id', user?.id);
-
-  if (RolUpdateError) {
-    throw new Error('Error updating the role of the user');
-  }
+  await updateRole({ user_id: user?.id, role_id: props.role });
 
   if (!props.account_active) {
     const { error: SendError } = await supabase.auth.resend({

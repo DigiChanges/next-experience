@@ -5,53 +5,54 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import { updateUser } from '@/features/profile/actions/ProfileAction';
+import { User } from '@/features/shared/actions/fetchUsers';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
-import { activeOptions, rolesOptions } from '@/features/users/constants/selectOptionsData';
-import { ICreateUser } from '@/features/users/interfaces/ICreateUser';
-import { UserPayload } from '@/features/users/interfaces/usersResponse';
+import { activeOptions } from '@/features/users/constants/selectOptionsData';
+import { transformToInputOptions } from '@/features/users/helpers/transformToInputOptions';
+import { IUpdateUser, UserUpdatePayload } from '@/features/users/interfaces/IUpdateUser';
+import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import style from '@/features/users/organisms/formUpdate/formUpdateUser.module.css';
-import { createUserSchema } from '@/features/users/validations/usersSchema';
+import { updateUserSchema } from '@/features/users/validations/usersSchema';
 
 type Props = {
   id: string;
-  data: {
-    role: string;
-    active: boolean;
-    name: string;
-    lastName: string;
-    phone: number;
-    email: string;
-  };
+  data: User;
+  roles: RolesResponse[];
 };
-export const FormUpdateUser = ({ id, data }: Props) => {
+
+export const FormUpdateUser = ({ id, data, roles }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ICreateUser>({
+  } = useForm<IUpdateUser>({
     defaultValues: {
-      role: data.role,
-      active: data.active,
-      name: data.name,
-      lastName: data.lastName,
-      phone: data.phone,
-      email: data.email,
+      role: data.role.id,
+      account_active: data.account_active,
+      first_name: data.first_name ?? undefined,
+      last_name: data.last_name ?? undefined,
+      phone: Number(data.phone) ?? undefined,
+      email: data.email ?? undefined,
     },
-    resolver: yupResolver(createUserSchema),
+    resolver: yupResolver(updateUserSchema),
   });
+
   const alert = useTranslations('ToastUpdate');
   const t = useTranslations('UserList');
   const s = useTranslations('Shared');
 
-  // TODO: acá falta cambiar el updateItem y descomentar
-  const updateAction = async (data: UserPayload) => {
-     await toast.promise(updateItem({ id, data }), {
-        error: `${alert('error')}`,
-        success: `${alert('success')}`,
-        pending: `${alert('pending')}`,
+  const rolesTransformed = transformToInputOptions(roles);
+
+  const updateAction = async (data: UserUpdatePayload) => {
+    await toast.promise(updateUser(data, id), {
+      error: `${alert('error')}`,
+      success: `${alert('success')}`,
+      pending: `${alert('pending')}`,
     });
   };
+
   return (
     <form
       className={style.form}
@@ -60,7 +61,7 @@ export const FormUpdateUser = ({ id, data }: Props) => {
       })}
     >
       <div>
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'text'}
           name={'role'}
           label={t('role')}
@@ -70,43 +71,43 @@ export const FormUpdateUser = ({ id, data }: Props) => {
           className={style.inputBlock}
           input_type={InputType.SELECT}
           classNameError={style.inputError}
-          options={rolesOptions}
+          options={rolesTransformed}
         />
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'text'}
-          name={'active'}
+          name={'account_active'}
           label={t('active')}
           register={register}
           errors={errors}
-          id={'active'}
+          id={'account_active'}
           className={style.inputBlock}
           input_type={InputType.SELECT}
           classNameError={style.inputError}
           options={activeOptions}
         />
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'text'}
-          name={'name'}
+          name={'first_name'}
           label={t('name')}
           register={register}
           errors={errors}
-          id={'name'}
+          id={'first_name'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
         />
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'text'}
-          name={'lastName'}
+          name={'last_name'}
           label={t('lastName')}
           register={register}
           errors={errors}
-          id={'lastName'}
+          id={'last_name'}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
         />
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'number'}
           name={'phone'}
           label={t('phone')}
@@ -117,13 +118,14 @@ export const FormUpdateUser = ({ id, data }: Props) => {
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}
         />
-        <InputForm<ICreateUser>
+        <InputForm<IUpdateUser>
           type={'email'}
           name={'email'}
           label={t('email')}
           register={register}
           errors={errors}
           id={'email'}
+          disabled={true}
           className={style.inputBlock}
           input_type={InputType.SIMPLE}
           classNameError={style.inputError}

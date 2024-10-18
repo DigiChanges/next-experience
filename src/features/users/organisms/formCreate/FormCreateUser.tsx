@@ -12,13 +12,17 @@ import { addNewUserByAdmin } from '@/features/users/actions/adminUserAction';
 import { activeOptions } from '@/features/users/constants/selectOptionsData';
 import { transformToInputOptions } from '@/features/users/helpers/transformToInputOptions';
 import { ICreateUser } from '@/features/users/interfaces/ICreateUser';
-import { Roles } from '@/features/users/interfaces/rolesResponse';
+import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
 import { UserPayload } from '@/features/users/interfaces/usersResponse';
 import { createUserSchema } from '@/features/users/validations/usersSchema';
 
 import style from './formCreateUser.module.css';
 
-export const FormCreate = ({ roles }: Roles) => {
+type Props = {
+  roles: RolesResponse[];
+};
+
+export const FormCreate = ({ roles }: Props) => {
   const {
     register,
     handleSubmit,
