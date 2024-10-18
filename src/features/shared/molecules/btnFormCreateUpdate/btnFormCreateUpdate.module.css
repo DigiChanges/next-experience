@@ -2,7 +2,7 @@
   @apply p-2;
 }
 .containerBtn {
-  @apply flex justify-center;
+  @apply flex justify-center mt-5;
 }
 .containerBtn button {
   @apply w-[120px] transform transition-all duration-500 active:scale-[98%];

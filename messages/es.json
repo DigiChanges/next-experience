@@ -29,7 +29,8 @@
     "maxLengt": "Maximo 2 números"
   },
   "Update": {
-    "title": "Editar ítem"
+    "title": "Editar ítem",
+    "titleUser": "Editar usuario"
   },
   "Add": {
     "title": "Crear ítem",
@@ -62,10 +63,13 @@
   "UserList": {
     "title": "Sección de Usuarios",
     "filter": "Seleccionar filtro",
+    "role": "Rol",
+    "active": "Activo",
     "name": "Nombre",
     "lastName": "Apellido",
     "phone": "Teléfono",
     "email": "Correo electrónico",
+    "password": "Contraseña",
     "search": "Buscar",
     "button": "Aplicar",
     "emptyItems": "No hay usuarios para mostrar",
