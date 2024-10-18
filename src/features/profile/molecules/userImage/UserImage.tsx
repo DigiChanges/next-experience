@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { useForm } from 'react-hook-form';
@@ -13,12 +13,12 @@ import { updateUserImage } from '@/features/profile/actions/ProfileAction';
 import style from '@/features/profile/molecules/userImage/user-image.module.css';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
 import { User } from '@/features/shared/actions/fetchUsers';
-import { handleUploadFile } from '@/features/shared/actions/fileAction';
+import { handleGetFile, handleUploadFile } from '@/features/shared/actions/fileAction';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
 import { images } from '@/features/shared/hooks/images';
 
 type IProfileForm = {
-  file?: object | null;
+  file?: object | string | null;
   image_id?: string | null;
 };
 
@@ -28,9 +28,12 @@ interface Props {
 }
 
 export const UserImage = ({ userProfile, edit }: Props) => {
+  const { user } = images();
+  const [imagePath, setImagePath] = useState<StaticImageData | string>(user);
   const alert = useTranslations('ToastUpdate');
   const { theme } = useTheme();
   const pencilToggle = theme === 'dark' ? IconPencilWhite : IconPencil;
+
   const {
     register,
     setValue,
@@ -39,7 +42,6 @@ export const UserImage = ({ userProfile, edit }: Props) => {
     resolver: yupResolver(profileImageSchema),
   });
 
-  const { user } = images();
   const handleFileInputClick = () => {
     const input: HTMLElement | null = document.getElementById('file');
 
@@ -50,39 +52,38 @@ export const UserImage = ({ userProfile, edit }: Props) => {
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    console.log('entre');
+
     if (event.target.files?.[0]) {
       const file = new FormData();
       file.append('file', event.target.files[0]);
-      console.log('entre', event.target.files[0]);
-      const file_id = await handleUploadFile(file);
-
+      const fileMetadata = await handleUploadFile(file);
       const data = {
         id: userProfile.id,
         first_name: userProfile.first_name,
         last_name: userProfile.last_name,
         phone: userProfile.phone,
         email: userProfile.email,
-        image_id: file_id.id,
+        image_id: fileMetadata.id,
       };
 
-      if (file_id) {
-        setValue('file', file_id.id);
+      if (fileMetadata.id) {
+        setValue('file', fileMetadata.id);
         await toast.promise(updateUserImage(data), {
           error: `${alert('error')}`,
           success: `${alert('success')}`,
           pending: `${alert('pending')}`,
         });
+
+        const image = await handleGetFile(fileMetadata.id);
+        setImagePath(image.path);
       }
     }
   };
 
-  const profileImage = userProfile.image_id ?? user;
-
   return (
     <>
       <div className={style.containerImg}>
-        <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage} />
+        <Image src={imagePath} alt={'user'} width={82} height={82} className={style.profileImage} />
         {edit && (
           <button onClick={handleFileInputClick}>
             <Image src={pencilToggle} alt={'pencil'} className={style.pencil} />

@@ -2,6 +2,7 @@
 
 import { getSession } from '@/features/profile/actions/ProfileAction';
 import { handleGetFile } from '@/features/shared/actions/fileAction';
+import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { filterSupabase, getCurrentUserRole } from '@/features/users/actions/usersAction';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
@@ -48,7 +49,7 @@ export const fetchUser = async (): Promise<User> => {
   const user = await getSession();
 
   if (user && user.id) {
-    const { data, error } = await supabase.from('profiles').select().eq('id', user.id);
+    const { data, error } = await supabase.from(SupabaseTable.PROFILES).select().eq('id', user.id);
 
     if (error) {
       throw new Error('Error at getting the user');
@@ -82,7 +83,9 @@ export const fetchUsers = async (props?: Props): Promise<PaginatedResponse> => {
     throw new Error("You don't have the required permission to perform this request");
   }
 
-  let query = supabase.from('users_has_roles').select('*, user_id!inner(*), role_id!inner(*)', { count: 'exact' });
+  let query = supabase
+    .from(SupabaseTable.USER_HAS_ROLES)
+    .select('*, user_id!inner(*), role_id!inner(*)', { count: 'exact' });
 
   const pagination = {
     offset: 0,

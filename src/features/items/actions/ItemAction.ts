@@ -6,7 +6,7 @@ import { ItemPayload, ItemsResponse } from '@/features/items/interfaces/itemsRes
 import { config } from '@/features/shared/actions/config';
 import PayloadProps from '@/features/shared/interfaces/PayloadProps';
 import HttpService from '@/service/HttpService';
-import { IHttpParams } from '@/service/IHttpParams';
+import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';
 
 const { baseUrl } = config.apiGateway.server;
 const { base } = config.apiGateway.routes.items;
@@ -35,6 +35,7 @@ export const createItem = async ({ data }: PayloadProps<ItemPayload>) => {
     url: `${baseUrl}/${base}`,
     method: 'POST',
     data,
+    headers: HeadersContentType.JSON,
   };
 
   await HttpService.request<ItemsResponse>(config);
@@ -48,6 +49,7 @@ export const updateItem = async ({ id, data }: PayloadProps<ItemPayload>) => {
     url: `${baseUrl}/${base}/${id}`,
     method: 'PUT',
     data,
+    headers: HeadersContentType.JSON,
   };
   await HttpService.request<ItemsResponse>(config);
 

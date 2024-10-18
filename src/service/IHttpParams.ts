@@ -21,7 +21,7 @@ type Method =
   | 'UNLINK';
 
 export enum HeadersContentType {
-  FILE_FORM = 'multipart/form-data',
+  FILE_FORM = 'multipart/related',
   JSON = 'application/json',
 }
 

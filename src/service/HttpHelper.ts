@@ -6,10 +6,7 @@ import { HeadersContentType, QueryParams } from './IHttpParams';
 
 interface DefaultHeaders {
   credentials?: string;
-  headers: {
-    Authorization: string;
-    'Content-Type'?: HeadersContentType;
-  };
+  headers?: Record<string, string>;
 }
 
 export async function getDefaultHeaders(headers?: HeadersContentType): Promise<DefaultHeaders> {
@@ -29,8 +26,11 @@ export async function getDefaultHeaders(headers?: HeadersContentType): Promise<D
     },
   };
 
-  if (headers === HeadersContentType.JSON || !headers) {
-    defaultHeaders.headers['Content-Type'] = HeadersContentType.JSON;
+  if (headers && headers !== HeadersContentType.FILE_FORM) {
+    defaultHeaders.headers = {
+      ...defaultHeaders.headers,
+      'Content-Type': headers,
+    };
   }
 
   return defaultHeaders;
