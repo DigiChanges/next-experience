@@ -28,7 +28,8 @@
     "maxLengt":"Max length is 2 numbers"
   },
   "Update": {
-    "title": "Edit Item information"
+    "title": "Edit Item information",
+    "titleUser": "Edit User information"
   },
   "Add": {
     "title": "Add Item information",
@@ -61,10 +62,13 @@
   "UserList": {
     "title": "Section Users",
     "filter":"Select Filter",
+    "role": "Role",
+    "active": "Active",
     "name": "Name",
     "lastName": "Lastname",
     "phone": "Phone",
     "email": "Email",
+    "password": "Password",
     "description": "Description",
     "search": "Search",
     "button": "Apply",
