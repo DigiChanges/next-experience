@@ -2,9 +2,17 @@ import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 import { config as Config } from '../features/shared/actions/config';
 
-import { QueryParams } from './IHttpParams';
+import { HeadersContentType, QueryParams } from './IHttpParams';
 
-export async function getDefaultHeaders(): Promise<any> {
+interface DefaultHeaders {
+  credentials?: string;
+  headers: {
+    Authorization: string;
+    'Content-Type'?: HeadersContentType;
+  };
+}
+
+export async function getDefaultHeaders(headers?: HeadersContentType): Promise<DefaultHeaders> {
   const { credentials } = Config.apiGateway.server;
 
   const supabase = supabaseClientManager.getPublicClient();
@@ -14,12 +22,16 @@ export async function getDefaultHeaders(): Promise<any> {
   } = await supabase.auth.getSession();
   const token = session?.access_token ? `Bearer ${session.access_token}` : '';
 
-  const defaultHeaders: any = {
+  const defaultHeaders: DefaultHeaders = {
     credentials,
     headers: {
       Authorization: token,
     },
   };
+
+  if (headers === HeadersContentType.JSON || !headers) {
+    defaultHeaders.headers['Content-Type'] = HeadersContentType.JSON;
+  }
 
   return defaultHeaders;
 }

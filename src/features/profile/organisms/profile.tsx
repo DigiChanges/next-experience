@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { InfoUser } from '@/features/profile/molecules/infoUser/infoUser';
-import { UpdateFile } from '@/features/profile/molecules/updateFile/updateFile';
 import { UpdateInfoUser } from '@/features/profile/molecules/updateInfoUser/updateInfoUser';
+import { UserImage } from '@/features/profile/molecules/userImage/UserImage';
 import { User } from '@/features/shared/actions/fetchUsers';
 
 import style from './profile.module.css';
@@ -42,7 +42,7 @@ export const Profile = ({ userProfile }: Props) => {
           {t('title')}
         </h1>
         <div className={style.containerList} id={userProfile.id}>
-          <UpdateFile userProfile={userProfile} />
+          <UserImage userProfile={userProfile} edit={edit} />
           {edit ? (
             <UpdateInfoUser
               edit={edit}

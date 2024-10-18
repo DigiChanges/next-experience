@@ -14,6 +14,7 @@ type Props = {
 export const revalidate = 0;
 export default async function Page({ searchParams, params: { locale } }: Props) {
   const params = new URLSearchParams(searchParams);
+  unstable_setRequestLocale(locale);
 
   const queryParams: QueryParams = {
     pagination: {
@@ -22,7 +23,6 @@ export default async function Page({ searchParams, params: { locale } }: Props) 
     },
     filter: params,
   };
-  unstable_setRequestLocale(locale);
 
   return (
     <PrivateLayout>

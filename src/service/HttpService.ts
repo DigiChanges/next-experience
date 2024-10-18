@@ -10,12 +10,13 @@ class HttpService {
 
       const urlWithParams = `${url}?${params.toString()}`;
 
-      const defaultHeaders = await getDefaultHeaders();
+      const defaultHeaders = await getDefaultHeaders(headers);
 
       const body = headers === HeadersContentType.FILE_FORM ? (data as T) : JSON.stringify(data as T);
-      console.log(body);
+
       const response = await fetch(urlWithParams, {
         method,
+        // @ts-expect-error body error type
         body,
         ...defaultHeaders,
       });

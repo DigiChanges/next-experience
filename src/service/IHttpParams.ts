@@ -22,6 +22,7 @@ type Method =
 
 export enum HeadersContentType {
   FILE_FORM = 'multipart/form-data',
+  JSON = 'application/json',
 }
 
 export interface PaginationParams {

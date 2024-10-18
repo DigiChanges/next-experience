@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import IconPencil from '@/asset/images/pencil.svg';
 import IconPencilWhite from '@/asset/images/pencilWhite.svg';
 import { updateUserImage } from '@/features/profile/actions/ProfileAction';
-import style from '@/features/profile/molecules/updateFile/updateFile.module.css';
+import style from '@/features/profile/molecules/userImage/user-image.module.css';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
 import { User } from '@/features/shared/actions/fetchUsers';
 import { handleUploadFile } from '@/features/shared/actions/fileAction';
@@ -24,9 +24,10 @@ type IProfileForm = {
 
 interface Props {
   userProfile: User;
+  edit: boolean;
 }
 
-export const UpdateFile = ({ userProfile }: Props) => {
+export const UserImage = ({ userProfile, edit }: Props) => {
   const alert = useTranslations('ToastUpdate');
   const { theme } = useTheme();
   const pencilToggle = theme === 'dark' ? IconPencilWhite : IconPencil;
@@ -49,10 +50,11 @@ export const UpdateFile = ({ userProfile }: Props) => {
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-
+    console.log('entre');
     if (event.target.files?.[0]) {
       const file = new FormData();
       file.append('file', event.target.files[0]);
+      console.log('entre', event.target.files[0]);
       const file_id = await handleUploadFile(file);
 
       const data = {
@@ -76,13 +78,16 @@ export const UpdateFile = ({ userProfile }: Props) => {
   };
 
   const profileImage = userProfile.image_id ?? user;
+
   return (
-    <form>
+    <>
       <div className={style.containerImg}>
         <Image src={profileImage} alt={'user'} width={82} height={82} className={style.profileImage} />
-        <button onClick={handleFileInputClick}>
-          <Image src={pencilToggle} alt={'pencil'} className={style.pencil} />
-        </button>
+        {edit && (
+          <button onClick={handleFileInputClick}>
+            <Image src={pencilToggle} alt={'pencil'} className={style.pencil} />
+          </button>
+        )}
       </div>
       <InputForm
         type={'file'}
@@ -95,6 +100,6 @@ export const UpdateFile = ({ userProfile }: Props) => {
         className={style.hiddenInput}
         onChange={handleChange}
       />
-    </form>
+    </>
   );
 };
