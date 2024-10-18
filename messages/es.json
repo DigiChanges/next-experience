@@ -64,7 +64,7 @@
     "title": "Sección de Usuarios",
     "filter": "Seleccionar filtro",
     "role": "Rol",
-    "active": "Activo",
+    "active": "Estado de cuenta",
     "name": "Nombre",
     "lastName": "Apellido",
     "phone": "Teléfono",

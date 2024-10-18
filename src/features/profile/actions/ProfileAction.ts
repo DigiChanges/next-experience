@@ -40,7 +40,7 @@ export const updateUser = async (data: UpdatedUser, id: string) => {
     .eq('id', id);
 
   if (error) {
-    console.log(error);
+    throw new Error('Error updating the user');
   }
 
   redirect('/dashboard', RedirectType.push);
@@ -62,7 +62,7 @@ export const updateUserImage = async (props: UpdatedUserImage) => {
     .eq('id', props.id);
 
   if (error) {
-    console.log(error);
+    throw new Error('Error updating the user image');
   }
 
   redirect('/dashboard', RedirectType.push);
