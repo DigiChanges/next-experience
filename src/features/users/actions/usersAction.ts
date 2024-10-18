@@ -24,7 +24,7 @@ export const getCurrentUserRole = async () => {
   if (data) {
     return data;
   } else {
-    throw new Error('Error at getting the current user');
+    throw new Error('Error at getting the current user role');
   }
 };
 

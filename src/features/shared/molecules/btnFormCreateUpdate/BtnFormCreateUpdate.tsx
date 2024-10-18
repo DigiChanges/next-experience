@@ -6,7 +6,7 @@ import style from '@/features/shared/molecules/btnFormCreateUpdate/btnFormCreate
 interface Props {
   linkCancel: string;
   textCancel: string;
-  disabledButton: boolean;
+  disabledButton?: boolean;
   textSubmit: string;
 }
 
@@ -21,7 +21,7 @@ export const BtnFormCreateUpdate = ({ linkCancel, textCancel, disabledButton, te
         </Link>
       </div>
       <div className={style.btnAdd}>
-        <button type='submit' className={style.addItem} disabled={disabledButton}>
+        <button type='submit' className={style.addItem} disabled={disabledButton ? disabledButton : false}>
           {textSubmit}
         </button>
       </div>

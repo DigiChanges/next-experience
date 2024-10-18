@@ -9,3 +9,8 @@ export type Roles = {
 };
 
 export interface RolesPayload extends Roles {}
+
+export interface PayloadUpdateRole {
+  user_id: string | undefined;
+  role_id: string;
+}
