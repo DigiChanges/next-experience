@@ -1,12 +1,13 @@
 'use server';
 import { config } from '@/features/shared/actions/config';
+import { FileMetadata } from '@/features/shared/interfaces/FileMetadata';
 import HttpService from '@/service/HttpService';
 import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';
 
 const { baseUrl } = config.apiGateway.server;
 const { base } = config.apiGateway.routes.files;
 
-export const handleUploadFile = async (data: object | null | undefined) => {
+export const handleUploadFile = async (data: FormData): Promise<FileMetadata> => {
   try {
     const config: IHttpParams = {
       url: `${baseUrl}/${base}`,
@@ -15,20 +16,20 @@ export const handleUploadFile = async (data: object | null | undefined) => {
       data,
     };
 
-    return await HttpService.request(config);
+    return HttpService.request(config);
   } catch (e) {
     throw new Error((e as { message: string })?.message);
   }
 };
 
-export const handleGetFile = async (id: string) => {
+export const handleGetFile = async (id: string): Promise<FileMetadata> => {
   try {
     const config: IHttpParams = {
       url: `${baseUrl}/${base}/metadata/${id}`,
       method: 'GET',
     };
 
-    return await HttpService.request(config);
+    return HttpService.request(config);
   } catch (e) {
     throw new Error((e as { message: string })?.message);
   }

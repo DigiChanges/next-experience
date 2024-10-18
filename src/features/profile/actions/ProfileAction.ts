@@ -1,6 +1,7 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
+import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 // import { ProfileType as IProfileType } from '@/features/profile/interfaces/profileResponse';
@@ -31,7 +32,7 @@ export const updateUser = async (data: UpdatedUser, id: string) => {
   const supabase = supabaseClientManager.getPublicClient();
   const phone = data.phone ? data.phone.toString() : null;
   const { error } = await supabase
-    .from('profiles')
+    .from(SupabaseTable.PROFILES)
     .update({
       first_name: data.first_name,
       last_name: data.last_name,
@@ -55,7 +56,7 @@ export const updateUserImage = async (props: UpdatedUserImage) => {
   const supabase = supabaseClientManager.getPublicClient();
 
   const { error } = await supabase
-    .from('profiles')
+    .from(SupabaseTable.PROFILES)
     .update({
       image_id: props.image_id,
     })
@@ -64,6 +65,4 @@ export const updateUserImage = async (props: UpdatedUserImage) => {
   if (error) {
     throw new Error('Error updating the user image');
   }
-
-  redirect('/dashboard', RedirectType.push);
 };

@@ -2,6 +2,7 @@
 
 import { redirect, RedirectType } from 'next/navigation';
 
+import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
 import { supabaseClientManager } from '@/lib/SupabaseClientManager';
 
 export const getCurrentUserRole = async () => {
@@ -12,7 +13,7 @@ export const getCurrentUserRole = async () => {
   } = await supabase.auth.getSession();
 
   const { data } = await supabase
-    .from('users_has_roles')
+    .from(SupabaseTable.USER_HAS_ROLES)
     .select('*, user_id!inner(*), role_id!inner(*)')
     .eq('user_id', session?.user.id);
 
