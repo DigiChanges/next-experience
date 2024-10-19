@@ -16,7 +16,6 @@ import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { AccordionComponent } from '@/features/shared/molecules/accordion/accordion';
 
 import style from './dropdown-user.module.css';
-import { useContextUser } from '@/contexts/UserContext';
 
 type Props = {
   avatar: string | StaticImageData;
