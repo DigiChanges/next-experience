@@ -14,7 +14,6 @@ type Props<Type> = {
 export const NoEntitiesToDisplay = <Type,>({ data, section }: Props<Type>) => {
   const t = useTranslations(section);
   const { IconNoItems } = icons();
-
   return (
     <>
       {data.length === 0 && (

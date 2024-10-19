@@ -1,9 +1,9 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
-import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
+import { updateRole } from '@/features/shared/actions/roleActions';
+import { SupabaseTable } from '@/features/shared/constants/supabaseTables';
 import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
-import { updateRole } from '@/features/shared/actions/fetchUsers';
 
 export const getSession = async () => {
   const supabase = supabaseServerClientManager.getServerPublicClient();
@@ -24,7 +24,7 @@ export const getSession = async () => {
 type UpdatedUser = {
   first_name?: string;
   last_name?: string;
-  phone?: number;
+  phone?: string;
   role?: string;
   account_active?: boolean;
 };

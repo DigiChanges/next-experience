@@ -11,13 +11,13 @@ import { updateUser } from '@/features/profile/actions/ProfileAction';
 import { ProfileType as IProfileType } from '@/features/profile/interfaces/profileResponse';
 import style from '@/features/profile/molecules/updateInfoUser/updateInfoUser.module.css';
 import { profileUpdateSchema } from '@/features/profile/validations/profileUpdateSchema';
-import { User } from '@/features/shared/actions/fetchUsers';
 import { ButtonAuth } from '@/features/shared/atoms/button/ButtonAuth';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 
 interface Props {
   edit: boolean;
-  userProfile: User;
+  userProfile: UserHasRole;
   handleEditButton: () => void;
   phoneNumber: string;
 }
@@ -35,7 +35,7 @@ export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumbe
   });
 
   const onSubmit = handleSubmit(async (data: IProfileType) => {
-    await toast.promise(updateUser(data, userProfile.id), {
+    await toast.promise(updateUser(data, userProfile.user_id.id), {
       error: `${alert('error')}`,
       success: `${alert('success')}`,
       pending: `${alert('pending')}`,
@@ -54,7 +54,7 @@ export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumbe
         className={style.infoUserEdit}
         input_type={InputType.SIMPLE}
         classNameError={style.inputError}
-        placeholder={userProfile.first_name ?? t('p_name')}
+        placeholder={userProfile.user_id.first_name ?? t('p_name')}
         disabled={!edit && true}
       />
       <InputForm<IProfileType>
@@ -67,19 +67,19 @@ export const UpdateInfoUser = ({ edit, userProfile, handleEditButton, phoneNumbe
         className={style.infoUserEdit}
         input_type={InputType.SIMPLE}
         classNameError={style.inputError}
-        placeholder={userProfile.last_name ?? t('p_lastname')}
+        placeholder={userProfile.user_id.last_name ?? t('p_lastname')}
         disabled={!edit && true}
       />
       <div>
         <p>{t('p_email')}:</p>
-        <p className={style.infoUser}>{userProfile.email ?? <>{t('p_email')}</>}</p>
+        <p className={style.infoUser}>{userProfile.user_id.email ?? <>{t('p_email')}</>}</p>
       </div>
       <InputForm<IProfileType>
         errors={errors}
         id={'phone'}
         name={'phone'}
         register={register}
-        type={'number'}
+        type={'text'}
         label={`${t('p_phone')}:`}
         className={style.infoUserEdit}
         input_type={InputType.SIMPLE}

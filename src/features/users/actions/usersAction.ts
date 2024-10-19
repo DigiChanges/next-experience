@@ -2,7 +2,7 @@
 
 import { redirect, RedirectType } from 'next/navigation';
 
-import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
+import { SupabaseTable } from '@/features/shared/constants/supabaseTables';
 import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const getCurrentUserRole = async () => {

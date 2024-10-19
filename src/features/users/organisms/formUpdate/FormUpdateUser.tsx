@@ -6,8 +6,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import { updateUser } from '@/features/profile/actions/ProfileAction';
-import { User } from '@/features/shared/actions/fetchUsers';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { BtnFormCreateUpdate } from '@/features/shared/molecules/btnFormCreateUpdate/BtnFormCreateUpdate';
 import { activeOptions } from '@/features/users/constants/selectOptionsData';
 import { transformToInputOptions } from '@/features/users/helpers/transformToInputOptions';
@@ -18,7 +18,7 @@ import { updateUserSchema } from '@/features/users/validations/usersSchema';
 
 type Props = {
   id: string;
-  data: User;
+  data: UserHasRole;
   roles: RolesResponse[];
 };
 
@@ -29,12 +29,12 @@ export const FormUpdateUser = ({ id, data, roles }: Props) => {
     formState: { errors },
   } = useForm<IUpdateUser>({
     defaultValues: {
-      role: data.role.id,
-      account_active: data.account_active,
-      first_name: data.first_name ?? undefined,
-      last_name: data.last_name ?? undefined,
-      phone: Number(data.phone) ?? undefined,
-      email: data.email ?? undefined,
+      role: data.role_id.id,
+      account_active: data.user_id.account_active,
+      first_name: data.user_id.first_name,
+      last_name: data.user_id.last_name,
+      phone: data.user_id?.phone,
+      email: data.user_id.email,
     },
     resolver: yupResolver(updateUserSchema),
   });
@@ -108,7 +108,7 @@ export const FormUpdateUser = ({ id, data, roles }: Props) => {
           classNameError={style.inputError}
         />
         <InputForm<IUpdateUser>
-          type={'number'}
+          type={'text'}
           name={'phone'}
           label={t('phone')}
           register={register}

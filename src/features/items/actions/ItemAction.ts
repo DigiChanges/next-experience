@@ -2,8 +2,8 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+import { config } from '@/config/config';
 import { ItemPayload, ItemsResponse } from '@/features/items/interfaces/itemsResponse';
-import { config } from '@/features/shared/actions/config';
 import PayloadProps from '@/features/shared/interfaces/PayloadProps';
 import HttpService from '@/service/HttpService';
 import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';

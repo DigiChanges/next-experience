@@ -11,12 +11,11 @@ import { toast } from 'react-toastify';
 
 import { locales } from '@/config';
 import { handleSignOut } from '@/features/auth/shared/actions/singOutAction';
-import { User } from '@/features/navbar/organisms/NavbarTop';
 import { icons } from '@/features/shared/hooks/icons';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { AccordionComponent } from '@/features/shared/molecules/accordion/accordion';
 
 import style from './dropdown-user.module.css';
-import { useContextUser } from '@/contexts/UserContext';
 
 type Props = {
   avatar: string | StaticImageData;
@@ -38,7 +37,7 @@ type Props = {
   isUserDropdownOpen: boolean;
   handleDropdownUser: () => void;
   id?: string;
-  user?: User;
+  user?: UserHasRole;
 };
 
 export const DropdownUser = (props: Props) => {
@@ -70,7 +69,7 @@ export const DropdownUser = (props: Props) => {
             className={`${style.dropdown} ${rotate}`}
             width={82}
             height={82}
-            src={props.user?.image_id ?? props.dataUser.icon}
+            src={props.user?.user_id.image_id ?? props.dataUser.icon}
             alt={'dropdown'}
           />
         </button>
@@ -85,12 +84,12 @@ export const DropdownUser = (props: Props) => {
           <div className={style.containerIconUserOpen}>
             <Image
               className={style.profileImage}
-              src={props.user?.image_id ?? props.dataUser.image}
+              src={props.user?.user_id.image_id ?? props.dataUser.image}
               alt={'Icon user'}
               width={82}
               height={82}
             />
-            <p>{props.user?.first_name ?? props.dataUser.username}</p>
+            <p>{props.user?.user_id.first_name ?? props.dataUser.username}</p>
           </div>
           {props.dataPerfil.map(({ description, path }) => (
             <Link href={path ?? '#'} key={t(description)} className={style.perfilSections}>

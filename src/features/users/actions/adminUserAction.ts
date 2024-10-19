@@ -1,6 +1,6 @@
 'use server';
 
-import { updateRole } from '@/features/shared/actions/fetchUsers';
+import { updateRole } from '@/features/shared/actions/roleActions';
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
 import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 

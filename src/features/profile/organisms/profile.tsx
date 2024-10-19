@@ -6,19 +6,21 @@ import { useTranslations } from 'next-intl';
 import { InfoUser } from '@/features/profile/molecules/infoUser/infoUser';
 import { UpdateInfoUser } from '@/features/profile/molecules/updateInfoUser/updateInfoUser';
 import { UserImage } from '@/features/profile/molecules/userImage/UserImage';
-import { User } from '@/features/shared/actions/fetchUsers';
+
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 
 import style from './profile.module.css';
 
 type Props = {
-  userProfile: User;
+  userProfile: UserHasRole;
 };
 
 export const Profile = ({ userProfile }: Props) => {
   const t = useTranslations('Profile');
   const [edit, setEdit] = React.useState(false);
 
-  const phoneNumber = userProfile.phone && userProfile.phone?.length > 0 ? userProfile.phone : t('p_phone');
+  const phoneNumber =
+    userProfile.user_id.phone && userProfile.user_id.phone?.length > 0 ? userProfile.user_id.phone : t('p_phone');
 
   const handleEditButton = () => {
     if (!edit) {
@@ -41,7 +43,7 @@ export const Profile = ({ userProfile }: Props) => {
         <h1 data-aos='fade-down' data-aos-duration='1500'>
           {t('title')}
         </h1>
-        <div className={style.containerList} id={userProfile.id}>
+        <div className={style.containerList} id={userProfile.user_id.id}>
           <UserImage userProfile={userProfile} edit={edit} />
           {edit ? (
             <UpdateInfoUser

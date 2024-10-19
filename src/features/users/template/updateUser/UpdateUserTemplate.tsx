@@ -1,7 +1,8 @@
 import React from 'react';
 import { getTranslations } from 'next-intl/server';
 
-import { fetchUser, getRoles } from '@/features/shared/actions/fetchUsers';
+import { getRoles } from '@/features/shared/actions/roleActions';
+import { fetchUser } from '@/features/shared/actions/userActions';
 import { icons } from '@/features/shared/hooks/icons';
 
 import { RolesResponse } from '@/features/users/interfaces/rolesResponse';
@@ -14,6 +15,7 @@ type Props = {
 };
 export const UpdateUserTemplate = async ({ id }: Props) => {
   const data = await fetchUser(id);
+
   const roles = await getRoles();
   const t = await getTranslations('Update');
   const { IoCreateOutline } = icons();

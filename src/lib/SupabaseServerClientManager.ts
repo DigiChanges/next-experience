@@ -1,5 +1,6 @@
-import { createServerClient, type CookieOptions, createBrowserClient } from '@supabase/ssr';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+
 import { env } from '@/config/api';
 
 class SupabaseServerClientManager {

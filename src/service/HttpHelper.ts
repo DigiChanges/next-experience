@@ -1,6 +1,6 @@
 import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
-import { config as Config } from '../features/shared/actions/config';
+import { config as Config } from '../config/config';
 
 import { HeadersContentType, QueryParams } from './IHttpParams';
 

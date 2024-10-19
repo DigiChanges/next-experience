@@ -1,10 +1,11 @@
-export interface UsersResponse {
+export interface UserResponse {
   id: string;
   first_name: string;
   last_name: string;
   email: string;
-  phone?: number;
-  password: string;
+  phone?: string;
+  image_id: string;
+  account_active: boolean;
   createdAt: number;
   updatedAt: number;
 }

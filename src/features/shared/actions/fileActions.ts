@@ -1,5 +1,5 @@
 'use server';
-import { config } from '@/features/shared/actions/config';
+import { config } from '@/config/config';
 import { FileMetadata } from '@/features/shared/interfaces/FileMetadata';
 import HttpService from '@/service/HttpService';
 import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';

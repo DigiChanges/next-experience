@@ -5,6 +5,7 @@ import React from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { Bounce, ToastContainer } from 'react-toastify';
+
 import '../features/shared/atoms/toast/toast.css';
 import { UserProvider } from '@/contexts/UserContext';
 
