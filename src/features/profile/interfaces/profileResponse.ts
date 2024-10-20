@@ -11,7 +11,7 @@ export interface ProfileResponse {
 export type ProfileType = {
   first_name?: string;
   last_name?: string;
-  phone?: number;
+  phone?: string;
 };
 
 export interface ProfilePayload extends ProfileType {}

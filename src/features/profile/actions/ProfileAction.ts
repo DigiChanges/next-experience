@@ -1,12 +1,12 @@
 'use server';
 import { redirect, RedirectType } from 'next/navigation';
 
-import { updateRole } from '@/features/shared/actions/fetchUsers';
-import { SupabaseTable } from '@/features/shared/actions/supabaseTables';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { updateRole } from '@/features/shared/actions/roleActions';
+import { SupabaseTable } from '@/features/shared/constants/supabaseTables';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const getSession = async () => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { data, error } = await supabase.auth.getSession();
   const user = data?.session?.user;
@@ -24,13 +24,13 @@ export const getSession = async () => {
 type UpdatedUser = {
   first_name?: string;
   last_name?: string;
-  phone?: number;
+  phone?: string;
   role?: string;
   account_active?: boolean;
 };
 
 export const updateUser = async (data: UpdatedUser, id: string) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const phone = data.phone ? data.phone.toString() : null;
 
   const { error } = await supabase
@@ -60,7 +60,7 @@ type UpdatedUserImage = {
 };
 
 export const updateUserImage = async (props: UpdatedUserImage) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error } = await supabase
     .from(SupabaseTable.PROFILES)

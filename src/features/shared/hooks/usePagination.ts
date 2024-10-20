@@ -10,8 +10,8 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
   };
 
   const setPaginationParams = () => {
-    const offset = (currentPage - 1) * pagination?.perPage;
-    setParams(offset, pagination?.limit);
+    const offset = (currentPage - 1) * pagination.perPage;
+    setParams(offset, pagination.limit);
   };
 
   const handlePage = (page: number) => {

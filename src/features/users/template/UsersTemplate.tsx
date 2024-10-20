@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { fetchUsers } from '@/features/shared/actions/fetchUsers';
+import { SupabasePagination } from '@/features/shared/actions/supabase/getPaginatedEntity';
+import { listUsers } from '@/features/shared/actions/userActions';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { UserList } from '@/features/users/organisms/UsersList';
 import { QueryParams } from '@/service/IHttpParams';
 
@@ -9,24 +11,10 @@ type Props = {
 };
 
 export const UsersTemplate = async ({ queryParams }: Props) => {
-  const result = await fetchUsers({ queryParams });
-  const data = result.data ?? [];
-  const pagination = result.pagination ?? {
-    total: 0,
-    offset: 0,
-    limit: 0,
-    perPage: 0,
-    currentPage: 1,
-    lastPage: 1,
-    from: 0,
-    to: 0,
-    path: '',
-    firstUrl: '',
-    lastUrl: '',
-    nextUrl: '',
-    prevUrl: '',
-    currentUrl: '',
-  };
+  const result = await listUsers({ queryParams });
+
+  const paginatedResponse = result as SupabasePagination<UserHasRole>;
+  const { data, pagination } = paginatedResponse;
 
   return <UserList users={data} pagination={pagination} />;
 };

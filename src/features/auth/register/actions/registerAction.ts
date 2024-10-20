@@ -4,10 +4,10 @@ import { redirect, RedirectType } from 'next/navigation';
 
 import { env } from '@/config/api';
 import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const handleSignUp = async (props: IRegisterForm) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error } = await supabase.auth.signUp({
     email: props.email,

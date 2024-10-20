@@ -9,6 +9,7 @@ type Props = {
   readonly searchParams: { readonly [key: string]: string };
   readonly params: { locale: string };
 };
+
 export default function Page({ searchParams, params: { locale } }: Props) {
   const { id } = searchParams;
   unstable_setRequestLocale(locale);

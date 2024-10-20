@@ -1,7 +1,7 @@
 export type User = {
   first_name: string;
   last_name: string;
-  phone?: number;
+  phone?: string;
   email: string;
   role: string;
   account_active: boolean;

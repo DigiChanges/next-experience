@@ -1,8 +1,8 @@
 'use server';
 
-import { updateRole } from '@/features/shared/actions/fetchUsers';
+import { updateRole } from '@/features/shared/actions/roleActions';
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 type NewUserByAdmin = {
   first_name?: string;
@@ -15,7 +15,7 @@ type NewUserByAdmin = {
 };
 
 export const addNewUserByAdmin = async (props: NewUserByAdmin) => {
-  const supabase = supabaseClientManager.getPrivateClient();
+  const supabase = supabaseServerClientManager.getServerPrivateClient();
 
   const phone = props.phone ? props.phone.toString() : null;
 
@@ -60,7 +60,7 @@ export const updateUserByAdmin = async () => {
 };
 
 export const deleteUserByAdmin = async (id: string) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
   const role = await getCurrentUserRole();
 
   if (role[0].role_id === 'admin') {

@@ -2,10 +2,10 @@
 
 import { redirect, RedirectType } from 'next/navigation';
 
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const handleSignOut = async () => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error } = await supabase.auth.signOut();
 

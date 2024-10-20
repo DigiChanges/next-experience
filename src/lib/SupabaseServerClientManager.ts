@@ -1,10 +1,9 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
-
 import { cookies } from 'next/headers';
 
 import { env } from '@/config/api';
 
-class SupabaseClientManager {
+class SupabaseServerClientManager {
   private createClientWithOptions(options: object) {
     const cookieStore = cookies();
     return createServerClient(env.supabaseUrl!, env.supabaseAnonKey!, {
@@ -31,7 +30,7 @@ class SupabaseClientManager {
     });
   }
 
-  getPrivateClient() {
+  getServerPrivateClient() {
     return this.createClientWithOptions({
       global: {
         headers: {
@@ -41,9 +40,9 @@ class SupabaseClientManager {
     });
   }
 
-  getPublicClient() {
+  getServerPublicClient() {
     return this.createClientWithOptions({});
   }
 }
 
-export const supabaseClientManager = new SupabaseClientManager();
+export const supabaseServerClientManager = new SupabaseServerClientManager();

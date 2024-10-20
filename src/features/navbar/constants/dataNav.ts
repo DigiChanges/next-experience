@@ -1,20 +1,19 @@
 import { icons } from '@/features/shared/hooks/icons';
 import { images } from '@/features/shared/hooks/images';
 
-const { HomeIcon, ItemsIcon, CloseIcon, IconUser, IconSettings, IconLogOut, IconDropdown, UsersIcon } = icons();
-const { BgUser } = images();
+const { HomeIcon, ItemsIcon, CloseIcon, IconSettings, IconLogOut, IconDropdown, UsersIcon } = icons();
+const { Avatar } = images();
 
 export const dataClose = {
   image: CloseIcon,
 };
 export const dataUser = {
-  image: BgUser,
+  image: Avatar,
   username: 'babyoda@gmail.com',
   icon: IconDropdown,
 };
 export const dataPerfil = [
   {
-    icon: IconUser,
     description: 'perfil',
     path: '/profile',
   },

@@ -32,7 +32,7 @@ export const updateUserSchema = yup
   .shape({
     first_name: yup.string().min(3).required('*User name is a required field'),
     last_name: yup.string().min(3).required('*Lastname is a required field'),
-    phone: yup.number(),
+    phone: yup.string(),
     email: yup.string().email('Enter a valid email address').required('*Email is a required field'),
     role: yup.string().min(3).required('*Role is a required field'),
     account_active: yup.boolean().required('*Active user is a required field'),

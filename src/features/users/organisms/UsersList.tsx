@@ -5,9 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { useTranslations } from 'next-intl';
 
-import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import styleCard from '@/features/items/organisms/card.module.css';
-import { User } from '@/features/shared/actions/fetchUsers';
 import { AddBtn } from '@/features/shared/atoms/addBtn/AddBtn';
 import { CardEntity } from '@/features/shared/atoms/card/CardEntity';
 import { FilterModal } from '@/features/shared/atoms/filterModal/filterModal';
@@ -18,18 +16,19 @@ import { SizeType } from '@/features/shared/atoms/swich/switch';
 import { Title } from '@/features/shared/atoms/title/Title';
 
 import { useFilter } from '@/features/shared/hooks/useFilter';
-import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
 import { usePagination } from '@/features/users/atoms/usePagination/usePagination';
 
+import { selectOptionsData } from '@/features/users/constants/selectOptionsData';
 import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import styles from './users-list.module.css';
 
 interface Props {
-  users: User[];
-  pagination: PaginationAPI;
+  users: UserHasRole[];
+  pagination: any;
 }
 
 export const UserList = (props: Props) => {
@@ -90,10 +89,8 @@ export const UserList = (props: Props) => {
   }, [handleSearchType]);
 
   useEffect(() => {
-    if (props.users.length === 0) {
-      handlePage(1);
-    }
-  }, [handlePage, props.users]);
+    handleReplaceURL();
+  }, [currentPage]);
 
   return (
     <section className={styles.container}>
@@ -143,23 +140,23 @@ export const UserList = (props: Props) => {
               editPath={'users/update'}
               // @ts-expect-error test
               handleDelete={() => fetch('')}
-              key={user.id}
+              key={user.user_id.id}
               className={{
                 card:
-                  openDropdownId === user.id
+                  openDropdownId === user.user_id.id
                     ? `${styleCard.backgroundHover} ${styleCard.container}`
                     : styleCard.container,
                 header: styleCard.containerHeader,
               }}
               radius={SizeType.SMALL}
-              id={user.id}
-              handleDropdown={() => handleDropdown(user.id)}
-              isDropdownOpen={openDropdownId === user.id}
+              id={user.user_id.id}
+              handleDropdown={() => handleDropdown(user.user_id.id)}
+              isDropdownOpen={openDropdownId === user.user_id.id}
               item={
                 <div className={styleCard.containerInfo}>
-                  {user.first_name ? <h2 className={styleCard.name}>{user.first_name}</h2> : <></>}
-                  <p className='text-md'>Email: {user.email}</p>
-                  <p className='text-md'>Role: {user.role.name}</p>
+                  {user.user_id.first_name ? <h2 className={styleCard.name}>{user.user_id.first_name}</h2> : <></>}
+                  <p className='text-md'>Email: {user.user_id.email}</p>
+                  <p className='text-md'>Role: {user.role_id.name}</p>
                 </div>
               }
             />

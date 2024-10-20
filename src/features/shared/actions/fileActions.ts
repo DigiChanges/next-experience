@@ -1,5 +1,5 @@
 'use server';
-import { config } from '@/features/shared/actions/config';
+import { config } from '@/config/config';
 import { FileMetadata } from '@/features/shared/interfaces/FileMetadata';
 import HttpService from '@/service/HttpService';
 import { HeadersContentType, IHttpParams } from '@/service/IHttpParams';
@@ -16,7 +16,7 @@ export const handleUploadFile = async (data: FormData): Promise<FileMetadata> =>
       data,
     };
 
-    return HttpService.request(config);
+    return await HttpService.request(config);
   } catch (e) {
     throw new Error((e as { message: string })?.message);
   }
@@ -29,7 +29,7 @@ export const handleGetFile = async (id: string): Promise<FileMetadata> => {
       method: 'GET',
     };
 
-    return HttpService.request(config);
+    return await HttpService.request(config);
   } catch (e) {
     throw new Error((e as { message: string })?.message);
   }

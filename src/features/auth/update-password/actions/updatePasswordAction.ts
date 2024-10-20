@@ -2,10 +2,10 @@
 
 import { redirect, RedirectType } from 'next/navigation';
 
-import { supabaseClientManager } from '@/lib/SupabaseClientManager';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
 export const handleUpdatePassword = async (password: string, code: string) => {
-  const supabase = supabaseClientManager.getPublicClient();
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   await supabase.auth.exchangeCodeForSession(code);
 

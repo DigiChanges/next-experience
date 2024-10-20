@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { useForm } from 'react-hook-form';
@@ -9,13 +9,13 @@ import { toast } from 'react-toastify';
 
 import IconPencil from '@/asset/images/pencil.svg';
 import IconPencilWhite from '@/asset/images/pencilWhite.svg';
+import { useContextUser } from '@/contexts/UserContext';
 import { updateUserImage } from '@/features/profile/actions/ProfileAction';
 import style from '@/features/profile/molecules/userImage/user-image.module.css';
 import { profileImageSchema } from '@/features/profile/validations/profileImageSchema';
-import { User } from '@/features/shared/actions/fetchUsers';
-import { handleGetFile, handleUploadFile } from '@/features/shared/actions/fileAction';
+import { handleGetFile, handleUploadFile } from '@/features/shared/actions/fileActions';
 import { InputForm, InputType } from '@/features/shared/atoms/inputForm/InputForm';
-import { images } from '@/features/shared/hooks/images';
+import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 
 type IProfileForm = {
   file?: object | string | null;
@@ -23,13 +23,12 @@ type IProfileForm = {
 };
 
 interface Props {
-  userProfile: User;
+  userProfile: UserHasRole;
   edit: boolean;
 }
 
 export const UserImage = ({ userProfile, edit }: Props) => {
-  const { user } = images();
-  const [imagePath, setImagePath] = useState<StaticImageData | string>(user);
+  const { avatar, handleSetAvatar } = useContextUser();
   const alert = useTranslations('ToastUpdate');
   const { theme } = useTheme();
   const pencilToggle = theme === 'dark' ? IconPencilWhite : IconPencil;
@@ -58,11 +57,11 @@ export const UserImage = ({ userProfile, edit }: Props) => {
       file.append('file', event.target.files[0]);
       const fileMetadata = await handleUploadFile(file);
       const data = {
-        id: userProfile.id,
-        first_name: userProfile.first_name,
-        last_name: userProfile.last_name,
-        phone: userProfile.phone,
-        email: userProfile.email,
+        id: userProfile.user_id.id,
+        first_name: userProfile.user_id.first_name,
+        last_name: userProfile.user_id.last_name,
+        phone: userProfile.user_id.phone,
+        email: userProfile.user_id.email,
         image_id: fileMetadata.id,
       };
 
@@ -75,7 +74,7 @@ export const UserImage = ({ userProfile, edit }: Props) => {
         });
 
         const image = await handleGetFile(fileMetadata.id);
-        setImagePath(image.path);
+        handleSetAvatar(image.path);
       }
     }
   };
@@ -83,7 +82,7 @@ export const UserImage = ({ userProfile, edit }: Props) => {
   return (
     <>
       <div className={style.containerImg}>
-        <Image src={imagePath} alt={'user'} width={82} height={82} className={style.profileImage} />
+        <Image src={avatar} alt={'user'} width={82} height={82} className={style.profileImage} />
         {edit && (
           <button onClick={handleFileInputClick}>
             <Image src={pencilToggle} alt={'pencil'} className={style.pencil} />
