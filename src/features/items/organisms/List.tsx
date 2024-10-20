@@ -1,6 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React from 'react';
 import { useTranslations } from 'next-intl';
 
 import { deleteItem } from '@/features/items/actions/ItemAction';
@@ -14,14 +13,11 @@ import { PaginationComponent } from '@/features/shared/atoms/pagination/Paginati
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
 import { SizeType, SwitchComponent } from '@/features/shared/atoms/swich/switch';
 import { Title } from '@/features/shared/atoms/title/Title';
-import { useFilter } from '@/features/shared/hooks/useFilter';
-import { usePagination } from '@/features/shared/hooks/usePagination';
+import { useFilterAndPagination } from '@/features/shared/hooks/useFilterAndPagination';
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { SortComponent } from '@/features/shared/molecules/sort/Sort';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
-
-import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 import styleCard from './card.module.css';
 import style from './list.module.css';
@@ -31,65 +27,20 @@ type Props = {
   pagination: PaginationAPI;
 };
 export const List = ({ items, pagination }: Props) => {
-  const [keySelected, setKeySelected] = useState<OptionKey>({ ...selectOptionsData[0] });
-  const searchParams = useSearchParams();
-  const params = useMemo(() => {
-    const newParams = new URLSearchParams();
-
-    const entriesArray = Array.from(searchParams.entries());
-    for (const [key, value] of entriesArray) {
-      newParams.append(key, value);
-    }
-
-    return newParams;
-  }, [searchParams]);
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const { handlePage, currentPage } = usePagination(pagination, params);
+  const t = useTranslations('Items');
   const {
-    handleSetFilterValues,
-    filterValues,
-    filtersApplied,
+    handlePage,
+    currentPage,
     handleRemoveFilter,
     handleSetFiltersApplied,
     handleRemoveFilterAll,
-  } = useFilter(params);
-  const t = useTranslations('Items');
-
-  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
-
-  const handleDropdown = (id: string) => {
-    setOpenDropdownId(openDropdownId === id ? null : id);
-  };
-
-  const handleReplaceURL = () => {
-    replace(`${pathname}?${params.toString()}`);
-  };
-
-  const handleSearchType = useCallback(() => {
-    const data = selectOptionsData.find(({ value }) => value === filterValues.key);
-    if (data) {
-      setKeySelected(data);
-    }
-  }, [filterValues.key]);
-
-  useEffect(() => {
-    handleSetFilterValues({
-      key: selectOptionsData[0].value,
-    });
-  }, []);
-
-  useEffect(() => {
-    handlePage(1);
-  }, [filterValues.term]);
-
-  useEffect(() => {
-    handleSearchType();
-  }, [handleSearchType]);
-
-  useEffect(() => {
-    handleReplaceURL();
-  }, [currentPage]);
+    filtersApplied,
+    handleDropdown,
+    openDropdownId,
+    keySelected,
+    handleSetFilterValues,
+    handleReplaceURL,
+  } = useFilterAndPagination(selectOptionsData, pagination);
 
   return (
     <section className={style.container}>
