@@ -26,8 +26,8 @@ export enum HeadersContentType {
 }
 
 export interface PaginationParams {
-  limit: string | null;
-  offset: string | null;
+  limit: string;
+  offset: string;
 }
 
 export interface QueryParams {

@@ -15,14 +15,14 @@ export const activeOptions = [
 export const selectOptionsData: OptionKey[] = [
   {
     label: 'Email',
-    value: 'email',
+    value: 'user_id.email',
     type: 'text',
     filter: EnumFilterApply.Single,
   },
   {
     type: 'text',
     label: 'Role',
-    value: 'role_id',
+    value: 'role_id.slug',
     filter: EnumFilterApply.Options,
     options: [
       {

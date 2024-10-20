@@ -1,22 +1,20 @@
 'use server';
 
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
+import { redirect } from 'next/navigation';
 import { NextResponse } from 'next/server';
 
 import { getSession } from '@/features/profile/actions/ProfileAction';
+import { getPaginatedSupabaseQuery, SupabasePagination } from '@/features/shared/actions/supabase/getPaginatedEntity';
 import { SupabaseTable } from '@/features/shared/constants/supabaseTables';
-import { getPaginatedSupabaseQuery, PaginatedResponse } from '@/features/shared/helpers/supabase/fetchPaginatedData';
 import { Role } from '@/features/shared/interfaces/Role';
 import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { getCurrentUserRole } from '@/features/users/actions/usersAction';
 import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
-
-interface QueryParms {
-  filter?: URLSearchParams | undefined;
-}
+import { QueryParams } from '@/service/IHttpParams';
 
 type Props = {
-  queryParams?: QueryParms;
+  queryParams: QueryParams;
 };
 
 export const fetchUser = async (id?: string): Promise<UserHasRole> => {
@@ -39,21 +37,18 @@ export const fetchUser = async (id?: string): Promise<UserHasRole> => {
   return data;
 };
 
-export const listUsers = async (props?: Props): Promise<NextResponse | PaginatedResponse<UserHasRole>> => {
+export const listUsers = async (props: Props): Promise<NextResponse | SupabasePagination<UserHasRole>> => {
   const supabase = supabaseServerClientManager.getServerPublicClient();
   const currentUserRole = await getCurrentUserRole();
 
   if (currentUserRole[0].role_id.slug !== Role.ADMIN) {
-    return NextResponse.json(
-      { error: "You don't have the required permission to perform this request" },
-      { status: 401 },
-    );
+    return redirect('/unauthorized');
   }
 
   return getPaginatedSupabaseQuery<UserHasRole>({
     supabase,
     table: SupabaseTable.USER_HAS_ROLES,
-    props: props,
+    queryParams: props.queryParams,
     select: '*, user_id!inner(*), role_id!inner(*)',
   });
 };

@@ -87,12 +87,9 @@ export const List = ({ items, pagination }: Props) => {
     handleSearchType();
   }, [handleSearchType]);
 
-  // TODO: Analizar si esto es realmente necesario
   useEffect(() => {
-    if (items.length === 0) {
-      handlePage(1);
-    }
-  }, [handlePage, items]);
+    handleReplaceURL();
+  }, [currentPage]);
 
   return (
     <section className={style.container}>

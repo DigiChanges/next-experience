@@ -16,7 +16,6 @@ import { SizeType } from '@/features/shared/atoms/swich/switch';
 import { Title } from '@/features/shared/atoms/title/Title';
 
 import { useFilter } from '@/features/shared/hooks/useFilter';
-import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 import { UserHasRole } from '@/features/shared/interfaces/UserHasRole';
 import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
 import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
@@ -29,7 +28,7 @@ import styles from './users-list.module.css';
 
 interface Props {
   users: UserHasRole[];
-  pagination: PaginationAPI;
+  pagination: any;
 }
 
 export const UserList = (props: Props) => {
@@ -90,10 +89,8 @@ export const UserList = (props: Props) => {
   }, [handleSearchType]);
 
   useEffect(() => {
-    if (props.users.length === 0) {
-      handlePage(1);
-    }
-  }, [handlePage, props.users]);
+    handleReplaceURL();
+  }, [currentPage]);
 
   return (
     <section className={styles.container}>
