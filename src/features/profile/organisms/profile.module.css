@@ -1,0 +1,86 @@
+.container {
+  @apply flex min-h-[100vh] w-[100%] flex-col items-start bg-transparent text-white;
+}
+.container h1 {
+  @apply border-b-[2px] border-solid border-b-secondary pt-[4rem] text-[2rem] font-semibold text-white;
+  max-height: fit-content;
+}
+.container h2 {
+  @apply pb-5 pt-1 text-[1.2rem] font-[400] text-white;
+}
+.containerUrl {
+  @apply hidden;
+}
+.containerUrl a {
+  @apply transform cursor-pointer text-white no-underline transition-all duration-500 hover:scale-x-[102%];
+}
+.containerUrl span {
+  @apply text-[1.5rem];
+}
+.containerUrl .urlActive {
+  @apply font-medium text-white;
+}
+
+.containerProfile {
+  @apply flex min-h-[100vh] w-full flex-col items-start justify-between bg-bgGrey p-5 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+  transition: 0.5s;
+}
+.containerProfile p {
+  @apply text-white;
+}
+
+.no-welcome {
+  transition: 0.5s;
+  display: none;
+}
+
+.containerList {
+  @apply relative mx-auto flex h-full w-full max-w-[25rem] flex-col items-center justify-center gap-4 py-[2rem];
+  overflow-y: scroll;
+}
+.containerList::-webkit-scrollbar {
+  width: 6px;
+}
+.containerList::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.containerList::-webkit-scrollbar-thumb {
+  @apply rounded-[20px] bg-[#13151876] hover:bg-bgDefault;
+}
+.containerList div {
+  @apply grid w-full grid-cols-1 gap-1;
+}
+
+@media (max-width: 640px) {
+  .loading-animation {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@screen md {
+  .container {
+    @apply mx-auto flex min-h-[100vh] w-[80%] flex-col items-start bg-transparent py-[4rem] text-white;
+  }
+  .container h1 {
+    @apply pr-[4rem] pt-0 text-[2.8rem];
+  }
+  .container h2 {
+    @apply h-[10%] text-[1.5rem];
+  }
+  .containerUrl {
+    @apply flex flex-wrap items-center gap-2 py-3 pl-5 text-[1rem] font-normal;
+  }
+  .containerProfile {
+    @apply h-[100%] min-h-[60vh] rounded-2xl;
+  }
+  .containerList p:nth-child(2) {
+    @apply text-center;
+  }
+  .containerList {
+    @apply min-h-[50vh];
+  }
+  .arrowRight {
+    @apply hidden;
+  }
+}

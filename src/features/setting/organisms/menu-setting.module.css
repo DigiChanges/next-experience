@@ -1,157 +1,157 @@
-.container{
-    @apply bg-transparent w-[100%] min-h-[100vh] text-white flex flex-col items-start;
-}
-.container h1{
-    @apply pt-[4rem] font-semibold text-[2rem] text-white border-solid border-b-secondary border-b-[2px]
+.container {
+  @apply flex min-h-[100vh] w-[100%] flex-col items-start bg-transparent text-white;
 }
 .container h1 {
-    max-height: fit-content;
+  @apply border-b-[2px] border-solid border-b-secondary pt-[4rem] text-[2rem] font-semibold text-white;
 }
-.container h2{
-    @apply text-white text-[1.2rem] font-[400] pt-1 pb-5
+.container h1 {
+  max-height: fit-content;
 }
-.containerUrl{
-    @apply hidden
+.container h2 {
+  @apply pb-5 pt-1 text-[1.2rem] font-[400] text-white;
 }
-.containerUrl a{
-    @apply no-underline text-white cursor-pointer transition-all transform duration-500 hover:scale-x-[102%]
+.containerUrl {
+  @apply hidden;
 }
-.containerUrl span{
-    @apply text-[1.5rem]
+.containerUrl a {
+  @apply transform cursor-pointer text-white no-underline transition-all duration-500 hover:scale-x-[102%];
 }
-.containerUrl .urlActive{
-    @apply text-white font-medium
+.containerUrl span {
+  @apply text-[1.5rem];
+}
+.containerUrl .urlActive {
+  @apply font-medium text-white;
 }
 
-.containerSetting{
-    @apply flex flex-col items-start justify-start w-full bg-bgGrey  p-5 h-[100vh] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
-    transition: .5s;
+.containerSetting {
+  @apply flex h-[100vh] w-full flex-col items-start justify-start bg-bgGrey p-5 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+  transition: 0.5s;
 }
-.containerSetting p{
-    @apply text-white
+.containerSetting p {
+  @apply text-white;
 }
 
 .no-welcome {
-    transition: .5s;
-    display: none;
+  transition: 0.5s;
+  display: none;
 }
 
-.containerList{
-    @apply relative flex justify-between pt-[1rem] gap-[2rem] h-[100%] w-[100%];
-    overflow-y: scroll;
+.containerList {
+  @apply relative flex h-[100%] w-[100%] justify-between gap-[2rem] pt-[1rem];
+  overflow-y: scroll;
 }
 .containerList::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 .containerList::-webkit-scrollbar-track {
-    @apply bg-transparent
+  @apply bg-transparent;
 }
 .containerList::-webkit-scrollbar-thumb {
-    @apply bg-[#13151876] rounded-[20px] hover:bg-bgDefault
+  @apply rounded-[20px] bg-[#13151876] hover:bg-bgDefault;
 }
-.tab{
-    @apply flex items-start justify-between absolute w-[100%]
+.tab {
+  @apply absolute flex w-[100%] items-start justify-between transition-all;
 }
-.tab .labelCheck{
-    @apply flex w-full items-center justify-between h-16 relative top-[1px] z-[3] text-start px-[1.5rem] py-[0.5rem] no-underline cursor-pointer text-white text-[1.1rem] font-medium rounded-[8px] transition-all transform duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34]
+.tab .labelCheck {
+  @apply relative top-[1px] z-[3] flex h-16 w-full transform cursor-pointer items-center justify-between rounded-[8px] px-[1.5rem] py-[0.5rem] text-start text-[1.1rem] font-medium text-white no-underline transition-all duration-500 hover:bg-hoverColor active:bg-[#3FAFFE34];
 }
-.tab .labelCheck svg{
-    @apply text-secondary mr-5 w-6
+.tab .labelCheck svg {
+  @apply mr-5 w-6 text-secondary;
 }
-.arrowRight{
-    @apply ml-auto !mr-0
+.arrowRight {
+  @apply !mr-0 ml-auto;
 }
-.tab:nth-of-type(1) .labelCheck{
-    top: 0;
+.tab:nth-of-type(1) .labelCheck {
+  top: 0;
 }
-.tab:nth-of-type(2) .labelCheck{
-    top: 5rem;
+.tab:nth-of-type(2) .labelCheck {
+  top: 5rem;
 }
-.tab:nth-of-type(3) .labelCheck{
-    top: calc(2 * 5rem);
+.tab:nth-of-type(3) .labelCheck {
+  top: calc(2 * 5rem);
 }
-.tab .divRight{
-    @apply fixed bg-bgGrey z-50 hidden top-0 right-[-500px] h-[100%] px-[2rem] pt-[5rem] text-start overflow-hidden !transition-all
+.tab .divRight {
+  @apply fixed right-[-500px] top-0 z-50 hidden h-[100%] overflow-hidden bg-bgGrey px-[2rem] pt-[5rem] text-start !transition-all;
 }
 .inputCheck:checked + .labelCheck {
-    @apply text-white bg-[#3FAFFE34] border-none rounded-[8px];
+  @apply rounded-[8px] border-none bg-[#3FAFFE34] text-white;
 }
-.inputCheck:checked ~ .divRight{
-    @apply block w-[100%] right-0 !transition-all;
+.inputCheck:checked ~ .divRight {
+  @apply right-0 block w-[100%] !transition-all;
 }
-.labelCheckResponsive{
-    @apply absolute flex items-center justify-center top-[1.25rem] left-0 w-full text-center text-[1.2rem] font-semibold
+.labelCheckResponsive {
+  @apply absolute left-0 top-[1.25rem] flex w-full items-center justify-center text-center text-[1.2rem] font-semibold;
 }
-.labelCheckResponsive svg{
-    @apply absolute h-[2rem] w-[2rem] left-[1.25rem]
+.labelCheckResponsive svg {
+  @apply absolute left-[1.25rem] h-[2rem] w-[2rem];
 }
-.divRight h3{
-    @apply text-[--blue-dark] text-[1.5rem] font-semibold !transition-all
+.divRight h3 {
+  @apply text-[1.5rem] font-semibold text-[--blue-dark] !transition-all;
 }
-.divRight button{
-    @apply bg-secondary rounded-lg h-10 px-[2rem] mt-5 text-white !transition-all
-}
-
-.inputCheck, .inputCheckResponsive{
-    @apply !hidden !transition-all;
+.divRight button {
+  @apply mt-5 h-10 rounded-lg bg-secondary px-[2rem] text-white !transition-all;
 }
 
-
-@media (max-width: 640px){
-    .loading-animation {
-        width: 150px;
-        height: 200px;
-    }
+.inputCheck,
+.inputCheckResponsive {
+  @apply !hidden !transition-all;
 }
 
-@screen md{
-    .container{
-        @apply bg-transparent w-[80%] min-h-[100vh] py-[4rem] mx-auto text-white flex flex-col items-start;
-    }
-    .container h1{
-        @apply text-[2.8rem] pr-[4rem] pt-0
-    }
-    .container h2{
-        @apply h-[10%] text-[1.5rem];
-    }
-    .tab .labelCheck{
-        @apply text-[1.3rem] justify-start;
-        width: fit-content;
-    }
-    .containerUrl{
-        @apply flex flex-wrap items-center gap-2 pl-5 py-3 text-[1rem] font-normal
-    }
-    .tab .divRight{
-        @apply relative w-[60%] h-[100%] pl-[4rem] pt-0 z-[1]
-    }
-    .inputCheck:checked ~ .divRight{
-        @apply block w-[60%] right-0 !transition-all;
-    }
-    .containerSetting{
-        @apply rounded-2xl h-[100%]
-    }
-    .labelCheckResponsive{
-        @apply hidden
-    }
-    .containerList{
-        @apply min-h-[50vh]
-    }
-    .arrowRight{
-        @apply hidden
-    }
+@media (max-width: 640px) {
+  .loading-animation {
+    width: 150px;
+    height: 200px;
+  }
 }
-@screen lg{
-    .form {
-        @apply max-w-[350px];
-    }
+
+@screen lg {
+  .container {
+    @apply mx-auto flex min-h-[100vh] w-[80%] flex-col items-start bg-transparent py-[4rem] text-white;
+  }
+  .container h1 {
+    @apply pr-[4rem] pt-0 text-[2.8rem];
+  }
+  .container h2 {
+    @apply h-[10%] text-[1.5rem];
+  }
+  .tab .labelCheck {
+    @apply justify-start text-[1.3rem];
+    width: fit-content;
+  }
+  .containerUrl {
+    @apply flex flex-wrap items-center gap-2 py-3 pl-5 text-[1rem] font-normal;
+  }
+  .tab .divRight {
+    @apply relative z-[1] h-[100%] w-[60%] pl-[4rem] pt-0;
+  }
+  .inputCheck:checked ~ .divRight {
+    @apply right-0 block w-[60%] !transition-all;
+  }
+  .containerSetting {
+    @apply h-[100%] rounded-2xl;
+  }
+  .labelCheckResponsive {
+    @apply hidden;
+  }
+  .containerList {
+    @apply min-h-[50vh];
+  }
+  .arrowRight {
+    @apply hidden;
+  }
 }
-@screen xl{
-    .btn{
-        @apply  text-[18px];
-    }
+@screen lg {
+  .form {
+    @apply max-w-[350px];
+  }
 }
-@screen 2xl{
-    .form {
-        @apply max-w-[400px];
-    }
+@screen xl {
+  .btn {
+    @apply text-[18px];
+  }
+}
+@screen 2xl {
+  .form {
+    @apply max-w-[400px];
+  }
 }

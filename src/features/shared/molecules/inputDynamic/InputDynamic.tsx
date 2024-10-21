@@ -1,32 +1,32 @@
 import React from 'react';
-import { InputSearchSimple } from '@/features/shared/molecules/inputSimple/InputSearchSimple';
-import { InputSearchFromTo } from '@/features/shared/molecules/inputSearchFromTo/InputSearchFromTo';
-import { InputOptions } from '@/features/shared/molecules/inputOptions/InputOptions';
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
+
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+import { InputOptions } from '@/features/shared/molecules/inputOptions/InputOptions';
+import { InputSearchFromTo } from '@/features/shared/molecules/inputSearchFromTo/InputSearchFromTo';
+import { InputSearchSimple } from '@/features/shared/molecules/inputSimple/InputSearchSimple';
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
 
 export const enum EnumFilterApply {
   Single = 0,
   FromTo = 1,
-  Options = 2
+  Options = 2,
 }
 type Props = {
-  handleSetFilterValues: (values: {
-    term: string
-  }) => void;
+  handleSetFilterValues: (values: { term: string }) => void;
   keySelected: OptionKey;
-  color: SelectColorType
-}
+  color: SelectColorType;
+  place: string;
+};
 
 export const InputDynamic = (props: Props) => {
   switch (props.keySelected.filter) {
     case EnumFilterApply.Single:
-      return <InputSearchSimple {...props}/>;
+      return <InputSearchSimple {...props} />;
     case EnumFilterApply.FromTo:
-      return <InputSearchFromTo {...props}/>;
+      return <InputSearchFromTo {...props} />;
     case EnumFilterApply.Options:
-      return <InputOptions {...props}/>;
+      return <InputOptions {...props} />;
     default:
-      return <InputSearchSimple {...props}/>;
+      return <InputSearchSimple {...props} />;
   }
 };

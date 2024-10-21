@@ -1,26 +1,25 @@
-import style from './filter-and-search.module.css';
-import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
-import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import React from 'react';
-import { Filter } from '@/features/shared/interfaces/Filter';
 import { useTranslations } from 'next-intl';
-import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
-import { OptionKey } from '@/features/items/constants/selectOptionsData';
-import { icons } from '@/features/shared/hooks/icons';
+
+import { ButtonForm } from '@/features/shared/atoms/button/ButtonForm';
 import { SelectColorType } from '@/features/shared/atoms/select/SelectForm';
+import { icons } from '@/features/shared/hooks/icons';
+import { Filter } from '@/features/shared/interfaces/Filter';
+import { InputDynamic } from '@/features/shared/molecules/inputDynamic/InputDynamic';
+import { InputKeysFilter } from '@/features/shared/molecules/inputKeysFilter/inputKeysFilter';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
+
+import style from './filter-and-search.module.css';
 
 type Props = {
-  handleSetFilterValues:(values: {
-    key?: string;
-    term?: string;
-  }) => void;
-  keySelected: OptionKey,
+  handleSetFilterValues: (values: { key?: string; term?: string }) => void;
+  keySelected: OptionKey;
   inputFilterData: Filter[];
   handleReplace: () => void;
   handleSetFiltersApplied: () => void;
   classButton?: string;
-}
-
+};
 
 export const FilterAndSearch = ({
   handleReplace,
@@ -28,7 +27,7 @@ export const FilterAndSearch = ({
   keySelected,
   handleSetFilterValues,
   handleSetFiltersApplied,
-  classButton
+  classButton,
 }: Props) => {
   const t = useTranslations('Items');
   const { IoFunnel } = icons();
@@ -36,21 +35,28 @@ export const FilterAndSearch = ({
   return (
     <div className={style.containerSelect}>
       <div className={style.containerInputFilter}>
-        <InputKeysFilter color={SelectColorType.SECONDARY} data={inputFilterData} handleSetFilterValues={handleSetFilterValues}/>
+        <InputKeysFilter
+          color={SelectColorType.SECONDARY}
+          data={inputFilterData}
+          handleSetFilterValues={handleSetFilterValues}
+        />
       </div>
       <div className={style.containerInput}>
         <div className={style.input}>
           <InputDynamic
+            place='InputDynamic'
             color={SelectColorType.SECONDARY}
             keySelected={keySelected}
             handleSetFilterValues={handleSetFilterValues}
           />
         </div>
         <div className={classButton ? classButton : style.btn}>
-          <ButtonForm onClick={() => {
-            handleSetFiltersApplied();
-            handleReplace();
-          }}>
+          <ButtonForm
+            onClick={() => {
+              handleSetFiltersApplied();
+              handleReplace();
+            }}
+          >
             <IoFunnel />
             {t('button')}
           </ButtonForm>

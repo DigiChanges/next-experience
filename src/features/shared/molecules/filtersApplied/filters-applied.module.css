@@ -1,31 +1,31 @@
-.containerFiltersApplied{
-    @apply text-white mt-2 flex gap-2 w-full
+.containerFiltersApplied {
+  @apply mt-2 flex w-full gap-2 text-white;
 }
-.containerLi{
-    @apply flex flex-wrap justify-start gap-2
+.containerLi {
+  @apply flex flex-wrap justify-start gap-2;
 }
-.buttonClear{
-    @apply absolute bottom-[1.5rem] cursor-pointer;
-}
-
-.liRemove{
-    @apply bg-secondary text-textWhite text-[0.9rem] p-1 px-3 rounded-[12px] flex justify-between items-center h-[24px]
+.buttonClear {
+  @apply absolute bottom-[1.5rem] cursor-pointer;
 }
 
-.btnRemove svg{
-    @apply w-4 h-4 ml-1 bg-textWhite text-secondary rounded-[50%]
+.liRemove {
+  @apply flex h-[24px] items-center justify-between rounded-[12px] bg-secondary p-1 px-3 text-[0.9rem] text-textWhite;
+}
+
+.btnRemove svg {
+  @apply ml-1 h-4 w-4 rounded-[50%] bg-textWhite text-secondary;
 }
 
 @screen md {
-    .containerFiltersApplied{
-        @apply text-white mt-2 flex justify-between gap-2 w-full
-    }
-    .buttonClear{
-        @apply static ml-5;
-    }
+  .containerFiltersApplied {
+    @apply mt-2 flex w-full justify-between gap-2 text-white;
+  }
+  .buttonClear {
+    @apply static ml-5;
+  }
 }
 
 @screen xl {
-    .liRemove{
-    }
+  .liRemove {
+  }
 }

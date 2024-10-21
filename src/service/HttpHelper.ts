@@ -1,25 +1,39 @@
-import { QueryParams } from './IHttpParams';
-import { config as Config } from '../features/shared/actions/config';
-import { cookies } from 'next/headers';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
 
-export function getDefaultHeaders(): Record<string, any> {
+import { config as Config } from '../config/config';
+
+import { HeadersContentType, QueryParams } from './IHttpParams';
+
+interface DefaultHeaders {
+  credentials?: string;
+  headers?: Record<string, string>;
+}
+
+export async function getDefaultHeaders(headers?: HeadersContentType): Promise<DefaultHeaders> {
   const { credentials } = Config.apiGateway.server;
 
-  const cookieStore = cookies();
-  const cookieValue =  cookieStore.get('sb-xovsaxzresdetrmkouss-auth-token');
-  let token;
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
-  if (cookieValue) {
-    token = JSON.parse(cookieValue.value).access_token;
-  }
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  const token = session?.access_token ? `Bearer ${session.access_token}` : '';
 
-  return {
+  const defaultHeaders: DefaultHeaders = {
     credentials,
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': token ? `Bearer ${token}` : ''
-    }
+      Authorization: token,
+    },
   };
+
+  if (headers && headers !== HeadersContentType.FILE_FORM) {
+    defaultHeaders.headers = {
+      ...defaultHeaders.headers,
+      'Content-Type': headers,
+    };
+  }
+
+  return defaultHeaders;
 }
 
 export function getParams(queryParams?: QueryParams) {

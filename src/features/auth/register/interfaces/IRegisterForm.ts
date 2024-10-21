@@ -1,6 +1,8 @@
 export type IRegisterForm = {
-    username: string;
-    password: string;
-    confirmPassword : string;
-    profileImage: any;
-}
+  name: string;
+  lastname: string;
+  phone?: number | null;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};

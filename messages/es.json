@@ -6,7 +6,7 @@
   "Error": {
     "title": "titulo del error",
     "retry": "retry",
-    "description": ""
+    "description": "Hubo un error"
   },
   "NotFound": {
     "title": "404",
@@ -16,7 +16,8 @@
   "Navigation": {
     "dashboard": "Dashboard",
     "home": "Inicio",
-    "items": "Items"
+    "items": "Items",
+    "users": "Usuarios"
   },
   "NavigationUser": {
     "perfil": "Perfil",
@@ -28,10 +29,12 @@
     "maxLengt": "Maximo 2 números"
   },
   "Update": {
-    "title": "Editar ítem"
+    "title": "Editar ítem",
+    "titleUser": "Editar usuario"
   },
   "Add": {
-    "title": "Crear ítem"
+    "title": "Crear ítem",
+    "titleUser": "Crear usuario"
   },
   "Shared": {
     "cancel": "Cancelar",
@@ -41,7 +44,8 @@
     "title": "Sección de Ítems",
     "filter": "Seleccionar filtro",
     "name": "Nombre",
-    "type": "Tipo",
+    "description": "Descripción",
+    "file": "Archivo",
     "search": "Buscar",
     "button": "Aplicar",
     "emptyItems": "No hay ítems para mostrar",
@@ -52,7 +56,32 @@
     "clearAll": "Limpiar todo",
     "delete": "Eliminar",
     "edit": "Editar",
-    "selectFilter": "Seleccionar filtro"
+    "selectFilter": "Seleccionar filtro",
+    "linkItems": "/items"
+  },
+
+  "UserList": {
+    "title": "Sección de Usuarios",
+    "filter": "Seleccionar filtro",
+    "role": "Rol",
+    "active": "Estado de cuenta",
+    "name": "Nombre",
+    "lastName": "Apellido",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "search": "Buscar",
+    "button": "Aplicar",
+    "emptyItems": "No hay usuarios para mostrar",
+    "add": "Agregar",
+    "update": "Actualizando",
+    "deleteAlert":"¿Seguro que desea borrar este ususario?",
+    "addItem": "Añadir ususario",
+    "clearAll": "Limpiar todo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "selectFilter": "Seleccionar filtro",
+    "linkUsers": "/users"
   },
   "Login": {
     "username": "Nombre de usuario",
@@ -66,7 +95,10 @@
     "subtitle": "Inicia sesión para acceder"
   },
   "Register": {
-    "username": "Nombre de usuario*",
+    "username": "Nombre*",
+    "lastname": "Apellido*",
+    "phone": "Teléfono",
+    "email": "Correo electrónico*",
     "password": "Contraseña*",
     "confirmPassword": "Confirmar contraseña*",
     "confirm": "Registrarse",
@@ -149,6 +181,57 @@
     "s_passwordConfirmNewRequired": "*Confirmar nueva contraseña es un campo requerido",
     "s_passwordMinCharacters": "La contraseña debe tener al menos 8 caracteres",
     "s_passwordsMatch": "Las contraseñas deben coincidir"
+  },
+  "Setting": {
+    "title": "Configuración de Cuenta",
+    "description": "Personaliza tu cuenta según tus preferencias y necesidades.",
+    "home": "Inicio",
+    "Dashboard": "Panel de Control",
+    "Setting": "Configuración",
+    "s_changePassword": "Cambiar contraseña",
+    "s_changePasswordTitle": "Cambie su contraseña",
+    "s_deleteAccount": "Eliminar Cuenta",
+    "s_deleteAccount-title": "¿Desea eliminar su cuenta?",
+    "s_deleteAccount-modal": "¿Estás segura de que quieres eliminar esta cuenta?",
+    "s_deleteAccount-accept": "Aceptar",
+    "s_deleteAccount-cancel": "Cancelar",
+    "s_deleteAccount-confirm": "Confirmar",
+    "s_notificationSettings": "Configuración de Notificaciones",
+    "s_notificationSettings-title": "Configuración de Notificaciones",
+    "s_notificationSettings-modal": "Hay cambios sin guardar, desea continuar?",
+    "s_notificationSettings-continue": "Continuar",
+    "s_notificationSettings-cancel": "Cancelar",
+    "s_notificationSettings-button": "Guardar Cambios",
+    "s_notificationSettings-labelSwitch": "Notificación",
+    "s_passwordRequired": "*La contraseña es un campo requerido",
+    "s_passwordNewRequired": "*La nueva contraseña es un campo requerido",
+    "s_passwordConfirmNewRequired": "*Confirmar nueva contraseña es un campo requerido",
+    "s_passwordMinCharacters": "La contraseña debe tener al menos 8 caracteres",
+    "s_passwordsMatch": "Las contraseñas deben coincidir"
+  },
+  "Profile": {
+    "title": "Información de Cuenta",
+    "description": "Guardada durante el Registro",
+    "home": "Inicio",
+    "Dashboard": "Panel de Control",
+    "Profile": "Perfil",
+    "p_name": "Nombre",
+    "p_lastname": "Apellido",
+    "p_email": "Correo electrónico",
+    "p_phone": "Teléfono",
+    "p_confirm": "Guardar cambios",
+    "p_edit": "Editar datos",
+    "p_change_password": "Cambiar contraseña",
+    "p_cancel": "Cancelar"
+  },
+  "RecoveryCode": {
+    "title": "Ingresa  tu código",
+    "description": "Ingresa el código de 5 dígitos enviado al email proporcionado.\nSi no lo encuentras revisa tu bandeja de spam.",
+    "code": "0 0 0 0 0",
+    "send": "Verificar",
+    "singIn": "¿Recuerdas tu contraseña?",
+    "singInLink": "Inicia Sesión Aquí",
+    "codeLink": "Enviar otro código"
   },
   "ToastLogin": {
     "error": "¡Ups, algo salió mal!",

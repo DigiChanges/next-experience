@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { PaginationAPI } from '@/features/shared/interfaces/PaginationAPI';
 
 export const usePagination = (pagination: PaginationAPI, params: URLSearchParams) => {
@@ -23,6 +24,6 @@ export const usePagination = (pagination: PaginationAPI, params: URLSearchParams
 
   return {
     handlePage,
-    currentPage
+    currentPage,
   };
 };

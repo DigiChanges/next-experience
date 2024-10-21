@@ -1,68 +1,74 @@
-.container{
-    @apply hidden relative
+.container {
+  @apply relative hidden;
 }
 .containerIconUser {
-    @apply max-w-[60px] w-[2.5rem] h-[2.5rem] cursor-pointer;
+  @apply h-[2.5rem] w-[2.5rem] max-w-[60px] cursor-pointer;
 }
-.active{
-    backdrop-filter: blur(4px);
-    height: 100%;
+.active {
+  backdrop-filter: blur(4px);
+  height: 100%;
 }
 
 .iconUser {
-    @apply relative max-w-[60px] w-full h-[2.5rem] transition-all transform duration-500 hover:scale-[102%] active:scale-[98%]
+  @apply relative h-[2.5rem] w-full max-w-[60px] transform transition-all duration-500 hover:scale-[102%] active:scale-[98%];
 }
 
 .iconUser p {
-    @apply absolute centerAlign left-[70px] text-white;
+  @apply centerAlign absolute left-[70px] text-white;
 }
 .iconUser svg {
-    @apply  rounded-full w-8 h-8 m-auto transition-all;
+  @apply m-auto h-8 w-8 rounded-full transition-all;
 }
 
 .iconUser .rotate {
-    @apply transform -rotate-[180deg]
+  @apply -rotate-[180deg] transform;
 }
-.containerPerfil{
-    @apply overflow-hidden absolute right-0 min-w-[12rem] mt-3
+.containerPerfil {
+  @apply absolute right-0 mt-3 min-w-[12rem] overflow-hidden;
 }
-.perfil{
-    @apply flex flex-col bg-bgGrey relative p-[1rem] rounded-[5px] border-solid border-1 border-secondary
+.shadow {
+  box-shadow: 10px 15px 0px 100vw rgba(0, 0, 0, 0.25);
 }
-.containerIconUserOpen{
-    @apply flex items-center border-solid border-b-1 border-b-secondary mb-2 py-2
+.perfil {
+  @apply relative flex flex-col rounded-[5px] border-1 border-solid border-secondary bg-bgGrey p-[1rem];
 }
-.iconUserOpen{
-    @apply  max-w-[56px] w-full h-full rounded-[50%] object-cover pr-1
+.containerIconUserOpen {
+  @apply mb-2 flex items-center border-b-1 border-solid border-b-secondary py-2;
 }
-.perfil .perfilSections, .perfil .logOut{
-    @apply py-2 items-center cursor-pointer hover:bg-hoverColor active:bg-secondary
+.iconUserOpen {
+  @apply h-full w-full max-w-[56px] rounded-[50%] object-cover pr-1;
 }
-.perfil .perfilSections img, .perfil .logOut img{
-    @apply w-[1.5rem] pl-1
+.perfil .perfilSections,
+.perfil .logOut {
+  @apply cursor-pointer items-center py-2 hover:bg-hoverColor active:bg-secondary;
 }
-.perfil .perfilSections p, .perfil .logOut p{
-    @apply ml-6 pr-1
+.perfil .perfilSections img,
+.perfil .logOut img {
+  @apply w-[1.5rem] pl-1;
 }
-.perfil .perfilSections{
-    @apply flex text-white
+.perfil .perfilSections p,
+.perfil .logOut p {
+  @apply ml-6 pr-1;
 }
-.perfilSections a{
-    @apply w-full flex justify-between items-center !no-underline
+.perfil .perfilSections {
+  @apply flex text-white;
 }
-.perfilSections a img{
-    @apply object-contain !w-[2rem]
+.perfilSections a {
+  @apply flex w-full items-center justify-between !no-underline;
 }
-.perfil .logOut{
-    @apply flex border-solid border-t-1 border-t-secondary mt-2
+.perfilSections a img {
+  @apply !w-[2rem] object-contain;
+}
+.perfil .logOut {
+  @apply mt-2 flex border-t-1 border-solid border-t-secondary;
 }
 
 .centerAlign {
-    @apply top-1/2 transform -translate-y-1/2;
+  @apply top-1/2 -translate-y-1/2 transform;
 }
 
-@screen md{
-    .container{
-        @apply block relative
-    }
+@screen md {
+  .container {
+    @apply relative block;
+  }
 }

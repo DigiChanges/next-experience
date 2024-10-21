@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 export type FilterApplied = {
-  key: string,
-  term: string
-}
+  key: string;
+  term: string;
+};
 
 export const useFilter = (params: URLSearchParams) => {
   const [filtersApplied, setFiltersApplied] = useState<FilterApplied[]>([]);
   const [filterValues, setFilterValues] = useState<FilterApplied>({
     key: '',
-    term: ''
+    term: '',
   });
 
   const setFilterParams = () => {
@@ -18,10 +18,7 @@ export const useFilter = (params: URLSearchParams) => {
     }
   };
 
-  const handleSetFilterValues = (values: {
-    key?: string;
-    term?: string;
-  }) => {
+  const handleSetFilterValues = (values: { key?: string; term?: string }) => {
     if (values.key) {
       setFilterValues({ ...filterValues, key: values.key });
     }
@@ -33,10 +30,10 @@ export const useFilter = (params: URLSearchParams) => {
   const handleRemoveFilter = (filterToRemove: FilterApplied) => {
     params.delete(`filter[${filterToRemove.key}]`);
 
-    setFiltersApplied(filtersApplied.filter(filter => filter.key !== filterToRemove.key));
+    setFiltersApplied(filtersApplied.filter((filter) => filter.key !== filterToRemove.key));
   };
   const handleRemoveFilterAll = () => {
-    filtersApplied.map(e => {
+    filtersApplied.map((e) => {
       params.delete(`filter[${e.key}]`);
     });
     setFiltersApplied([]);
@@ -66,6 +63,6 @@ export const useFilter = (params: URLSearchParams) => {
     filtersApplied,
     handleRemoveFilter,
     handleSetFiltersApplied,
-    handleRemoveFilterAll
+    handleRemoveFilterAll,
   };
 };

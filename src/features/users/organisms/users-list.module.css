@@ -1,0 +1,72 @@
+.container {
+  @apply mx-auto mt-5 w-[90%];
+}
+.subcontainerAddFilter {
+  @apply hidden;
+}
+.subcontainerAddFilter2 {
+  @apply flex w-full items-start justify-between;
+}
+.containerAddFilter {
+  @apply flex flex-col items-start;
+}
+.subcontainerAddFilter h2 {
+  @apply w-full;
+}
+.subtitle {
+  @apply pb-3 text-center text-[1rem] font-normal text-white;
+}
+.subcontainerAddFilter2 h2 {
+  @apply text-[1.8rem] font-medium;
+}
+.containerAddItemBtn {
+  @apply my-4 flex w-full justify-start gap-0 rounded-xl bg-bgGrey pl-4 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+}
+.containerAddItemBtnAndModal {
+  @apply flex w-[100%] items-center justify-between gap-4;
+}
+.containerSwitch span {
+  @apply z-[1];
+}
+.containerAddItem {
+  @apply w-full max-w-[30rem];
+}
+.cards {
+  @apply grid min-h-[60vh] grid-cols-2 place-items-center items-start gap-3 overflow-y-auto rounded-2xl bg-bgGrey p-3 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] scrollbar-hide;
+}
+.containerPaginationAndAdd {
+  @apply flex flex-col justify-end p-4;
+}
+.testNav {
+  @apply flex justify-end;
+}
+
+@screen md {
+  .container {
+    @apply mt-0 pt-[4rem];
+  }
+  .cards {
+    @apply min-h-[40vh] grid-cols-3;
+  }
+  .subtitle {
+    @apply pb-0 text-start text-[1.5rem];
+  }
+  .subcontainerAddFilter {
+    @apply mt-4 flex w-full flex-col items-end rounded-2xl bg-bgGrey p-4 shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)];
+  }
+  .containerAddItemBtn {
+    @apply flex justify-end gap-5;
+  }
+}
+
+@screen xl {
+  .cards {
+    @apply grid-cols-5;
+  }
+}
+
+@screen 2xl {
+  .container {
+    @apply m-auto max-w-[1500px];
+  }
+}

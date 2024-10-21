@@ -1,0 +1,27 @@
+.btnAdd {
+  @apply p-2;
+}
+.containerBtn {
+  @apply mt-5 flex justify-center;
+}
+.containerBtn button {
+  @apply w-[120px] transform transition-all duration-500 active:scale-[98%];
+}
+.addItem {
+  @apply rounded-md bg-success p-2 text-[#292D32];
+}
+.btnClose {
+  @apply mr-1 flex justify-end p-2 text-white;
+}
+.close {
+  @apply m-0 rounded-md bg-cancel p-2 text-[#FFFFFF] !important;
+}
+
+@screen md {
+  .containerBtn button {
+    @apply w-[150px];
+  }
+  .btnClose {
+    @apply mr-6 flex justify-end p-2 text-white;
+  }
+}

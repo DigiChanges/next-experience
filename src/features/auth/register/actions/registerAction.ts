@@ -1,26 +1,30 @@
 'use server';
-import { ILoginForm } from '../../login/interfaces/IloginForm';
-import { cookies } from 'next/headers';
-import { createClient } from '@/lib/server/server';
-import { redirect, RedirectType } from 'next/navigation';
-import { env } from '@/config/api';
 
-export const handleSignUp = async({ username, password } : ILoginForm) => {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
+import { redirect, RedirectType } from 'next/navigation';
+
+import { env } from '@/config/api';
+import { IRegisterForm } from '@/features/auth/register/interfaces/IRegisterForm';
+import { supabaseServerClientManager } from '@/lib/SupabaseServerClientManager';
+
+export const handleSignUp = async (props: IRegisterForm) => {
+  const supabase = supabaseServerClientManager.getServerPublicClient();
 
   const { error } = await supabase.auth.signUp({
-    email: username,
-    password,
+    email: props.email,
+    password: props.password,
     options: {
-      emailRedirectTo: `${env.urlFront}/api/auth/callback`
-    }
+      data: {
+        first_name: props.name,
+        last_name: props.lastname,
+        phone: props.phone ? props.phone.toString() : null,
+      },
+      emailRedirectTo: `${env.urlFront}/api/auth/callback`,
+    },
   });
 
-  if (error){
+  if (error) {
     throw new Error('Authentication failed');
-  }
-  if (!error) {
+  } else {
     return redirect('/auth/login', RedirectType.push);
   }
 };

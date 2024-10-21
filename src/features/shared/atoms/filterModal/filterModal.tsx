@@ -1,39 +1,58 @@
 import React, { useMemo } from 'react';
-import style from './filter-modal.module.css';
 import { useDisclosure } from '@nextui-org/react';
-import { icons } from '@/features/shared/hooks/icons';
-import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
-import { SortComponent } from '@/features/shared/atoms/sort/Sort';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { OptionKey, selectOptionsData } from '@/features/items/constants/selectOptionsData';
-import { FilterApplied } from '@/features/shared/hooks/useFilter';
-import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+
+import { selectOptionsData } from '@/features/items/constants/selectOptionsData';
 import { ModalComponent, PlacementType } from '@/features/shared/atoms/modal/Modal';
+import { icons } from '@/features/shared/hooks/icons';
+import { FilterApplied } from '@/features/shared/hooks/useFilter';
+import { FiltersApplied } from '@/features/shared/molecules/filtersApplied/FiltersApplied';
+import { SortComponent } from '@/features/shared/molecules/sort/Sort';
+import { FilterAndSearch } from '@/features/shared/organisms/filterAndSearch/FilterAndSearch';
+
+import { OptionKey } from '@/features/users/interfaces/OptionKey';
+
+import style from './filter-modal.module.css';
 
 type Props = {
-    description?: string;
-    success?: string;
-    cancel?: string;
-    button?: string;
-    displayButton?: boolean;
-    filtersApplied: FilterApplied[];
-    handleRemoveFilter: (filter: FilterApplied) => void;
-    handleRemoveFilterAll: () => void;
-    handleSetFiltersApplied: () => void;
-    handleSetFilterValues:(values: {
-        key?: string;
-        term?: string;
-    }) => void;
-    keySelected: OptionKey,
-    handleReplace: () => void;
-    inputFilterData: OptionKey[];
-}
+  description?: string;
+  success?: string;
+  cancel?: string;
+  button?: string;
+  displayButton?: boolean;
+  filtersApplied: FilterApplied[];
+  handleRemoveFilter: (filter: FilterApplied) => void;
+  handleRemoveFilterAll: () => void;
+  handleSetFiltersApplied: () => void;
+  handleSetFilterValues: (values: { key?: string; term?: string }) => void;
+  keySelected: OptionKey;
+  handleReplace: () => void;
+  inputFilterData: OptionKey[];
+  type?: string;
+};
 
-export const FilterModal = ({ handleSetFilterValues, filtersApplied, handleRemoveFilter, handleRemoveFilterAll, keySelected, handleSetFiltersApplied }: Props) => {
+export const FilterModal = ({
+  handleSetFilterValues,
+  filtersApplied,
+  handleRemoveFilter,
+  handleRemoveFilterAll,
+  keySelected,
+  handleSetFiltersApplied,
+  type,
+}: Props) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { IoOptionsOutline } = icons();
   const searchParams = useSearchParams();
-  const params = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
+  const params = useMemo(() => {
+    const newParams = new URLSearchParams();
+
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newParams.append(key, value);
+    }
+
+    return newParams;
+  }, [searchParams]);
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleReplaceURL = () => {
@@ -42,12 +61,12 @@ export const FilterModal = ({ handleSetFilterValues, filtersApplied, handleRemov
 
   const props = {
     classNames: {
-      button:style.buttonModal,
-      modal:style.modal,
-      modalBody:style.modalBody,
-      modalHeader:'text-normal flex flex-col items-start justify-start gap-1',
-      modalFooter:style.modalFooter
-    }
+      button: style.buttonModal,
+      modal: style.modal,
+      modalBody: style.modalBody,
+      modalHeader: 'text-normal flex flex-col items-start justify-start gap-1',
+      modalFooter: style.modalFooter,
+    },
   };
 
   return (
@@ -71,14 +90,15 @@ export const FilterModal = ({ handleSetFilterValues, filtersApplied, handleRemov
                 inputFilterData={selectOptionsData}
                 classButton={style.btn}
               />
-              <SortComponent isResponsive={true}/>
+              {type && type === 'UserList' ? <></> : <SortComponent isResponsive={true} />}
             </div>
             <div className={style.containerAddItem}>
               <FiltersApplied
                 filtersApplied={filtersApplied}
                 handleReplaceURL={handleReplaceURL}
                 handleRemoveFilter={handleRemoveFilter}
-                handleRemoveFilterAll={handleRemoveFilterAll}/>
+                handleRemoveFilterAll={handleRemoveFilterAll}
+              />
             </div>
           </div>
         }

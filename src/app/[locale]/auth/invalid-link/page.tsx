@@ -1,11 +1,20 @@
 import React from 'react';
-import { PublicLayout } from '@/layout/public-layout/PublicLayout';
-import { InvalidLinkTemplate } from '@/features/auth/invalid-link/template/InvalidLinkTemplate';
 
-export default function Page() {
+import { unstable_setRequestLocale } from 'next-intl/server';
+
+import { InvalidLinkTemplate } from '@/features/auth/invalid-link/template/InvalidLinkTemplate';
+import { PublicLayout } from '@/layout/public-layout/PublicLayout';
+
+type Props = {
+  readonly params: { locale: string };
+};
+
+export default function Page({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+
   return (
     <PublicLayout>
-      <InvalidLinkTemplate/>
+      <InvalidLinkTemplate />
     </PublicLayout>
   );
 }

@@ -1,0 +1,15 @@
+.btnEdit {
+  @apply flex h-[25px] w-full items-end justify-between bg-transparent;
+}
+.btnEdit p {
+  @apply !text-[1rem];
+}
+.btnEdit svg {
+  @apply mr-4 h-[1rem] w-[1rem] rounded-full text-secondary;
+}
+
+@screen md {
+  .btnEdit svg {
+    @apply h-6 w-6;
+  }
+}

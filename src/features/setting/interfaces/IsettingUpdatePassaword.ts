@@ -1,5 +1,5 @@
 export type IsettingUpdatePassaword = {
-    password : string;
-    newPassword: string;
-    confirmPassword : string
-}
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
+};
