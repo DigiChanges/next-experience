@@ -38,7 +38,7 @@ export const useFilterAndPagination = (selectOptionsData: OptionKey[], paginatio
   const handleDropdown = (id: string) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
   };
-
+  //
   const handleSearchType = useCallback(() => {
     const data = selectOptionsData.find(({ value }) => value === filterValues.key);
     if (data) {
@@ -50,11 +50,7 @@ export const useFilterAndPagination = (selectOptionsData: OptionKey[], paginatio
     handleSetFilterValues({
       key: selectOptionsData[0].value,
     });
-  }, [selectOptionsData, handleSetFilterValues]);
-
-  useEffect(() => {
-    handlePage(1);
-  }, [filterValues.term, handlePage]);
+  }, [selectOptionsData]);
 
   useEffect(() => {
     handleSearchType();
@@ -62,7 +58,7 @@ export const useFilterAndPagination = (selectOptionsData: OptionKey[], paginatio
 
   useEffect(() => {
     handleReplaceURL();
-  }, [currentPage, handleReplaceURL]);
+  }, [currentPage]);
 
   return {
     keySelected,

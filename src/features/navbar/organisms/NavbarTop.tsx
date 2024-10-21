@@ -39,29 +39,31 @@ export const NavbarTop = (props: Props) => {
   }, []);
 
   return (
-    <header className={style.container}>
-      <nav>
-        {props.isPublic ? (
-          <>
-            <ThemeSwitcher />
-            <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
-          </>
-        ) : (
-          <>
-            <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
-            <DropdownUser
-              avatar={avatar}
-              dataPerfil={dataPerfil}
-              style={style}
-              dataUser={dataUser}
-              dataLogin={dataLogin}
-              user={props.user}
-              isUserDropdownOpen={isUserDropdownOpen}
-              handleDropdownUser={handleDropdownUser}
-            />
-          </>
-        )}
-      </nav>
+    <header>
+      <section className={style.container}>
+        <nav>
+          {props.isPublic ? (
+            <>
+              <ThemeSwitcher />
+              <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
+            </>
+          ) : (
+            <>
+              <ChangeLanguage isLangDropdownOpen={isLangDropdownOpen} handleDropdownLang={handleDropdownLang} />
+              <DropdownUser
+                avatar={avatar}
+                dataPerfil={dataPerfil}
+                style={style}
+                dataUser={dataUser}
+                dataLogin={dataLogin}
+                user={props.user}
+                isUserDropdownOpen={isUserDropdownOpen}
+                handleDropdownUser={handleDropdownUser}
+              />
+            </>
+          )}
+        </nav>
+      </section>
     </header>
   );
 };

@@ -47,11 +47,9 @@ export async function getPaginatedSupabaseQuery<T>(
 
   const filterConditions = filterSupabase(queryParams);
 
-  await Promise.all(
-    Object.entries(filterConditions).map(async ([column, value]) => {
-      query = query.ilike(column, `%${value}%`);
-    }),
-  );
+  Object.entries(filterConditions).map(async ([column, value]) => {
+    query = query.ilike(column, `%${value}%`);
+  });
 
   query = query.range(numericOffset, numericOffset + numericLimit - 1);
 
